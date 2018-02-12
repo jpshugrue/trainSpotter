@@ -1,7 +1,7 @@
 const fs = require("fs");
 const readLine = require('readline');
 
-const populateStops = () => {
+const populateStops = (callback) => {
   const rl = readLine.createInterface({
     input: fs.createReadStream('./static/stops.txt')
   });
@@ -17,14 +17,9 @@ const populateStops = () => {
     stop.parent = lineData[9];
     stops.push(stop);
   });
-
   rl.on('close', () => {
-    // console.log(stops);
+    callback(stops);
   });
 };
 
 module.exports = populateStops;
-
-// rl.on('close', () => {
-//   // console.log(stops);
-// });
