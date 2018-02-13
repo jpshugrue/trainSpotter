@@ -17,10 +17,16 @@ class Trains {
   // J, Z = '36'
   // 7 = '51' (In Beta)
   pullData(trainLine) {
+
     const requestSettings = {
       method: 'GET',
       url: `http://datamine.mta.info/mta_esi.php?key=${config.mtaKey}&feed_id=${trainLine}`,
-      encoding: null
+      encoding: null,
+      // headers: {
+      //   'Access-Control-Allow-Origin': '*',
+      //   'Access-Control-Allow-Headers': '*',
+      //   'Access-Control-Allow-Methods': 'HEAD, GET'
+      // }
     };
     request(requestSettings, (error, response, body) => {
       if (!error && response.statusCode == 200) {
@@ -32,5 +38,7 @@ class Trains {
     });
   }
 }
+
+window.trains = Trains;
 
 export default Trains;
