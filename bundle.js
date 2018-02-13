@@ -35955,8 +35955,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var request = __webpack_require__(173);
-var config = __webpack_require__(383);
-var GtfsRealtimeBindings = __webpack_require__(384);
+var GtfsRealtimeBindings = __webpack_require__(403);
 
 var Trains = function () {
   function Trains() {
@@ -68892,16 +68891,2869 @@ exports.debug = debug // for test
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 383 */
+/* 383 */,
+/* 384 */,
+/* 385 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// full library entry point.
+
+
+module.exports = __webpack_require__(386);
+
+
+/***/ }),
+/* 386 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var protobuf = module.exports = __webpack_require__(387);
+
+protobuf.build = "full";
+
+// Parser
+protobuf.tokenize         = __webpack_require__(171);
+protobuf.parse            = __webpack_require__(401);
+protobuf.common           = __webpack_require__(402);
+
+// Configure parser
+protobuf.Root._configure(protobuf.Type, protobuf.parse, protobuf.common);
+
+
+/***/ }),
+/* 387 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var protobuf = module.exports = __webpack_require__(388);
+
+protobuf.build = "light";
+
+/**
+ * A node-style callback as used by {@link load} and {@link Root#load}.
+ * @typedef LoadCallback
+ * @type {function}
+ * @param {Error|null} error Error, if any, otherwise `null`
+ * @param {Root} [root] Root, if there hasn't been an error
+ * @returns {undefined}
+ */
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {Root} root Root namespace, defaults to create a new one if omitted.
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ * @see {@link Root#load}
+ */
+function load(filename, root, callback) {
+    if (typeof root === "function") {
+        callback = root;
+        root = new protobuf.Root();
+    } else if (!root)
+        root = new protobuf.Root();
+    return root.load(filename, callback);
+}
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
+ * @name load
+ * @function
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ * @see {@link Root#load}
+ * @variation 2
+ */
+// function load(filename:string, callback:LoadCallback):undefined
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into a common root namespace and returns a promise.
+ * @name load
+ * @function
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
+ * @returns {Promise<Root>} Promise
+ * @see {@link Root#load}
+ * @variation 3
+ */
+// function load(filename:string, [root:Root]):Promise<Root>
+
+protobuf.load = load;
+
+/**
+ * Synchronously loads one or multiple .proto or preprocessed .json files into a common root namespace (node only).
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
+ * @returns {Root} Root namespace
+ * @throws {Error} If synchronous fetching is not supported (i.e. in browsers) or if a file's syntax is invalid
+ * @see {@link Root#loadSync}
+ */
+function loadSync(filename, root) {
+    if (!root)
+        root = new protobuf.Root();
+    return root.loadSync(filename);
+}
+
+protobuf.loadSync = loadSync;
+
+// Serialization
+protobuf.encoder          = __webpack_require__(166);
+protobuf.decoder          = __webpack_require__(167);
+protobuf.verifier         = __webpack_require__(168);
+protobuf.converter        = __webpack_require__(169);
+
+// Reflection
+protobuf.ReflectionObject = __webpack_require__(38);
+protobuf.Namespace        = __webpack_require__(52);
+protobuf.Root             = __webpack_require__(95);
+protobuf.Enum             = __webpack_require__(17);
+protobuf.Type             = __webpack_require__(90);
+protobuf.Field            = __webpack_require__(32);
+protobuf.OneOf            = __webpack_require__(65);
+protobuf.MapField         = __webpack_require__(91);
+protobuf.Service          = __webpack_require__(92);
+protobuf.Method           = __webpack_require__(93);
+
+// Runtime
+protobuf.Message          = __webpack_require__(94);
+protobuf.wrappers         = __webpack_require__(170);
+
+// Utility
+protobuf.types            = __webpack_require__(39);
+protobuf.util             = __webpack_require__(10);
+
+// Configure reflection
+protobuf.ReflectionObject._configure(protobuf.Root);
+protobuf.Namespace._configure(protobuf.Type, protobuf.Service);
+protobuf.Root._configure(protobuf.Type);
+protobuf.Field._configure(protobuf.Type);
+
+
+/***/ }),
+/* 388 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var protobuf = exports;
+
+/**
+ * Build type, one of `"full"`, `"light"` or `"minimal"`.
+ * @name build
+ * @type {string}
+ * @const
+ */
+protobuf.build = "minimal";
+
+// Serialization
+protobuf.Writer       = __webpack_require__(88);
+protobuf.BufferWriter = __webpack_require__(395);
+protobuf.Reader       = __webpack_require__(89);
+protobuf.BufferReader = __webpack_require__(396);
+
+// Utility
+protobuf.util         = __webpack_require__(23);
+protobuf.rpc          = __webpack_require__(164);
+protobuf.roots        = __webpack_require__(165);
+protobuf.configure    = configure;
+
+/* istanbul ignore next */
+/**
+ * Reconfigures the library according to the environment.
+ * @returns {undefined}
+ */
+function configure() {
+    protobuf.Reader._configure(protobuf.BufferReader);
+    protobuf.util._configure();
+}
+
+// Configure serialization
+protobuf.Writer._configure(protobuf.BufferWriter);
+configure();
+
+
+/***/ }),
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = { mtaKey: "c14a4c2e963039cda3f644285d2cc080" };
+/**
+ * A minimal base64 implementation for number arrays.
+ * @memberof util
+ * @namespace
+ */
+var base64 = exports;
+
+/**
+ * Calculates the byte length of a base64 encoded string.
+ * @param {string} string Base64 encoded string
+ * @returns {number} Byte length
+ */
+base64.length = function length(string) {
+    var p = string.length;
+    if (!p)
+        return 0;
+    var n = 0;
+    while (--p % 4 > 1 && string.charAt(p) === "=")
+        ++n;
+    return Math.ceil(string.length * 3) / 4 - n;
+};
+
+// Base64 encoding table
+var b64 = new Array(64);
+
+// Base64 decoding table
+var s64 = new Array(123);
+
+// 65..90, 97..122, 48..57, 43, 47
+for (var i = 0; i < 64;)
+    s64[b64[i] = i < 26 ? i + 65 : i < 52 ? i + 71 : i < 62 ? i - 4 : i - 59 | 43] = i++;
+
+/**
+ * Encodes a buffer to a base64 encoded string.
+ * @param {Uint8Array} buffer Source buffer
+ * @param {number} start Source start
+ * @param {number} end Source end
+ * @returns {string} Base64 encoded string
+ */
+base64.encode = function encode(buffer, start, end) {
+    var parts = null,
+        chunk = [];
+    var i = 0, // output index
+        j = 0, // goto index
+        t;     // temporary
+    while (start < end) {
+        var b = buffer[start++];
+        switch (j) {
+            case 0:
+                chunk[i++] = b64[b >> 2];
+                t = (b & 3) << 4;
+                j = 1;
+                break;
+            case 1:
+                chunk[i++] = b64[t | b >> 4];
+                t = (b & 15) << 2;
+                j = 2;
+                break;
+            case 2:
+                chunk[i++] = b64[t | b >> 6];
+                chunk[i++] = b64[b & 63];
+                j = 0;
+                break;
+        }
+        if (i > 8191) {
+            (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
+            i = 0;
+        }
+    }
+    if (j) {
+        chunk[i++] = b64[t];
+        chunk[i++] = 61;
+        if (j === 1)
+            chunk[i++] = 61;
+    }
+    if (parts) {
+        if (i)
+            parts.push(String.fromCharCode.apply(String, chunk.slice(0, i)));
+        return parts.join("");
+    }
+    return String.fromCharCode.apply(String, chunk.slice(0, i));
+};
+
+var invalidEncoding = "invalid encoding";
+
+/**
+ * Decodes a base64 encoded string to a buffer.
+ * @param {string} string Source string
+ * @param {Uint8Array} buffer Destination buffer
+ * @param {number} offset Destination offset
+ * @returns {number} Number of bytes written
+ * @throws {Error} If encoding is invalid
+ */
+base64.decode = function decode(string, buffer, offset) {
+    var start = offset;
+    var j = 0, // goto index
+        t;     // temporary
+    for (var i = 0; i < string.length;) {
+        var c = string.charCodeAt(i++);
+        if (c === 61 && j > 1)
+            break;
+        if ((c = s64[c]) === undefined)
+            throw Error(invalidEncoding);
+        switch (j) {
+            case 0:
+                t = c;
+                j = 1;
+                break;
+            case 1:
+                buffer[offset++] = t << 2 | (c & 48) >> 4;
+                t = c;
+                j = 2;
+                break;
+            case 2:
+                buffer[offset++] = (t & 15) << 4 | (c & 60) >> 2;
+                t = c;
+                j = 3;
+                break;
+            case 3:
+                buffer[offset++] = (t & 3) << 6 | c;
+                j = 0;
+                break;
+        }
+    }
+    if (j === 1)
+        throw Error(invalidEncoding);
+    return offset - start;
+};
+
+/**
+ * Tests if the specified string appears to be base64 encoded.
+ * @param {string} string String to test
+ * @returns {boolean} `true` if probably base64 encoded, otherwise false
+ */
+base64.test = function test(string) {
+    return /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(string);
+};
+
 
 /***/ }),
-/* 384 */
+/* 390 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = EventEmitter;
+
+/**
+ * Constructs a new event emitter instance.
+ * @classdesc A minimal event emitter.
+ * @memberof util
+ * @constructor
+ */
+function EventEmitter() {
+
+    /**
+     * Registered listeners.
+     * @type {Object.<string,*>}
+     * @private
+     */
+    this._listeners = {};
+}
+
+/**
+ * Registers an event listener.
+ * @param {string} evt Event name
+ * @param {function} fn Listener
+ * @param {*} [ctx] Listener context
+ * @returns {util.EventEmitter} `this`
+ */
+EventEmitter.prototype.on = function on(evt, fn, ctx) {
+    (this._listeners[evt] || (this._listeners[evt] = [])).push({
+        fn  : fn,
+        ctx : ctx || this
+    });
+    return this;
+};
+
+/**
+ * Removes an event listener or any matching listeners if arguments are omitted.
+ * @param {string} [evt] Event name. Removes all listeners if omitted.
+ * @param {function} [fn] Listener to remove. Removes all listeners of `evt` if omitted.
+ * @returns {util.EventEmitter} `this`
+ */
+EventEmitter.prototype.off = function off(evt, fn) {
+    if (evt === undefined)
+        this._listeners = {};
+    else {
+        if (fn === undefined)
+            this._listeners[evt] = [];
+        else {
+            var listeners = this._listeners[evt];
+            for (var i = 0; i < listeners.length;)
+                if (listeners[i].fn === fn)
+                    listeners.splice(i, 1);
+                else
+                    ++i;
+        }
+    }
+    return this;
+};
+
+/**
+ * Emits an event by calling its listeners with the specified arguments.
+ * @param {string} evt Event name
+ * @param {...*} args Arguments
+ * @returns {util.EventEmitter} `this`
+ */
+EventEmitter.prototype.emit = function emit(evt) {
+    var listeners = this._listeners[evt];
+    if (listeners) {
+        var args = [],
+            i = 1;
+        for (; i < arguments.length;)
+            args.push(arguments[i++]);
+        for (i = 0; i < listeners.length;)
+            listeners[i].fn.apply(listeners[i++].ctx, args);
+    }
+    return this;
+};
+
+
+/***/ }),
+/* 391 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = factory(factory);
+
+/**
+ * Reads / writes floats / doubles from / to buffers.
+ * @name util.float
+ * @namespace
+ */
+
+/**
+ * Writes a 32 bit float to a buffer using little endian byte order.
+ * @name util.float.writeFloatLE
+ * @function
+ * @param {number} val Value to write
+ * @param {Uint8Array} buf Target buffer
+ * @param {number} pos Target buffer offset
+ * @returns {undefined}
+ */
+
+/**
+ * Writes a 32 bit float to a buffer using big endian byte order.
+ * @name util.float.writeFloatBE
+ * @function
+ * @param {number} val Value to write
+ * @param {Uint8Array} buf Target buffer
+ * @param {number} pos Target buffer offset
+ * @returns {undefined}
+ */
+
+/**
+ * Reads a 32 bit float from a buffer using little endian byte order.
+ * @name util.float.readFloatLE
+ * @function
+ * @param {Uint8Array} buf Source buffer
+ * @param {number} pos Source buffer offset
+ * @returns {number} Value read
+ */
+
+/**
+ * Reads a 32 bit float from a buffer using big endian byte order.
+ * @name util.float.readFloatBE
+ * @function
+ * @param {Uint8Array} buf Source buffer
+ * @param {number} pos Source buffer offset
+ * @returns {number} Value read
+ */
+
+/**
+ * Writes a 64 bit double to a buffer using little endian byte order.
+ * @name util.float.writeDoubleLE
+ * @function
+ * @param {number} val Value to write
+ * @param {Uint8Array} buf Target buffer
+ * @param {number} pos Target buffer offset
+ * @returns {undefined}
+ */
+
+/**
+ * Writes a 64 bit double to a buffer using big endian byte order.
+ * @name util.float.writeDoubleBE
+ * @function
+ * @param {number} val Value to write
+ * @param {Uint8Array} buf Target buffer
+ * @param {number} pos Target buffer offset
+ * @returns {undefined}
+ */
+
+/**
+ * Reads a 64 bit double from a buffer using little endian byte order.
+ * @name util.float.readDoubleLE
+ * @function
+ * @param {Uint8Array} buf Source buffer
+ * @param {number} pos Source buffer offset
+ * @returns {number} Value read
+ */
+
+/**
+ * Reads a 64 bit double from a buffer using big endian byte order.
+ * @name util.float.readDoubleBE
+ * @function
+ * @param {Uint8Array} buf Source buffer
+ * @param {number} pos Source buffer offset
+ * @returns {number} Value read
+ */
+
+// Factory function for the purpose of node-based testing in modified global environments
+function factory(exports) {
+
+    // float: typed array
+    if (typeof Float32Array !== "undefined") (function() {
+
+        var f32 = new Float32Array([ -0 ]),
+            f8b = new Uint8Array(f32.buffer),
+            le  = f8b[3] === 128;
+
+        function writeFloat_f32_cpy(val, buf, pos) {
+            f32[0] = val;
+            buf[pos    ] = f8b[0];
+            buf[pos + 1] = f8b[1];
+            buf[pos + 2] = f8b[2];
+            buf[pos + 3] = f8b[3];
+        }
+
+        function writeFloat_f32_rev(val, buf, pos) {
+            f32[0] = val;
+            buf[pos    ] = f8b[3];
+            buf[pos + 1] = f8b[2];
+            buf[pos + 2] = f8b[1];
+            buf[pos + 3] = f8b[0];
+        }
+
+        /* istanbul ignore next */
+        exports.writeFloatLE = le ? writeFloat_f32_cpy : writeFloat_f32_rev;
+        /* istanbul ignore next */
+        exports.writeFloatBE = le ? writeFloat_f32_rev : writeFloat_f32_cpy;
+
+        function readFloat_f32_cpy(buf, pos) {
+            f8b[0] = buf[pos    ];
+            f8b[1] = buf[pos + 1];
+            f8b[2] = buf[pos + 2];
+            f8b[3] = buf[pos + 3];
+            return f32[0];
+        }
+
+        function readFloat_f32_rev(buf, pos) {
+            f8b[3] = buf[pos    ];
+            f8b[2] = buf[pos + 1];
+            f8b[1] = buf[pos + 2];
+            f8b[0] = buf[pos + 3];
+            return f32[0];
+        }
+
+        /* istanbul ignore next */
+        exports.readFloatLE = le ? readFloat_f32_cpy : readFloat_f32_rev;
+        /* istanbul ignore next */
+        exports.readFloatBE = le ? readFloat_f32_rev : readFloat_f32_cpy;
+
+    // float: ieee754
+    })(); else (function() {
+
+        function writeFloat_ieee754(writeUint, val, buf, pos) {
+            var sign = val < 0 ? 1 : 0;
+            if (sign)
+                val = -val;
+            if (val === 0)
+                writeUint(1 / val > 0 ? /* positive */ 0 : /* negative 0 */ 2147483648, buf, pos);
+            else if (isNaN(val))
+                writeUint(2143289344, buf, pos);
+            else if (val > 3.4028234663852886e+38) // +-Infinity
+                writeUint((sign << 31 | 2139095040) >>> 0, buf, pos);
+            else if (val < 1.1754943508222875e-38) // denormal
+                writeUint((sign << 31 | Math.round(val / 1.401298464324817e-45)) >>> 0, buf, pos);
+            else {
+                var exponent = Math.floor(Math.log(val) / Math.LN2),
+                    mantissa = Math.round(val * Math.pow(2, -exponent) * 8388608) & 8388607;
+                writeUint((sign << 31 | exponent + 127 << 23 | mantissa) >>> 0, buf, pos);
+            }
+        }
+
+        exports.writeFloatLE = writeFloat_ieee754.bind(null, writeUintLE);
+        exports.writeFloatBE = writeFloat_ieee754.bind(null, writeUintBE);
+
+        function readFloat_ieee754(readUint, buf, pos) {
+            var uint = readUint(buf, pos),
+                sign = (uint >> 31) * 2 + 1,
+                exponent = uint >>> 23 & 255,
+                mantissa = uint & 8388607;
+            return exponent === 255
+                ? mantissa
+                ? NaN
+                : sign * Infinity
+                : exponent === 0 // denormal
+                ? sign * 1.401298464324817e-45 * mantissa
+                : sign * Math.pow(2, exponent - 150) * (mantissa + 8388608);
+        }
+
+        exports.readFloatLE = readFloat_ieee754.bind(null, readUintLE);
+        exports.readFloatBE = readFloat_ieee754.bind(null, readUintBE);
+
+    })();
+
+    // double: typed array
+    if (typeof Float64Array !== "undefined") (function() {
+
+        var f64 = new Float64Array([-0]),
+            f8b = new Uint8Array(f64.buffer),
+            le  = f8b[7] === 128;
+
+        function writeDouble_f64_cpy(val, buf, pos) {
+            f64[0] = val;
+            buf[pos    ] = f8b[0];
+            buf[pos + 1] = f8b[1];
+            buf[pos + 2] = f8b[2];
+            buf[pos + 3] = f8b[3];
+            buf[pos + 4] = f8b[4];
+            buf[pos + 5] = f8b[5];
+            buf[pos + 6] = f8b[6];
+            buf[pos + 7] = f8b[7];
+        }
+
+        function writeDouble_f64_rev(val, buf, pos) {
+            f64[0] = val;
+            buf[pos    ] = f8b[7];
+            buf[pos + 1] = f8b[6];
+            buf[pos + 2] = f8b[5];
+            buf[pos + 3] = f8b[4];
+            buf[pos + 4] = f8b[3];
+            buf[pos + 5] = f8b[2];
+            buf[pos + 6] = f8b[1];
+            buf[pos + 7] = f8b[0];
+        }
+
+        /* istanbul ignore next */
+        exports.writeDoubleLE = le ? writeDouble_f64_cpy : writeDouble_f64_rev;
+        /* istanbul ignore next */
+        exports.writeDoubleBE = le ? writeDouble_f64_rev : writeDouble_f64_cpy;
+
+        function readDouble_f64_cpy(buf, pos) {
+            f8b[0] = buf[pos    ];
+            f8b[1] = buf[pos + 1];
+            f8b[2] = buf[pos + 2];
+            f8b[3] = buf[pos + 3];
+            f8b[4] = buf[pos + 4];
+            f8b[5] = buf[pos + 5];
+            f8b[6] = buf[pos + 6];
+            f8b[7] = buf[pos + 7];
+            return f64[0];
+        }
+
+        function readDouble_f64_rev(buf, pos) {
+            f8b[7] = buf[pos    ];
+            f8b[6] = buf[pos + 1];
+            f8b[5] = buf[pos + 2];
+            f8b[4] = buf[pos + 3];
+            f8b[3] = buf[pos + 4];
+            f8b[2] = buf[pos + 5];
+            f8b[1] = buf[pos + 6];
+            f8b[0] = buf[pos + 7];
+            return f64[0];
+        }
+
+        /* istanbul ignore next */
+        exports.readDoubleLE = le ? readDouble_f64_cpy : readDouble_f64_rev;
+        /* istanbul ignore next */
+        exports.readDoubleBE = le ? readDouble_f64_rev : readDouble_f64_cpy;
+
+    // double: ieee754
+    })(); else (function() {
+
+        function writeDouble_ieee754(writeUint, off0, off1, val, buf, pos) {
+            var sign = val < 0 ? 1 : 0;
+            if (sign)
+                val = -val;
+            if (val === 0) {
+                writeUint(0, buf, pos + off0);
+                writeUint(1 / val > 0 ? /* positive */ 0 : /* negative 0 */ 2147483648, buf, pos + off1);
+            } else if (isNaN(val)) {
+                writeUint(0, buf, pos + off0);
+                writeUint(2146959360, buf, pos + off1);
+            } else if (val > 1.7976931348623157e+308) { // +-Infinity
+                writeUint(0, buf, pos + off0);
+                writeUint((sign << 31 | 2146435072) >>> 0, buf, pos + off1);
+            } else {
+                var mantissa;
+                if (val < 2.2250738585072014e-308) { // denormal
+                    mantissa = val / 5e-324;
+                    writeUint(mantissa >>> 0, buf, pos + off0);
+                    writeUint((sign << 31 | mantissa / 4294967296) >>> 0, buf, pos + off1);
+                } else {
+                    var exponent = Math.floor(Math.log(val) / Math.LN2);
+                    if (exponent === 1024)
+                        exponent = 1023;
+                    mantissa = val * Math.pow(2, -exponent);
+                    writeUint(mantissa * 4503599627370496 >>> 0, buf, pos + off0);
+                    writeUint((sign << 31 | exponent + 1023 << 20 | mantissa * 1048576 & 1048575) >>> 0, buf, pos + off1);
+                }
+            }
+        }
+
+        exports.writeDoubleLE = writeDouble_ieee754.bind(null, writeUintLE, 0, 4);
+        exports.writeDoubleBE = writeDouble_ieee754.bind(null, writeUintBE, 4, 0);
+
+        function readDouble_ieee754(readUint, off0, off1, buf, pos) {
+            var lo = readUint(buf, pos + off0),
+                hi = readUint(buf, pos + off1);
+            var sign = (hi >> 31) * 2 + 1,
+                exponent = hi >>> 20 & 2047,
+                mantissa = 4294967296 * (hi & 1048575) + lo;
+            return exponent === 2047
+                ? mantissa
+                ? NaN
+                : sign * Infinity
+                : exponent === 0 // denormal
+                ? sign * 5e-324 * mantissa
+                : sign * Math.pow(2, exponent - 1075) * (mantissa + 4503599627370496);
+        }
+
+        exports.readDoubleLE = readDouble_ieee754.bind(null, readUintLE, 0, 4);
+        exports.readDoubleBE = readDouble_ieee754.bind(null, readUintBE, 4, 0);
+
+    })();
+
+    return exports;
+}
+
+// uint helpers
+
+function writeUintLE(val, buf, pos) {
+    buf[pos    ] =  val        & 255;
+    buf[pos + 1] =  val >>> 8  & 255;
+    buf[pos + 2] =  val >>> 16 & 255;
+    buf[pos + 3] =  val >>> 24;
+}
+
+function writeUintBE(val, buf, pos) {
+    buf[pos    ] =  val >>> 24;
+    buf[pos + 1] =  val >>> 16 & 255;
+    buf[pos + 2] =  val >>> 8  & 255;
+    buf[pos + 3] =  val        & 255;
+}
+
+function readUintLE(buf, pos) {
+    return (buf[pos    ]
+          | buf[pos + 1] << 8
+          | buf[pos + 2] << 16
+          | buf[pos + 3] << 24) >>> 0;
+}
+
+function readUintBE(buf, pos) {
+    return (buf[pos    ] << 24
+          | buf[pos + 1] << 16
+          | buf[pos + 2] << 8
+          | buf[pos + 3]) >>> 0;
+}
+
+
+/***/ }),
+/* 392 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A minimal UTF8 implementation for number arrays.
+ * @memberof util
+ * @namespace
+ */
+var utf8 = exports;
+
+/**
+ * Calculates the UTF8 byte length of a string.
+ * @param {string} string String
+ * @returns {number} Byte length
+ */
+utf8.length = function utf8_length(string) {
+    var len = 0,
+        c = 0;
+    for (var i = 0; i < string.length; ++i) {
+        c = string.charCodeAt(i);
+        if (c < 128)
+            len += 1;
+        else if (c < 2048)
+            len += 2;
+        else if ((c & 0xFC00) === 0xD800 && (string.charCodeAt(i + 1) & 0xFC00) === 0xDC00) {
+            ++i;
+            len += 4;
+        } else
+            len += 3;
+    }
+    return len;
+};
+
+/**
+ * Reads UTF8 bytes as a string.
+ * @param {Uint8Array} buffer Source buffer
+ * @param {number} start Source start
+ * @param {number} end Source end
+ * @returns {string} String read
+ */
+utf8.read = function utf8_read(buffer, start, end) {
+    var len = end - start;
+    if (len < 1)
+        return "";
+    var parts = null,
+        chunk = [],
+        i = 0, // char offset
+        t;     // temporary
+    while (start < end) {
+        t = buffer[start++];
+        if (t < 128)
+            chunk[i++] = t;
+        else if (t > 191 && t < 224)
+            chunk[i++] = (t & 31) << 6 | buffer[start++] & 63;
+        else if (t > 239 && t < 365) {
+            t = ((t & 7) << 18 | (buffer[start++] & 63) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63) - 0x10000;
+            chunk[i++] = 0xD800 + (t >> 10);
+            chunk[i++] = 0xDC00 + (t & 1023);
+        } else
+            chunk[i++] = (t & 15) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63;
+        if (i > 8191) {
+            (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
+            i = 0;
+        }
+    }
+    if (parts) {
+        if (i)
+            parts.push(String.fromCharCode.apply(String, chunk.slice(0, i)));
+        return parts.join("");
+    }
+    return String.fromCharCode.apply(String, chunk.slice(0, i));
+};
+
+/**
+ * Writes a string as UTF8 bytes.
+ * @param {string} string Source string
+ * @param {Uint8Array} buffer Destination buffer
+ * @param {number} offset Destination offset
+ * @returns {number} Bytes written
+ */
+utf8.write = function utf8_write(string, buffer, offset) {
+    var start = offset,
+        c1, // character 1
+        c2; // character 2
+    for (var i = 0; i < string.length; ++i) {
+        c1 = string.charCodeAt(i);
+        if (c1 < 128) {
+            buffer[offset++] = c1;
+        } else if (c1 < 2048) {
+            buffer[offset++] = c1 >> 6       | 192;
+            buffer[offset++] = c1       & 63 | 128;
+        } else if ((c1 & 0xFC00) === 0xD800 && ((c2 = string.charCodeAt(i + 1)) & 0xFC00) === 0xDC00) {
+            c1 = 0x10000 + ((c1 & 0x03FF) << 10) + (c2 & 0x03FF);
+            ++i;
+            buffer[offset++] = c1 >> 18      | 240;
+            buffer[offset++] = c1 >> 12 & 63 | 128;
+            buffer[offset++] = c1 >> 6  & 63 | 128;
+            buffer[offset++] = c1       & 63 | 128;
+        } else {
+            buffer[offset++] = c1 >> 12      | 224;
+            buffer[offset++] = c1 >> 6  & 63 | 128;
+            buffer[offset++] = c1       & 63 | 128;
+        }
+    }
+    return offset - start;
+};
+
+
+/***/ }),
+/* 393 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = pool;
+
+/**
+ * An allocator as used by {@link util.pool}.
+ * @typedef PoolAllocator
+ * @type {function}
+ * @param {number} size Buffer size
+ * @returns {Uint8Array} Buffer
+ */
+
+/**
+ * A slicer as used by {@link util.pool}.
+ * @typedef PoolSlicer
+ * @type {function}
+ * @param {number} start Start offset
+ * @param {number} end End offset
+ * @returns {Uint8Array} Buffer slice
+ * @this {Uint8Array}
+ */
+
+/**
+ * A general purpose buffer pool.
+ * @memberof util
+ * @function
+ * @param {PoolAllocator} alloc Allocator
+ * @param {PoolSlicer} slice Slicer
+ * @param {number} [size=8192] Slab size
+ * @returns {PoolAllocator} Pooled allocator
+ */
+function pool(alloc, slice, size) {
+    var SIZE   = size || 8192;
+    var MAX    = SIZE >>> 1;
+    var slab   = null;
+    var offset = SIZE;
+    return function pool_alloc(size) {
+        if (size < 1 || size > MAX)
+            return alloc(size);
+        if (offset + size > SIZE) {
+            slab = alloc(SIZE);
+            offset = 0;
+        }
+        var buf = slice.call(slab, offset, offset += size);
+        if (offset & 7) // align to 32 bit
+            offset = (offset | 7) + 1;
+        return buf;
+    };
+}
+
+
+/***/ }),
+/* 394 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = LongBits;
+
+var util = __webpack_require__(23);
+
+/**
+ * Constructs new long bits.
+ * @classdesc Helper class for working with the low and high bits of a 64 bit value.
+ * @memberof util
+ * @constructor
+ * @param {number} lo Low 32 bits, unsigned
+ * @param {number} hi High 32 bits, unsigned
+ */
+function LongBits(lo, hi) {
+
+    // note that the casts below are theoretically unnecessary as of today, but older statically
+    // generated converter code might still call the ctor with signed 32bits. kept for compat.
+
+    /**
+     * Low bits.
+     * @type {number}
+     */
+    this.lo = lo >>> 0;
+
+    /**
+     * High bits.
+     * @type {number}
+     */
+    this.hi = hi >>> 0;
+}
+
+/**
+ * Zero bits.
+ * @memberof util.LongBits
+ * @type {util.LongBits}
+ */
+var zero = LongBits.zero = new LongBits(0, 0);
+
+zero.toNumber = function() { return 0; };
+zero.zzEncode = zero.zzDecode = function() { return this; };
+zero.length = function() { return 1; };
+
+/**
+ * Zero hash.
+ * @memberof util.LongBits
+ * @type {string}
+ */
+var zeroHash = LongBits.zeroHash = "\0\0\0\0\0\0\0\0";
+
+/**
+ * Constructs new long bits from the specified number.
+ * @param {number} value Value
+ * @returns {util.LongBits} Instance
+ */
+LongBits.fromNumber = function fromNumber(value) {
+    if (value === 0)
+        return zero;
+    var sign = value < 0;
+    if (sign)
+        value = -value;
+    var lo = value >>> 0,
+        hi = (value - lo) / 4294967296 >>> 0;
+    if (sign) {
+        hi = ~hi >>> 0;
+        lo = ~lo >>> 0;
+        if (++lo > 4294967295) {
+            lo = 0;
+            if (++hi > 4294967295)
+                hi = 0;
+        }
+    }
+    return new LongBits(lo, hi);
+};
+
+/**
+ * Constructs new long bits from a number, long or string.
+ * @param {Long|number|string} value Value
+ * @returns {util.LongBits} Instance
+ */
+LongBits.from = function from(value) {
+    if (typeof value === "number")
+        return LongBits.fromNumber(value);
+    if (util.isString(value)) {
+        /* istanbul ignore else */
+        if (util.Long)
+            value = util.Long.fromString(value);
+        else
+            return LongBits.fromNumber(parseInt(value, 10));
+    }
+    return value.low || value.high ? new LongBits(value.low >>> 0, value.high >>> 0) : zero;
+};
+
+/**
+ * Converts this long bits to a possibly unsafe JavaScript number.
+ * @param {boolean} [unsigned=false] Whether unsigned or not
+ * @returns {number} Possibly unsafe number
+ */
+LongBits.prototype.toNumber = function toNumber(unsigned) {
+    if (!unsigned && this.hi >>> 31) {
+        var lo = ~this.lo + 1 >>> 0,
+            hi = ~this.hi     >>> 0;
+        if (!lo)
+            hi = hi + 1 >>> 0;
+        return -(lo + hi * 4294967296);
+    }
+    return this.lo + this.hi * 4294967296;
+};
+
+/**
+ * Converts this long bits to a long.
+ * @param {boolean} [unsigned=false] Whether unsigned or not
+ * @returns {Long} Long
+ */
+LongBits.prototype.toLong = function toLong(unsigned) {
+    return util.Long
+        ? new util.Long(this.lo | 0, this.hi | 0, Boolean(unsigned))
+        /* istanbul ignore next */
+        : { low: this.lo | 0, high: this.hi | 0, unsigned: Boolean(unsigned) };
+};
+
+var charCodeAt = String.prototype.charCodeAt;
+
+/**
+ * Constructs new long bits from the specified 8 characters long hash.
+ * @param {string} hash Hash
+ * @returns {util.LongBits} Bits
+ */
+LongBits.fromHash = function fromHash(hash) {
+    if (hash === zeroHash)
+        return zero;
+    return new LongBits(
+        ( charCodeAt.call(hash, 0)
+        | charCodeAt.call(hash, 1) << 8
+        | charCodeAt.call(hash, 2) << 16
+        | charCodeAt.call(hash, 3) << 24) >>> 0
+    ,
+        ( charCodeAt.call(hash, 4)
+        | charCodeAt.call(hash, 5) << 8
+        | charCodeAt.call(hash, 6) << 16
+        | charCodeAt.call(hash, 7) << 24) >>> 0
+    );
+};
+
+/**
+ * Converts this long bits to a 8 characters long hash.
+ * @returns {string} Hash
+ */
+LongBits.prototype.toHash = function toHash() {
+    return String.fromCharCode(
+        this.lo        & 255,
+        this.lo >>> 8  & 255,
+        this.lo >>> 16 & 255,
+        this.lo >>> 24      ,
+        this.hi        & 255,
+        this.hi >>> 8  & 255,
+        this.hi >>> 16 & 255,
+        this.hi >>> 24
+    );
+};
+
+/**
+ * Zig-zag encodes this long bits.
+ * @returns {util.LongBits} `this`
+ */
+LongBits.prototype.zzEncode = function zzEncode() {
+    var mask =   this.hi >> 31;
+    this.hi  = ((this.hi << 1 | this.lo >>> 31) ^ mask) >>> 0;
+    this.lo  = ( this.lo << 1                   ^ mask) >>> 0;
+    return this;
+};
+
+/**
+ * Zig-zag decodes this long bits.
+ * @returns {util.LongBits} `this`
+ */
+LongBits.prototype.zzDecode = function zzDecode() {
+    var mask = -(this.lo & 1);
+    this.lo  = ((this.lo >>> 1 | this.hi << 31) ^ mask) >>> 0;
+    this.hi  = ( this.hi >>> 1                  ^ mask) >>> 0;
+    return this;
+};
+
+/**
+ * Calculates the length of this longbits when encoded as a varint.
+ * @returns {number} Length
+ */
+LongBits.prototype.length = function length() {
+    var part0 =  this.lo,
+        part1 = (this.lo >>> 28 | this.hi << 4) >>> 0,
+        part2 =  this.hi >>> 24;
+    return part2 === 0
+         ? part1 === 0
+           ? part0 < 16384
+             ? part0 < 128 ? 1 : 2
+             : part0 < 2097152 ? 3 : 4
+           : part1 < 16384
+             ? part1 < 128 ? 5 : 6
+             : part1 < 2097152 ? 7 : 8
+         : part2 < 128 ? 9 : 10;
+};
+
+
+/***/ }),
+/* 395 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = BufferWriter;
+
+// extends Writer
+var Writer = __webpack_require__(88);
+(BufferWriter.prototype = Object.create(Writer.prototype)).constructor = BufferWriter;
+
+var util = __webpack_require__(23);
+
+var Buffer = util.Buffer;
+
+/**
+ * Constructs a new buffer writer instance.
+ * @classdesc Wire format writer using node buffers.
+ * @extends Writer
+ * @constructor
+ */
+function BufferWriter() {
+    Writer.call(this);
+}
+
+/**
+ * Allocates a buffer of the specified size.
+ * @param {number} size Buffer size
+ * @returns {Buffer} Buffer
+ */
+BufferWriter.alloc = function alloc_buffer(size) {
+    return (BufferWriter.alloc = util._Buffer_allocUnsafe)(size);
+};
+
+var writeBytesBuffer = Buffer && Buffer.prototype instanceof Uint8Array && Buffer.prototype.set.name === "set"
+    ? function writeBytesBuffer_set(val, buf, pos) {
+        buf.set(val, pos); // faster than copy (requires node >= 4 where Buffers extend Uint8Array and set is properly inherited)
+                           // also works for plain array values
+    }
+    /* istanbul ignore next */
+    : function writeBytesBuffer_copy(val, buf, pos) {
+        if (val.copy) // Buffer values
+            val.copy(buf, pos, 0, val.length);
+        else for (var i = 0; i < val.length;) // plain array values
+            buf[pos++] = val[i++];
+    };
+
+/**
+ * @override
+ */
+BufferWriter.prototype.bytes = function write_bytes_buffer(value) {
+    if (util.isString(value))
+        value = util._Buffer_from(value, "base64");
+    var len = value.length >>> 0;
+    this.uint32(len);
+    if (len)
+        this._push(writeBytesBuffer, len, value);
+    return this;
+};
+
+function writeStringBuffer(val, buf, pos) {
+    if (val.length < 40) // plain js is faster for short strings (probably due to redundant assertions)
+        util.utf8.write(val, buf, pos);
+    else
+        buf.utf8Write(val, pos);
+}
+
+/**
+ * @override
+ */
+BufferWriter.prototype.string = function write_string_buffer(value) {
+    var len = Buffer.byteLength(value);
+    this.uint32(len);
+    if (len)
+        this._push(writeStringBuffer, len, value);
+    return this;
+};
+
+
+/**
+ * Finishes the write operation.
+ * @name BufferWriter#finish
+ * @function
+ * @returns {Buffer} Finished buffer
+ */
+
+
+/***/ }),
+/* 396 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = BufferReader;
+
+// extends Reader
+var Reader = __webpack_require__(89);
+(BufferReader.prototype = Object.create(Reader.prototype)).constructor = BufferReader;
+
+var util = __webpack_require__(23);
+
+/**
+ * Constructs a new buffer reader instance.
+ * @classdesc Wire format reader using node buffers.
+ * @extends Reader
+ * @constructor
+ * @param {Buffer} buffer Buffer to read from
+ */
+function BufferReader(buffer) {
+    Reader.call(this, buffer);
+
+    /**
+     * Read buffer.
+     * @name BufferReader#buf
+     * @type {Buffer}
+     */
+}
+
+/* istanbul ignore else */
+if (util.Buffer)
+    BufferReader.prototype._slice = util.Buffer.prototype.slice;
+
+/**
+ * @override
+ */
+BufferReader.prototype.string = function read_string_buffer() {
+    var len = this.uint32(); // modifies pos
+    return this.buf.utf8Slice(this.pos, this.pos = Math.min(this.pos + len, this.len));
+};
+
+/**
+ * Reads a sequence of bytes preceeded by its length as a varint.
+ * @name BufferReader#bytes
+ * @function
+ * @returns {Buffer} Value read
+ */
+
+
+/***/ }),
+/* 397 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Service;
+
+var util = __webpack_require__(23);
+
+// Extends EventEmitter
+(Service.prototype = Object.create(util.EventEmitter.prototype)).constructor = Service;
+
+/**
+ * A service method callback as used by {@link rpc.ServiceMethod|ServiceMethod}.
+ *
+ * Differs from {@link RPCImplCallback} in that it is an actual callback of a service method which may not return `response = null`.
+ * @typedef rpc.ServiceMethodCallback
+ * @template TRes extends Message<TRes>
+ * @type {function}
+ * @param {Error|null} error Error, if any
+ * @param {TRes} [response] Response message
+ * @returns {undefined}
+ */
+
+/**
+ * A service method part of a {@link rpc.Service} as created by {@link Service.create}.
+ * @typedef rpc.ServiceMethod
+ * @template TReq extends Message<TReq>
+ * @template TRes extends Message<TRes>
+ * @type {function}
+ * @param {TReq|Properties<TReq>} request Request message or plain object
+ * @param {rpc.ServiceMethodCallback<TRes>} [callback] Node-style callback called with the error, if any, and the response message
+ * @returns {Promise<Message<TRes>>} Promise if `callback` has been omitted, otherwise `undefined`
+ */
+
+/**
+ * Constructs a new RPC service instance.
+ * @classdesc An RPC service as returned by {@link Service#create}.
+ * @exports rpc.Service
+ * @extends util.EventEmitter
+ * @constructor
+ * @param {RPCImpl} rpcImpl RPC implementation
+ * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+ * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+ */
+function Service(rpcImpl, requestDelimited, responseDelimited) {
+
+    if (typeof rpcImpl !== "function")
+        throw TypeError("rpcImpl must be a function");
+
+    util.EventEmitter.call(this);
+
+    /**
+     * RPC implementation. Becomes `null` once the service is ended.
+     * @type {RPCImpl|null}
+     */
+    this.rpcImpl = rpcImpl;
+
+    /**
+     * Whether requests are length-delimited.
+     * @type {boolean}
+     */
+    this.requestDelimited = Boolean(requestDelimited);
+
+    /**
+     * Whether responses are length-delimited.
+     * @type {boolean}
+     */
+    this.responseDelimited = Boolean(responseDelimited);
+}
+
+/**
+ * Calls a service method through {@link rpc.Service#rpcImpl|rpcImpl}.
+ * @param {Method|rpc.ServiceMethod<TReq,TRes>} method Reflected or static method
+ * @param {Constructor<TReq>} requestCtor Request constructor
+ * @param {Constructor<TRes>} responseCtor Response constructor
+ * @param {TReq|Properties<TReq>} request Request message or plain object
+ * @param {rpc.ServiceMethodCallback<TRes>} callback Service callback
+ * @returns {undefined}
+ * @template TReq extends Message<TReq>
+ * @template TRes extends Message<TRes>
+ */
+Service.prototype.rpcCall = function rpcCall(method, requestCtor, responseCtor, request, callback) {
+
+    if (!request)
+        throw TypeError("request must be specified");
+
+    var self = this;
+    if (!callback)
+        return util.asPromise(rpcCall, self, method, requestCtor, responseCtor, request);
+
+    if (!self.rpcImpl) {
+        setTimeout(function() { callback(Error("already ended")); }, 0);
+        return undefined;
+    }
+
+    try {
+        return self.rpcImpl(
+            method,
+            requestCtor[self.requestDelimited ? "encodeDelimited" : "encode"](request).finish(),
+            function rpcCallback(err, response) {
+
+                if (err) {
+                    self.emit("error", err, method);
+                    return callback(err);
+                }
+
+                if (response === null) {
+                    self.end(/* endedByRPC */ true);
+                    return undefined;
+                }
+
+                if (!(response instanceof responseCtor)) {
+                    try {
+                        response = responseCtor[self.responseDelimited ? "decodeDelimited" : "decode"](response);
+                    } catch (err) {
+                        self.emit("error", err, method);
+                        return callback(err);
+                    }
+                }
+
+                self.emit("data", response, method);
+                return callback(null, response);
+            }
+        );
+    } catch (err) {
+        self.emit("error", err, method);
+        setTimeout(function() { callback(err); }, 0);
+        return undefined;
+    }
+};
+
+/**
+ * Ends this service and emits the `end` event.
+ * @param {boolean} [endedByRPC=false] Whether the service has been ended by the RPC implementation.
+ * @returns {rpc.Service} `this`
+ */
+Service.prototype.end = function end(endedByRPC) {
+    if (this.rpcImpl) {
+        if (!endedByRPC) // signal end to rpcImpl
+            this.rpcImpl(null, null, null);
+        this.rpcImpl = null;
+        this.emit("end").off();
+    }
+    return this;
+};
+
+
+/***/ }),
+/* 398 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(console) {
+module.exports = codegen;
+
+/**
+ * Begins generating a function.
+ * @memberof util
+ * @param {string[]} functionParams Function parameter names
+ * @param {string} [functionName] Function name if not anonymous
+ * @returns {Codegen} Appender that appends code to the function's body
+ */
+function codegen(functionParams, functionName) {
+
+    /* istanbul ignore if */
+    if (typeof functionParams === "string") {
+        functionName = functionParams;
+        functionParams = undefined;
+    }
+
+    var body = [];
+
+    /**
+     * Appends code to the function's body or finishes generation.
+     * @typedef Codegen
+     * @type {function}
+     * @param {string|Object.<string,*>} [formatStringOrScope] Format string or, to finish the function, an object of additional scope variables, if any
+     * @param {...*} [formatParams] Format parameters
+     * @returns {Codegen|Function} Itself or the generated function if finished
+     * @throws {Error} If format parameter counts do not match
+     */
+
+    function Codegen(formatStringOrScope) {
+        // note that explicit array handling below makes this ~50% faster
+
+        // finish the function
+        if (typeof formatStringOrScope !== "string") {
+            var source = toString();
+            if (codegen.verbose)
+                console.log("codegen: " + source); // eslint-disable-line no-console
+            source = "return " + source;
+            if (formatStringOrScope) {
+                var scopeKeys   = Object.keys(formatStringOrScope),
+                    scopeParams = new Array(scopeKeys.length + 1),
+                    scopeValues = new Array(scopeKeys.length),
+                    scopeOffset = 0;
+                while (scopeOffset < scopeKeys.length) {
+                    scopeParams[scopeOffset] = scopeKeys[scopeOffset];
+                    scopeValues[scopeOffset] = formatStringOrScope[scopeKeys[scopeOffset++]];
+                }
+                scopeParams[scopeOffset] = source;
+                return Function.apply(null, scopeParams).apply(null, scopeValues); // eslint-disable-line no-new-func
+            }
+            return Function(source)(); // eslint-disable-line no-new-func
+        }
+
+        // otherwise append to body
+        var formatParams = new Array(arguments.length - 1),
+            formatOffset = 0;
+        while (formatOffset < formatParams.length)
+            formatParams[formatOffset] = arguments[++formatOffset];
+        formatOffset = 0;
+        formatStringOrScope = formatStringOrScope.replace(/%([%dfijs])/g, function replace($0, $1) {
+            var value = formatParams[formatOffset++];
+            switch ($1) {
+                case "d": case "f": return String(Number(value));
+                case "i": return String(Math.floor(value));
+                case "j": return JSON.stringify(value);
+                case "s": return String(value);
+            }
+            return "%";
+        });
+        if (formatOffset !== formatParams.length)
+            throw Error("parameter count mismatch");
+        body.push(formatStringOrScope);
+        return Codegen;
+    }
+
+    function toString(functionNameOverride) {
+        return "function " + (functionNameOverride || functionName || "") + "(" + (functionParams && functionParams.join(",") || "") + "){\n  " + body.join("\n  ") + "\n}";
+    }
+
+    Codegen.toString = toString;
+    return Codegen;
+}
+
+/**
+ * Begins generating a function.
+ * @memberof util
+ * @function codegen
+ * @param {string} [functionName] Function name if not anonymous
+ * @returns {Codegen} Appender that appends code to the function's body
+ * @variation 2
+ */
+
+/**
+ * When set to `true`, codegen will log generated code to console. Useful for debugging.
+ * @name util.codegen.verbose
+ * @type {boolean}
+ */
+codegen.verbose = false;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+
+/***/ }),
+/* 399 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = fetch;
+
+var asPromise = __webpack_require__(162),
+    inquire   = __webpack_require__(163);
+
+var fs = inquire("fs");
+
+/**
+ * Node-style callback as used by {@link util.fetch}.
+ * @typedef FetchCallback
+ * @type {function}
+ * @param {?Error} error Error, if any, otherwise `null`
+ * @param {string} [contents] File contents, if there hasn't been an error
+ * @returns {undefined}
+ */
+
+/**
+ * Options as used by {@link util.fetch}.
+ * @typedef FetchOptions
+ * @type {Object}
+ * @property {boolean} [binary=false] Whether expecting a binary response
+ * @property {boolean} [xhr=false] If `true`, forces the use of XMLHttpRequest
+ */
+
+/**
+ * Fetches the contents of a file.
+ * @memberof util
+ * @param {string} filename File path or url
+ * @param {FetchOptions} options Fetch options
+ * @param {FetchCallback} callback Callback function
+ * @returns {undefined}
+ */
+function fetch(filename, options, callback) {
+    if (typeof options === "function") {
+        callback = options;
+        options = {};
+    } else if (!options)
+        options = {};
+
+    if (!callback)
+        return asPromise(fetch, this, filename, options); // eslint-disable-line no-invalid-this
+
+    // if a node-like filesystem is present, try it first but fall back to XHR if nothing is found.
+    if (!options.xhr && fs && fs.readFile)
+        return fs.readFile(filename, function fetchReadFileCallback(err, contents) {
+            return err && typeof XMLHttpRequest !== "undefined"
+                ? fetch.xhr(filename, options, callback)
+                : err
+                ? callback(err)
+                : callback(null, options.binary ? contents : contents.toString("utf8"));
+        });
+
+    // use the XHR version otherwise.
+    return fetch.xhr(filename, options, callback);
+}
+
+/**
+ * Fetches the contents of a file.
+ * @name util.fetch
+ * @function
+ * @param {string} path File path or url
+ * @param {FetchCallback} callback Callback function
+ * @returns {undefined}
+ * @variation 2
+ */
+
+/**
+ * Fetches the contents of a file.
+ * @name util.fetch
+ * @function
+ * @param {string} path File path or url
+ * @param {FetchOptions} [options] Fetch options
+ * @returns {Promise<string|Uint8Array>} Promise
+ * @variation 3
+ */
+
+/**/
+fetch.xhr = function fetch_xhr(filename, options, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange /* works everywhere */ = function fetchOnReadyStateChange() {
+
+        if (xhr.readyState !== 4)
+            return undefined;
+
+        // local cors security errors return status 0 / empty string, too. afaik this cannot be
+        // reliably distinguished from an actually empty file for security reasons. feel free
+        // to send a pull request if you are aware of a solution.
+        if (xhr.status !== 0 && xhr.status !== 200)
+            return callback(Error("status " + xhr.status));
+
+        // if binary data is expected, make sure that some sort of array is returned, even if
+        // ArrayBuffers are not supported. the binary string fallback, however, is unsafe.
+        if (options.binary) {
+            var buffer = xhr.response;
+            if (!buffer) {
+                buffer = [];
+                for (var i = 0; i < xhr.responseText.length; ++i)
+                    buffer.push(xhr.responseText.charCodeAt(i) & 255);
+            }
+            return callback(null, typeof Uint8Array !== "undefined" ? new Uint8Array(buffer) : buffer);
+        }
+        return callback(null, xhr.responseText);
+    };
+
+    if (options.binary) {
+        // ref: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Sending_and_Receiving_Binary_Data#Receiving_binary_data_in_older_browsers
+        if ("overrideMimeType" in xhr)
+            xhr.overrideMimeType("text/plain; charset=x-user-defined");
+        xhr.responseType = "arraybuffer";
+    }
+
+    xhr.open("GET", filename);
+    xhr.send();
+};
+
+
+/***/ }),
+/* 400 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A minimal path module to resolve Unix, Windows and URL paths alike.
+ * @memberof util
+ * @namespace
+ */
+var path = exports;
+
+var isAbsolute =
+/**
+ * Tests if the specified path is absolute.
+ * @param {string} path Path to test
+ * @returns {boolean} `true` if path is absolute
+ */
+path.isAbsolute = function isAbsolute(path) {
+    return /^(?:\/|\w+:)/.test(path);
+};
+
+var normalize =
+/**
+ * Normalizes the specified path.
+ * @param {string} path Path to normalize
+ * @returns {string} Normalized path
+ */
+path.normalize = function normalize(path) {
+    path = path.replace(/\\/g, "/")
+               .replace(/\/{2,}/g, "/");
+    var parts    = path.split("/"),
+        absolute = isAbsolute(path),
+        prefix   = "";
+    if (absolute)
+        prefix = parts.shift() + "/";
+    for (var i = 0; i < parts.length;) {
+        if (parts[i] === "..") {
+            if (i > 0 && parts[i - 1] !== "..")
+                parts.splice(--i, 2);
+            else if (absolute)
+                parts.splice(i, 1);
+            else
+                ++i;
+        } else if (parts[i] === ".")
+            parts.splice(i, 1);
+        else
+            ++i;
+    }
+    return prefix + parts.join("/");
+};
+
+/**
+ * Resolves the specified include path against the specified origin path.
+ * @param {string} originPath Path to the origin file
+ * @param {string} includePath Include path relative to origin path
+ * @param {boolean} [alreadyNormalized=false] `true` if both paths are already known to be normalized
+ * @returns {string} Path to the include file
+ */
+path.resolve = function resolve(originPath, includePath, alreadyNormalized) {
+    if (!alreadyNormalized)
+        includePath = normalize(includePath);
+    if (isAbsolute(includePath))
+        return includePath;
+    if (!alreadyNormalized)
+        originPath = normalize(originPath);
+    return (originPath = originPath.replace(/(?:\/|^)[^/]+$/, "")).length ? normalize(originPath + "/" + includePath) : includePath;
+};
+
+
+/***/ }),
+/* 401 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = parse;
+
+parse.filename = null;
+parse.defaults = { keepCase: false };
+
+var tokenize  = __webpack_require__(171),
+    Root      = __webpack_require__(95),
+    Type      = __webpack_require__(90),
+    Field     = __webpack_require__(32),
+    MapField  = __webpack_require__(91),
+    OneOf     = __webpack_require__(65),
+    Enum      = __webpack_require__(17),
+    Service   = __webpack_require__(92),
+    Method    = __webpack_require__(93),
+    types     = __webpack_require__(39),
+    util      = __webpack_require__(10);
+
+var base10Re    = /^[1-9][0-9]*$/,
+    base10NegRe = /^-?[1-9][0-9]*$/,
+    base16Re    = /^0[x][0-9a-fA-F]+$/,
+    base16NegRe = /^-?0[x][0-9a-fA-F]+$/,
+    base8Re     = /^0[0-7]+$/,
+    base8NegRe  = /^-?0[0-7]+$/,
+    numberRe    = /^(?![eE])[0-9]*(?:\.[0-9]*)?(?:[eE][+-]?[0-9]+)?$/,
+    nameRe      = /^[a-zA-Z_][a-zA-Z_0-9]*$/,
+    typeRefRe   = /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)+$/,
+    fqTypeRefRe = /^(?:\.[a-zA-Z][a-zA-Z_0-9]*)+$/;
+
+/**
+ * Result object returned from {@link parse}.
+ * @interface IParserResult
+ * @property {string|undefined} package Package name, if declared
+ * @property {string[]|undefined} imports Imports, if any
+ * @property {string[]|undefined} weakImports Weak imports, if any
+ * @property {string|undefined} syntax Syntax, if specified (either `"proto2"` or `"proto3"`)
+ * @property {Root} root Populated root instance
+ */
+
+/**
+ * Options modifying the behavior of {@link parse}.
+ * @interface IParseOptions
+ * @property {boolean} [keepCase=false] Keeps field casing instead of converting to camel case
+ */
+
+/**
+ * Parses the given .proto source and returns an object with the parsed contents.
+ * @param {string} source Source contents
+ * @param {Root} root Root to populate
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {IParserResult} Parser result
+ * @property {string} filename=null Currently processing file name for error reporting, if known
+ * @property {IParseOptions} defaults Default {@link IParseOptions}
+ */
+function parse(source, root, options) {
+    /* eslint-disable callback-return */
+    if (!(root instanceof Root)) {
+        options = root;
+        root = new Root();
+    }
+    if (!options)
+        options = parse.defaults;
+
+    var tn = tokenize(source),
+        next = tn.next,
+        push = tn.push,
+        peek = tn.peek,
+        skip = tn.skip,
+        cmnt = tn.cmnt;
+
+    var head = true,
+        pkg,
+        imports,
+        weakImports,
+        syntax,
+        isProto3 = false;
+
+    var ptr = root;
+
+    var applyCase = options.keepCase ? function(name) { return name; } : util.camelCase;
+
+    /* istanbul ignore next */
+    function illegal(token, name, insideTryCatch) {
+        var filename = parse.filename;
+        if (!insideTryCatch)
+            parse.filename = null;
+        return Error("illegal " + (name || "token") + " '" + token + "' (" + (filename ? filename + ", " : "") + "line " + tn.line + ")");
+    }
+
+    function readString() {
+        var values = [],
+            token;
+        do {
+            /* istanbul ignore if */
+            if ((token = next()) !== "\"" && token !== "'")
+                throw illegal(token);
+
+            values.push(next());
+            skip(token);
+            token = peek();
+        } while (token === "\"" || token === "'");
+        return values.join("");
+    }
+
+    function readValue(acceptTypeRef) {
+        var token = next();
+        switch (token) {
+            case "'":
+            case "\"":
+                push(token);
+                return readString();
+            case "true": case "TRUE":
+                return true;
+            case "false": case "FALSE":
+                return false;
+        }
+        try {
+            return parseNumber(token, /* insideTryCatch */ true);
+        } catch (e) {
+
+            /* istanbul ignore else */
+            if (acceptTypeRef && typeRefRe.test(token))
+                return token;
+
+            /* istanbul ignore next */
+            throw illegal(token, "value");
+        }
+    }
+
+    function readRanges(target, acceptStrings) {
+        var token, start;
+        do {
+            if (acceptStrings && ((token = peek()) === "\"" || token === "'"))
+                target.push(readString());
+            else
+                target.push([ start = parseId(next()), skip("to", true) ? parseId(next()) : start ]);
+        } while (skip(",", true));
+        skip(";");
+    }
+
+    function parseNumber(token, insideTryCatch) {
+        var sign = 1;
+        if (token.charAt(0) === "-") {
+            sign = -1;
+            token = token.substring(1);
+        }
+        switch (token) {
+            case "inf": case "INF": case "Inf":
+                return sign * Infinity;
+            case "nan": case "NAN": case "Nan": case "NaN":
+                return NaN;
+            case "0":
+                return 0;
+        }
+        if (base10Re.test(token))
+            return sign * parseInt(token, 10);
+        if (base16Re.test(token))
+            return sign * parseInt(token, 16);
+        if (base8Re.test(token))
+            return sign * parseInt(token, 8);
+
+        /* istanbul ignore else */
+        if (numberRe.test(token))
+            return sign * parseFloat(token);
+
+        /* istanbul ignore next */
+        throw illegal(token, "number", insideTryCatch);
+    }
+
+    function parseId(token, acceptNegative) {
+        switch (token) {
+            case "max": case "MAX": case "Max":
+                return 536870911;
+            case "0":
+                return 0;
+        }
+
+        /* istanbul ignore if */
+        if (!acceptNegative && token.charAt(0) === "-")
+            throw illegal(token, "id");
+
+        if (base10NegRe.test(token))
+            return parseInt(token, 10);
+        if (base16NegRe.test(token))
+            return parseInt(token, 16);
+
+        /* istanbul ignore else */
+        if (base8NegRe.test(token))
+            return parseInt(token, 8);
+
+        /* istanbul ignore next */
+        throw illegal(token, "id");
+    }
+
+    function parsePackage() {
+
+        /* istanbul ignore if */
+        if (pkg !== undefined)
+            throw illegal("package");
+
+        pkg = next();
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(pkg))
+            throw illegal(pkg, "name");
+
+        ptr = ptr.define(pkg);
+        skip(";");
+    }
+
+    function parseImport() {
+        var token = peek();
+        var whichImports;
+        switch (token) {
+            case "weak":
+                whichImports = weakImports || (weakImports = []);
+                next();
+                break;
+            case "public":
+                next();
+                // eslint-disable-line no-fallthrough
+            default:
+                whichImports = imports || (imports = []);
+                break;
+        }
+        token = readString();
+        skip(";");
+        whichImports.push(token);
+    }
+
+    function parseSyntax() {
+        skip("=");
+        syntax = readString();
+        isProto3 = syntax === "proto3";
+
+        /* istanbul ignore if */
+        if (!isProto3 && syntax !== "proto2")
+            throw illegal(syntax, "syntax");
+
+        skip(";");
+    }
+
+    function parseCommon(parent, token) {
+        switch (token) {
+
+            case "option":
+                parseOption(parent, token);
+                skip(";");
+                return true;
+
+            case "message":
+                parseType(parent, token);
+                return true;
+
+            case "enum":
+                parseEnum(parent, token);
+                return true;
+
+            case "service":
+                parseService(parent, token);
+                return true;
+
+            case "extend":
+                parseExtension(parent, token);
+                return true;
+        }
+        return false;
+    }
+
+    function ifBlock(obj, fnIf, fnElse) {
+        var trailingLine = tn.line;
+        if (obj) {
+            obj.comment = cmnt(); // try block-type comment
+            obj.filename = parse.filename;
+        }
+        if (skip("{", true)) {
+            var token;
+            while ((token = next()) !== "}")
+                fnIf(token);
+            skip(";", true);
+        } else {
+            if (fnElse)
+                fnElse();
+            skip(";");
+            if (obj && typeof obj.comment !== "string")
+                obj.comment = cmnt(trailingLine); // try line-type comment if no block
+        }
+    }
+
+    function parseType(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "type name");
+
+        var type = new Type(token);
+        ifBlock(type, function parseType_block(token) {
+            if (parseCommon(type, token))
+                return;
+
+            switch (token) {
+
+                case "map":
+                    parseMapField(type, token);
+                    break;
+
+                case "required":
+                case "optional":
+                case "repeated":
+                    parseField(type, token);
+                    break;
+
+                case "oneof":
+                    parseOneOf(type, token);
+                    break;
+
+                case "extensions":
+                    readRanges(type.extensions || (type.extensions = []));
+                    break;
+
+                case "reserved":
+                    readRanges(type.reserved || (type.reserved = []), true);
+                    break;
+
+                default:
+                    /* istanbul ignore if */
+                    if (!isProto3 || !typeRefRe.test(token))
+                        throw illegal(token);
+
+                    push(token);
+                    parseField(type, "optional");
+                    break;
+            }
+        });
+        parent.add(type);
+    }
+
+    function parseField(parent, rule, extend) {
+        var type = next();
+        if (type === "group") {
+            parseGroup(parent, rule);
+            return;
+        }
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(type))
+            throw illegal(type, "type");
+
+        var name = next();
+
+        /* istanbul ignore if */
+        if (!nameRe.test(name))
+            throw illegal(name, "name");
+
+        name = applyCase(name);
+        skip("=");
+
+        var field = new Field(name, parseId(next()), type, rule, extend);
+        ifBlock(field, function parseField_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(field, token);
+                skip(";");
+            } else
+                throw illegal(token);
+
+        }, function parseField_line() {
+            parseInlineOptions(field);
+        });
+        parent.add(field);
+
+        // JSON defaults to packed=true if not set so we have to set packed=false explicity when
+        // parsing proto2 descriptors without the option, where applicable. This must be done for
+        // all known packable types and anything that could be an enum (= is not a basic type).
+        if (!isProto3 && field.repeated && (types.packed[type] !== undefined || types.basic[type] === undefined))
+            field.setOption("packed", false, /* ifNotSet */ true);
+    }
+
+    function parseGroup(parent, rule) {
+        var name = next();
+
+        /* istanbul ignore if */
+        if (!nameRe.test(name))
+            throw illegal(name, "name");
+
+        var fieldName = util.lcFirst(name);
+        if (name === fieldName)
+            name = util.ucFirst(name);
+        skip("=");
+        var id = parseId(next());
+        var type = new Type(name);
+        type.group = true;
+        var field = new Field(fieldName, id, name, rule);
+        field.filename = parse.filename;
+        ifBlock(type, function parseGroup_block(token) {
+            switch (token) {
+
+                case "option":
+                    parseOption(type, token);
+                    skip(";");
+                    break;
+
+                case "required":
+                case "optional":
+                case "repeated":
+                    parseField(type, token);
+                    break;
+
+                /* istanbul ignore next */
+                default:
+                    throw illegal(token); // there are no groups with proto3 semantics
+            }
+        });
+        parent.add(type)
+              .add(field);
+    }
+
+    function parseMapField(parent) {
+        skip("<");
+        var keyType = next();
+
+        /* istanbul ignore if */
+        if (types.mapKey[keyType] === undefined)
+            throw illegal(keyType, "type");
+
+        skip(",");
+        var valueType = next();
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(valueType))
+            throw illegal(valueType, "type");
+
+        skip(">");
+        var name = next();
+
+        /* istanbul ignore if */
+        if (!nameRe.test(name))
+            throw illegal(name, "name");
+
+        skip("=");
+        var field = new MapField(applyCase(name), parseId(next()), keyType, valueType);
+        ifBlock(field, function parseMapField_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(field, token);
+                skip(";");
+            } else
+                throw illegal(token);
+
+        }, function parseMapField_line() {
+            parseInlineOptions(field);
+        });
+        parent.add(field);
+    }
+
+    function parseOneOf(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var oneof = new OneOf(applyCase(token));
+        ifBlock(oneof, function parseOneOf_block(token) {
+            if (token === "option") {
+                parseOption(oneof, token);
+                skip(";");
+            } else {
+                push(token);
+                parseField(oneof, "optional");
+            }
+        });
+        parent.add(oneof);
+    }
+
+    function parseEnum(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var enm = new Enum(token);
+        ifBlock(enm, function parseEnum_block(token) {
+          switch(token) {
+            case "option":
+              parseOption(enm, token);
+              skip(";");
+              break;
+
+            case "reserved":
+              readRanges(enm.reserved || (enm.reserved = []), true);
+              break;
+
+            default:
+              parseEnumValue(enm, token);
+          }
+        });
+        parent.add(enm);
+    }
+
+    function parseEnumValue(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token))
+            throw illegal(token, "name");
+
+        skip("=");
+        var value = parseId(next(), true),
+            dummy = {};
+        ifBlock(dummy, function parseEnumValue_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(dummy, token); // skip
+                skip(";");
+            } else
+                throw illegal(token);
+
+        }, function parseEnumValue_line() {
+            parseInlineOptions(dummy); // skip
+        });
+        parent.add(token, value, dummy.comment);
+    }
+
+    function parseOption(parent, token) {
+        var isCustom = skip("(", true);
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var name = token;
+        if (isCustom) {
+            skip(")");
+            name = "(" + name + ")";
+            token = peek();
+            if (fqTypeRefRe.test(token)) {
+                name += token;
+                next();
+            }
+        }
+        skip("=");
+        parseOptionValue(parent, name);
+    }
+
+    function parseOptionValue(parent, name) {
+        if (skip("{", true)) { // { a: "foo" b { c: "bar" } }
+            do {
+                /* istanbul ignore if */
+                if (!nameRe.test(token = next()))
+                    throw illegal(token, "name");
+
+                if (peek() === "{")
+                    parseOptionValue(parent, name + "." + token);
+                else {
+                    skip(":");
+                    if (peek() === "{")
+                        parseOptionValue(parent, name + "." + token);
+                    else
+                        setOption(parent, name + "." + token, readValue(true));
+                }
+            } while (!skip("}", true));
+        } else
+            setOption(parent, name, readValue(true));
+        // Does not enforce a delimiter to be universal
+    }
+
+    function setOption(parent, name, value) {
+        if (parent.setOption)
+            parent.setOption(name, value);
+    }
+
+    function parseInlineOptions(parent) {
+        if (skip("[", true)) {
+            do {
+                parseOption(parent, "option");
+            } while (skip(",", true));
+            skip("]");
+        }
+        return parent;
+    }
+
+    function parseService(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "service name");
+
+        var service = new Service(token);
+        ifBlock(service, function parseService_block(token) {
+            if (parseCommon(service, token))
+                return;
+
+            /* istanbul ignore else */
+            if (token === "rpc")
+                parseMethod(service, token);
+            else
+                throw illegal(token);
+        });
+        parent.add(service);
+    }
+
+    function parseMethod(parent, token) {
+        var type = token;
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var name = token,
+            requestType, requestStream,
+            responseType, responseStream;
+
+        skip("(");
+        if (skip("stream", true))
+            requestStream = true;
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token);
+
+        requestType = token;
+        skip(")"); skip("returns"); skip("(");
+        if (skip("stream", true))
+            responseStream = true;
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token);
+
+        responseType = token;
+        skip(")");
+
+        var method = new Method(name, type, requestType, responseType, requestStream, responseStream);
+        ifBlock(method, function parseMethod_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(method, token);
+                skip(";");
+            } else
+                throw illegal(token);
+
+        });
+        parent.add(method);
+    }
+
+    function parseExtension(parent, token) {
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token, "reference");
+
+        var reference = token;
+        ifBlock(null, function parseExtension_block(token) {
+            switch (token) {
+
+                case "required":
+                case "repeated":
+                case "optional":
+                    parseField(parent, token, reference);
+                    break;
+
+                default:
+                    /* istanbul ignore if */
+                    if (!isProto3 || !typeRefRe.test(token))
+                        throw illegal(token);
+                    push(token);
+                    parseField(parent, "optional", reference);
+                    break;
+            }
+        });
+    }
+
+    var token;
+    while ((token = next()) !== null) {
+        switch (token) {
+
+            case "package":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parsePackage();
+                break;
+
+            case "import":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parseImport();
+                break;
+
+            case "syntax":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parseSyntax();
+                break;
+
+            case "option":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parseOption(ptr, token);
+                skip(";");
+                break;
+
+            default:
+
+                /* istanbul ignore else */
+                if (parseCommon(ptr, token)) {
+                    head = false;
+                    continue;
+                }
+
+                /* istanbul ignore next */
+                throw illegal(token);
+        }
+    }
+
+    parse.filename = null;
+    return {
+        "package"     : pkg,
+        "imports"     : imports,
+         weakImports  : weakImports,
+         syntax       : syntax,
+         root         : root
+    };
+}
+
+/**
+ * Parses the given .proto source and returns an object with the parsed contents.
+ * @name parse
+ * @function
+ * @param {string} source Source contents
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {IParserResult} Parser result
+ * @property {string} filename=null Currently processing file name for error reporting, if known
+ * @property {IParseOptions} defaults Default {@link IParseOptions}
+ * @variation 2
+ */
+
+
+/***/ }),
+/* 402 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = common;
+
+var commonRe = /\/|\./;
+
+/**
+ * Provides common type definitions.
+ * Can also be used to provide additional google types or your own custom types.
+ * @param {string} name Short name as in `google/protobuf/[name].proto` or full file name
+ * @param {Object.<string,*>} json JSON definition within `google.protobuf` if a short name, otherwise the file's root definition
+ * @returns {undefined}
+ * @property {INamespace} google/protobuf/any.proto Any
+ * @property {INamespace} google/protobuf/duration.proto Duration
+ * @property {INamespace} google/protobuf/empty.proto Empty
+ * @property {INamespace} google/protobuf/struct.proto Struct, Value, NullValue and ListValue
+ * @property {INamespace} google/protobuf/timestamp.proto Timestamp
+ * @property {INamespace} google/protobuf/wrappers.proto Wrappers
+ * @example
+ * // manually provides descriptor.proto (assumes google/protobuf/ namespace and .proto extension)
+ * protobuf.common("descriptor", descriptorJson);
+ *
+ * // manually provides a custom definition (uses my.foo namespace)
+ * protobuf.common("my/foo/bar.proto", myFooBarJson);
+ */
+function common(name, json) {
+    if (!commonRe.test(name)) {
+        name = "google/protobuf/" + name + ".proto";
+        json = { nested: { google: { nested: { protobuf: { nested: json } } } } };
+    }
+    common[name] = json;
+}
+
+// Not provided because of limited use (feel free to discuss or to provide yourself):
+//
+// google/protobuf/descriptor.proto
+// google/protobuf/field_mask.proto
+// google/protobuf/source_context.proto
+// google/protobuf/type.proto
+//
+// Stripped and pre-parsed versions of these non-bundled files are instead available as part of
+// the repository or package within the google/protobuf directory.
+
+common("any", {
+
+    /**
+     * Properties of a google.protobuf.Any message.
+     * @interface IAny
+     * @type {Object}
+     * @property {string} [typeUrl]
+     * @property {Uint8Array} [bytes]
+     * @memberof common
+     */
+    Any: {
+        fields: {
+            type_url: {
+                type: "string",
+                id: 1
+            },
+            value: {
+                type: "bytes",
+                id: 2
+            }
+        }
+    }
+});
+
+var timeType;
+
+common("duration", {
+
+    /**
+     * Properties of a google.protobuf.Duration message.
+     * @interface IDuration
+     * @type {Object}
+     * @property {number|Long} [seconds]
+     * @property {number} [nanos]
+     * @memberof common
+     */
+    Duration: timeType = {
+        fields: {
+            seconds: {
+                type: "int64",
+                id: 1
+            },
+            nanos: {
+                type: "int32",
+                id: 2
+            }
+        }
+    }
+});
+
+common("timestamp", {
+
+    /**
+     * Properties of a google.protobuf.Timestamp message.
+     * @interface ITimestamp
+     * @type {Object}
+     * @property {number|Long} [seconds]
+     * @property {number} [nanos]
+     * @memberof common
+     */
+    Timestamp: timeType
+});
+
+common("empty", {
+
+    /**
+     * Properties of a google.protobuf.Empty message.
+     * @interface IEmpty
+     * @memberof common
+     */
+    Empty: {
+        fields: {}
+    }
+});
+
+common("struct", {
+
+    /**
+     * Properties of a google.protobuf.Struct message.
+     * @interface IStruct
+     * @type {Object}
+     * @property {Object.<string,IValue>} [fields]
+     * @memberof common
+     */
+    Struct: {
+        fields: {
+            fields: {
+                keyType: "string",
+                type: "Value",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.Value message.
+     * @interface IValue
+     * @type {Object}
+     * @property {string} [kind]
+     * @property {0} [nullValue]
+     * @property {number} [numberValue]
+     * @property {string} [stringValue]
+     * @property {boolean} [boolValue]
+     * @property {IStruct} [structValue]
+     * @property {IListValue} [listValue]
+     * @memberof common
+     */
+    Value: {
+        oneofs: {
+            kind: {
+                oneof: [
+                    "nullValue",
+                    "numberValue",
+                    "stringValue",
+                    "boolValue",
+                    "structValue",
+                    "listValue"
+                ]
+            }
+        },
+        fields: {
+            nullValue: {
+                type: "NullValue",
+                id: 1
+            },
+            numberValue: {
+                type: "double",
+                id: 2
+            },
+            stringValue: {
+                type: "string",
+                id: 3
+            },
+            boolValue: {
+                type: "bool",
+                id: 4
+            },
+            structValue: {
+                type: "Struct",
+                id: 5
+            },
+            listValue: {
+                type: "ListValue",
+                id: 6
+            }
+        }
+    },
+
+    NullValue: {
+        values: {
+            NULL_VALUE: 0
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.ListValue message.
+     * @interface IListValue
+     * @type {Object}
+     * @property {Array.<IValue>} [values]
+     * @memberof common
+     */
+    ListValue: {
+        fields: {
+            values: {
+                rule: "repeated",
+                type: "Value",
+                id: 1
+            }
+        }
+    }
+});
+
+common("wrappers", {
+
+    /**
+     * Properties of a google.protobuf.DoubleValue message.
+     * @interface IDoubleValue
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    DoubleValue: {
+        fields: {
+            value: {
+                type: "double",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.FloatValue message.
+     * @interface IFloatValue
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    FloatValue: {
+        fields: {
+            value: {
+                type: "float",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.Int64Value message.
+     * @interface IInt64Value
+     * @type {Object}
+     * @property {number|Long} [value]
+     * @memberof common
+     */
+    Int64Value: {
+        fields: {
+            value: {
+                type: "int64",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.UInt64Value message.
+     * @interface IUInt64Value
+     * @type {Object}
+     * @property {number|Long} [value]
+     * @memberof common
+     */
+    UInt64Value: {
+        fields: {
+            value: {
+                type: "uint64",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.Int32Value message.
+     * @interface IInt32Value
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    Int32Value: {
+        fields: {
+            value: {
+                type: "int32",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.UInt32Value message.
+     * @interface IUInt32Value
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    UInt32Value: {
+        fields: {
+            value: {
+                type: "uint32",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.BoolValue message.
+     * @interface IBoolValue
+     * @type {Object}
+     * @property {boolean} [value]
+     * @memberof common
+     */
+    BoolValue: {
+        fields: {
+            value: {
+                type: "bool",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.StringValue message.
+     * @interface IStringValue
+     * @type {Object}
+     * @property {string} [value]
+     * @memberof common
+     */
+    StringValue: {
+        fields: {
+            value: {
+                type: "string",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.BytesValue message.
+     * @interface IBytesValue
+     * @type {Object}
+     * @property {Uint8Array} [value]
+     * @memberof common
+     */
+    BytesValue: {
+        fields: {
+            value: {
+                type: "bytes",
+                id: 1
+            }
+        }
+    }
+});
+
+/**
+ * Gets the root definition of the specified common proto file.
+ *
+ * Bundled definitions are:
+ * - google/protobuf/any.proto
+ * - google/protobuf/duration.proto
+ * - google/protobuf/empty.proto
+ * - google/protobuf/struct.proto
+ * - google/protobuf/timestamp.proto
+ * - google/protobuf/wrappers.proto
+ *
+ * @param {string} file Proto file name
+ * @returns {INamespace|null} Root definition or `null` if not defined
+ */
+common.get = function get(file) {
+    return common[file] || null;
+};
+
+
+/***/ }),
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72778,2866 +75630,6 @@ $root.transit_realtime = function () {
 }();
 
 module.exports = $root;
-
-/***/ }),
-/* 385 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// full library entry point.
-
-
-module.exports = __webpack_require__(386);
-
-
-/***/ }),
-/* 386 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var protobuf = module.exports = __webpack_require__(387);
-
-protobuf.build = "full";
-
-// Parser
-protobuf.tokenize         = __webpack_require__(171);
-protobuf.parse            = __webpack_require__(401);
-protobuf.common           = __webpack_require__(402);
-
-// Configure parser
-protobuf.Root._configure(protobuf.Type, protobuf.parse, protobuf.common);
-
-
-/***/ }),
-/* 387 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var protobuf = module.exports = __webpack_require__(388);
-
-protobuf.build = "light";
-
-/**
- * A node-style callback as used by {@link load} and {@link Root#load}.
- * @typedef LoadCallback
- * @type {function}
- * @param {Error|null} error Error, if any, otherwise `null`
- * @param {Root} [root] Root, if there hasn't been an error
- * @returns {undefined}
- */
-
-/**
- * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
- * @param {string|string[]} filename One or multiple files to load
- * @param {Root} root Root namespace, defaults to create a new one if omitted.
- * @param {LoadCallback} callback Callback function
- * @returns {undefined}
- * @see {@link Root#load}
- */
-function load(filename, root, callback) {
-    if (typeof root === "function") {
-        callback = root;
-        root = new protobuf.Root();
-    } else if (!root)
-        root = new protobuf.Root();
-    return root.load(filename, callback);
-}
-
-/**
- * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
- * @name load
- * @function
- * @param {string|string[]} filename One or multiple files to load
- * @param {LoadCallback} callback Callback function
- * @returns {undefined}
- * @see {@link Root#load}
- * @variation 2
- */
-// function load(filename:string, callback:LoadCallback):undefined
-
-/**
- * Loads one or multiple .proto or preprocessed .json files into a common root namespace and returns a promise.
- * @name load
- * @function
- * @param {string|string[]} filename One or multiple files to load
- * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
- * @returns {Promise<Root>} Promise
- * @see {@link Root#load}
- * @variation 3
- */
-// function load(filename:string, [root:Root]):Promise<Root>
-
-protobuf.load = load;
-
-/**
- * Synchronously loads one or multiple .proto or preprocessed .json files into a common root namespace (node only).
- * @param {string|string[]} filename One or multiple files to load
- * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
- * @returns {Root} Root namespace
- * @throws {Error} If synchronous fetching is not supported (i.e. in browsers) or if a file's syntax is invalid
- * @see {@link Root#loadSync}
- */
-function loadSync(filename, root) {
-    if (!root)
-        root = new protobuf.Root();
-    return root.loadSync(filename);
-}
-
-protobuf.loadSync = loadSync;
-
-// Serialization
-protobuf.encoder          = __webpack_require__(166);
-protobuf.decoder          = __webpack_require__(167);
-protobuf.verifier         = __webpack_require__(168);
-protobuf.converter        = __webpack_require__(169);
-
-// Reflection
-protobuf.ReflectionObject = __webpack_require__(38);
-protobuf.Namespace        = __webpack_require__(52);
-protobuf.Root             = __webpack_require__(95);
-protobuf.Enum             = __webpack_require__(17);
-protobuf.Type             = __webpack_require__(90);
-protobuf.Field            = __webpack_require__(32);
-protobuf.OneOf            = __webpack_require__(65);
-protobuf.MapField         = __webpack_require__(91);
-protobuf.Service          = __webpack_require__(92);
-protobuf.Method           = __webpack_require__(93);
-
-// Runtime
-protobuf.Message          = __webpack_require__(94);
-protobuf.wrappers         = __webpack_require__(170);
-
-// Utility
-protobuf.types            = __webpack_require__(39);
-protobuf.util             = __webpack_require__(10);
-
-// Configure reflection
-protobuf.ReflectionObject._configure(protobuf.Root);
-protobuf.Namespace._configure(protobuf.Type, protobuf.Service);
-protobuf.Root._configure(protobuf.Type);
-protobuf.Field._configure(protobuf.Type);
-
-
-/***/ }),
-/* 388 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var protobuf = exports;
-
-/**
- * Build type, one of `"full"`, `"light"` or `"minimal"`.
- * @name build
- * @type {string}
- * @const
- */
-protobuf.build = "minimal";
-
-// Serialization
-protobuf.Writer       = __webpack_require__(88);
-protobuf.BufferWriter = __webpack_require__(395);
-protobuf.Reader       = __webpack_require__(89);
-protobuf.BufferReader = __webpack_require__(396);
-
-// Utility
-protobuf.util         = __webpack_require__(23);
-protobuf.rpc          = __webpack_require__(164);
-protobuf.roots        = __webpack_require__(165);
-protobuf.configure    = configure;
-
-/* istanbul ignore next */
-/**
- * Reconfigures the library according to the environment.
- * @returns {undefined}
- */
-function configure() {
-    protobuf.Reader._configure(protobuf.BufferReader);
-    protobuf.util._configure();
-}
-
-// Configure serialization
-protobuf.Writer._configure(protobuf.BufferWriter);
-configure();
-
-
-/***/ }),
-/* 389 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * A minimal base64 implementation for number arrays.
- * @memberof util
- * @namespace
- */
-var base64 = exports;
-
-/**
- * Calculates the byte length of a base64 encoded string.
- * @param {string} string Base64 encoded string
- * @returns {number} Byte length
- */
-base64.length = function length(string) {
-    var p = string.length;
-    if (!p)
-        return 0;
-    var n = 0;
-    while (--p % 4 > 1 && string.charAt(p) === "=")
-        ++n;
-    return Math.ceil(string.length * 3) / 4 - n;
-};
-
-// Base64 encoding table
-var b64 = new Array(64);
-
-// Base64 decoding table
-var s64 = new Array(123);
-
-// 65..90, 97..122, 48..57, 43, 47
-for (var i = 0; i < 64;)
-    s64[b64[i] = i < 26 ? i + 65 : i < 52 ? i + 71 : i < 62 ? i - 4 : i - 59 | 43] = i++;
-
-/**
- * Encodes a buffer to a base64 encoded string.
- * @param {Uint8Array} buffer Source buffer
- * @param {number} start Source start
- * @param {number} end Source end
- * @returns {string} Base64 encoded string
- */
-base64.encode = function encode(buffer, start, end) {
-    var parts = null,
-        chunk = [];
-    var i = 0, // output index
-        j = 0, // goto index
-        t;     // temporary
-    while (start < end) {
-        var b = buffer[start++];
-        switch (j) {
-            case 0:
-                chunk[i++] = b64[b >> 2];
-                t = (b & 3) << 4;
-                j = 1;
-                break;
-            case 1:
-                chunk[i++] = b64[t | b >> 4];
-                t = (b & 15) << 2;
-                j = 2;
-                break;
-            case 2:
-                chunk[i++] = b64[t | b >> 6];
-                chunk[i++] = b64[b & 63];
-                j = 0;
-                break;
-        }
-        if (i > 8191) {
-            (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
-            i = 0;
-        }
-    }
-    if (j) {
-        chunk[i++] = b64[t];
-        chunk[i++] = 61;
-        if (j === 1)
-            chunk[i++] = 61;
-    }
-    if (parts) {
-        if (i)
-            parts.push(String.fromCharCode.apply(String, chunk.slice(0, i)));
-        return parts.join("");
-    }
-    return String.fromCharCode.apply(String, chunk.slice(0, i));
-};
-
-var invalidEncoding = "invalid encoding";
-
-/**
- * Decodes a base64 encoded string to a buffer.
- * @param {string} string Source string
- * @param {Uint8Array} buffer Destination buffer
- * @param {number} offset Destination offset
- * @returns {number} Number of bytes written
- * @throws {Error} If encoding is invalid
- */
-base64.decode = function decode(string, buffer, offset) {
-    var start = offset;
-    var j = 0, // goto index
-        t;     // temporary
-    for (var i = 0; i < string.length;) {
-        var c = string.charCodeAt(i++);
-        if (c === 61 && j > 1)
-            break;
-        if ((c = s64[c]) === undefined)
-            throw Error(invalidEncoding);
-        switch (j) {
-            case 0:
-                t = c;
-                j = 1;
-                break;
-            case 1:
-                buffer[offset++] = t << 2 | (c & 48) >> 4;
-                t = c;
-                j = 2;
-                break;
-            case 2:
-                buffer[offset++] = (t & 15) << 4 | (c & 60) >> 2;
-                t = c;
-                j = 3;
-                break;
-            case 3:
-                buffer[offset++] = (t & 3) << 6 | c;
-                j = 0;
-                break;
-        }
-    }
-    if (j === 1)
-        throw Error(invalidEncoding);
-    return offset - start;
-};
-
-/**
- * Tests if the specified string appears to be base64 encoded.
- * @param {string} string String to test
- * @returns {boolean} `true` if probably base64 encoded, otherwise false
- */
-base64.test = function test(string) {
-    return /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(string);
-};
-
-
-/***/ }),
-/* 390 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = EventEmitter;
-
-/**
- * Constructs a new event emitter instance.
- * @classdesc A minimal event emitter.
- * @memberof util
- * @constructor
- */
-function EventEmitter() {
-
-    /**
-     * Registered listeners.
-     * @type {Object.<string,*>}
-     * @private
-     */
-    this._listeners = {};
-}
-
-/**
- * Registers an event listener.
- * @param {string} evt Event name
- * @param {function} fn Listener
- * @param {*} [ctx] Listener context
- * @returns {util.EventEmitter} `this`
- */
-EventEmitter.prototype.on = function on(evt, fn, ctx) {
-    (this._listeners[evt] || (this._listeners[evt] = [])).push({
-        fn  : fn,
-        ctx : ctx || this
-    });
-    return this;
-};
-
-/**
- * Removes an event listener or any matching listeners if arguments are omitted.
- * @param {string} [evt] Event name. Removes all listeners if omitted.
- * @param {function} [fn] Listener to remove. Removes all listeners of `evt` if omitted.
- * @returns {util.EventEmitter} `this`
- */
-EventEmitter.prototype.off = function off(evt, fn) {
-    if (evt === undefined)
-        this._listeners = {};
-    else {
-        if (fn === undefined)
-            this._listeners[evt] = [];
-        else {
-            var listeners = this._listeners[evt];
-            for (var i = 0; i < listeners.length;)
-                if (listeners[i].fn === fn)
-                    listeners.splice(i, 1);
-                else
-                    ++i;
-        }
-    }
-    return this;
-};
-
-/**
- * Emits an event by calling its listeners with the specified arguments.
- * @param {string} evt Event name
- * @param {...*} args Arguments
- * @returns {util.EventEmitter} `this`
- */
-EventEmitter.prototype.emit = function emit(evt) {
-    var listeners = this._listeners[evt];
-    if (listeners) {
-        var args = [],
-            i = 1;
-        for (; i < arguments.length;)
-            args.push(arguments[i++]);
-        for (i = 0; i < listeners.length;)
-            listeners[i].fn.apply(listeners[i++].ctx, args);
-    }
-    return this;
-};
-
-
-/***/ }),
-/* 391 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = factory(factory);
-
-/**
- * Reads / writes floats / doubles from / to buffers.
- * @name util.float
- * @namespace
- */
-
-/**
- * Writes a 32 bit float to a buffer using little endian byte order.
- * @name util.float.writeFloatLE
- * @function
- * @param {number} val Value to write
- * @param {Uint8Array} buf Target buffer
- * @param {number} pos Target buffer offset
- * @returns {undefined}
- */
-
-/**
- * Writes a 32 bit float to a buffer using big endian byte order.
- * @name util.float.writeFloatBE
- * @function
- * @param {number} val Value to write
- * @param {Uint8Array} buf Target buffer
- * @param {number} pos Target buffer offset
- * @returns {undefined}
- */
-
-/**
- * Reads a 32 bit float from a buffer using little endian byte order.
- * @name util.float.readFloatLE
- * @function
- * @param {Uint8Array} buf Source buffer
- * @param {number} pos Source buffer offset
- * @returns {number} Value read
- */
-
-/**
- * Reads a 32 bit float from a buffer using big endian byte order.
- * @name util.float.readFloatBE
- * @function
- * @param {Uint8Array} buf Source buffer
- * @param {number} pos Source buffer offset
- * @returns {number} Value read
- */
-
-/**
- * Writes a 64 bit double to a buffer using little endian byte order.
- * @name util.float.writeDoubleLE
- * @function
- * @param {number} val Value to write
- * @param {Uint8Array} buf Target buffer
- * @param {number} pos Target buffer offset
- * @returns {undefined}
- */
-
-/**
- * Writes a 64 bit double to a buffer using big endian byte order.
- * @name util.float.writeDoubleBE
- * @function
- * @param {number} val Value to write
- * @param {Uint8Array} buf Target buffer
- * @param {number} pos Target buffer offset
- * @returns {undefined}
- */
-
-/**
- * Reads a 64 bit double from a buffer using little endian byte order.
- * @name util.float.readDoubleLE
- * @function
- * @param {Uint8Array} buf Source buffer
- * @param {number} pos Source buffer offset
- * @returns {number} Value read
- */
-
-/**
- * Reads a 64 bit double from a buffer using big endian byte order.
- * @name util.float.readDoubleBE
- * @function
- * @param {Uint8Array} buf Source buffer
- * @param {number} pos Source buffer offset
- * @returns {number} Value read
- */
-
-// Factory function for the purpose of node-based testing in modified global environments
-function factory(exports) {
-
-    // float: typed array
-    if (typeof Float32Array !== "undefined") (function() {
-
-        var f32 = new Float32Array([ -0 ]),
-            f8b = new Uint8Array(f32.buffer),
-            le  = f8b[3] === 128;
-
-        function writeFloat_f32_cpy(val, buf, pos) {
-            f32[0] = val;
-            buf[pos    ] = f8b[0];
-            buf[pos + 1] = f8b[1];
-            buf[pos + 2] = f8b[2];
-            buf[pos + 3] = f8b[3];
-        }
-
-        function writeFloat_f32_rev(val, buf, pos) {
-            f32[0] = val;
-            buf[pos    ] = f8b[3];
-            buf[pos + 1] = f8b[2];
-            buf[pos + 2] = f8b[1];
-            buf[pos + 3] = f8b[0];
-        }
-
-        /* istanbul ignore next */
-        exports.writeFloatLE = le ? writeFloat_f32_cpy : writeFloat_f32_rev;
-        /* istanbul ignore next */
-        exports.writeFloatBE = le ? writeFloat_f32_rev : writeFloat_f32_cpy;
-
-        function readFloat_f32_cpy(buf, pos) {
-            f8b[0] = buf[pos    ];
-            f8b[1] = buf[pos + 1];
-            f8b[2] = buf[pos + 2];
-            f8b[3] = buf[pos + 3];
-            return f32[0];
-        }
-
-        function readFloat_f32_rev(buf, pos) {
-            f8b[3] = buf[pos    ];
-            f8b[2] = buf[pos + 1];
-            f8b[1] = buf[pos + 2];
-            f8b[0] = buf[pos + 3];
-            return f32[0];
-        }
-
-        /* istanbul ignore next */
-        exports.readFloatLE = le ? readFloat_f32_cpy : readFloat_f32_rev;
-        /* istanbul ignore next */
-        exports.readFloatBE = le ? readFloat_f32_rev : readFloat_f32_cpy;
-
-    // float: ieee754
-    })(); else (function() {
-
-        function writeFloat_ieee754(writeUint, val, buf, pos) {
-            var sign = val < 0 ? 1 : 0;
-            if (sign)
-                val = -val;
-            if (val === 0)
-                writeUint(1 / val > 0 ? /* positive */ 0 : /* negative 0 */ 2147483648, buf, pos);
-            else if (isNaN(val))
-                writeUint(2143289344, buf, pos);
-            else if (val > 3.4028234663852886e+38) // +-Infinity
-                writeUint((sign << 31 | 2139095040) >>> 0, buf, pos);
-            else if (val < 1.1754943508222875e-38) // denormal
-                writeUint((sign << 31 | Math.round(val / 1.401298464324817e-45)) >>> 0, buf, pos);
-            else {
-                var exponent = Math.floor(Math.log(val) / Math.LN2),
-                    mantissa = Math.round(val * Math.pow(2, -exponent) * 8388608) & 8388607;
-                writeUint((sign << 31 | exponent + 127 << 23 | mantissa) >>> 0, buf, pos);
-            }
-        }
-
-        exports.writeFloatLE = writeFloat_ieee754.bind(null, writeUintLE);
-        exports.writeFloatBE = writeFloat_ieee754.bind(null, writeUintBE);
-
-        function readFloat_ieee754(readUint, buf, pos) {
-            var uint = readUint(buf, pos),
-                sign = (uint >> 31) * 2 + 1,
-                exponent = uint >>> 23 & 255,
-                mantissa = uint & 8388607;
-            return exponent === 255
-                ? mantissa
-                ? NaN
-                : sign * Infinity
-                : exponent === 0 // denormal
-                ? sign * 1.401298464324817e-45 * mantissa
-                : sign * Math.pow(2, exponent - 150) * (mantissa + 8388608);
-        }
-
-        exports.readFloatLE = readFloat_ieee754.bind(null, readUintLE);
-        exports.readFloatBE = readFloat_ieee754.bind(null, readUintBE);
-
-    })();
-
-    // double: typed array
-    if (typeof Float64Array !== "undefined") (function() {
-
-        var f64 = new Float64Array([-0]),
-            f8b = new Uint8Array(f64.buffer),
-            le  = f8b[7] === 128;
-
-        function writeDouble_f64_cpy(val, buf, pos) {
-            f64[0] = val;
-            buf[pos    ] = f8b[0];
-            buf[pos + 1] = f8b[1];
-            buf[pos + 2] = f8b[2];
-            buf[pos + 3] = f8b[3];
-            buf[pos + 4] = f8b[4];
-            buf[pos + 5] = f8b[5];
-            buf[pos + 6] = f8b[6];
-            buf[pos + 7] = f8b[7];
-        }
-
-        function writeDouble_f64_rev(val, buf, pos) {
-            f64[0] = val;
-            buf[pos    ] = f8b[7];
-            buf[pos + 1] = f8b[6];
-            buf[pos + 2] = f8b[5];
-            buf[pos + 3] = f8b[4];
-            buf[pos + 4] = f8b[3];
-            buf[pos + 5] = f8b[2];
-            buf[pos + 6] = f8b[1];
-            buf[pos + 7] = f8b[0];
-        }
-
-        /* istanbul ignore next */
-        exports.writeDoubleLE = le ? writeDouble_f64_cpy : writeDouble_f64_rev;
-        /* istanbul ignore next */
-        exports.writeDoubleBE = le ? writeDouble_f64_rev : writeDouble_f64_cpy;
-
-        function readDouble_f64_cpy(buf, pos) {
-            f8b[0] = buf[pos    ];
-            f8b[1] = buf[pos + 1];
-            f8b[2] = buf[pos + 2];
-            f8b[3] = buf[pos + 3];
-            f8b[4] = buf[pos + 4];
-            f8b[5] = buf[pos + 5];
-            f8b[6] = buf[pos + 6];
-            f8b[7] = buf[pos + 7];
-            return f64[0];
-        }
-
-        function readDouble_f64_rev(buf, pos) {
-            f8b[7] = buf[pos    ];
-            f8b[6] = buf[pos + 1];
-            f8b[5] = buf[pos + 2];
-            f8b[4] = buf[pos + 3];
-            f8b[3] = buf[pos + 4];
-            f8b[2] = buf[pos + 5];
-            f8b[1] = buf[pos + 6];
-            f8b[0] = buf[pos + 7];
-            return f64[0];
-        }
-
-        /* istanbul ignore next */
-        exports.readDoubleLE = le ? readDouble_f64_cpy : readDouble_f64_rev;
-        /* istanbul ignore next */
-        exports.readDoubleBE = le ? readDouble_f64_rev : readDouble_f64_cpy;
-
-    // double: ieee754
-    })(); else (function() {
-
-        function writeDouble_ieee754(writeUint, off0, off1, val, buf, pos) {
-            var sign = val < 0 ? 1 : 0;
-            if (sign)
-                val = -val;
-            if (val === 0) {
-                writeUint(0, buf, pos + off0);
-                writeUint(1 / val > 0 ? /* positive */ 0 : /* negative 0 */ 2147483648, buf, pos + off1);
-            } else if (isNaN(val)) {
-                writeUint(0, buf, pos + off0);
-                writeUint(2146959360, buf, pos + off1);
-            } else if (val > 1.7976931348623157e+308) { // +-Infinity
-                writeUint(0, buf, pos + off0);
-                writeUint((sign << 31 | 2146435072) >>> 0, buf, pos + off1);
-            } else {
-                var mantissa;
-                if (val < 2.2250738585072014e-308) { // denormal
-                    mantissa = val / 5e-324;
-                    writeUint(mantissa >>> 0, buf, pos + off0);
-                    writeUint((sign << 31 | mantissa / 4294967296) >>> 0, buf, pos + off1);
-                } else {
-                    var exponent = Math.floor(Math.log(val) / Math.LN2);
-                    if (exponent === 1024)
-                        exponent = 1023;
-                    mantissa = val * Math.pow(2, -exponent);
-                    writeUint(mantissa * 4503599627370496 >>> 0, buf, pos + off0);
-                    writeUint((sign << 31 | exponent + 1023 << 20 | mantissa * 1048576 & 1048575) >>> 0, buf, pos + off1);
-                }
-            }
-        }
-
-        exports.writeDoubleLE = writeDouble_ieee754.bind(null, writeUintLE, 0, 4);
-        exports.writeDoubleBE = writeDouble_ieee754.bind(null, writeUintBE, 4, 0);
-
-        function readDouble_ieee754(readUint, off0, off1, buf, pos) {
-            var lo = readUint(buf, pos + off0),
-                hi = readUint(buf, pos + off1);
-            var sign = (hi >> 31) * 2 + 1,
-                exponent = hi >>> 20 & 2047,
-                mantissa = 4294967296 * (hi & 1048575) + lo;
-            return exponent === 2047
-                ? mantissa
-                ? NaN
-                : sign * Infinity
-                : exponent === 0 // denormal
-                ? sign * 5e-324 * mantissa
-                : sign * Math.pow(2, exponent - 1075) * (mantissa + 4503599627370496);
-        }
-
-        exports.readDoubleLE = readDouble_ieee754.bind(null, readUintLE, 0, 4);
-        exports.readDoubleBE = readDouble_ieee754.bind(null, readUintBE, 4, 0);
-
-    })();
-
-    return exports;
-}
-
-// uint helpers
-
-function writeUintLE(val, buf, pos) {
-    buf[pos    ] =  val        & 255;
-    buf[pos + 1] =  val >>> 8  & 255;
-    buf[pos + 2] =  val >>> 16 & 255;
-    buf[pos + 3] =  val >>> 24;
-}
-
-function writeUintBE(val, buf, pos) {
-    buf[pos    ] =  val >>> 24;
-    buf[pos + 1] =  val >>> 16 & 255;
-    buf[pos + 2] =  val >>> 8  & 255;
-    buf[pos + 3] =  val        & 255;
-}
-
-function readUintLE(buf, pos) {
-    return (buf[pos    ]
-          | buf[pos + 1] << 8
-          | buf[pos + 2] << 16
-          | buf[pos + 3] << 24) >>> 0;
-}
-
-function readUintBE(buf, pos) {
-    return (buf[pos    ] << 24
-          | buf[pos + 1] << 16
-          | buf[pos + 2] << 8
-          | buf[pos + 3]) >>> 0;
-}
-
-
-/***/ }),
-/* 392 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * A minimal UTF8 implementation for number arrays.
- * @memberof util
- * @namespace
- */
-var utf8 = exports;
-
-/**
- * Calculates the UTF8 byte length of a string.
- * @param {string} string String
- * @returns {number} Byte length
- */
-utf8.length = function utf8_length(string) {
-    var len = 0,
-        c = 0;
-    for (var i = 0; i < string.length; ++i) {
-        c = string.charCodeAt(i);
-        if (c < 128)
-            len += 1;
-        else if (c < 2048)
-            len += 2;
-        else if ((c & 0xFC00) === 0xD800 && (string.charCodeAt(i + 1) & 0xFC00) === 0xDC00) {
-            ++i;
-            len += 4;
-        } else
-            len += 3;
-    }
-    return len;
-};
-
-/**
- * Reads UTF8 bytes as a string.
- * @param {Uint8Array} buffer Source buffer
- * @param {number} start Source start
- * @param {number} end Source end
- * @returns {string} String read
- */
-utf8.read = function utf8_read(buffer, start, end) {
-    var len = end - start;
-    if (len < 1)
-        return "";
-    var parts = null,
-        chunk = [],
-        i = 0, // char offset
-        t;     // temporary
-    while (start < end) {
-        t = buffer[start++];
-        if (t < 128)
-            chunk[i++] = t;
-        else if (t > 191 && t < 224)
-            chunk[i++] = (t & 31) << 6 | buffer[start++] & 63;
-        else if (t > 239 && t < 365) {
-            t = ((t & 7) << 18 | (buffer[start++] & 63) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63) - 0x10000;
-            chunk[i++] = 0xD800 + (t >> 10);
-            chunk[i++] = 0xDC00 + (t & 1023);
-        } else
-            chunk[i++] = (t & 15) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63;
-        if (i > 8191) {
-            (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
-            i = 0;
-        }
-    }
-    if (parts) {
-        if (i)
-            parts.push(String.fromCharCode.apply(String, chunk.slice(0, i)));
-        return parts.join("");
-    }
-    return String.fromCharCode.apply(String, chunk.slice(0, i));
-};
-
-/**
- * Writes a string as UTF8 bytes.
- * @param {string} string Source string
- * @param {Uint8Array} buffer Destination buffer
- * @param {number} offset Destination offset
- * @returns {number} Bytes written
- */
-utf8.write = function utf8_write(string, buffer, offset) {
-    var start = offset,
-        c1, // character 1
-        c2; // character 2
-    for (var i = 0; i < string.length; ++i) {
-        c1 = string.charCodeAt(i);
-        if (c1 < 128) {
-            buffer[offset++] = c1;
-        } else if (c1 < 2048) {
-            buffer[offset++] = c1 >> 6       | 192;
-            buffer[offset++] = c1       & 63 | 128;
-        } else if ((c1 & 0xFC00) === 0xD800 && ((c2 = string.charCodeAt(i + 1)) & 0xFC00) === 0xDC00) {
-            c1 = 0x10000 + ((c1 & 0x03FF) << 10) + (c2 & 0x03FF);
-            ++i;
-            buffer[offset++] = c1 >> 18      | 240;
-            buffer[offset++] = c1 >> 12 & 63 | 128;
-            buffer[offset++] = c1 >> 6  & 63 | 128;
-            buffer[offset++] = c1       & 63 | 128;
-        } else {
-            buffer[offset++] = c1 >> 12      | 224;
-            buffer[offset++] = c1 >> 6  & 63 | 128;
-            buffer[offset++] = c1       & 63 | 128;
-        }
-    }
-    return offset - start;
-};
-
-
-/***/ }),
-/* 393 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = pool;
-
-/**
- * An allocator as used by {@link util.pool}.
- * @typedef PoolAllocator
- * @type {function}
- * @param {number} size Buffer size
- * @returns {Uint8Array} Buffer
- */
-
-/**
- * A slicer as used by {@link util.pool}.
- * @typedef PoolSlicer
- * @type {function}
- * @param {number} start Start offset
- * @param {number} end End offset
- * @returns {Uint8Array} Buffer slice
- * @this {Uint8Array}
- */
-
-/**
- * A general purpose buffer pool.
- * @memberof util
- * @function
- * @param {PoolAllocator} alloc Allocator
- * @param {PoolSlicer} slice Slicer
- * @param {number} [size=8192] Slab size
- * @returns {PoolAllocator} Pooled allocator
- */
-function pool(alloc, slice, size) {
-    var SIZE   = size || 8192;
-    var MAX    = SIZE >>> 1;
-    var slab   = null;
-    var offset = SIZE;
-    return function pool_alloc(size) {
-        if (size < 1 || size > MAX)
-            return alloc(size);
-        if (offset + size > SIZE) {
-            slab = alloc(SIZE);
-            offset = 0;
-        }
-        var buf = slice.call(slab, offset, offset += size);
-        if (offset & 7) // align to 32 bit
-            offset = (offset | 7) + 1;
-        return buf;
-    };
-}
-
-
-/***/ }),
-/* 394 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = LongBits;
-
-var util = __webpack_require__(23);
-
-/**
- * Constructs new long bits.
- * @classdesc Helper class for working with the low and high bits of a 64 bit value.
- * @memberof util
- * @constructor
- * @param {number} lo Low 32 bits, unsigned
- * @param {number} hi High 32 bits, unsigned
- */
-function LongBits(lo, hi) {
-
-    // note that the casts below are theoretically unnecessary as of today, but older statically
-    // generated converter code might still call the ctor with signed 32bits. kept for compat.
-
-    /**
-     * Low bits.
-     * @type {number}
-     */
-    this.lo = lo >>> 0;
-
-    /**
-     * High bits.
-     * @type {number}
-     */
-    this.hi = hi >>> 0;
-}
-
-/**
- * Zero bits.
- * @memberof util.LongBits
- * @type {util.LongBits}
- */
-var zero = LongBits.zero = new LongBits(0, 0);
-
-zero.toNumber = function() { return 0; };
-zero.zzEncode = zero.zzDecode = function() { return this; };
-zero.length = function() { return 1; };
-
-/**
- * Zero hash.
- * @memberof util.LongBits
- * @type {string}
- */
-var zeroHash = LongBits.zeroHash = "\0\0\0\0\0\0\0\0";
-
-/**
- * Constructs new long bits from the specified number.
- * @param {number} value Value
- * @returns {util.LongBits} Instance
- */
-LongBits.fromNumber = function fromNumber(value) {
-    if (value === 0)
-        return zero;
-    var sign = value < 0;
-    if (sign)
-        value = -value;
-    var lo = value >>> 0,
-        hi = (value - lo) / 4294967296 >>> 0;
-    if (sign) {
-        hi = ~hi >>> 0;
-        lo = ~lo >>> 0;
-        if (++lo > 4294967295) {
-            lo = 0;
-            if (++hi > 4294967295)
-                hi = 0;
-        }
-    }
-    return new LongBits(lo, hi);
-};
-
-/**
- * Constructs new long bits from a number, long or string.
- * @param {Long|number|string} value Value
- * @returns {util.LongBits} Instance
- */
-LongBits.from = function from(value) {
-    if (typeof value === "number")
-        return LongBits.fromNumber(value);
-    if (util.isString(value)) {
-        /* istanbul ignore else */
-        if (util.Long)
-            value = util.Long.fromString(value);
-        else
-            return LongBits.fromNumber(parseInt(value, 10));
-    }
-    return value.low || value.high ? new LongBits(value.low >>> 0, value.high >>> 0) : zero;
-};
-
-/**
- * Converts this long bits to a possibly unsafe JavaScript number.
- * @param {boolean} [unsigned=false] Whether unsigned or not
- * @returns {number} Possibly unsafe number
- */
-LongBits.prototype.toNumber = function toNumber(unsigned) {
-    if (!unsigned && this.hi >>> 31) {
-        var lo = ~this.lo + 1 >>> 0,
-            hi = ~this.hi     >>> 0;
-        if (!lo)
-            hi = hi + 1 >>> 0;
-        return -(lo + hi * 4294967296);
-    }
-    return this.lo + this.hi * 4294967296;
-};
-
-/**
- * Converts this long bits to a long.
- * @param {boolean} [unsigned=false] Whether unsigned or not
- * @returns {Long} Long
- */
-LongBits.prototype.toLong = function toLong(unsigned) {
-    return util.Long
-        ? new util.Long(this.lo | 0, this.hi | 0, Boolean(unsigned))
-        /* istanbul ignore next */
-        : { low: this.lo | 0, high: this.hi | 0, unsigned: Boolean(unsigned) };
-};
-
-var charCodeAt = String.prototype.charCodeAt;
-
-/**
- * Constructs new long bits from the specified 8 characters long hash.
- * @param {string} hash Hash
- * @returns {util.LongBits} Bits
- */
-LongBits.fromHash = function fromHash(hash) {
-    if (hash === zeroHash)
-        return zero;
-    return new LongBits(
-        ( charCodeAt.call(hash, 0)
-        | charCodeAt.call(hash, 1) << 8
-        | charCodeAt.call(hash, 2) << 16
-        | charCodeAt.call(hash, 3) << 24) >>> 0
-    ,
-        ( charCodeAt.call(hash, 4)
-        | charCodeAt.call(hash, 5) << 8
-        | charCodeAt.call(hash, 6) << 16
-        | charCodeAt.call(hash, 7) << 24) >>> 0
-    );
-};
-
-/**
- * Converts this long bits to a 8 characters long hash.
- * @returns {string} Hash
- */
-LongBits.prototype.toHash = function toHash() {
-    return String.fromCharCode(
-        this.lo        & 255,
-        this.lo >>> 8  & 255,
-        this.lo >>> 16 & 255,
-        this.lo >>> 24      ,
-        this.hi        & 255,
-        this.hi >>> 8  & 255,
-        this.hi >>> 16 & 255,
-        this.hi >>> 24
-    );
-};
-
-/**
- * Zig-zag encodes this long bits.
- * @returns {util.LongBits} `this`
- */
-LongBits.prototype.zzEncode = function zzEncode() {
-    var mask =   this.hi >> 31;
-    this.hi  = ((this.hi << 1 | this.lo >>> 31) ^ mask) >>> 0;
-    this.lo  = ( this.lo << 1                   ^ mask) >>> 0;
-    return this;
-};
-
-/**
- * Zig-zag decodes this long bits.
- * @returns {util.LongBits} `this`
- */
-LongBits.prototype.zzDecode = function zzDecode() {
-    var mask = -(this.lo & 1);
-    this.lo  = ((this.lo >>> 1 | this.hi << 31) ^ mask) >>> 0;
-    this.hi  = ( this.hi >>> 1                  ^ mask) >>> 0;
-    return this;
-};
-
-/**
- * Calculates the length of this longbits when encoded as a varint.
- * @returns {number} Length
- */
-LongBits.prototype.length = function length() {
-    var part0 =  this.lo,
-        part1 = (this.lo >>> 28 | this.hi << 4) >>> 0,
-        part2 =  this.hi >>> 24;
-    return part2 === 0
-         ? part1 === 0
-           ? part0 < 16384
-             ? part0 < 128 ? 1 : 2
-             : part0 < 2097152 ? 3 : 4
-           : part1 < 16384
-             ? part1 < 128 ? 5 : 6
-             : part1 < 2097152 ? 7 : 8
-         : part2 < 128 ? 9 : 10;
-};
-
-
-/***/ }),
-/* 395 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = BufferWriter;
-
-// extends Writer
-var Writer = __webpack_require__(88);
-(BufferWriter.prototype = Object.create(Writer.prototype)).constructor = BufferWriter;
-
-var util = __webpack_require__(23);
-
-var Buffer = util.Buffer;
-
-/**
- * Constructs a new buffer writer instance.
- * @classdesc Wire format writer using node buffers.
- * @extends Writer
- * @constructor
- */
-function BufferWriter() {
-    Writer.call(this);
-}
-
-/**
- * Allocates a buffer of the specified size.
- * @param {number} size Buffer size
- * @returns {Buffer} Buffer
- */
-BufferWriter.alloc = function alloc_buffer(size) {
-    return (BufferWriter.alloc = util._Buffer_allocUnsafe)(size);
-};
-
-var writeBytesBuffer = Buffer && Buffer.prototype instanceof Uint8Array && Buffer.prototype.set.name === "set"
-    ? function writeBytesBuffer_set(val, buf, pos) {
-        buf.set(val, pos); // faster than copy (requires node >= 4 where Buffers extend Uint8Array and set is properly inherited)
-                           // also works for plain array values
-    }
-    /* istanbul ignore next */
-    : function writeBytesBuffer_copy(val, buf, pos) {
-        if (val.copy) // Buffer values
-            val.copy(buf, pos, 0, val.length);
-        else for (var i = 0; i < val.length;) // plain array values
-            buf[pos++] = val[i++];
-    };
-
-/**
- * @override
- */
-BufferWriter.prototype.bytes = function write_bytes_buffer(value) {
-    if (util.isString(value))
-        value = util._Buffer_from(value, "base64");
-    var len = value.length >>> 0;
-    this.uint32(len);
-    if (len)
-        this._push(writeBytesBuffer, len, value);
-    return this;
-};
-
-function writeStringBuffer(val, buf, pos) {
-    if (val.length < 40) // plain js is faster for short strings (probably due to redundant assertions)
-        util.utf8.write(val, buf, pos);
-    else
-        buf.utf8Write(val, pos);
-}
-
-/**
- * @override
- */
-BufferWriter.prototype.string = function write_string_buffer(value) {
-    var len = Buffer.byteLength(value);
-    this.uint32(len);
-    if (len)
-        this._push(writeStringBuffer, len, value);
-    return this;
-};
-
-
-/**
- * Finishes the write operation.
- * @name BufferWriter#finish
- * @function
- * @returns {Buffer} Finished buffer
- */
-
-
-/***/ }),
-/* 396 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = BufferReader;
-
-// extends Reader
-var Reader = __webpack_require__(89);
-(BufferReader.prototype = Object.create(Reader.prototype)).constructor = BufferReader;
-
-var util = __webpack_require__(23);
-
-/**
- * Constructs a new buffer reader instance.
- * @classdesc Wire format reader using node buffers.
- * @extends Reader
- * @constructor
- * @param {Buffer} buffer Buffer to read from
- */
-function BufferReader(buffer) {
-    Reader.call(this, buffer);
-
-    /**
-     * Read buffer.
-     * @name BufferReader#buf
-     * @type {Buffer}
-     */
-}
-
-/* istanbul ignore else */
-if (util.Buffer)
-    BufferReader.prototype._slice = util.Buffer.prototype.slice;
-
-/**
- * @override
- */
-BufferReader.prototype.string = function read_string_buffer() {
-    var len = this.uint32(); // modifies pos
-    return this.buf.utf8Slice(this.pos, this.pos = Math.min(this.pos + len, this.len));
-};
-
-/**
- * Reads a sequence of bytes preceeded by its length as a varint.
- * @name BufferReader#bytes
- * @function
- * @returns {Buffer} Value read
- */
-
-
-/***/ }),
-/* 397 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = Service;
-
-var util = __webpack_require__(23);
-
-// Extends EventEmitter
-(Service.prototype = Object.create(util.EventEmitter.prototype)).constructor = Service;
-
-/**
- * A service method callback as used by {@link rpc.ServiceMethod|ServiceMethod}.
- *
- * Differs from {@link RPCImplCallback} in that it is an actual callback of a service method which may not return `response = null`.
- * @typedef rpc.ServiceMethodCallback
- * @template TRes extends Message<TRes>
- * @type {function}
- * @param {Error|null} error Error, if any
- * @param {TRes} [response] Response message
- * @returns {undefined}
- */
-
-/**
- * A service method part of a {@link rpc.Service} as created by {@link Service.create}.
- * @typedef rpc.ServiceMethod
- * @template TReq extends Message<TReq>
- * @template TRes extends Message<TRes>
- * @type {function}
- * @param {TReq|Properties<TReq>} request Request message or plain object
- * @param {rpc.ServiceMethodCallback<TRes>} [callback] Node-style callback called with the error, if any, and the response message
- * @returns {Promise<Message<TRes>>} Promise if `callback` has been omitted, otherwise `undefined`
- */
-
-/**
- * Constructs a new RPC service instance.
- * @classdesc An RPC service as returned by {@link Service#create}.
- * @exports rpc.Service
- * @extends util.EventEmitter
- * @constructor
- * @param {RPCImpl} rpcImpl RPC implementation
- * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
- * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
- */
-function Service(rpcImpl, requestDelimited, responseDelimited) {
-
-    if (typeof rpcImpl !== "function")
-        throw TypeError("rpcImpl must be a function");
-
-    util.EventEmitter.call(this);
-
-    /**
-     * RPC implementation. Becomes `null` once the service is ended.
-     * @type {RPCImpl|null}
-     */
-    this.rpcImpl = rpcImpl;
-
-    /**
-     * Whether requests are length-delimited.
-     * @type {boolean}
-     */
-    this.requestDelimited = Boolean(requestDelimited);
-
-    /**
-     * Whether responses are length-delimited.
-     * @type {boolean}
-     */
-    this.responseDelimited = Boolean(responseDelimited);
-}
-
-/**
- * Calls a service method through {@link rpc.Service#rpcImpl|rpcImpl}.
- * @param {Method|rpc.ServiceMethod<TReq,TRes>} method Reflected or static method
- * @param {Constructor<TReq>} requestCtor Request constructor
- * @param {Constructor<TRes>} responseCtor Response constructor
- * @param {TReq|Properties<TReq>} request Request message or plain object
- * @param {rpc.ServiceMethodCallback<TRes>} callback Service callback
- * @returns {undefined}
- * @template TReq extends Message<TReq>
- * @template TRes extends Message<TRes>
- */
-Service.prototype.rpcCall = function rpcCall(method, requestCtor, responseCtor, request, callback) {
-
-    if (!request)
-        throw TypeError("request must be specified");
-
-    var self = this;
-    if (!callback)
-        return util.asPromise(rpcCall, self, method, requestCtor, responseCtor, request);
-
-    if (!self.rpcImpl) {
-        setTimeout(function() { callback(Error("already ended")); }, 0);
-        return undefined;
-    }
-
-    try {
-        return self.rpcImpl(
-            method,
-            requestCtor[self.requestDelimited ? "encodeDelimited" : "encode"](request).finish(),
-            function rpcCallback(err, response) {
-
-                if (err) {
-                    self.emit("error", err, method);
-                    return callback(err);
-                }
-
-                if (response === null) {
-                    self.end(/* endedByRPC */ true);
-                    return undefined;
-                }
-
-                if (!(response instanceof responseCtor)) {
-                    try {
-                        response = responseCtor[self.responseDelimited ? "decodeDelimited" : "decode"](response);
-                    } catch (err) {
-                        self.emit("error", err, method);
-                        return callback(err);
-                    }
-                }
-
-                self.emit("data", response, method);
-                return callback(null, response);
-            }
-        );
-    } catch (err) {
-        self.emit("error", err, method);
-        setTimeout(function() { callback(err); }, 0);
-        return undefined;
-    }
-};
-
-/**
- * Ends this service and emits the `end` event.
- * @param {boolean} [endedByRPC=false] Whether the service has been ended by the RPC implementation.
- * @returns {rpc.Service} `this`
- */
-Service.prototype.end = function end(endedByRPC) {
-    if (this.rpcImpl) {
-        if (!endedByRPC) // signal end to rpcImpl
-            this.rpcImpl(null, null, null);
-        this.rpcImpl = null;
-        this.emit("end").off();
-    }
-    return this;
-};
-
-
-/***/ }),
-/* 398 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(console) {
-module.exports = codegen;
-
-/**
- * Begins generating a function.
- * @memberof util
- * @param {string[]} functionParams Function parameter names
- * @param {string} [functionName] Function name if not anonymous
- * @returns {Codegen} Appender that appends code to the function's body
- */
-function codegen(functionParams, functionName) {
-
-    /* istanbul ignore if */
-    if (typeof functionParams === "string") {
-        functionName = functionParams;
-        functionParams = undefined;
-    }
-
-    var body = [];
-
-    /**
-     * Appends code to the function's body or finishes generation.
-     * @typedef Codegen
-     * @type {function}
-     * @param {string|Object.<string,*>} [formatStringOrScope] Format string or, to finish the function, an object of additional scope variables, if any
-     * @param {...*} [formatParams] Format parameters
-     * @returns {Codegen|Function} Itself or the generated function if finished
-     * @throws {Error} If format parameter counts do not match
-     */
-
-    function Codegen(formatStringOrScope) {
-        // note that explicit array handling below makes this ~50% faster
-
-        // finish the function
-        if (typeof formatStringOrScope !== "string") {
-            var source = toString();
-            if (codegen.verbose)
-                console.log("codegen: " + source); // eslint-disable-line no-console
-            source = "return " + source;
-            if (formatStringOrScope) {
-                var scopeKeys   = Object.keys(formatStringOrScope),
-                    scopeParams = new Array(scopeKeys.length + 1),
-                    scopeValues = new Array(scopeKeys.length),
-                    scopeOffset = 0;
-                while (scopeOffset < scopeKeys.length) {
-                    scopeParams[scopeOffset] = scopeKeys[scopeOffset];
-                    scopeValues[scopeOffset] = formatStringOrScope[scopeKeys[scopeOffset++]];
-                }
-                scopeParams[scopeOffset] = source;
-                return Function.apply(null, scopeParams).apply(null, scopeValues); // eslint-disable-line no-new-func
-            }
-            return Function(source)(); // eslint-disable-line no-new-func
-        }
-
-        // otherwise append to body
-        var formatParams = new Array(arguments.length - 1),
-            formatOffset = 0;
-        while (formatOffset < formatParams.length)
-            formatParams[formatOffset] = arguments[++formatOffset];
-        formatOffset = 0;
-        formatStringOrScope = formatStringOrScope.replace(/%([%dfijs])/g, function replace($0, $1) {
-            var value = formatParams[formatOffset++];
-            switch ($1) {
-                case "d": case "f": return String(Number(value));
-                case "i": return String(Math.floor(value));
-                case "j": return JSON.stringify(value);
-                case "s": return String(value);
-            }
-            return "%";
-        });
-        if (formatOffset !== formatParams.length)
-            throw Error("parameter count mismatch");
-        body.push(formatStringOrScope);
-        return Codegen;
-    }
-
-    function toString(functionNameOverride) {
-        return "function " + (functionNameOverride || functionName || "") + "(" + (functionParams && functionParams.join(",") || "") + "){\n  " + body.join("\n  ") + "\n}";
-    }
-
-    Codegen.toString = toString;
-    return Codegen;
-}
-
-/**
- * Begins generating a function.
- * @memberof util
- * @function codegen
- * @param {string} [functionName] Function name if not anonymous
- * @returns {Codegen} Appender that appends code to the function's body
- * @variation 2
- */
-
-/**
- * When set to `true`, codegen will log generated code to console. Useful for debugging.
- * @name util.codegen.verbose
- * @type {boolean}
- */
-codegen.verbose = false;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
-
-/***/ }),
-/* 399 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = fetch;
-
-var asPromise = __webpack_require__(162),
-    inquire   = __webpack_require__(163);
-
-var fs = inquire("fs");
-
-/**
- * Node-style callback as used by {@link util.fetch}.
- * @typedef FetchCallback
- * @type {function}
- * @param {?Error} error Error, if any, otherwise `null`
- * @param {string} [contents] File contents, if there hasn't been an error
- * @returns {undefined}
- */
-
-/**
- * Options as used by {@link util.fetch}.
- * @typedef FetchOptions
- * @type {Object}
- * @property {boolean} [binary=false] Whether expecting a binary response
- * @property {boolean} [xhr=false] If `true`, forces the use of XMLHttpRequest
- */
-
-/**
- * Fetches the contents of a file.
- * @memberof util
- * @param {string} filename File path or url
- * @param {FetchOptions} options Fetch options
- * @param {FetchCallback} callback Callback function
- * @returns {undefined}
- */
-function fetch(filename, options, callback) {
-    if (typeof options === "function") {
-        callback = options;
-        options = {};
-    } else if (!options)
-        options = {};
-
-    if (!callback)
-        return asPromise(fetch, this, filename, options); // eslint-disable-line no-invalid-this
-
-    // if a node-like filesystem is present, try it first but fall back to XHR if nothing is found.
-    if (!options.xhr && fs && fs.readFile)
-        return fs.readFile(filename, function fetchReadFileCallback(err, contents) {
-            return err && typeof XMLHttpRequest !== "undefined"
-                ? fetch.xhr(filename, options, callback)
-                : err
-                ? callback(err)
-                : callback(null, options.binary ? contents : contents.toString("utf8"));
-        });
-
-    // use the XHR version otherwise.
-    return fetch.xhr(filename, options, callback);
-}
-
-/**
- * Fetches the contents of a file.
- * @name util.fetch
- * @function
- * @param {string} path File path or url
- * @param {FetchCallback} callback Callback function
- * @returns {undefined}
- * @variation 2
- */
-
-/**
- * Fetches the contents of a file.
- * @name util.fetch
- * @function
- * @param {string} path File path or url
- * @param {FetchOptions} [options] Fetch options
- * @returns {Promise<string|Uint8Array>} Promise
- * @variation 3
- */
-
-/**/
-fetch.xhr = function fetch_xhr(filename, options, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange /* works everywhere */ = function fetchOnReadyStateChange() {
-
-        if (xhr.readyState !== 4)
-            return undefined;
-
-        // local cors security errors return status 0 / empty string, too. afaik this cannot be
-        // reliably distinguished from an actually empty file for security reasons. feel free
-        // to send a pull request if you are aware of a solution.
-        if (xhr.status !== 0 && xhr.status !== 200)
-            return callback(Error("status " + xhr.status));
-
-        // if binary data is expected, make sure that some sort of array is returned, even if
-        // ArrayBuffers are not supported. the binary string fallback, however, is unsafe.
-        if (options.binary) {
-            var buffer = xhr.response;
-            if (!buffer) {
-                buffer = [];
-                for (var i = 0; i < xhr.responseText.length; ++i)
-                    buffer.push(xhr.responseText.charCodeAt(i) & 255);
-            }
-            return callback(null, typeof Uint8Array !== "undefined" ? new Uint8Array(buffer) : buffer);
-        }
-        return callback(null, xhr.responseText);
-    };
-
-    if (options.binary) {
-        // ref: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Sending_and_Receiving_Binary_Data#Receiving_binary_data_in_older_browsers
-        if ("overrideMimeType" in xhr)
-            xhr.overrideMimeType("text/plain; charset=x-user-defined");
-        xhr.responseType = "arraybuffer";
-    }
-
-    xhr.open("GET", filename);
-    xhr.send();
-};
-
-
-/***/ }),
-/* 400 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * A minimal path module to resolve Unix, Windows and URL paths alike.
- * @memberof util
- * @namespace
- */
-var path = exports;
-
-var isAbsolute =
-/**
- * Tests if the specified path is absolute.
- * @param {string} path Path to test
- * @returns {boolean} `true` if path is absolute
- */
-path.isAbsolute = function isAbsolute(path) {
-    return /^(?:\/|\w+:)/.test(path);
-};
-
-var normalize =
-/**
- * Normalizes the specified path.
- * @param {string} path Path to normalize
- * @returns {string} Normalized path
- */
-path.normalize = function normalize(path) {
-    path = path.replace(/\\/g, "/")
-               .replace(/\/{2,}/g, "/");
-    var parts    = path.split("/"),
-        absolute = isAbsolute(path),
-        prefix   = "";
-    if (absolute)
-        prefix = parts.shift() + "/";
-    for (var i = 0; i < parts.length;) {
-        if (parts[i] === "..") {
-            if (i > 0 && parts[i - 1] !== "..")
-                parts.splice(--i, 2);
-            else if (absolute)
-                parts.splice(i, 1);
-            else
-                ++i;
-        } else if (parts[i] === ".")
-            parts.splice(i, 1);
-        else
-            ++i;
-    }
-    return prefix + parts.join("/");
-};
-
-/**
- * Resolves the specified include path against the specified origin path.
- * @param {string} originPath Path to the origin file
- * @param {string} includePath Include path relative to origin path
- * @param {boolean} [alreadyNormalized=false] `true` if both paths are already known to be normalized
- * @returns {string} Path to the include file
- */
-path.resolve = function resolve(originPath, includePath, alreadyNormalized) {
-    if (!alreadyNormalized)
-        includePath = normalize(includePath);
-    if (isAbsolute(includePath))
-        return includePath;
-    if (!alreadyNormalized)
-        originPath = normalize(originPath);
-    return (originPath = originPath.replace(/(?:\/|^)[^/]+$/, "")).length ? normalize(originPath + "/" + includePath) : includePath;
-};
-
-
-/***/ }),
-/* 401 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = parse;
-
-parse.filename = null;
-parse.defaults = { keepCase: false };
-
-var tokenize  = __webpack_require__(171),
-    Root      = __webpack_require__(95),
-    Type      = __webpack_require__(90),
-    Field     = __webpack_require__(32),
-    MapField  = __webpack_require__(91),
-    OneOf     = __webpack_require__(65),
-    Enum      = __webpack_require__(17),
-    Service   = __webpack_require__(92),
-    Method    = __webpack_require__(93),
-    types     = __webpack_require__(39),
-    util      = __webpack_require__(10);
-
-var base10Re    = /^[1-9][0-9]*$/,
-    base10NegRe = /^-?[1-9][0-9]*$/,
-    base16Re    = /^0[x][0-9a-fA-F]+$/,
-    base16NegRe = /^-?0[x][0-9a-fA-F]+$/,
-    base8Re     = /^0[0-7]+$/,
-    base8NegRe  = /^-?0[0-7]+$/,
-    numberRe    = /^(?![eE])[0-9]*(?:\.[0-9]*)?(?:[eE][+-]?[0-9]+)?$/,
-    nameRe      = /^[a-zA-Z_][a-zA-Z_0-9]*$/,
-    typeRefRe   = /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)+$/,
-    fqTypeRefRe = /^(?:\.[a-zA-Z][a-zA-Z_0-9]*)+$/;
-
-/**
- * Result object returned from {@link parse}.
- * @interface IParserResult
- * @property {string|undefined} package Package name, if declared
- * @property {string[]|undefined} imports Imports, if any
- * @property {string[]|undefined} weakImports Weak imports, if any
- * @property {string|undefined} syntax Syntax, if specified (either `"proto2"` or `"proto3"`)
- * @property {Root} root Populated root instance
- */
-
-/**
- * Options modifying the behavior of {@link parse}.
- * @interface IParseOptions
- * @property {boolean} [keepCase=false] Keeps field casing instead of converting to camel case
- */
-
-/**
- * Parses the given .proto source and returns an object with the parsed contents.
- * @param {string} source Source contents
- * @param {Root} root Root to populate
- * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
- * @returns {IParserResult} Parser result
- * @property {string} filename=null Currently processing file name for error reporting, if known
- * @property {IParseOptions} defaults Default {@link IParseOptions}
- */
-function parse(source, root, options) {
-    /* eslint-disable callback-return */
-    if (!(root instanceof Root)) {
-        options = root;
-        root = new Root();
-    }
-    if (!options)
-        options = parse.defaults;
-
-    var tn = tokenize(source),
-        next = tn.next,
-        push = tn.push,
-        peek = tn.peek,
-        skip = tn.skip,
-        cmnt = tn.cmnt;
-
-    var head = true,
-        pkg,
-        imports,
-        weakImports,
-        syntax,
-        isProto3 = false;
-
-    var ptr = root;
-
-    var applyCase = options.keepCase ? function(name) { return name; } : util.camelCase;
-
-    /* istanbul ignore next */
-    function illegal(token, name, insideTryCatch) {
-        var filename = parse.filename;
-        if (!insideTryCatch)
-            parse.filename = null;
-        return Error("illegal " + (name || "token") + " '" + token + "' (" + (filename ? filename + ", " : "") + "line " + tn.line + ")");
-    }
-
-    function readString() {
-        var values = [],
-            token;
-        do {
-            /* istanbul ignore if */
-            if ((token = next()) !== "\"" && token !== "'")
-                throw illegal(token);
-
-            values.push(next());
-            skip(token);
-            token = peek();
-        } while (token === "\"" || token === "'");
-        return values.join("");
-    }
-
-    function readValue(acceptTypeRef) {
-        var token = next();
-        switch (token) {
-            case "'":
-            case "\"":
-                push(token);
-                return readString();
-            case "true": case "TRUE":
-                return true;
-            case "false": case "FALSE":
-                return false;
-        }
-        try {
-            return parseNumber(token, /* insideTryCatch */ true);
-        } catch (e) {
-
-            /* istanbul ignore else */
-            if (acceptTypeRef && typeRefRe.test(token))
-                return token;
-
-            /* istanbul ignore next */
-            throw illegal(token, "value");
-        }
-    }
-
-    function readRanges(target, acceptStrings) {
-        var token, start;
-        do {
-            if (acceptStrings && ((token = peek()) === "\"" || token === "'"))
-                target.push(readString());
-            else
-                target.push([ start = parseId(next()), skip("to", true) ? parseId(next()) : start ]);
-        } while (skip(",", true));
-        skip(";");
-    }
-
-    function parseNumber(token, insideTryCatch) {
-        var sign = 1;
-        if (token.charAt(0) === "-") {
-            sign = -1;
-            token = token.substring(1);
-        }
-        switch (token) {
-            case "inf": case "INF": case "Inf":
-                return sign * Infinity;
-            case "nan": case "NAN": case "Nan": case "NaN":
-                return NaN;
-            case "0":
-                return 0;
-        }
-        if (base10Re.test(token))
-            return sign * parseInt(token, 10);
-        if (base16Re.test(token))
-            return sign * parseInt(token, 16);
-        if (base8Re.test(token))
-            return sign * parseInt(token, 8);
-
-        /* istanbul ignore else */
-        if (numberRe.test(token))
-            return sign * parseFloat(token);
-
-        /* istanbul ignore next */
-        throw illegal(token, "number", insideTryCatch);
-    }
-
-    function parseId(token, acceptNegative) {
-        switch (token) {
-            case "max": case "MAX": case "Max":
-                return 536870911;
-            case "0":
-                return 0;
-        }
-
-        /* istanbul ignore if */
-        if (!acceptNegative && token.charAt(0) === "-")
-            throw illegal(token, "id");
-
-        if (base10NegRe.test(token))
-            return parseInt(token, 10);
-        if (base16NegRe.test(token))
-            return parseInt(token, 16);
-
-        /* istanbul ignore else */
-        if (base8NegRe.test(token))
-            return parseInt(token, 8);
-
-        /* istanbul ignore next */
-        throw illegal(token, "id");
-    }
-
-    function parsePackage() {
-
-        /* istanbul ignore if */
-        if (pkg !== undefined)
-            throw illegal("package");
-
-        pkg = next();
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(pkg))
-            throw illegal(pkg, "name");
-
-        ptr = ptr.define(pkg);
-        skip(";");
-    }
-
-    function parseImport() {
-        var token = peek();
-        var whichImports;
-        switch (token) {
-            case "weak":
-                whichImports = weakImports || (weakImports = []);
-                next();
-                break;
-            case "public":
-                next();
-                // eslint-disable-line no-fallthrough
-            default:
-                whichImports = imports || (imports = []);
-                break;
-        }
-        token = readString();
-        skip(";");
-        whichImports.push(token);
-    }
-
-    function parseSyntax() {
-        skip("=");
-        syntax = readString();
-        isProto3 = syntax === "proto3";
-
-        /* istanbul ignore if */
-        if (!isProto3 && syntax !== "proto2")
-            throw illegal(syntax, "syntax");
-
-        skip(";");
-    }
-
-    function parseCommon(parent, token) {
-        switch (token) {
-
-            case "option":
-                parseOption(parent, token);
-                skip(";");
-                return true;
-
-            case "message":
-                parseType(parent, token);
-                return true;
-
-            case "enum":
-                parseEnum(parent, token);
-                return true;
-
-            case "service":
-                parseService(parent, token);
-                return true;
-
-            case "extend":
-                parseExtension(parent, token);
-                return true;
-        }
-        return false;
-    }
-
-    function ifBlock(obj, fnIf, fnElse) {
-        var trailingLine = tn.line;
-        if (obj) {
-            obj.comment = cmnt(); // try block-type comment
-            obj.filename = parse.filename;
-        }
-        if (skip("{", true)) {
-            var token;
-            while ((token = next()) !== "}")
-                fnIf(token);
-            skip(";", true);
-        } else {
-            if (fnElse)
-                fnElse();
-            skip(";");
-            if (obj && typeof obj.comment !== "string")
-                obj.comment = cmnt(trailingLine); // try line-type comment if no block
-        }
-    }
-
-    function parseType(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "type name");
-
-        var type = new Type(token);
-        ifBlock(type, function parseType_block(token) {
-            if (parseCommon(type, token))
-                return;
-
-            switch (token) {
-
-                case "map":
-                    parseMapField(type, token);
-                    break;
-
-                case "required":
-                case "optional":
-                case "repeated":
-                    parseField(type, token);
-                    break;
-
-                case "oneof":
-                    parseOneOf(type, token);
-                    break;
-
-                case "extensions":
-                    readRanges(type.extensions || (type.extensions = []));
-                    break;
-
-                case "reserved":
-                    readRanges(type.reserved || (type.reserved = []), true);
-                    break;
-
-                default:
-                    /* istanbul ignore if */
-                    if (!isProto3 || !typeRefRe.test(token))
-                        throw illegal(token);
-
-                    push(token);
-                    parseField(type, "optional");
-                    break;
-            }
-        });
-        parent.add(type);
-    }
-
-    function parseField(parent, rule, extend) {
-        var type = next();
-        if (type === "group") {
-            parseGroup(parent, rule);
-            return;
-        }
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(type))
-            throw illegal(type, "type");
-
-        var name = next();
-
-        /* istanbul ignore if */
-        if (!nameRe.test(name))
-            throw illegal(name, "name");
-
-        name = applyCase(name);
-        skip("=");
-
-        var field = new Field(name, parseId(next()), type, rule, extend);
-        ifBlock(field, function parseField_block(token) {
-
-            /* istanbul ignore else */
-            if (token === "option") {
-                parseOption(field, token);
-                skip(";");
-            } else
-                throw illegal(token);
-
-        }, function parseField_line() {
-            parseInlineOptions(field);
-        });
-        parent.add(field);
-
-        // JSON defaults to packed=true if not set so we have to set packed=false explicity when
-        // parsing proto2 descriptors without the option, where applicable. This must be done for
-        // all known packable types and anything that could be an enum (= is not a basic type).
-        if (!isProto3 && field.repeated && (types.packed[type] !== undefined || types.basic[type] === undefined))
-            field.setOption("packed", false, /* ifNotSet */ true);
-    }
-
-    function parseGroup(parent, rule) {
-        var name = next();
-
-        /* istanbul ignore if */
-        if (!nameRe.test(name))
-            throw illegal(name, "name");
-
-        var fieldName = util.lcFirst(name);
-        if (name === fieldName)
-            name = util.ucFirst(name);
-        skip("=");
-        var id = parseId(next());
-        var type = new Type(name);
-        type.group = true;
-        var field = new Field(fieldName, id, name, rule);
-        field.filename = parse.filename;
-        ifBlock(type, function parseGroup_block(token) {
-            switch (token) {
-
-                case "option":
-                    parseOption(type, token);
-                    skip(";");
-                    break;
-
-                case "required":
-                case "optional":
-                case "repeated":
-                    parseField(type, token);
-                    break;
-
-                /* istanbul ignore next */
-                default:
-                    throw illegal(token); // there are no groups with proto3 semantics
-            }
-        });
-        parent.add(type)
-              .add(field);
-    }
-
-    function parseMapField(parent) {
-        skip("<");
-        var keyType = next();
-
-        /* istanbul ignore if */
-        if (types.mapKey[keyType] === undefined)
-            throw illegal(keyType, "type");
-
-        skip(",");
-        var valueType = next();
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(valueType))
-            throw illegal(valueType, "type");
-
-        skip(">");
-        var name = next();
-
-        /* istanbul ignore if */
-        if (!nameRe.test(name))
-            throw illegal(name, "name");
-
-        skip("=");
-        var field = new MapField(applyCase(name), parseId(next()), keyType, valueType);
-        ifBlock(field, function parseMapField_block(token) {
-
-            /* istanbul ignore else */
-            if (token === "option") {
-                parseOption(field, token);
-                skip(";");
-            } else
-                throw illegal(token);
-
-        }, function parseMapField_line() {
-            parseInlineOptions(field);
-        });
-        parent.add(field);
-    }
-
-    function parseOneOf(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "name");
-
-        var oneof = new OneOf(applyCase(token));
-        ifBlock(oneof, function parseOneOf_block(token) {
-            if (token === "option") {
-                parseOption(oneof, token);
-                skip(";");
-            } else {
-                push(token);
-                parseField(oneof, "optional");
-            }
-        });
-        parent.add(oneof);
-    }
-
-    function parseEnum(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "name");
-
-        var enm = new Enum(token);
-        ifBlock(enm, function parseEnum_block(token) {
-          switch(token) {
-            case "option":
-              parseOption(enm, token);
-              skip(";");
-              break;
-
-            case "reserved":
-              readRanges(enm.reserved || (enm.reserved = []), true);
-              break;
-
-            default:
-              parseEnumValue(enm, token);
-          }
-        });
-        parent.add(enm);
-    }
-
-    function parseEnumValue(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token))
-            throw illegal(token, "name");
-
-        skip("=");
-        var value = parseId(next(), true),
-            dummy = {};
-        ifBlock(dummy, function parseEnumValue_block(token) {
-
-            /* istanbul ignore else */
-            if (token === "option") {
-                parseOption(dummy, token); // skip
-                skip(";");
-            } else
-                throw illegal(token);
-
-        }, function parseEnumValue_line() {
-            parseInlineOptions(dummy); // skip
-        });
-        parent.add(token, value, dummy.comment);
-    }
-
-    function parseOption(parent, token) {
-        var isCustom = skip("(", true);
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(token = next()))
-            throw illegal(token, "name");
-
-        var name = token;
-        if (isCustom) {
-            skip(")");
-            name = "(" + name + ")";
-            token = peek();
-            if (fqTypeRefRe.test(token)) {
-                name += token;
-                next();
-            }
-        }
-        skip("=");
-        parseOptionValue(parent, name);
-    }
-
-    function parseOptionValue(parent, name) {
-        if (skip("{", true)) { // { a: "foo" b { c: "bar" } }
-            do {
-                /* istanbul ignore if */
-                if (!nameRe.test(token = next()))
-                    throw illegal(token, "name");
-
-                if (peek() === "{")
-                    parseOptionValue(parent, name + "." + token);
-                else {
-                    skip(":");
-                    if (peek() === "{")
-                        parseOptionValue(parent, name + "." + token);
-                    else
-                        setOption(parent, name + "." + token, readValue(true));
-                }
-            } while (!skip("}", true));
-        } else
-            setOption(parent, name, readValue(true));
-        // Does not enforce a delimiter to be universal
-    }
-
-    function setOption(parent, name, value) {
-        if (parent.setOption)
-            parent.setOption(name, value);
-    }
-
-    function parseInlineOptions(parent) {
-        if (skip("[", true)) {
-            do {
-                parseOption(parent, "option");
-            } while (skip(",", true));
-            skip("]");
-        }
-        return parent;
-    }
-
-    function parseService(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "service name");
-
-        var service = new Service(token);
-        ifBlock(service, function parseService_block(token) {
-            if (parseCommon(service, token))
-                return;
-
-            /* istanbul ignore else */
-            if (token === "rpc")
-                parseMethod(service, token);
-            else
-                throw illegal(token);
-        });
-        parent.add(service);
-    }
-
-    function parseMethod(parent, token) {
-        var type = token;
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "name");
-
-        var name = token,
-            requestType, requestStream,
-            responseType, responseStream;
-
-        skip("(");
-        if (skip("stream", true))
-            requestStream = true;
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(token = next()))
-            throw illegal(token);
-
-        requestType = token;
-        skip(")"); skip("returns"); skip("(");
-        if (skip("stream", true))
-            responseStream = true;
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(token = next()))
-            throw illegal(token);
-
-        responseType = token;
-        skip(")");
-
-        var method = new Method(name, type, requestType, responseType, requestStream, responseStream);
-        ifBlock(method, function parseMethod_block(token) {
-
-            /* istanbul ignore else */
-            if (token === "option") {
-                parseOption(method, token);
-                skip(";");
-            } else
-                throw illegal(token);
-
-        });
-        parent.add(method);
-    }
-
-    function parseExtension(parent, token) {
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(token = next()))
-            throw illegal(token, "reference");
-
-        var reference = token;
-        ifBlock(null, function parseExtension_block(token) {
-            switch (token) {
-
-                case "required":
-                case "repeated":
-                case "optional":
-                    parseField(parent, token, reference);
-                    break;
-
-                default:
-                    /* istanbul ignore if */
-                    if (!isProto3 || !typeRefRe.test(token))
-                        throw illegal(token);
-                    push(token);
-                    parseField(parent, "optional", reference);
-                    break;
-            }
-        });
-    }
-
-    var token;
-    while ((token = next()) !== null) {
-        switch (token) {
-
-            case "package":
-
-                /* istanbul ignore if */
-                if (!head)
-                    throw illegal(token);
-
-                parsePackage();
-                break;
-
-            case "import":
-
-                /* istanbul ignore if */
-                if (!head)
-                    throw illegal(token);
-
-                parseImport();
-                break;
-
-            case "syntax":
-
-                /* istanbul ignore if */
-                if (!head)
-                    throw illegal(token);
-
-                parseSyntax();
-                break;
-
-            case "option":
-
-                /* istanbul ignore if */
-                if (!head)
-                    throw illegal(token);
-
-                parseOption(ptr, token);
-                skip(";");
-                break;
-
-            default:
-
-                /* istanbul ignore else */
-                if (parseCommon(ptr, token)) {
-                    head = false;
-                    continue;
-                }
-
-                /* istanbul ignore next */
-                throw illegal(token);
-        }
-    }
-
-    parse.filename = null;
-    return {
-        "package"     : pkg,
-        "imports"     : imports,
-         weakImports  : weakImports,
-         syntax       : syntax,
-         root         : root
-    };
-}
-
-/**
- * Parses the given .proto source and returns an object with the parsed contents.
- * @name parse
- * @function
- * @param {string} source Source contents
- * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
- * @returns {IParserResult} Parser result
- * @property {string} filename=null Currently processing file name for error reporting, if known
- * @property {IParseOptions} defaults Default {@link IParseOptions}
- * @variation 2
- */
-
-
-/***/ }),
-/* 402 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = common;
-
-var commonRe = /\/|\./;
-
-/**
- * Provides common type definitions.
- * Can also be used to provide additional google types or your own custom types.
- * @param {string} name Short name as in `google/protobuf/[name].proto` or full file name
- * @param {Object.<string,*>} json JSON definition within `google.protobuf` if a short name, otherwise the file's root definition
- * @returns {undefined}
- * @property {INamespace} google/protobuf/any.proto Any
- * @property {INamespace} google/protobuf/duration.proto Duration
- * @property {INamespace} google/protobuf/empty.proto Empty
- * @property {INamespace} google/protobuf/struct.proto Struct, Value, NullValue and ListValue
- * @property {INamespace} google/protobuf/timestamp.proto Timestamp
- * @property {INamespace} google/protobuf/wrappers.proto Wrappers
- * @example
- * // manually provides descriptor.proto (assumes google/protobuf/ namespace and .proto extension)
- * protobuf.common("descriptor", descriptorJson);
- *
- * // manually provides a custom definition (uses my.foo namespace)
- * protobuf.common("my/foo/bar.proto", myFooBarJson);
- */
-function common(name, json) {
-    if (!commonRe.test(name)) {
-        name = "google/protobuf/" + name + ".proto";
-        json = { nested: { google: { nested: { protobuf: { nested: json } } } } };
-    }
-    common[name] = json;
-}
-
-// Not provided because of limited use (feel free to discuss or to provide yourself):
-//
-// google/protobuf/descriptor.proto
-// google/protobuf/field_mask.proto
-// google/protobuf/source_context.proto
-// google/protobuf/type.proto
-//
-// Stripped and pre-parsed versions of these non-bundled files are instead available as part of
-// the repository or package within the google/protobuf directory.
-
-common("any", {
-
-    /**
-     * Properties of a google.protobuf.Any message.
-     * @interface IAny
-     * @type {Object}
-     * @property {string} [typeUrl]
-     * @property {Uint8Array} [bytes]
-     * @memberof common
-     */
-    Any: {
-        fields: {
-            type_url: {
-                type: "string",
-                id: 1
-            },
-            value: {
-                type: "bytes",
-                id: 2
-            }
-        }
-    }
-});
-
-var timeType;
-
-common("duration", {
-
-    /**
-     * Properties of a google.protobuf.Duration message.
-     * @interface IDuration
-     * @type {Object}
-     * @property {number|Long} [seconds]
-     * @property {number} [nanos]
-     * @memberof common
-     */
-    Duration: timeType = {
-        fields: {
-            seconds: {
-                type: "int64",
-                id: 1
-            },
-            nanos: {
-                type: "int32",
-                id: 2
-            }
-        }
-    }
-});
-
-common("timestamp", {
-
-    /**
-     * Properties of a google.protobuf.Timestamp message.
-     * @interface ITimestamp
-     * @type {Object}
-     * @property {number|Long} [seconds]
-     * @property {number} [nanos]
-     * @memberof common
-     */
-    Timestamp: timeType
-});
-
-common("empty", {
-
-    /**
-     * Properties of a google.protobuf.Empty message.
-     * @interface IEmpty
-     * @memberof common
-     */
-    Empty: {
-        fields: {}
-    }
-});
-
-common("struct", {
-
-    /**
-     * Properties of a google.protobuf.Struct message.
-     * @interface IStruct
-     * @type {Object}
-     * @property {Object.<string,IValue>} [fields]
-     * @memberof common
-     */
-    Struct: {
-        fields: {
-            fields: {
-                keyType: "string",
-                type: "Value",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.Value message.
-     * @interface IValue
-     * @type {Object}
-     * @property {string} [kind]
-     * @property {0} [nullValue]
-     * @property {number} [numberValue]
-     * @property {string} [stringValue]
-     * @property {boolean} [boolValue]
-     * @property {IStruct} [structValue]
-     * @property {IListValue} [listValue]
-     * @memberof common
-     */
-    Value: {
-        oneofs: {
-            kind: {
-                oneof: [
-                    "nullValue",
-                    "numberValue",
-                    "stringValue",
-                    "boolValue",
-                    "structValue",
-                    "listValue"
-                ]
-            }
-        },
-        fields: {
-            nullValue: {
-                type: "NullValue",
-                id: 1
-            },
-            numberValue: {
-                type: "double",
-                id: 2
-            },
-            stringValue: {
-                type: "string",
-                id: 3
-            },
-            boolValue: {
-                type: "bool",
-                id: 4
-            },
-            structValue: {
-                type: "Struct",
-                id: 5
-            },
-            listValue: {
-                type: "ListValue",
-                id: 6
-            }
-        }
-    },
-
-    NullValue: {
-        values: {
-            NULL_VALUE: 0
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.ListValue message.
-     * @interface IListValue
-     * @type {Object}
-     * @property {Array.<IValue>} [values]
-     * @memberof common
-     */
-    ListValue: {
-        fields: {
-            values: {
-                rule: "repeated",
-                type: "Value",
-                id: 1
-            }
-        }
-    }
-});
-
-common("wrappers", {
-
-    /**
-     * Properties of a google.protobuf.DoubleValue message.
-     * @interface IDoubleValue
-     * @type {Object}
-     * @property {number} [value]
-     * @memberof common
-     */
-    DoubleValue: {
-        fields: {
-            value: {
-                type: "double",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.FloatValue message.
-     * @interface IFloatValue
-     * @type {Object}
-     * @property {number} [value]
-     * @memberof common
-     */
-    FloatValue: {
-        fields: {
-            value: {
-                type: "float",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.Int64Value message.
-     * @interface IInt64Value
-     * @type {Object}
-     * @property {number|Long} [value]
-     * @memberof common
-     */
-    Int64Value: {
-        fields: {
-            value: {
-                type: "int64",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.UInt64Value message.
-     * @interface IUInt64Value
-     * @type {Object}
-     * @property {number|Long} [value]
-     * @memberof common
-     */
-    UInt64Value: {
-        fields: {
-            value: {
-                type: "uint64",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.Int32Value message.
-     * @interface IInt32Value
-     * @type {Object}
-     * @property {number} [value]
-     * @memberof common
-     */
-    Int32Value: {
-        fields: {
-            value: {
-                type: "int32",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.UInt32Value message.
-     * @interface IUInt32Value
-     * @type {Object}
-     * @property {number} [value]
-     * @memberof common
-     */
-    UInt32Value: {
-        fields: {
-            value: {
-                type: "uint32",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.BoolValue message.
-     * @interface IBoolValue
-     * @type {Object}
-     * @property {boolean} [value]
-     * @memberof common
-     */
-    BoolValue: {
-        fields: {
-            value: {
-                type: "bool",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.StringValue message.
-     * @interface IStringValue
-     * @type {Object}
-     * @property {string} [value]
-     * @memberof common
-     */
-    StringValue: {
-        fields: {
-            value: {
-                type: "string",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.BytesValue message.
-     * @interface IBytesValue
-     * @type {Object}
-     * @property {Uint8Array} [value]
-     * @memberof common
-     */
-    BytesValue: {
-        fields: {
-            value: {
-                type: "bytes",
-                id: 1
-            }
-        }
-    }
-});
-
-/**
- * Gets the root definition of the specified common proto file.
- *
- * Bundled definitions are:
- * - google/protobuf/any.proto
- * - google/protobuf/duration.proto
- * - google/protobuf/empty.proto
- * - google/protobuf/struct.proto
- * - google/protobuf/timestamp.proto
- * - google/protobuf/wrappers.proto
- *
- * @param {string} file Proto file name
- * @returns {INamespace|null} Root definition or `null` if not defined
- */
-common.get = function get(file) {
-    return common[file] || null;
-};
-
 
 /***/ })
 /******/ ]);

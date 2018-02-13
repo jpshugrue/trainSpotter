@@ -1,6 +1,5 @@
 const request = require('request');
-const config = require('./config');
-const GtfsRealtimeBindings = require('./gtfs-realtime');
+const GtfsRealtimeBindings = require('./gtfs/gtfs-realtime');
 
 class Trains {
 
