@@ -8,25 +8,11 @@ class Trains {
     this.trains = [];
   }
 
-  // 1,2,3,4,5,6,S(42ndStShuttle) = '1'
-  // A,C,E = '26'
-  // N,Q,R,W = '16'
-  // B,D,F,M = '21'
-  // L = '2'
-  // G = '31'
-  // J, Z = '36'
-  // 7 = '51' (In Beta)
-  pullData(trainLine) {
-
+  pullData() {
     const requestSettings = {
       method: 'GET',
-      url: `http://datamine.mta.info/mta_esi.php?key=${config.mtaKey}&feed_id=${trainLine}`,
+      url: `http://localhost:3000`,
       encoding: null,
-      // headers: {
-      //   'Access-Control-Allow-Origin': '*',
-      //   'Access-Control-Allow-Headers': '*',
-      //   'Access-Control-Allow-Methods': 'HEAD, GET'
-      // }
     };
     request(requestSettings, (error, response, body) => {
       if (!error && response.statusCode == 200) {
