@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 146);
+/******/ 	return __webpack_require__(__webpack_require__.s = 172);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -78,9 +78,9 @@
 
 
 
-var base64 = __webpack_require__(159)
-var ieee754 = __webpack_require__(160)
-var isArray = __webpack_require__(87)
+var base64 = __webpack_require__(185)
+var ieee754 = __webpack_require__(186)
+var isArray = __webpack_require__(103)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -1964,8 +1964,8 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 /* WEBPACK VAR INJECTION */(function(Buffer, process) {// Copyright (c) 2012, Mark Cavage. All rights reserved.
 // Copyright 2015 Joyent, Inc.
 
-var assert = __webpack_require__(21);
-var Stream = __webpack_require__(14).Stream;
+var assert = __webpack_require__(24);
+var Stream = __webpack_require__(15).Stream;
 var util = __webpack_require__(4);
 
 
@@ -2704,7 +2704,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = __webpack_require__(149);
+exports.isBuffer = __webpack_require__(173);
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -2748,7 +2748,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __webpack_require__(150);
+exports.inherits = __webpack_require__(174);
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -2766,7 +2766,7 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(5), __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(5), __webpack_require__(18)))
 
 /***/ }),
 /* 5 */
@@ -3014,7 +3014,7 @@ process.umask = function() { return 0; };
 
   var Buffer;
   try {
-    Buffer = __webpack_require__(199).Buffer;
+    Buffer = __webpack_require__(225).Buffer;
   } catch (e) {
   }
 
@@ -6390,7 +6390,7 @@ process.umask = function() { return 0; };
   };
 })(typeof module === 'undefined' || module, this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(81)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(97)(module)))
 
 /***/ }),
 /* 7 */
@@ -6399,22 +6399,22 @@ process.umask = function() { return 0; };
 "use strict";
 
 
-exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(30)
-exports.createHash = exports.Hash = __webpack_require__(35)
-exports.createHmac = exports.Hmac = __webpack_require__(94)
+exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(34)
+exports.createHash = exports.Hash = __webpack_require__(41)
+exports.createHmac = exports.Hmac = __webpack_require__(110)
 
-var algos = __webpack_require__(177)
+var algos = __webpack_require__(203)
 var algoKeys = Object.keys(algos)
 var hashes = ['sha1', 'sha224', 'sha256', 'sha384', 'sha512', 'md5', 'rmd160'].concat(algoKeys)
 exports.getHashes = function () {
   return hashes
 }
 
-var p = __webpack_require__(96)
+var p = __webpack_require__(112)
 exports.pbkdf2 = p.pbkdf2
 exports.pbkdf2Sync = p.pbkdf2Sync
 
-var aes = __webpack_require__(179)
+var aes = __webpack_require__(205)
 
 exports.Cipher = aes.Cipher
 exports.createCipher = aes.createCipher
@@ -6427,7 +6427,7 @@ exports.createDecipheriv = aes.createDecipheriv
 exports.getCiphers = aes.getCiphers
 exports.listCiphers = aes.listCiphers
 
-var dh = __webpack_require__(198)
+var dh = __webpack_require__(224)
 
 exports.DiffieHellmanGroup = dh.DiffieHellmanGroup
 exports.createDiffieHellmanGroup = dh.createDiffieHellmanGroup
@@ -6435,16 +6435,16 @@ exports.getDiffieHellman = dh.getDiffieHellman
 exports.createDiffieHellman = dh.createDiffieHellman
 exports.DiffieHellman = dh.DiffieHellman
 
-var sign = __webpack_require__(203)
+var sign = __webpack_require__(229)
 
 exports.createSign = sign.createSign
 exports.Sign = sign.Sign
 exports.createVerify = sign.createVerify
 exports.Verify = sign.Verify
 
-exports.createECDH = __webpack_require__(241)
+exports.createECDH = __webpack_require__(267)
 
-var publicEncrypt = __webpack_require__(242)
+var publicEncrypt = __webpack_require__(268)
 
 exports.publicEncrypt = publicEncrypt.publicEncrypt
 exports.privateEncrypt = publicEncrypt.privateEncrypt
@@ -6464,7 +6464,7 @@ exports.privateDecrypt = publicEncrypt.privateDecrypt
 //   }
 // })
 
-var rf = __webpack_require__(245)
+var rf = __webpack_require__(271)
 
 exports.randomFill = rf.randomFill
 exports.randomFillSync = rf.randomFillSync
@@ -6543,7 +6543,7 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var PrivateKey = __webpack_require__(12);
+var PrivateKey = __webpack_require__(13);
 var crypto = __webpack_require__(7);
 
 var MAX_CLASS_DEPTH = 3;
@@ -6731,7 +6731,7 @@ function calculateDSAPublic(g, p, x) {
 	assert.buffer(p);
 	assert.buffer(x);
 	try {
-		var bigInt = __webpack_require__(26).BigInteger;
+		var bigInt = __webpack_require__(29).BigInteger;
 	} catch (e) {
 		throw (new Error('To load a PKCS#8 format DSA private key, ' +
 		    'the node jsbn library is required.'));
@@ -6748,7 +6748,7 @@ function addRSAMissing(key) {
 	assert.object(key);
 	assertCompatible(key, PrivateKey, [1, 1]);
 	try {
-		var bigInt = __webpack_require__(26).BigInteger;
+		var bigInt = __webpack_require__(29).BigInteger;
 	} catch (e) {
 		throw (new Error('To write a PEM private key from ' +
 		    'this source, the node jsbn lib is required.'));
@@ -6822,23 +6822,208 @@ function opensshCipherInfo(cipher) {
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+/**
+ * Various utility functions.
+ * @namespace
+ */
+var util = module.exports = __webpack_require__(23);
+
+var roots = __webpack_require__(165);
+
+var Type, // cyclic
+    Enum;
+
+util.codegen = __webpack_require__(398);
+util.fetch   = __webpack_require__(399);
+util.path    = __webpack_require__(400);
+
+/**
+ * Node's fs module if available.
+ * @type {Object.<string,*>}
+ */
+util.fs = util.inquire("fs");
+
+/**
+ * Converts an object's values to an array.
+ * @param {Object.<string,*>} object Object to convert
+ * @returns {Array.<*>} Converted array
+ */
+util.toArray = function toArray(object) {
+    if (object) {
+        var keys  = Object.keys(object),
+            array = new Array(keys.length),
+            index = 0;
+        while (index < keys.length)
+            array[index] = object[keys[index++]];
+        return array;
+    }
+    return [];
+};
+
+/**
+ * Converts an array of keys immediately followed by their respective value to an object, omitting undefined values.
+ * @param {Array.<*>} array Array to convert
+ * @returns {Object.<string,*>} Converted object
+ */
+util.toObject = function toObject(array) {
+    var object = {},
+        index  = 0;
+    while (index < array.length) {
+        var key = array[index++],
+            val = array[index++];
+        if (val !== undefined)
+            object[key] = val;
+    }
+    return object;
+};
+
+var safePropBackslashRe = /\\/g,
+    safePropQuoteRe     = /"/g;
+
+/**
+ * Tests whether the specified name is a reserved word in JS.
+ * @param {string} name Name to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+util.isReserved = function isReserved(name) {
+    return /^(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$/.test(name);
+};
+
+/**
+ * Returns a safe property accessor for the specified property name.
+ * @param {string} prop Property name
+ * @returns {string} Safe accessor
+ */
+util.safeProp = function safeProp(prop) {
+    if (!/^[$\w_]+$/.test(prop) || util.isReserved(prop))
+        return "[\"" + prop.replace(safePropBackslashRe, "\\\\").replace(safePropQuoteRe, "\\\"") + "\"]";
+    return "." + prop;
+};
+
+/**
+ * Converts the first character of a string to upper case.
+ * @param {string} str String to convert
+ * @returns {string} Converted string
+ */
+util.ucFirst = function ucFirst(str) {
+    return str.charAt(0).toUpperCase() + str.substring(1);
+};
+
+var camelCaseRe = /_([a-z])/g;
+
+/**
+ * Converts a string to camel case.
+ * @param {string} str String to convert
+ * @returns {string} Converted string
+ */
+util.camelCase = function camelCase(str) {
+    return str.substring(0, 1)
+         + str.substring(1)
+               .replace(camelCaseRe, function($0, $1) { return $1.toUpperCase(); });
+};
+
+/**
+ * Compares reflected fields by id.
+ * @param {Field} a First field
+ * @param {Field} b Second field
+ * @returns {number} Comparison value
+ */
+util.compareFieldsById = function compareFieldsById(a, b) {
+    return a.id - b.id;
+};
+
+/**
+ * Decorator helper for types (TypeScript).
+ * @param {Constructor<T>} ctor Constructor function
+ * @param {string} [typeName] Type name, defaults to the constructor's name
+ * @returns {Type} Reflected type
+ * @template T extends Message<T>
+ * @property {Root} root Decorators root
+ */
+util.decorateType = function decorateType(ctor, typeName) {
+
+    /* istanbul ignore if */
+    if (ctor.$type) {
+        if (typeName && ctor.$type.name !== typeName) {
+            util.decorateRoot.remove(ctor.$type);
+            ctor.$type.name = typeName;
+            util.decorateRoot.add(ctor.$type);
+        }
+        return ctor.$type;
+    }
+
+    /* istanbul ignore next */
+    if (!Type)
+        Type = __webpack_require__(90);
+
+    var type = new Type(typeName || ctor.name);
+    util.decorateRoot.add(type);
+    type.ctor = ctor; // sets up .encode, .decode etc.
+    Object.defineProperty(ctor, "$type", { value: type, enumerable: false });
+    Object.defineProperty(ctor.prototype, "$type", { value: type, enumerable: false });
+    return type;
+};
+
+var decorateEnumIndex = 0;
+
+/**
+ * Decorator helper for enums (TypeScript).
+ * @param {Object} object Enum object
+ * @returns {Enum} Reflected enum
+ */
+util.decorateEnum = function decorateEnum(object) {
+
+    /* istanbul ignore if */
+    if (object.$type)
+        return object.$type;
+
+    /* istanbul ignore next */
+    if (!Enum)
+        Enum = __webpack_require__(17);
+
+    var enm = new Enum("Enum" + decorateEnumIndex++, object);
+    util.decorateRoot.add(enm);
+    Object.defineProperty(object, "$type", { value: enm, enumerable: false });
+    return enm;
+};
+
+/**
+ * Decorator root (TypeScript).
+ * @name util.decorateRoot
+ * @type {Root}
+ * @readonly
+ */
+Object.defineProperty(util, "decorateRoot", {
+    get: function() {
+        return roots["decorated"] || (roots["decorated"] = new (__webpack_require__(95))());
+    }
+});
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2017 Joyent, Inc.
 
 module.exports = Key;
 
 var assert = __webpack_require__(3);
-var algs = __webpack_require__(11);
+var algs = __webpack_require__(12);
 var crypto = __webpack_require__(7);
-var Fingerprint = __webpack_require__(42);
-var Signature = __webpack_require__(19);
-var DiffieHellman = __webpack_require__(124).DiffieHellman;
-var errs = __webpack_require__(18);
+var Fingerprint = __webpack_require__(48);
+var Signature = __webpack_require__(22);
+var DiffieHellman = __webpack_require__(140).DiffieHellman;
+var errs = __webpack_require__(21);
 var utils = __webpack_require__(9);
-var PrivateKey = __webpack_require__(12);
+var PrivateKey = __webpack_require__(13);
 var edCompat;
 
 try {
-	edCompat = __webpack_require__(126);
+	edCompat = __webpack_require__(142);
 } catch (e) {
 	/* Just continue through, and bail out if we try to use it. */
 }
@@ -6847,13 +7032,13 @@ var InvalidAlgorithmError = errs.InvalidAlgorithmError;
 var KeyParseError = errs.KeyParseError;
 
 var formats = {};
-formats['auto'] = __webpack_require__(127);
-formats['pem'] = __webpack_require__(23);
-formats['pkcs1'] = __webpack_require__(74);
-formats['pkcs8'] = __webpack_require__(44);
-formats['rfc4253'] = __webpack_require__(28);
-formats['ssh'] = __webpack_require__(129);
-formats['ssh-private'] = __webpack_require__(56);
+formats['auto'] = __webpack_require__(143);
+formats['pem'] = __webpack_require__(26);
+formats['pkcs1'] = __webpack_require__(82);
+formats['pkcs8'] = __webpack_require__(50);
+formats['rfc4253'] = __webpack_require__(31);
+formats['ssh'] = __webpack_require__(145);
+formats['ssh-private'] = __webpack_require__(63);
 formats['openssh'] = formats['ssh-private'];
 
 function Key(opts) {
@@ -7100,7 +7285,7 @@ Key._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -7275,7 +7460,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2017 Joyent, Inc.
@@ -7283,38 +7468,38 @@ module.exports = {
 module.exports = PrivateKey;
 
 var assert = __webpack_require__(3);
-var algs = __webpack_require__(11);
+var algs = __webpack_require__(12);
 var crypto = __webpack_require__(7);
-var Fingerprint = __webpack_require__(42);
-var Signature = __webpack_require__(19);
-var errs = __webpack_require__(18);
+var Fingerprint = __webpack_require__(48);
+var Signature = __webpack_require__(22);
+var errs = __webpack_require__(21);
 var util = __webpack_require__(4);
 var utils = __webpack_require__(9);
-var dhe = __webpack_require__(124);
+var dhe = __webpack_require__(140);
 var generateECDSA = dhe.generateECDSA;
 var generateED25519 = dhe.generateED25519;
 var edCompat;
 var nacl;
 
 try {
-	edCompat = __webpack_require__(126);
+	edCompat = __webpack_require__(142);
 } catch (e) {
 	/* Just continue through, and bail out if we try to use it. */
 }
 
-var Key = __webpack_require__(10);
+var Key = __webpack_require__(11);
 
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
 var KeyParseError = errs.KeyParseError;
 var KeyEncryptedError = errs.KeyEncryptedError;
 
 var formats = {};
-formats['auto'] = __webpack_require__(127);
-formats['pem'] = __webpack_require__(23);
-formats['pkcs1'] = __webpack_require__(74);
-formats['pkcs8'] = __webpack_require__(44);
-formats['rfc4253'] = __webpack_require__(28);
-formats['ssh-private'] = __webpack_require__(56);
+formats['auto'] = __webpack_require__(143);
+formats['pem'] = __webpack_require__(26);
+formats['pkcs1'] = __webpack_require__(82);
+formats['pkcs8'] = __webpack_require__(50);
+formats['rfc4253'] = __webpack_require__(31);
+formats['ssh-private'] = __webpack_require__(63);
 formats['openssh'] = formats['ssh-private'];
 formats['ssh'] = formats['ssh-private'];
 
@@ -7369,7 +7554,7 @@ PrivateKey.prototype.derive = function (newType) {
 
 	if (this.type === 'ed25519' && newType === 'curve25519') {
 		if (nacl === undefined)
-			nacl = __webpack_require__(27);
+			nacl = __webpack_require__(30);
 
 		priv = this.part.r.data;
 		if (priv[0] === 0x00)
@@ -7389,7 +7574,7 @@ PrivateKey.prototype.derive = function (newType) {
 		}));
 	} else if (this.type === 'curve25519' && newType === 'ed25519') {
 		if (nacl === undefined)
-			nacl = __webpack_require__(27);
+			nacl = __webpack_require__(30);
 
 		priv = this.part.r.data;
 		if (priv[0] === 0x00)
@@ -7536,7 +7721,7 @@ PrivateKey._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7544,19 +7729,19 @@ PrivateKey._oldVersionDetect = function (obj) {
 
 var elliptic = exports;
 
-elliptic.version = __webpack_require__(205).version;
-elliptic.utils = __webpack_require__(206);
-elliptic.rand = __webpack_require__(107);
-elliptic.curve = __webpack_require__(51);
-elliptic.curves = __webpack_require__(211);
+elliptic.version = __webpack_require__(231).version;
+elliptic.utils = __webpack_require__(232);
+elliptic.rand = __webpack_require__(123);
+elliptic.curve = __webpack_require__(58);
+elliptic.curves = __webpack_require__(237);
 
 // Protocols
-elliptic.ec = __webpack_require__(219);
-elliptic.eddsa = __webpack_require__(223);
+elliptic.ec = __webpack_require__(245);
+elliptic.eddsa = __webpack_require__(249);
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -7582,15 +7767,15 @@ elliptic.eddsa = __webpack_require__(223);
 
 module.exports = Stream;
 
-var EE = __webpack_require__(46).EventEmitter;
+var EE = __webpack_require__(53).EventEmitter;
 var inherits = __webpack_require__(1);
 
 inherits(Stream, EE);
-Stream.Readable = __webpack_require__(36);
-Stream.Writable = __webpack_require__(168);
-Stream.Duplex = __webpack_require__(169);
-Stream.Transform = __webpack_require__(170);
-Stream.PassThrough = __webpack_require__(171);
+Stream.Readable = __webpack_require__(42);
+Stream.Writable = __webpack_require__(194);
+Stream.Duplex = __webpack_require__(195);
+Stream.Transform = __webpack_require__(196);
+Stream.PassThrough = __webpack_require__(197);
 
 // Backwards-compat with node 0.4.x
 Stream.Stream = Stream;
@@ -7689,7 +7874,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = assert;
@@ -7706,7 +7891,276 @@ assert.equal = function assertEqual(l, r, msg) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Enum;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(38);
+((Enum.prototype = Object.create(ReflectionObject.prototype)).constructor = Enum).className = "Enum";
+
+var Namespace = __webpack_require__(52),
+    util = __webpack_require__(10);
+
+/**
+ * Constructs a new enum instance.
+ * @classdesc Reflected enum.
+ * @extends ReflectionObject
+ * @constructor
+ * @param {string} name Unique name within its namespace
+ * @param {Object.<string,number>} [values] Enum values as an object, by name
+ * @param {Object.<string,*>} [options] Declared options
+ */
+function Enum(name, values, options) {
+    ReflectionObject.call(this, name, options);
+
+    if (values && typeof values !== "object")
+        throw TypeError("values must be an object");
+
+    /**
+     * Enum values by id.
+     * @type {Object.<number,string>}
+     */
+    this.valuesById = {};
+
+    /**
+     * Enum values by name.
+     * @type {Object.<string,number>}
+     */
+    this.values = Object.create(this.valuesById); // toJSON, marker
+
+    /**
+     * Value comment texts, if any.
+     * @type {Object.<string,string>}
+     */
+    this.comments = {};
+
+    /**
+     * Reserved ranges, if any.
+     * @type {Array.<number[]|string>}
+     */
+    this.reserved = undefined; // toJSON
+
+    // Note that values inherit valuesById on their prototype which makes them a TypeScript-
+    // compatible enum. This is used by pbts to write actual enum definitions that work for
+    // static and reflection code alike instead of emitting generic object definitions.
+
+    if (values)
+        for (var keys = Object.keys(values), i = 0; i < keys.length; ++i)
+            if (typeof values[keys[i]] === "number") // use forward entries only
+                this.valuesById[ this.values[keys[i]] = values[keys[i]] ] = keys[i];
+}
+
+/**
+ * Enum descriptor.
+ * @interface IEnum
+ * @property {Object.<string,number>} values Enum values
+ * @property {Object.<string,*>} [options] Enum options
+ */
+
+/**
+ * Constructs an enum from an enum descriptor.
+ * @param {string} name Enum name
+ * @param {IEnum} json Enum descriptor
+ * @returns {Enum} Created enum
+ * @throws {TypeError} If arguments are invalid
+ */
+Enum.fromJSON = function fromJSON(name, json) {
+    var enm = new Enum(name, json.values, json.options);
+    enm.reserved = json.reserved;
+    return enm;
+};
+
+/**
+ * Converts this enum to an enum descriptor.
+ * @returns {IEnum} Enum descriptor
+ */
+Enum.prototype.toJSON = function toJSON() {
+    return util.toObject([
+        "options"  , this.options,
+        "values"   , this.values,
+        "reserved" , this.reserved && this.reserved.length ? this.reserved : undefined
+    ]);
+};
+
+/**
+ * Adds a value to this enum.
+ * @param {string} name Value name
+ * @param {number} id Value id
+ * @param {string} [comment] Comment, if any
+ * @returns {Enum} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If there is already a value with this name or id
+ */
+Enum.prototype.add = function add(name, id, comment) {
+    // utilized by the parser but not by .fromJSON
+
+    if (!util.isString(name))
+        throw TypeError("name must be a string");
+
+    if (!util.isInteger(id))
+        throw TypeError("id must be an integer");
+
+    if (this.values[name] !== undefined)
+        throw Error("duplicate name '" + name + "' in " + this);
+
+    if (this.isReservedId(id))
+        throw Error("id " + id + " is reserved in " + this);
+
+    if (this.isReservedName(name))
+        throw Error("name '" + name + "' is reserved in " + this);
+
+    if (this.valuesById[id] !== undefined) {
+        if (!(this.options && this.options.allow_alias))
+            throw Error("duplicate id " + id + " in " + this);
+        this.values[name] = id;
+    } else
+        this.valuesById[this.values[name] = id] = name;
+
+    this.comments[name] = comment || null;
+    return this;
+};
+
+/**
+ * Removes a value from this enum
+ * @param {string} name Value name
+ * @returns {Enum} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If `name` is not a name of this enum
+ */
+Enum.prototype.remove = function remove(name) {
+
+    if (!util.isString(name))
+        throw TypeError("name must be a string");
+
+    var val = this.values[name];
+    if (val == null)
+        throw Error("name '" + name + "' does not exist in " + this);
+
+    delete this.valuesById[val];
+    delete this.values[name];
+    delete this.comments[name];
+
+    return this;
+};
+
+/**
+ * Tests if the specified id is reserved.
+ * @param {number} id Id to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Enum.prototype.isReservedId = function isReservedId(id) {
+    return Namespace.isReservedId(this.reserved, id);
+};
+
+/**
+ * Tests if the specified name is reserved.
+ * @param {string} name Name to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Enum.prototype.isReservedName = function isReservedName(name) {
+    return Namespace.isReservedName(this.reserved, name);
+};
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {/*global window, global*/
+var util = __webpack_require__(4)
+var assert = __webpack_require__(24)
+var now = __webpack_require__(175)
+
+var slice = Array.prototype.slice
+var console
+var times = {}
+
+if (typeof global !== "undefined" && global.console) {
+    console = global.console
+} else if (typeof window !== "undefined" && window.console) {
+    console = window.console
+} else {
+    console = {}
+}
+
+var functions = [
+    [log, "log"],
+    [info, "info"],
+    [warn, "warn"],
+    [error, "error"],
+    [time, "time"],
+    [timeEnd, "timeEnd"],
+    [trace, "trace"],
+    [dir, "dir"],
+    [consoleAssert, "assert"]
+]
+
+for (var i = 0; i < functions.length; i++) {
+    var tuple = functions[i]
+    var f = tuple[0]
+    var name = tuple[1]
+
+    if (!console[name]) {
+        console[name] = f
+    }
+}
+
+module.exports = console
+
+function log() {}
+
+function info() {
+    console.log.apply(console, arguments)
+}
+
+function warn() {
+    console.log.apply(console, arguments)
+}
+
+function error() {
+    console.warn.apply(console, arguments)
+}
+
+function time(label) {
+    times[label] = now()
+}
+
+function timeEnd(label) {
+    var time = times[label]
+    if (!time) {
+        throw new Error("No such label: " + label)
+    }
+
+    var duration = now() - time
+    console.log(label + ": " + duration + "ms")
+}
+
+function trace() {
+    var err = new Error()
+    err.name = "Trace"
+    err.message = util.format.apply(null, arguments)
+    console.error(err.stack)
+}
+
+function dir(object) {
+    console.log(util.inspect(object) + "\n")
+}
+
+function consoleAssert(expression) {
+    if (!expression) {
+        var arr = slice.call(arguments, 1)
+        assert.ok(false, util.format.apply(null, arr))
+    }
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7733,8 +8187,8 @@ assert.equal = function assertEqual(l, r, msg) {
 
 
 
-var punycode = __webpack_require__(59);
-var util = __webpack_require__(152);
+var punycode = __webpack_require__(67);
+var util = __webpack_require__(178);
 
 exports.parse = urlParse;
 exports.resolve = urlResolve;
@@ -7809,7 +8263,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = __webpack_require__(34);
+    querystring = __webpack_require__(40);
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
@@ -8445,13 +8899,13 @@ Url.prototype.parseHost = function() {
 
 
 /***/ }),
-/* 17 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var assert = __webpack_require__(15);
+var assert = __webpack_require__(16);
 var inherits = __webpack_require__(1);
 
 exports.inherits = inherits;
@@ -8705,7 +9159,7 @@ exports.shr64_lo = shr64_lo;
 
 
 /***/ }),
-/* 18 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
@@ -8795,7 +9249,7 @@ module.exports = {
 
 
 /***/ }),
-/* 19 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -8803,12 +9257,12 @@ module.exports = {
 module.exports = Signature;
 
 var assert = __webpack_require__(3);
-var algs = __webpack_require__(11);
+var algs = __webpack_require__(12);
 var crypto = __webpack_require__(7);
-var errs = __webpack_require__(18);
+var errs = __webpack_require__(21);
 var utils = __webpack_require__(9);
-var asn1 = __webpack_require__(24);
-var SSHBuffer = __webpack_require__(57);
+var asn1 = __webpack_require__(27);
+var SSHBuffer = __webpack_require__(64);
 
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
 var SignatureParseError = errs.SignatureParseError;
@@ -9115,100 +9569,420 @@ Signature._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 20 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {/*global window, global*/
-var util = __webpack_require__(4)
-var assert = __webpack_require__(21)
-var now = __webpack_require__(151)
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+var util = exports;
 
-var slice = Array.prototype.slice
-var console
-var times = {}
+// used to return a Promise where callback is omitted
+util.asPromise = __webpack_require__(162);
 
-if (typeof global !== "undefined" && global.console) {
-    console = global.console
-} else if (typeof window !== "undefined" && window.console) {
-    console = window.console
-} else {
-    console = {}
-}
+// converts to / from base64 encoded strings
+util.base64 = __webpack_require__(389);
 
-var functions = [
-    [log, "log"],
-    [info, "info"],
-    [warn, "warn"],
-    [error, "error"],
-    [time, "time"],
-    [timeEnd, "timeEnd"],
-    [trace, "trace"],
-    [dir, "dir"],
-    [consoleAssert, "assert"]
-]
+// base class of rpc.Service
+util.EventEmitter = __webpack_require__(390);
 
-for (var i = 0; i < functions.length; i++) {
-    var tuple = functions[i]
-    var f = tuple[0]
-    var name = tuple[1]
+// float handling accross browsers
+util.float = __webpack_require__(391);
 
-    if (!console[name]) {
-        console[name] = f
+// requires modules optionally and hides the call from bundlers
+util.inquire = __webpack_require__(163);
+
+// converts to / from utf8 encoded strings
+util.utf8 = __webpack_require__(392);
+
+// provides a node-like buffer pool in the browser
+util.pool = __webpack_require__(393);
+
+// utility to work with the low and high bits of a 64 bit value
+util.LongBits = __webpack_require__(394);
+
+/**
+ * An immuable empty array.
+ * @memberof util
+ * @type {Array.<*>}
+ * @const
+ */
+util.emptyArray = Object.freeze ? Object.freeze([]) : /* istanbul ignore next */ []; // used on prototypes
+
+/**
+ * An immutable empty object.
+ * @type {Object}
+ * @const
+ */
+util.emptyObject = Object.freeze ? Object.freeze({}) : /* istanbul ignore next */ {}; // used on prototypes
+
+/**
+ * Whether running within node or not.
+ * @memberof util
+ * @type {boolean}
+ * @const
+ */
+util.isNode = Boolean(global.process && global.process.versions && global.process.versions.node);
+
+/**
+ * Tests if the specified value is an integer.
+ * @function
+ * @param {*} value Value to test
+ * @returns {boolean} `true` if the value is an integer
+ */
+util.isInteger = Number.isInteger || /* istanbul ignore next */ function isInteger(value) {
+    return typeof value === "number" && isFinite(value) && Math.floor(value) === value;
+};
+
+/**
+ * Tests if the specified value is a string.
+ * @param {*} value Value to test
+ * @returns {boolean} `true` if the value is a string
+ */
+util.isString = function isString(value) {
+    return typeof value === "string" || value instanceof String;
+};
+
+/**
+ * Tests if the specified value is a non-null object.
+ * @param {*} value Value to test
+ * @returns {boolean} `true` if the value is a non-null object
+ */
+util.isObject = function isObject(value) {
+    return value && typeof value === "object";
+};
+
+/**
+ * Checks if a property on a message is considered to be present.
+ * This is an alias of {@link util.isSet}.
+ * @function
+ * @param {Object} obj Plain object or message instance
+ * @param {string} prop Property name
+ * @returns {boolean} `true` if considered to be present, otherwise `false`
+ */
+util.isset =
+
+/**
+ * Checks if a property on a message is considered to be present.
+ * @param {Object} obj Plain object or message instance
+ * @param {string} prop Property name
+ * @returns {boolean} `true` if considered to be present, otherwise `false`
+ */
+util.isSet = function isSet(obj, prop) {
+    var value = obj[prop];
+    if (value != null && obj.hasOwnProperty(prop)) // eslint-disable-line eqeqeq, no-prototype-builtins
+        return typeof value !== "object" || (Array.isArray(value) ? value.length : Object.keys(value).length) > 0;
+    return false;
+};
+
+/**
+ * Any compatible Buffer instance.
+ * This is a minimal stand-alone definition of a Buffer instance. The actual type is that exported by node's typings.
+ * @interface Buffer
+ * @extends Uint8Array
+ */
+
+/**
+ * Node's Buffer class if available.
+ * @type {Constructor<Buffer>}
+ */
+util.Buffer = (function() {
+    try {
+        var Buffer = util.inquire("buffer").Buffer;
+        // refuse to use non-node buffers if not explicitly assigned (perf reasons):
+        return Buffer.prototype.utf8Write ? Buffer : /* istanbul ignore next */ null;
+    } catch (e) {
+        /* istanbul ignore next */
+        return null;
     }
+})();
+
+// Internal alias of or polyfull for Buffer.from.
+util._Buffer_from = null;
+
+// Internal alias of or polyfill for Buffer.allocUnsafe.
+util._Buffer_allocUnsafe = null;
+
+/**
+ * Creates a new buffer of whatever type supported by the environment.
+ * @param {number|number[]} [sizeOrArray=0] Buffer size or number array
+ * @returns {Uint8Array|Buffer} Buffer
+ */
+util.newBuffer = function newBuffer(sizeOrArray) {
+    /* istanbul ignore next */
+    return typeof sizeOrArray === "number"
+        ? util.Buffer
+            ? util._Buffer_allocUnsafe(sizeOrArray)
+            : new util.Array(sizeOrArray)
+        : util.Buffer
+            ? util._Buffer_from(sizeOrArray)
+            : typeof Uint8Array === "undefined"
+                ? sizeOrArray
+                : new Uint8Array(sizeOrArray);
+};
+
+/**
+ * Array implementation used in the browser. `Uint8Array` if supported, otherwise `Array`.
+ * @type {Constructor<Uint8Array>}
+ */
+util.Array = typeof Uint8Array !== "undefined" ? Uint8Array /* istanbul ignore next */ : Array;
+
+/**
+ * Any compatible Long instance.
+ * This is a minimal stand-alone definition of a Long instance. The actual type is that exported by long.js.
+ * @interface Long
+ * @property {number} low Low bits
+ * @property {number} high High bits
+ * @property {boolean} unsigned Whether unsigned or not
+ */
+
+/**
+ * Long.js's Long class if available.
+ * @type {Constructor<Long>}
+ */
+util.Long = /* istanbul ignore next */ global.dcodeIO && /* istanbul ignore next */ global.dcodeIO.Long || util.inquire("long");
+
+/**
+ * Regular expression used to verify 2 bit (`bool`) map keys.
+ * @type {RegExp}
+ * @const
+ */
+util.key2Re = /^true|false|0|1$/;
+
+/**
+ * Regular expression used to verify 32 bit (`int32` etc.) map keys.
+ * @type {RegExp}
+ * @const
+ */
+util.key32Re = /^-?(?:0|[1-9][0-9]*)$/;
+
+/**
+ * Regular expression used to verify 64 bit (`int64` etc.) map keys.
+ * @type {RegExp}
+ * @const
+ */
+util.key64Re = /^(?:[\\x00-\\xff]{8}|-?(?:0|[1-9][0-9]*))$/;
+
+/**
+ * Converts a number or long to an 8 characters long hash string.
+ * @param {Long|number} value Value to convert
+ * @returns {string} Hash
+ */
+util.longToHash = function longToHash(value) {
+    return value
+        ? util.LongBits.from(value).toHash()
+        : util.LongBits.zeroHash;
+};
+
+/**
+ * Converts an 8 characters long hash string to a long or number.
+ * @param {string} hash Hash
+ * @param {boolean} [unsigned=false] Whether unsigned or not
+ * @returns {Long|number} Original value
+ */
+util.longFromHash = function longFromHash(hash, unsigned) {
+    var bits = util.LongBits.fromHash(hash);
+    if (util.Long)
+        return util.Long.fromBits(bits.lo, bits.hi, unsigned);
+    return bits.toNumber(Boolean(unsigned));
+};
+
+/**
+ * Merges the properties of the source object into the destination object.
+ * @memberof util
+ * @param {Object.<string,*>} dst Destination object
+ * @param {Object.<string,*>} src Source object
+ * @param {boolean} [ifNotSet=false] Merges only if the key is not already set
+ * @returns {Object.<string,*>} Destination object
+ */
+function merge(dst, src, ifNotSet) { // used by converters
+    for (var keys = Object.keys(src), i = 0; i < keys.length; ++i)
+        if (dst[keys[i]] === undefined || !ifNotSet)
+            dst[keys[i]] = src[keys[i]];
+    return dst;
 }
 
-module.exports = console
+util.merge = merge;
 
-function log() {}
+/**
+ * Converts the first character of a string to lower case.
+ * @param {string} str String to convert
+ * @returns {string} Converted string
+ */
+util.lcFirst = function lcFirst(str) {
+    return str.charAt(0).toLowerCase() + str.substring(1);
+};
 
-function info() {
-    console.log.apply(console, arguments)
-}
+/**
+ * Creates a custom error constructor.
+ * @memberof util
+ * @param {string} name Error name
+ * @returns {Constructor<Error>} Custom error constructor
+ */
+function newError(name) {
 
-function warn() {
-    console.log.apply(console, arguments)
-}
+    function CustomError(message, properties) {
 
-function error() {
-    console.warn.apply(console, arguments)
-}
+        if (!(this instanceof CustomError))
+            return new CustomError(message, properties);
 
-function time(label) {
-    times[label] = now()
-}
+        // Error.call(this, message);
+        // ^ just returns a new error instance because the ctor can be called as a function
 
-function timeEnd(label) {
-    var time = times[label]
-    if (!time) {
-        throw new Error("No such label: " + label)
+        Object.defineProperty(this, "message", { get: function() { return message; } });
+
+        /* istanbul ignore next */
+        if (Error.captureStackTrace) // node
+            Error.captureStackTrace(this, CustomError);
+        else
+            Object.defineProperty(this, "stack", { value: (new Error()).stack || "" });
+
+        if (properties)
+            merge(this, properties);
     }
 
-    var duration = now() - time
-    console.log(label + ": " + duration + "ms")
+    (CustomError.prototype = Object.create(Error.prototype)).constructor = CustomError;
+
+    Object.defineProperty(CustomError.prototype, "name", { get: function() { return name; } });
+
+    CustomError.prototype.toString = function toString() {
+        return this.name + ": " + this.message;
+    };
+
+    return CustomError;
 }
 
-function trace() {
-    var err = new Error()
-    err.name = "Trace"
-    err.message = util.format.apply(null, arguments)
-    console.error(err.stack)
-}
+util.newError = newError;
 
-function dir(object) {
-    console.log(util.inspect(object) + "\n")
-}
+/**
+ * Constructs a new protocol error.
+ * @classdesc Error subclass indicating a protocol specifc error.
+ * @memberof util
+ * @extends Error
+ * @template T extends Message<T>
+ * @constructor
+ * @param {string} message Error message
+ * @param {Object.<string,*>} [properties] Additional properties
+ * @example
+ * try {
+ *     MyMessage.decode(someBuffer); // throws if required fields are missing
+ * } catch (e) {
+ *     if (e instanceof ProtocolError && e.instance)
+ *         console.log("decoded so far: " + JSON.stringify(e.instance));
+ * }
+ */
+util.ProtocolError = newError("ProtocolError");
 
-function consoleAssert(expression) {
-    if (!expression) {
-        var arr = slice.call(arguments, 1)
-        assert.ok(false, util.format.apply(null, arr))
+/**
+ * So far decoded message instance.
+ * @name util.ProtocolError#instance
+ * @type {Message<T>}
+ */
+
+/**
+ * A OneOf getter as returned by {@link util.oneOfGetter}.
+ * @typedef OneOfGetter
+ * @type {function}
+ * @returns {string|undefined} Set field name, if any
+ */
+
+/**
+ * Builds a getter for a oneof's present field name.
+ * @param {string[]} fieldNames Field names
+ * @returns {OneOfGetter} Unbound getter
+ */
+util.oneOfGetter = function getOneOf(fieldNames) {
+    var fieldMap = {};
+    for (var i = 0; i < fieldNames.length; ++i)
+        fieldMap[fieldNames[i]] = 1;
+
+    /**
+     * @returns {string|undefined} Set field name, if any
+     * @this Object
+     * @ignore
+     */
+    return function() { // eslint-disable-line consistent-return
+        for (var keys = Object.keys(this), i = keys.length - 1; i > -1; --i)
+            if (fieldMap[keys[i]] === 1 && this[keys[i]] !== undefined && this[keys[i]] !== null)
+                return keys[i];
+    };
+};
+
+/**
+ * A OneOf setter as returned by {@link util.oneOfSetter}.
+ * @typedef OneOfSetter
+ * @type {function}
+ * @param {string|undefined} value Field name
+ * @returns {undefined}
+ */
+
+/**
+ * Builds a setter for a oneof's present field name.
+ * @param {string[]} fieldNames Field names
+ * @returns {OneOfSetter} Unbound setter
+ */
+util.oneOfSetter = function setOneOf(fieldNames) {
+
+    /**
+     * @param {string} name Field name
+     * @returns {undefined}
+     * @this Object
+     * @ignore
+     */
+    return function(name) {
+        for (var i = 0; i < fieldNames.length; ++i)
+            if (fieldNames[i] !== name)
+                delete this[fieldNames[i]];
+    };
+};
+
+/**
+ * Default conversion options used for {@link Message#toJSON} implementations.
+ *
+ * These options are close to proto3's JSON mapping with the exception that internal types like Any are handled just like messages. More precisely:
+ *
+ * - Longs become strings
+ * - Enums become string keys
+ * - Bytes become base64 encoded strings
+ * - (Sub-)Messages become plain objects
+ * - Maps become plain objects with all string keys
+ * - Repeated fields become arrays
+ * - NaN and Infinity for float and double fields become strings
+ *
+ * @type {IConversionOptions}
+ * @see https://developers.google.com/protocol-buffers/docs/proto3?hl=en#json
+ */
+util.toJSONOptions = {
+    longs: String,
+    enums: String,
+    bytes: String,
+    json: true
+};
+
+util._configure = function() {
+    var Buffer = util.Buffer;
+    /* istanbul ignore if */
+    if (!Buffer) {
+        util._Buffer_from = util._Buffer_allocUnsafe = null;
+        return;
     }
-}
+    // because node 4.x buffers are incompatible & immutable
+    // see: https://github.com/dcodeIO/protobuf.js/pull/665
+    util._Buffer_from = Buffer.from !== Uint8Array.from && Buffer.from ||
+        /* istanbul ignore next */
+        function Buffer_from(value, encoding) {
+            return new Buffer(value, encoding);
+        };
+    util._Buffer_allocUnsafe = Buffer.allocUnsafe ||
+        /* istanbul ignore next */
+        function Buffer_allocUnsafe(size) {
+            return new Buffer(size);
+        };
+};
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9706,12 +10480,12 @@ var objectKeys = Object.keys || function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(2).Buffer
-var Transform = __webpack_require__(14).Transform
-var StringDecoder = __webpack_require__(48).StringDecoder
+var Transform = __webpack_require__(15).Transform
+var StringDecoder = __webpack_require__(55).StringDecoder
 var inherits = __webpack_require__(1)
 
 function CipherBase (hashMode) {
@@ -9811,7 +10585,7 @@ module.exports = CipherBase
 
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -9822,19 +10596,19 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var asn1 = __webpack_require__(24);
+var asn1 = __webpack_require__(27);
 var crypto = __webpack_require__(7);
-var algs = __webpack_require__(11);
+var algs = __webpack_require__(12);
 var utils = __webpack_require__(9);
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
 
-var pkcs1 = __webpack_require__(74);
-var pkcs8 = __webpack_require__(44);
-var sshpriv = __webpack_require__(56);
-var rfc4253 = __webpack_require__(28);
+var pkcs1 = __webpack_require__(82);
+var pkcs8 = __webpack_require__(50);
+var sshpriv = __webpack_require__(63);
+var rfc4253 = __webpack_require__(31);
 
-var errors = __webpack_require__(18);
+var errors = __webpack_require__(21);
 
 /*
  * For reading we support both PKCS#1 and PKCS#8. If we find a private key,
@@ -10004,7 +10778,7 @@ function write(key, options, type) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -10012,7 +10786,7 @@ function write(key, options, type) {
 // If you have no idea what ASN.1 or BER is, see this:
 // ftp://ftp.rsa.com/pub/pkcs/ascii/layman.asc
 
-var Ber = __webpack_require__(269);
+var Ber = __webpack_require__(295);
 
 
 
@@ -10030,7 +10804,7 @@ module.exports = {
 
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10064,7 +10838,7 @@ module.exports = {
 
 /*<replacement>*/
 
-var processNextTick = __webpack_require__(47).nextTick;
+var processNextTick = __webpack_require__(54).nextTick;
 /*</replacement>*/
 
 /*<replacement>*/
@@ -10079,12 +10853,12 @@ var objectKeys = Object.keys || function (obj) {
 module.exports = Duplex;
 
 /*<replacement>*/
-var util = __webpack_require__(31);
+var util = __webpack_require__(35);
 util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
-var Readable = __webpack_require__(88);
-var Writable = __webpack_require__(63);
+var Readable = __webpack_require__(104);
+var Writable = __webpack_require__(71);
 
 util.inherits(Duplex, Readable);
 
@@ -10160,7 +10934,7 @@ function forEach(xs, f) {
 }
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function(){
@@ -11523,7 +12297,7 @@ function forEach(xs, f) {
 
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function(nacl) {
@@ -13902,7 +14676,7 @@ nacl.setPRNG = function(fn) {
     });
   } else if (true) {
     // Node.js.
-    crypto = __webpack_require__(268);
+    crypto = __webpack_require__(294);
     if (crypto && crypto.randomBytes) {
       nacl.setPRNG(function(x, n) {
         var i, v = crypto.randomBytes(n);
@@ -13917,7 +14691,7 @@ nacl.setPRNG = function(fn) {
 
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -13936,11 +14710,11 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var algs = __webpack_require__(11);
+var algs = __webpack_require__(12);
 var utils = __webpack_require__(9);
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
-var SSHBuffer = __webpack_require__(57);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
+var SSHBuffer = __webpack_require__(64);
 
 function algToKeyType(alg) {
 	assert.string(alg);
@@ -14070,13 +14844,378 @@ function write(key, options) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 29 */
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Field;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(38);
+((Field.prototype = Object.create(ReflectionObject.prototype)).constructor = Field).className = "Field";
+
+var Enum  = __webpack_require__(17),
+    types = __webpack_require__(39),
+    util  = __webpack_require__(10);
+
+var Type; // cyclic
+
+var ruleRe = /^required|optional|repeated$/;
+
+/**
+ * Constructs a new message field instance. Note that {@link MapField|map fields} have their own class.
+ * @name Field
+ * @classdesc Reflected message field.
+ * @extends FieldBase
+ * @constructor
+ * @param {string} name Unique name within its namespace
+ * @param {number} id Unique id within its namespace
+ * @param {string} type Value type
+ * @param {string|Object.<string,*>} [rule="optional"] Field rule
+ * @param {string|Object.<string,*>} [extend] Extended type if different from parent
+ * @param {Object.<string,*>} [options] Declared options
+ */
+
+/**
+ * Constructs a field from a field descriptor.
+ * @param {string} name Field name
+ * @param {IField} json Field descriptor
+ * @returns {Field} Created field
+ * @throws {TypeError} If arguments are invalid
+ */
+Field.fromJSON = function fromJSON(name, json) {
+    return new Field(name, json.id, json.type, json.rule, json.extend, json.options);
+};
+
+/**
+ * Not an actual constructor. Use {@link Field} instead.
+ * @classdesc Base class of all reflected message fields. This is not an actual class but here for the sake of having consistent type definitions.
+ * @exports FieldBase
+ * @extends ReflectionObject
+ * @constructor
+ * @param {string} name Unique name within its namespace
+ * @param {number} id Unique id within its namespace
+ * @param {string} type Value type
+ * @param {string|Object.<string,*>} [rule="optional"] Field rule
+ * @param {string|Object.<string,*>} [extend] Extended type if different from parent
+ * @param {Object.<string,*>} [options] Declared options
+ */
+function Field(name, id, type, rule, extend, options) {
+
+    if (util.isObject(rule)) {
+        options = rule;
+        rule = extend = undefined;
+    } else if (util.isObject(extend)) {
+        options = extend;
+        extend = undefined;
+    }
+
+    ReflectionObject.call(this, name, options);
+
+    if (!util.isInteger(id) || id < 0)
+        throw TypeError("id must be a non-negative integer");
+
+    if (!util.isString(type))
+        throw TypeError("type must be a string");
+
+    if (rule !== undefined && !ruleRe.test(rule = rule.toString().toLowerCase()))
+        throw TypeError("rule must be a string rule");
+
+    if (extend !== undefined && !util.isString(extend))
+        throw TypeError("extend must be a string");
+
+    /**
+     * Field rule, if any.
+     * @type {string|undefined}
+     */
+    this.rule = rule && rule !== "optional" ? rule : undefined; // toJSON
+
+    /**
+     * Field type.
+     * @type {string}
+     */
+    this.type = type; // toJSON
+
+    /**
+     * Unique field id.
+     * @type {number}
+     */
+    this.id = id; // toJSON, marker
+
+    /**
+     * Extended type if different from parent.
+     * @type {string|undefined}
+     */
+    this.extend = extend || undefined; // toJSON
+
+    /**
+     * Whether this field is required.
+     * @type {boolean}
+     */
+    this.required = rule === "required";
+
+    /**
+     * Whether this field is optional.
+     * @type {boolean}
+     */
+    this.optional = !this.required;
+
+    /**
+     * Whether this field is repeated.
+     * @type {boolean}
+     */
+    this.repeated = rule === "repeated";
+
+    /**
+     * Whether this field is a map or not.
+     * @type {boolean}
+     */
+    this.map = false;
+
+    /**
+     * Message this field belongs to.
+     * @type {Type|null}
+     */
+    this.message = null;
+
+    /**
+     * OneOf this field belongs to, if any,
+     * @type {OneOf|null}
+     */
+    this.partOf = null;
+
+    /**
+     * The field type's default value.
+     * @type {*}
+     */
+    this.typeDefault = null;
+
+    /**
+     * The field's default value on prototypes.
+     * @type {*}
+     */
+    this.defaultValue = null;
+
+    /**
+     * Whether this field's value should be treated as a long.
+     * @type {boolean}
+     */
+    this.long = util.Long ? types.long[type] !== undefined : /* istanbul ignore next */ false;
+
+    /**
+     * Whether this field's value is a buffer.
+     * @type {boolean}
+     */
+    this.bytes = type === "bytes";
+
+    /**
+     * Resolved type if not a basic type.
+     * @type {Type|Enum|null}
+     */
+    this.resolvedType = null;
+
+    /**
+     * Sister-field within the extended type if a declaring extension field.
+     * @type {Field|null}
+     */
+    this.extensionField = null;
+
+    /**
+     * Sister-field within the declaring namespace if an extended field.
+     * @type {Field|null}
+     */
+    this.declaringField = null;
+
+    /**
+     * Internally remembers whether this field is packed.
+     * @type {boolean|null}
+     * @private
+     */
+    this._packed = null;
+}
+
+/**
+ * Determines whether this field is packed. Only relevant when repeated and working with proto2.
+ * @name Field#packed
+ * @type {boolean}
+ * @readonly
+ */
+Object.defineProperty(Field.prototype, "packed", {
+    get: function() {
+        // defaults to packed=true if not explicity set to false
+        if (this._packed === null)
+            this._packed = this.getOption("packed") !== false;
+        return this._packed;
+    }
+});
+
+/**
+ * @override
+ */
+Field.prototype.setOption = function setOption(name, value, ifNotSet) {
+    if (name === "packed") // clear cached before setting
+        this._packed = null;
+    return ReflectionObject.prototype.setOption.call(this, name, value, ifNotSet);
+};
+
+/**
+ * Field descriptor.
+ * @interface IField
+ * @property {string} [rule="optional"] Field rule
+ * @property {string} type Field type
+ * @property {number} id Field id
+ * @property {Object.<string,*>} [options] Field options
+ */
+
+/**
+ * Extension field descriptor.
+ * @interface IExtensionField
+ * @extends IField
+ * @property {string} extend Extended type
+ */
+
+/**
+ * Converts this field to a field descriptor.
+ * @returns {IField} Field descriptor
+ */
+Field.prototype.toJSON = function toJSON() {
+    return util.toObject([
+        "rule"    , this.rule !== "optional" && this.rule || undefined,
+        "type"    , this.type,
+        "id"      , this.id,
+        "extend"  , this.extend,
+        "options" , this.options
+    ]);
+};
+
+/**
+ * Resolves this field's type references.
+ * @returns {Field} `this`
+ * @throws {Error} If any reference cannot be resolved
+ */
+Field.prototype.resolve = function resolve() {
+
+    if (this.resolved)
+        return this;
+
+    if ((this.typeDefault = types.defaults[this.type]) === undefined) { // if not a basic type, resolve it
+        this.resolvedType = (this.declaringField ? this.declaringField.parent : this.parent).lookupTypeOrEnum(this.type);
+        if (this.resolvedType instanceof Type)
+            this.typeDefault = null;
+        else // instanceof Enum
+            this.typeDefault = this.resolvedType.values[Object.keys(this.resolvedType.values)[0]]; // first defined
+    }
+
+    // use explicitly set default value if present
+    if (this.options && this.options["default"] != null) {
+        this.typeDefault = this.options["default"];
+        if (this.resolvedType instanceof Enum && typeof this.typeDefault === "string")
+            this.typeDefault = this.resolvedType.values[this.typeDefault];
+    }
+
+    // remove unnecessary options
+    if (this.options) {
+        if (this.options.packed === true || this.options.packed !== undefined && this.resolvedType && !(this.resolvedType instanceof Enum))
+            delete this.options.packed;
+        if (!Object.keys(this.options).length)
+            this.options = undefined;
+    }
+
+    // convert to internal data type if necesssary
+    if (this.long) {
+        this.typeDefault = util.Long.fromNumber(this.typeDefault, this.type.charAt(0) === "u");
+
+        /* istanbul ignore else */
+        if (Object.freeze)
+            Object.freeze(this.typeDefault); // long instances are meant to be immutable anyway (i.e. use small int cache that even requires it)
+
+    } else if (this.bytes && typeof this.typeDefault === "string") {
+        var buf;
+        if (util.base64.test(this.typeDefault))
+            util.base64.decode(this.typeDefault, buf = util.newBuffer(util.base64.length(this.typeDefault)), 0);
+        else
+            util.utf8.write(this.typeDefault, buf = util.newBuffer(util.utf8.length(this.typeDefault)), 0);
+        this.typeDefault = buf;
+    }
+
+    // take special care of maps and repeated fields
+    if (this.map)
+        this.defaultValue = util.emptyObject;
+    else if (this.repeated)
+        this.defaultValue = util.emptyArray;
+    else
+        this.defaultValue = this.typeDefault;
+
+    // ensure proper value on prototype
+    if (this.parent instanceof Type)
+        this.parent.ctor.prototype[this.name] = this.defaultValue;
+
+    return ReflectionObject.prototype.resolve.call(this);
+};
+
+/**
+ * Decorator function as returned by {@link Field.d} and {@link MapField.d} (TypeScript).
+ * @typedef FieldDecorator
+ * @type {function}
+ * @param {Object} prototype Target prototype
+ * @param {string} fieldName Field name
+ * @returns {undefined}
+ */
+
+/**
+ * Field decorator (TypeScript).
+ * @name Field.d
+ * @function
+ * @param {number} fieldId Field id
+ * @param {"double"|"float"|"int32"|"uint32"|"sint32"|"fixed32"|"sfixed32"|"int64"|"uint64"|"sint64"|"fixed64"|"sfixed64"|"string"|"bool"|"bytes"|Object} fieldType Field type
+ * @param {"optional"|"required"|"repeated"} [fieldRule="optional"] Field rule
+ * @param {T} [defaultValue] Default value
+ * @returns {FieldDecorator} Decorator function
+ * @template T extends number | number[] | Long | Long[] | string | string[] | boolean | boolean[] | Uint8Array | Uint8Array[] | Buffer | Buffer[]
+ */
+Field.d = function decorateField(fieldId, fieldType, fieldRule, defaultValue) {
+
+    // submessage: decorate the submessage and use its name as the type
+    if (typeof fieldType === "function")
+        fieldType = util.decorateType(fieldType).name;
+
+    // enum reference: create a reflected copy of the enum and keep reuseing it
+    else if (fieldType && typeof fieldType === "object")
+        fieldType = util.decorateEnum(fieldType).name;
+
+    return function fieldDecorator(prototype, fieldName) {
+        util.decorateType(prototype.constructor)
+            .add(new Field(fieldName, fieldId, fieldType, fieldRule, { "default": defaultValue }));
+    };
+};
+
+/**
+ * Field decorator (TypeScript).
+ * @name Field.d
+ * @function
+ * @param {number} fieldId Field id
+ * @param {Constructor<T>|string} fieldType Field type
+ * @param {"optional"|"required"|"repeated"} [fieldRule="optional"] Field rule
+ * @returns {FieldDecorator} Decorator function
+ * @template T extends Message<T>
+ * @variation 2
+ */
+// like Field.d but without a default value
+
+Field._configure = function configure(Type_) {
+    Type = Type_;
+};
+
+
+/***/ }),
+/* 33 */
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14122,7 +15261,7 @@ function randomBytes (size, cb) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(5)))
 
 /***/ }),
-/* 31 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
@@ -14236,7 +15375,7 @@ function objectToString(o) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 32 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(2).Buffer
@@ -14323,7 +15462,7 @@ module.exports = Hash
 
 
 /***/ }),
-/* 33 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14338,8 +15477,8 @@ module.exports = {
   toHash: toHash,
   getProperty: getProperty,
   escapeQuotes: escapeQuotes,
-  equal: __webpack_require__(77),
-  ucs2length: __webpack_require__(295),
+  equal: __webpack_require__(85),
+  ucs2length: __webpack_require__(321),
   varOccurences: varOccurences,
   varReplace: varReplace,
   cleanUpCode: cleanUpCode,
@@ -14597,28 +15736,437 @@ function unescapeJsonPointer(str) {
 
 
 /***/ }),
-/* 34 */
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = ReflectionObject;
+
+ReflectionObject.className = "ReflectionObject";
+
+var util = __webpack_require__(10);
+
+var Root; // cyclic
+
+/**
+ * Constructs a new reflection object instance.
+ * @classdesc Base class of all reflection objects.
+ * @constructor
+ * @param {string} name Object name
+ * @param {Object.<string,*>} [options] Declared options
+ * @abstract
+ */
+function ReflectionObject(name, options) {
+
+    if (!util.isString(name))
+        throw TypeError("name must be a string");
+
+    if (options && !util.isObject(options))
+        throw TypeError("options must be an object");
+
+    /**
+     * Options.
+     * @type {Object.<string,*>|undefined}
+     */
+    this.options = options; // toJSON
+
+    /**
+     * Unique name within its namespace.
+     * @type {string}
+     */
+    this.name = name;
+
+    /**
+     * Parent namespace.
+     * @type {Namespace|null}
+     */
+    this.parent = null;
+
+    /**
+     * Whether already resolved or not.
+     * @type {boolean}
+     */
+    this.resolved = false;
+
+    /**
+     * Comment text, if any.
+     * @type {string|null}
+     */
+    this.comment = null;
+
+    /**
+     * Defining file name.
+     * @type {string|null}
+     */
+    this.filename = null;
+}
+
+Object.defineProperties(ReflectionObject.prototype, {
+
+    /**
+     * Reference to the root namespace.
+     * @name ReflectionObject#root
+     * @type {Root}
+     * @readonly
+     */
+    root: {
+        get: function() {
+            var ptr = this;
+            while (ptr.parent !== null)
+                ptr = ptr.parent;
+            return ptr;
+        }
+    },
+
+    /**
+     * Full name including leading dot.
+     * @name ReflectionObject#fullName
+     * @type {string}
+     * @readonly
+     */
+    fullName: {
+        get: function() {
+            var path = [ this.name ],
+                ptr = this.parent;
+            while (ptr) {
+                path.unshift(ptr.name);
+                ptr = ptr.parent;
+            }
+            return path.join(".");
+        }
+    }
+});
+
+/**
+ * Converts this reflection object to its descriptor representation.
+ * @returns {Object.<string,*>} Descriptor
+ * @abstract
+ */
+ReflectionObject.prototype.toJSON = /* istanbul ignore next */ function toJSON() {
+    throw Error(); // not implemented, shouldn't happen
+};
+
+/**
+ * Called when this object is added to a parent.
+ * @param {ReflectionObject} parent Parent added to
+ * @returns {undefined}
+ */
+ReflectionObject.prototype.onAdd = function onAdd(parent) {
+    if (this.parent && this.parent !== parent)
+        this.parent.remove(this);
+    this.parent = parent;
+    this.resolved = false;
+    var root = parent.root;
+    if (root instanceof Root)
+        root._handleAdd(this);
+};
+
+/**
+ * Called when this object is removed from a parent.
+ * @param {ReflectionObject} parent Parent removed from
+ * @returns {undefined}
+ */
+ReflectionObject.prototype.onRemove = function onRemove(parent) {
+    var root = parent.root;
+    if (root instanceof Root)
+        root._handleRemove(this);
+    this.parent = null;
+    this.resolved = false;
+};
+
+/**
+ * Resolves this objects type references.
+ * @returns {ReflectionObject} `this`
+ */
+ReflectionObject.prototype.resolve = function resolve() {
+    if (this.resolved)
+        return this;
+    if (this.root instanceof Root)
+        this.resolved = true; // only if part of a root
+    return this;
+};
+
+/**
+ * Gets an option value.
+ * @param {string} name Option name
+ * @returns {*} Option value or `undefined` if not set
+ */
+ReflectionObject.prototype.getOption = function getOption(name) {
+    if (this.options)
+        return this.options[name];
+    return undefined;
+};
+
+/**
+ * Sets an option.
+ * @param {string} name Option name
+ * @param {*} value Option value
+ * @param {boolean} [ifNotSet] Sets the option only if it isn't currently set
+ * @returns {ReflectionObject} `this`
+ */
+ReflectionObject.prototype.setOption = function setOption(name, value, ifNotSet) {
+    if (!ifNotSet || !this.options || this.options[name] === undefined)
+        (this.options || (this.options = {}))[name] = value;
+    return this;
+};
+
+/**
+ * Sets multiple options.
+ * @param {Object.<string,*>} options Options to set
+ * @param {boolean} [ifNotSet] Sets an option only if it isn't currently set
+ * @returns {ReflectionObject} `this`
+ */
+ReflectionObject.prototype.setOptions = function setOptions(options, ifNotSet) {
+    if (options)
+        for (var keys = Object.keys(options), i = 0; i < keys.length; ++i)
+            this.setOption(keys[i], options[keys[i]], ifNotSet);
+    return this;
+};
+
+/**
+ * Converts this instance to its string representation.
+ * @returns {string} Class name[, space, full name]
+ */
+ReflectionObject.prototype.toString = function toString() {
+    var className = this.constructor.className,
+        fullName  = this.fullName;
+    if (fullName.length)
+        return className + " " + fullName;
+    return className;
+};
+
+ReflectionObject._configure = function(Root_) {
+    Root = Root_;
+};
+
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(153);
-exports.encode = exports.stringify = __webpack_require__(154);
+/**
+ * Common type constants.
+ * @namespace
+ */
+var types = exports;
+
+var util = __webpack_require__(10);
+
+var s = [
+    "double",   // 0
+    "float",    // 1
+    "int32",    // 2
+    "uint32",   // 3
+    "sint32",   // 4
+    "fixed32",  // 5
+    "sfixed32", // 6
+    "int64",    // 7
+    "uint64",   // 8
+    "sint64",   // 9
+    "fixed64",  // 10
+    "sfixed64", // 11
+    "bool",     // 12
+    "string",   // 13
+    "bytes"     // 14
+];
+
+function bake(values, offset) {
+    var i = 0, o = {};
+    offset |= 0;
+    while (i < values.length) o[s[i + offset]] = values[i++];
+    return o;
+}
+
+/**
+ * Basic type wire types.
+ * @type {Object.<string,number>}
+ * @const
+ * @property {number} double=1 Fixed64 wire type
+ * @property {number} float=5 Fixed32 wire type
+ * @property {number} int32=0 Varint wire type
+ * @property {number} uint32=0 Varint wire type
+ * @property {number} sint32=0 Varint wire type
+ * @property {number} fixed32=5 Fixed32 wire type
+ * @property {number} sfixed32=5 Fixed32 wire type
+ * @property {number} int64=0 Varint wire type
+ * @property {number} uint64=0 Varint wire type
+ * @property {number} sint64=0 Varint wire type
+ * @property {number} fixed64=1 Fixed64 wire type
+ * @property {number} sfixed64=1 Fixed64 wire type
+ * @property {number} bool=0 Varint wire type
+ * @property {number} string=2 Ldelim wire type
+ * @property {number} bytes=2 Ldelim wire type
+ */
+types.basic = bake([
+    /* double   */ 1,
+    /* float    */ 5,
+    /* int32    */ 0,
+    /* uint32   */ 0,
+    /* sint32   */ 0,
+    /* fixed32  */ 5,
+    /* sfixed32 */ 5,
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 1,
+    /* sfixed64 */ 1,
+    /* bool     */ 0,
+    /* string   */ 2,
+    /* bytes    */ 2
+]);
+
+/**
+ * Basic type defaults.
+ * @type {Object.<string,*>}
+ * @const
+ * @property {number} double=0 Double default
+ * @property {number} float=0 Float default
+ * @property {number} int32=0 Int32 default
+ * @property {number} uint32=0 Uint32 default
+ * @property {number} sint32=0 Sint32 default
+ * @property {number} fixed32=0 Fixed32 default
+ * @property {number} sfixed32=0 Sfixed32 default
+ * @property {number} int64=0 Int64 default
+ * @property {number} uint64=0 Uint64 default
+ * @property {number} sint64=0 Sint32 default
+ * @property {number} fixed64=0 Fixed64 default
+ * @property {number} sfixed64=0 Sfixed64 default
+ * @property {boolean} bool=false Bool default
+ * @property {string} string="" String default
+ * @property {Array.<number>} bytes=Array(0) Bytes default
+ * @property {null} message=null Message default
+ */
+types.defaults = bake([
+    /* double   */ 0,
+    /* float    */ 0,
+    /* int32    */ 0,
+    /* uint32   */ 0,
+    /* sint32   */ 0,
+    /* fixed32  */ 0,
+    /* sfixed32 */ 0,
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 0,
+    /* sfixed64 */ 0,
+    /* bool     */ false,
+    /* string   */ "",
+    /* bytes    */ util.emptyArray,
+    /* message  */ null
+]);
+
+/**
+ * Basic long type wire types.
+ * @type {Object.<string,number>}
+ * @const
+ * @property {number} int64=0 Varint wire type
+ * @property {number} uint64=0 Varint wire type
+ * @property {number} sint64=0 Varint wire type
+ * @property {number} fixed64=1 Fixed64 wire type
+ * @property {number} sfixed64=1 Fixed64 wire type
+ */
+types.long = bake([
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 1,
+    /* sfixed64 */ 1
+], 7);
+
+/**
+ * Allowed types for map keys with their associated wire type.
+ * @type {Object.<string,number>}
+ * @const
+ * @property {number} int32=0 Varint wire type
+ * @property {number} uint32=0 Varint wire type
+ * @property {number} sint32=0 Varint wire type
+ * @property {number} fixed32=5 Fixed32 wire type
+ * @property {number} sfixed32=5 Fixed32 wire type
+ * @property {number} int64=0 Varint wire type
+ * @property {number} uint64=0 Varint wire type
+ * @property {number} sint64=0 Varint wire type
+ * @property {number} fixed64=1 Fixed64 wire type
+ * @property {number} sfixed64=1 Fixed64 wire type
+ * @property {number} bool=0 Varint wire type
+ * @property {number} string=2 Ldelim wire type
+ */
+types.mapKey = bake([
+    /* int32    */ 0,
+    /* uint32   */ 0,
+    /* sint32   */ 0,
+    /* fixed32  */ 5,
+    /* sfixed32 */ 5,
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 1,
+    /* sfixed64 */ 1,
+    /* bool     */ 0,
+    /* string   */ 2
+], 2);
+
+/**
+ * Allowed types for packed repeated fields with their associated wire type.
+ * @type {Object.<string,number>}
+ * @const
+ * @property {number} double=1 Fixed64 wire type
+ * @property {number} float=5 Fixed32 wire type
+ * @property {number} int32=0 Varint wire type
+ * @property {number} uint32=0 Varint wire type
+ * @property {number} sint32=0 Varint wire type
+ * @property {number} fixed32=5 Fixed32 wire type
+ * @property {number} sfixed32=5 Fixed32 wire type
+ * @property {number} int64=0 Varint wire type
+ * @property {number} uint64=0 Varint wire type
+ * @property {number} sint64=0 Varint wire type
+ * @property {number} fixed64=1 Fixed64 wire type
+ * @property {number} sfixed64=1 Fixed64 wire type
+ * @property {number} bool=0 Varint wire type
+ */
+types.packed = bake([
+    /* double   */ 1,
+    /* float    */ 5,
+    /* int32    */ 0,
+    /* uint32   */ 0,
+    /* sint32   */ 0,
+    /* fixed32  */ 5,
+    /* sfixed32 */ 5,
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 1,
+    /* sfixed64 */ 1,
+    /* bool     */ 0
+]);
 
 
 /***/ }),
-/* 35 */
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.decode = exports.parse = __webpack_require__(179);
+exports.encode = exports.stringify = __webpack_require__(180);
+
+
+/***/ }),
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 var inherits = __webpack_require__(1)
-var md5 = __webpack_require__(61)
-var RIPEMD160 = __webpack_require__(62)
-var sha = __webpack_require__(64)
+var md5 = __webpack_require__(69)
+var RIPEMD160 = __webpack_require__(70)
+var sha = __webpack_require__(72)
 
-var Base = __webpack_require__(22)
+var Base = __webpack_require__(25)
 
 function HashNoConstructor (hash) {
   Base.call(this, 'digest')
@@ -14668,20 +16216,20 @@ module.exports = function createHash (alg) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 36 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(88);
+exports = module.exports = __webpack_require__(104);
 exports.Stream = exports;
 exports.Readable = exports;
-exports.Writable = __webpack_require__(63);
-exports.Duplex = __webpack_require__(25);
-exports.Transform = __webpack_require__(91);
-exports.PassThrough = __webpack_require__(167);
+exports.Writable = __webpack_require__(71);
+exports.Duplex = __webpack_require__(28);
+exports.Transform = __webpack_require__(107);
+exports.PassThrough = __webpack_require__(193);
 
 
 /***/ }),
-/* 37 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {module.exports = function xor (a, b) {
@@ -14698,14 +16246,14 @@ exports.PassThrough = __webpack_require__(167);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 38 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(17);
-var assert = __webpack_require__(15);
+var utils = __webpack_require__(20);
+var assert = __webpack_require__(16);
 
 function BlockHash() {
   this.pending = null;
@@ -14797,41 +16345,41 @@ BlockHash.prototype._pad = function pad() {
 
 
 /***/ }),
-/* 39 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var asn1 = exports;
 
 asn1.bignum = __webpack_require__(6);
 
-asn1.define = __webpack_require__(227).define;
-asn1.base = __webpack_require__(40);
-asn1.constants = __webpack_require__(113);
-asn1.decoders = __webpack_require__(233);
-asn1.encoders = __webpack_require__(235);
+asn1.define = __webpack_require__(253).define;
+asn1.base = __webpack_require__(46);
+asn1.constants = __webpack_require__(129);
+asn1.decoders = __webpack_require__(259);
+asn1.encoders = __webpack_require__(261);
 
 
 /***/ }),
-/* 40 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var base = exports;
 
-base.Reporter = __webpack_require__(230).Reporter;
-base.DecoderBuffer = __webpack_require__(112).DecoderBuffer;
-base.EncoderBuffer = __webpack_require__(112).EncoderBuffer;
-base.Node = __webpack_require__(231);
+base.Reporter = __webpack_require__(256).Reporter;
+base.DecoderBuffer = __webpack_require__(128).DecoderBuffer;
+base.EncoderBuffer = __webpack_require__(128).EncoderBuffer;
+base.Node = __webpack_require__(257);
 
 
 /***/ }),
-/* 41 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(247)
-var IncomingMessage = __webpack_require__(121)
-var extend = __webpack_require__(249)
-var statusCodes = __webpack_require__(250)
-var url = __webpack_require__(16)
+/* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(273)
+var IncomingMessage = __webpack_require__(137)
+var extend = __webpack_require__(275)
+var statusCodes = __webpack_require__(276)
+var url = __webpack_require__(19)
 
 var http = exports
 
@@ -14913,7 +16461,7 @@ http.METHODS = [
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 42 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -14921,11 +16469,11 @@ http.METHODS = [
 module.exports = Fingerprint;
 
 var assert = __webpack_require__(3);
-var algs = __webpack_require__(11);
+var algs = __webpack_require__(12);
 var crypto = __webpack_require__(7);
-var errs = __webpack_require__(18);
-var Key = __webpack_require__(10);
-var Certificate = __webpack_require__(43);
+var errs = __webpack_require__(21);
+var Key = __webpack_require__(11);
+var Certificate = __webpack_require__(49);
 var utils = __webpack_require__(9);
 
 var FingerprintFormatError = errs.FingerprintFormatError;
@@ -15081,7 +16629,7 @@ Fingerprint._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 43 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2016 Joyent, Inc.
@@ -15089,21 +16637,21 @@ Fingerprint._oldVersionDetect = function (obj) {
 module.exports = Certificate;
 
 var assert = __webpack_require__(3);
-var algs = __webpack_require__(11);
+var algs = __webpack_require__(12);
 var crypto = __webpack_require__(7);
-var Fingerprint = __webpack_require__(42);
-var Signature = __webpack_require__(19);
-var errs = __webpack_require__(18);
+var Fingerprint = __webpack_require__(48);
+var Signature = __webpack_require__(22);
+var errs = __webpack_require__(21);
 var util = __webpack_require__(4);
 var utils = __webpack_require__(9);
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
-var Identity = __webpack_require__(45);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
+var Identity = __webpack_require__(51);
 
 var formats = {};
-formats['openssh'] = __webpack_require__(272);
-formats['x509'] = __webpack_require__(130);
-formats['pem'] = __webpack_require__(273);
+formats['openssh'] = __webpack_require__(298);
+formats['x509'] = __webpack_require__(146);
+formats['pem'] = __webpack_require__(299);
 
 var CertificateParseError = errs.CertificateParseError;
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
@@ -15465,7 +17013,7 @@ Certificate._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 44 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -15481,12 +17029,12 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var asn1 = __webpack_require__(24);
-var algs = __webpack_require__(11);
+var asn1 = __webpack_require__(27);
+var algs = __webpack_require__(12);
 var utils = __webpack_require__(9);
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
-var pem = __webpack_require__(23);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
+var pem = __webpack_require__(26);
 
 function read(buf, options) {
 	return (pem.read(buf, options, 'pkcs8'));
@@ -15977,7 +17525,7 @@ function writePkcs8ECDSAPrivate(key, der) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 45 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2017 Joyent, Inc.
@@ -15985,14 +17533,14 @@ function writePkcs8ECDSAPrivate(key, der) {
 module.exports = Identity;
 
 var assert = __webpack_require__(3);
-var algs = __webpack_require__(11);
+var algs = __webpack_require__(12);
 var crypto = __webpack_require__(7);
-var Fingerprint = __webpack_require__(42);
-var Signature = __webpack_require__(19);
-var errs = __webpack_require__(18);
+var Fingerprint = __webpack_require__(48);
+var Signature = __webpack_require__(22);
+var errs = __webpack_require__(21);
 var util = __webpack_require__(4);
 var utils = __webpack_require__(9);
-var asn1 = __webpack_require__(24);
+var asn1 = __webpack_require__(27);
 
 /*JSSTYLED*/
 var DNS_NAME_RE = /^([*]|[a-z0-9][a-z0-9\-]{0,62})(?:\.([*]|[a-z0-9][a-z0-9\-]{0,62}))*$/i;
@@ -16261,7 +17809,443 @@ Identity._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 46 */
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Namespace;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(38);
+((Namespace.prototype = Object.create(ReflectionObject.prototype)).constructor = Namespace).className = "Namespace";
+
+var Enum     = __webpack_require__(17),
+    Field    = __webpack_require__(32),
+    util     = __webpack_require__(10);
+
+var Type,    // cyclic
+    Service; // "
+
+/**
+ * Constructs a new namespace instance.
+ * @name Namespace
+ * @classdesc Reflected namespace.
+ * @extends NamespaceBase
+ * @constructor
+ * @param {string} name Namespace name
+ * @param {Object.<string,*>} [options] Declared options
+ */
+
+/**
+ * Constructs a namespace from JSON.
+ * @memberof Namespace
+ * @function
+ * @param {string} name Namespace name
+ * @param {Object.<string,*>} json JSON object
+ * @returns {Namespace} Created namespace
+ * @throws {TypeError} If arguments are invalid
+ */
+Namespace.fromJSON = function fromJSON(name, json) {
+    return new Namespace(name, json.options).addJSON(json.nested);
+};
+
+/**
+ * Converts an array of reflection objects to JSON.
+ * @memberof Namespace
+ * @param {ReflectionObject[]} array Object array
+ * @returns {Object.<string,*>|undefined} JSON object or `undefined` when array is empty
+ */
+function arrayToJSON(array) {
+    if (!(array && array.length))
+        return undefined;
+    var obj = {};
+    for (var i = 0; i < array.length; ++i)
+        obj[array[i].name] = array[i].toJSON();
+    return obj;
+}
+
+Namespace.arrayToJSON = arrayToJSON;
+
+/**
+ * Tests if the specified id is reserved.
+ * @param {Array.<number[]|string>|undefined} reserved Array of reserved ranges and names
+ * @param {number} id Id to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Namespace.isReservedId = function isReservedId(reserved, id) {
+    if (reserved)
+        for (var i = 0; i < reserved.length; ++i)
+            if (typeof reserved[i] !== "string" && reserved[i][0] <= id && reserved[i][1] >= id)
+                return true;
+    return false;
+};
+
+/**
+ * Tests if the specified name is reserved.
+ * @param {Array.<number[]|string>|undefined} reserved Array of reserved ranges and names
+ * @param {string} name Name to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Namespace.isReservedName = function isReservedName(reserved, name) {
+    if (reserved)
+        for (var i = 0; i < reserved.length; ++i)
+            if (reserved[i] === name)
+                return true;
+    return false;
+};
+
+/**
+ * Not an actual constructor. Use {@link Namespace} instead.
+ * @classdesc Base class of all reflection objects containing nested objects. This is not an actual class but here for the sake of having consistent type definitions.
+ * @exports NamespaceBase
+ * @extends ReflectionObject
+ * @abstract
+ * @constructor
+ * @param {string} name Namespace name
+ * @param {Object.<string,*>} [options] Declared options
+ * @see {@link Namespace}
+ */
+function Namespace(name, options) {
+    ReflectionObject.call(this, name, options);
+
+    /**
+     * Nested objects by name.
+     * @type {Object.<string,ReflectionObject>|undefined}
+     */
+    this.nested = undefined; // toJSON
+
+    /**
+     * Cached nested objects as an array.
+     * @type {ReflectionObject[]|null}
+     * @private
+     */
+    this._nestedArray = null;
+}
+
+function clearCache(namespace) {
+    namespace._nestedArray = null;
+    return namespace;
+}
+
+/**
+ * Nested objects of this namespace as an array for iteration.
+ * @name NamespaceBase#nestedArray
+ * @type {ReflectionObject[]}
+ * @readonly
+ */
+Object.defineProperty(Namespace.prototype, "nestedArray", {
+    get: function() {
+        return this._nestedArray || (this._nestedArray = util.toArray(this.nested));
+    }
+});
+
+/**
+ * Namespace descriptor.
+ * @interface INamespace
+ * @property {Object.<string,*>} [options] Namespace options
+ * @property {Object.<string,AnyNestedObject>} [nested] Nested object descriptors
+ */
+
+/**
+ * Any extension field descriptor.
+ * @typedef AnyExtensionField
+ * @type {IExtensionField|IExtensionMapField}
+ */
+
+/**
+ * Any nested object descriptor.
+ * @typedef AnyNestedObject
+ * @type {IEnum|IType|IService|AnyExtensionField|INamespace}
+ */
+// ^ BEWARE: VSCode hangs forever when using more than 5 types (that's why AnyExtensionField exists in the first place)
+
+/**
+ * Converts this namespace to a namespace descriptor.
+ * @returns {INamespace} Namespace descriptor
+ */
+Namespace.prototype.toJSON = function toJSON() {
+    return util.toObject([
+        "options" , this.options,
+        "nested"  , arrayToJSON(this.nestedArray)
+    ]);
+};
+
+/**
+ * Adds nested objects to this namespace from nested object descriptors.
+ * @param {Object.<string,AnyNestedObject>} nestedJson Any nested object descriptors
+ * @returns {Namespace} `this`
+ */
+Namespace.prototype.addJSON = function addJSON(nestedJson) {
+    var ns = this;
+    /* istanbul ignore else */
+    if (nestedJson) {
+        for (var names = Object.keys(nestedJson), i = 0, nested; i < names.length; ++i) {
+            nested = nestedJson[names[i]];
+            ns.add( // most to least likely
+                ( nested.fields !== undefined
+                ? Type.fromJSON
+                : nested.values !== undefined
+                ? Enum.fromJSON
+                : nested.methods !== undefined
+                ? Service.fromJSON
+                : nested.id !== undefined
+                ? Field.fromJSON
+                : Namespace.fromJSON )(names[i], nested)
+            );
+        }
+    }
+    return this;
+};
+
+/**
+ * Gets the nested object of the specified name.
+ * @param {string} name Nested object name
+ * @returns {ReflectionObject|null} The reflection object or `null` if it doesn't exist
+ */
+Namespace.prototype.get = function get(name) {
+    return this.nested && this.nested[name]
+        || null;
+};
+
+/**
+ * Gets the values of the nested {@link Enum|enum} of the specified name.
+ * This methods differs from {@link Namespace#get|get} in that it returns an enum's values directly and throws instead of returning `null`.
+ * @param {string} name Nested enum name
+ * @returns {Object.<string,number>} Enum values
+ * @throws {Error} If there is no such enum
+ */
+Namespace.prototype.getEnum = function getEnum(name) {
+    if (this.nested && this.nested[name] instanceof Enum)
+        return this.nested[name].values;
+    throw Error("no such enum");
+};
+
+/**
+ * Adds a nested object to this namespace.
+ * @param {ReflectionObject} object Nested object to add
+ * @returns {Namespace} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If there is already a nested object with this name
+ */
+Namespace.prototype.add = function add(object) {
+
+    if (!(object instanceof Field && object.extend !== undefined || object instanceof Type || object instanceof Enum || object instanceof Service || object instanceof Namespace))
+        throw TypeError("object must be a valid nested object");
+
+    if (!this.nested)
+        this.nested = {};
+    else {
+        var prev = this.get(object.name);
+        if (prev) {
+            if (prev instanceof Namespace && object instanceof Namespace && !(prev instanceof Type || prev instanceof Service)) {
+                // replace plain namespace but keep existing nested elements and options
+                var nested = prev.nestedArray;
+                for (var i = 0; i < nested.length; ++i)
+                    object.add(nested[i]);
+                this.remove(prev);
+                if (!this.nested)
+                    this.nested = {};
+                object.setOptions(prev.options, true);
+
+            } else
+                throw Error("duplicate name '" + object.name + "' in " + this);
+        }
+    }
+    this.nested[object.name] = object;
+    object.onAdd(this);
+    return clearCache(this);
+};
+
+/**
+ * Removes a nested object from this namespace.
+ * @param {ReflectionObject} object Nested object to remove
+ * @returns {Namespace} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If `object` is not a member of this namespace
+ */
+Namespace.prototype.remove = function remove(object) {
+
+    if (!(object instanceof ReflectionObject))
+        throw TypeError("object must be a ReflectionObject");
+    if (object.parent !== this)
+        throw Error(object + " is not a member of " + this);
+
+    delete this.nested[object.name];
+    if (!Object.keys(this.nested).length)
+        this.nested = undefined;
+
+    object.onRemove(this);
+    return clearCache(this);
+};
+
+/**
+ * Defines additial namespaces within this one if not yet existing.
+ * @param {string|string[]} path Path to create
+ * @param {*} [json] Nested types to create from JSON
+ * @returns {Namespace} Pointer to the last namespace created or `this` if path is empty
+ */
+Namespace.prototype.define = function define(path, json) {
+
+    if (util.isString(path))
+        path = path.split(".");
+    else if (!Array.isArray(path))
+        throw TypeError("illegal path");
+    if (path && path.length && path[0] === "")
+        throw Error("path must be relative");
+
+    var ptr = this;
+    while (path.length > 0) {
+        var part = path.shift();
+        if (ptr.nested && ptr.nested[part]) {
+            ptr = ptr.nested[part];
+            if (!(ptr instanceof Namespace))
+                throw Error("path conflicts with non-namespace objects");
+        } else
+            ptr.add(ptr = new Namespace(part));
+    }
+    if (json)
+        ptr.addJSON(json);
+    return ptr;
+};
+
+/**
+ * Resolves this namespace's and all its nested objects' type references. Useful to validate a reflection tree, but comes at a cost.
+ * @returns {Namespace} `this`
+ */
+Namespace.prototype.resolveAll = function resolveAll() {
+    var nested = this.nestedArray, i = 0;
+    while (i < nested.length)
+        if (nested[i] instanceof Namespace)
+            nested[i++].resolveAll();
+        else
+            nested[i++].resolve();
+    return this.resolve();
+};
+
+/**
+ * Recursively looks up the reflection object matching the specified path in the scope of this namespace.
+ * @param {string|string[]} path Path to look up
+ * @param {*|Array.<*>} filterTypes Filter types, any combination of the constructors of `protobuf.Type`, `protobuf.Enum`, `protobuf.Service` etc.
+ * @param {boolean} [parentAlreadyChecked=false] If known, whether the parent has already been checked
+ * @returns {ReflectionObject|null} Looked up object or `null` if none could be found
+ */
+Namespace.prototype.lookup = function lookup(path, filterTypes, parentAlreadyChecked) {
+
+    /* istanbul ignore next */
+    if (typeof filterTypes === "boolean") {
+        parentAlreadyChecked = filterTypes;
+        filterTypes = undefined;
+    } else if (filterTypes && !Array.isArray(filterTypes))
+        filterTypes = [ filterTypes ];
+
+    if (util.isString(path) && path.length) {
+        if (path === ".")
+            return this.root;
+        path = path.split(".");
+    } else if (!path.length)
+        return this;
+
+    // Start at root if path is absolute
+    if (path[0] === "")
+        return this.root.lookup(path.slice(1), filterTypes);
+
+    // Test if the first part matches any nested object, and if so, traverse if path contains more
+    var found = this.get(path[0]);
+    if (found) {
+        if (path.length === 1) {
+            if (!filterTypes || filterTypes.indexOf(found.constructor) > -1)
+                return found;
+        } else if (found instanceof Namespace && (found = found.lookup(path.slice(1), filterTypes, true)))
+            return found;
+
+    // Otherwise try each nested namespace
+    } else
+        for (var i = 0; i < this.nestedArray.length; ++i)
+            if (this._nestedArray[i] instanceof Namespace && (found = this._nestedArray[i].lookup(path, filterTypes, true)))
+                return found;
+
+    // If there hasn't been a match, try again at the parent
+    if (this.parent === null || parentAlreadyChecked)
+        return null;
+    return this.parent.lookup(path, filterTypes);
+};
+
+/**
+ * Looks up the reflection object at the specified path, relative to this namespace.
+ * @name NamespaceBase#lookup
+ * @function
+ * @param {string|string[]} path Path to look up
+ * @param {boolean} [parentAlreadyChecked=false] Whether the parent has already been checked
+ * @returns {ReflectionObject|null} Looked up object or `null` if none could be found
+ * @variation 2
+ */
+// lookup(path: string, [parentAlreadyChecked: boolean])
+
+/**
+ * Looks up the {@link Type|type} at the specified path, relative to this namespace.
+ * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
+ * @param {string|string[]} path Path to look up
+ * @returns {Type} Looked up type
+ * @throws {Error} If `path` does not point to a type
+ */
+Namespace.prototype.lookupType = function lookupType(path) {
+    var found = this.lookup(path, [ Type ]);
+    if (!found)
+        throw Error("no such type");
+    return found;
+};
+
+/**
+ * Looks up the values of the {@link Enum|enum} at the specified path, relative to this namespace.
+ * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
+ * @param {string|string[]} path Path to look up
+ * @returns {Enum} Looked up enum
+ * @throws {Error} If `path` does not point to an enum
+ */
+Namespace.prototype.lookupEnum = function lookupEnum(path) {
+    var found = this.lookup(path, [ Enum ]);
+    if (!found)
+        throw Error("no such Enum '" + path + "' in " + this);
+    return found;
+};
+
+/**
+ * Looks up the {@link Type|type} or {@link Enum|enum} at the specified path, relative to this namespace.
+ * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
+ * @param {string|string[]} path Path to look up
+ * @returns {Type} Looked up type or enum
+ * @throws {Error} If `path` does not point to a type or enum
+ */
+Namespace.prototype.lookupTypeOrEnum = function lookupTypeOrEnum(path) {
+    var found = this.lookup(path, [ Type, Enum ]);
+    if (!found)
+        throw Error("no such Type or Enum '" + path + "' in " + this);
+    return found;
+};
+
+/**
+ * Looks up the {@link Service|service} at the specified path, relative to this namespace.
+ * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
+ * @param {string|string[]} path Path to look up
+ * @returns {Service} Looked up service
+ * @throws {Error} If `path` does not point to a service
+ */
+Namespace.prototype.lookupService = function lookupService(path) {
+    var found = this.lookup(path, [ Service ]);
+    if (!found)
+        throw Error("no such Service '" + path + "' in " + this);
+    return found;
+};
+
+Namespace._configure = function(Type_, Service_) {
+    Type    = Type_;
+    Service = Service_;
+};
+
+
+/***/ }),
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(console) {// Copyright Joyent, Inc. and other Node contributors.
@@ -16567,10 +18551,10 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
 
 /***/ }),
-/* 47 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16622,7 +18606,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 48 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16900,11 +18884,11 @@ function simpleEnd(buf) {
 }
 
 /***/ }),
-/* 49 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(2).Buffer
-var MD5 = __webpack_require__(180)
+var MD5 = __webpack_require__(206)
 
 /* eslint-disable camelcase */
 function EVP_BytesToKey (password, salt, keyBits, ivLen) {
@@ -16951,7 +18935,7 @@ module.exports = EVP_BytesToKey
 
 
 /***/ }),
-/* 50 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // based on the aes implimentation in triple sec
@@ -17185,7 +19169,7 @@ module.exports.AES = AES
 
 
 /***/ }),
-/* 51 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17193,21 +19177,21 @@ module.exports.AES = AES
 
 var curve = exports;
 
-curve.base = __webpack_require__(207);
-curve.short = __webpack_require__(208);
-curve.mont = __webpack_require__(209);
-curve.edwards = __webpack_require__(210);
+curve.base = __webpack_require__(233);
+curve.short = __webpack_require__(234);
+curve.mont = __webpack_require__(235);
+curve.edwards = __webpack_require__(236);
 
 
 /***/ }),
-/* 52 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var asn1 = __webpack_require__(226)
-var aesid = __webpack_require__(238)
-var fixProc = __webpack_require__(239)
-var ciphers = __webpack_require__(65)
-var compat = __webpack_require__(96)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var asn1 = __webpack_require__(252)
+var aesid = __webpack_require__(264)
+var fixProc = __webpack_require__(265)
+var ciphers = __webpack_require__(73)
+var compat = __webpack_require__(112)
 module.exports = parseKeys
 
 function parseKeys (buffer) {
@@ -17313,7 +19297,7 @@ function decrypt (data, password) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 53 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17425,13 +19409,13 @@ exports.setTyped(TYPED_OK);
 
 
 /***/ }),
-/* 54 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2012 Joyent, Inc.  All rights reserved.
 
 var assert = __webpack_require__(3);
-var sshpk = __webpack_require__(71);
+var sshpk = __webpack_require__(79);
 var util = __webpack_require__(4);
 
 var HASH_ALGOS = {
@@ -17543,7 +19527,7 @@ module.exports = {
 
 
 /***/ }),
-/* 55 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Basic Javascript Elliptic Curve implementation
@@ -17551,7 +19535,7 @@ module.exports = {
 // Only Fp curves implemented for now
 
 // Requires jsbn.js and jsbn2.js
-var BigInteger = __webpack_require__(26).BigInteger
+var BigInteger = __webpack_require__(29).BigInteger
 var Barrett = BigInteger.prototype.Barrett
 
 // ----------------
@@ -18110,7 +20094,7 @@ module.exports = exports
 
 
 /***/ }),
-/* 56 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -18122,17 +20106,17 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var asn1 = __webpack_require__(24);
-var algs = __webpack_require__(11);
+var asn1 = __webpack_require__(27);
+var algs = __webpack_require__(12);
 var utils = __webpack_require__(9);
 var crypto = __webpack_require__(7);
 
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
-var pem = __webpack_require__(23);
-var rfc4253 = __webpack_require__(28);
-var SSHBuffer = __webpack_require__(57);
-var errors = __webpack_require__(18);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
+var pem = __webpack_require__(26);
+var rfc4253 = __webpack_require__(31);
+var SSHBuffer = __webpack_require__(64);
+var errors = __webpack_require__(21);
 
 var bcrypt;
 
@@ -18181,7 +20165,7 @@ function readSSHPrivate(type, buf, options) {
 		var rounds = kdfOptsBuf.readInt();
 		var cinf = utils.opensshCipherInfo(cipher);
 		if (bcrypt === undefined) {
-			bcrypt = __webpack_require__(128);
+			bcrypt = __webpack_require__(144);
 		}
 
 		if (typeof (options.passphrase) === 'string') {
@@ -18302,7 +20286,7 @@ function write(key, options) {
 		kdfopts = kdfssh.toBuffer();
 
 		if (bcrypt === undefined) {
-			bcrypt = __webpack_require__(128);
+			bcrypt = __webpack_require__(144);
 		}
 		var pass = new Uint8Array(passphrase);
 		var salti = new Uint8Array(salt);
@@ -18378,7 +20362,7 @@ function write(key, options) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 57 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -18533,7 +20517,207 @@ SSHBuffer.prototype.write = function (buf) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 58 */
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = OneOf;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(38);
+((OneOf.prototype = Object.create(ReflectionObject.prototype)).constructor = OneOf).className = "OneOf";
+
+var Field = __webpack_require__(32),
+    util  = __webpack_require__(10);
+
+/**
+ * Constructs a new oneof instance.
+ * @classdesc Reflected oneof.
+ * @extends ReflectionObject
+ * @constructor
+ * @param {string} name Oneof name
+ * @param {string[]|Object.<string,*>} [fieldNames] Field names
+ * @param {Object.<string,*>} [options] Declared options
+ */
+function OneOf(name, fieldNames, options) {
+    if (!Array.isArray(fieldNames)) {
+        options = fieldNames;
+        fieldNames = undefined;
+    }
+    ReflectionObject.call(this, name, options);
+
+    /* istanbul ignore if */
+    if (!(fieldNames === undefined || Array.isArray(fieldNames)))
+        throw TypeError("fieldNames must be an Array");
+
+    /**
+     * Field names that belong to this oneof.
+     * @type {string[]}
+     */
+    this.oneof = fieldNames || []; // toJSON, marker
+
+    /**
+     * Fields that belong to this oneof as an array for iteration.
+     * @type {Field[]}
+     * @readonly
+     */
+    this.fieldsArray = []; // declared readonly for conformance, possibly not yet added to parent
+}
+
+/**
+ * Oneof descriptor.
+ * @interface IOneOf
+ * @property {Array.<string>} oneof Oneof field names
+ * @property {Object.<string,*>} [options] Oneof options
+ */
+
+/**
+ * Constructs a oneof from a oneof descriptor.
+ * @param {string} name Oneof name
+ * @param {IOneOf} json Oneof descriptor
+ * @returns {OneOf} Created oneof
+ * @throws {TypeError} If arguments are invalid
+ */
+OneOf.fromJSON = function fromJSON(name, json) {
+    return new OneOf(name, json.oneof, json.options);
+};
+
+/**
+ * Converts this oneof to a oneof descriptor.
+ * @returns {IOneOf} Oneof descriptor
+ */
+OneOf.prototype.toJSON = function toJSON() {
+    return util.toObject([
+        "options" , this.options,
+        "oneof"   , this.oneof
+    ]);
+};
+
+/**
+ * Adds the fields of the specified oneof to the parent if not already done so.
+ * @param {OneOf} oneof The oneof
+ * @returns {undefined}
+ * @inner
+ * @ignore
+ */
+function addFieldsToParent(oneof) {
+    if (oneof.parent)
+        for (var i = 0; i < oneof.fieldsArray.length; ++i)
+            if (!oneof.fieldsArray[i].parent)
+                oneof.parent.add(oneof.fieldsArray[i]);
+}
+
+/**
+ * Adds a field to this oneof and removes it from its current parent, if any.
+ * @param {Field} field Field to add
+ * @returns {OneOf} `this`
+ */
+OneOf.prototype.add = function add(field) {
+
+    /* istanbul ignore if */
+    if (!(field instanceof Field))
+        throw TypeError("field must be a Field");
+
+    if (field.parent && field.parent !== this.parent)
+        field.parent.remove(field);
+    this.oneof.push(field.name);
+    this.fieldsArray.push(field);
+    field.partOf = this; // field.parent remains null
+    addFieldsToParent(this);
+    return this;
+};
+
+/**
+ * Removes a field from this oneof and puts it back to the oneof's parent.
+ * @param {Field} field Field to remove
+ * @returns {OneOf} `this`
+ */
+OneOf.prototype.remove = function remove(field) {
+
+    /* istanbul ignore if */
+    if (!(field instanceof Field))
+        throw TypeError("field must be a Field");
+
+    var index = this.fieldsArray.indexOf(field);
+
+    /* istanbul ignore if */
+    if (index < 0)
+        throw Error(field + " is not a member of " + this);
+
+    this.fieldsArray.splice(index, 1);
+    index = this.oneof.indexOf(field.name);
+
+    /* istanbul ignore else */
+    if (index > -1) // theoretical
+        this.oneof.splice(index, 1);
+
+    field.partOf = null;
+    return this;
+};
+
+/**
+ * @override
+ */
+OneOf.prototype.onAdd = function onAdd(parent) {
+    ReflectionObject.prototype.onAdd.call(this, parent);
+    var self = this;
+    // Collect present fields
+    for (var i = 0; i < this.oneof.length; ++i) {
+        var field = parent.get(this.oneof[i]);
+        if (field && !field.partOf) {
+            field.partOf = self;
+            self.fieldsArray.push(field);
+        }
+    }
+    // Add not yet present fields
+    addFieldsToParent(this);
+};
+
+/**
+ * @override
+ */
+OneOf.prototype.onRemove = function onRemove(parent) {
+    for (var i = 0, field; i < this.fieldsArray.length; ++i)
+        if ((field = this.fieldsArray[i]).parent)
+            field.parent.remove(field);
+    ReflectionObject.prototype.onRemove.call(this, parent);
+};
+
+/**
+ * Decorator function as returned by {@link OneOf.d} (TypeScript).
+ * @typedef OneOfDecorator
+ * @type {function}
+ * @param {Object} prototype Target prototype
+ * @param {string} oneofName OneOf name
+ * @returns {undefined}
+ */
+
+/**
+ * OneOf decorator (TypeScript).
+ * @function
+ * @param {...string} fieldNames Field names
+ * @returns {OneOfDecorator} Decorator function
+ * @template T extends string
+ */
+OneOf.d = function decorateOneOf() {
+    var fieldNames = new Array(arguments.length),
+        index = 0;
+    while (index < arguments.length)
+        fieldNames[index] = arguments[index++];
+    return function oneOfDecorator(prototype, oneofName) {
+        util.decorateType(prototype.constructor)
+            .add(new OneOf(oneofName, fieldNames));
+        Object.defineProperty(prototype, oneofName, {
+            get: util.oneOfGetter(fieldNames),
+            set: util.oneOfSetter(fieldNames)
+        });
+    };
+};
+
+
+/***/ }),
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18626,7 +20810,7 @@ module.exports = function extend() {
 
 
 /***/ }),
-/* 59 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.1 by @mathias */
@@ -19162,16 +21346,16 @@ module.exports = function extend() {
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(81)(module), __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(97)(module), __webpack_require__(8)))
 
 /***/ }),
-/* 60 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(setImmediate, process) {
 
-var jsonSafeStringify = __webpack_require__(158)
+var jsonSafeStringify = __webpack_require__(184)
 var crypto = __webpack_require__(7)
 var Buffer = __webpack_require__(2).Buffer
 
@@ -19236,10 +21420,10 @@ exports.copy = copy
 exports.version = version
 exports.defer = defer
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(86).setImmediate, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(102).setImmediate, __webpack_require__(5)))
 
 /***/ }),
-/* 61 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19253,7 +21437,7 @@ exports.defer = defer
  * See http://pajhome.org.uk/crypt/md5 for more info.
  */
 
-var makeHash = __webpack_require__(161)
+var makeHash = __webpack_require__(187)
 
 /*
  * Calculate the MD5 of an array of little-endian words, and a bit length
@@ -19397,13 +21581,13 @@ module.exports = function md5 (buf) {
 
 
 /***/ }),
-/* 62 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 var inherits = __webpack_require__(1)
-var HashBase = __webpack_require__(162)
+var HashBase = __webpack_require__(188)
 
 function RIPEMD160 () {
   HashBase.call(this, 64)
@@ -19696,7 +21880,7 @@ module.exports = RIPEMD160
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 63 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19729,7 +21913,7 @@ module.exports = RIPEMD160
 
 /*<replacement>*/
 
-var processNextTick = __webpack_require__(47).nextTick;
+var processNextTick = __webpack_require__(54).nextTick;
 /*</replacement>*/
 
 module.exports = Writable;
@@ -19766,18 +21950,18 @@ var Duplex;
 Writable.WritableState = WritableState;
 
 /*<replacement>*/
-var util = __webpack_require__(31);
+var util = __webpack_require__(35);
 util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 /*<replacement>*/
 var internalUtil = {
-  deprecate: __webpack_require__(166)
+  deprecate: __webpack_require__(192)
 };
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(89);
+var Stream = __webpack_require__(105);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -19793,14 +21977,14 @@ function _isUint8Array(obj) {
 
 /*</replacement>*/
 
-var destroyImpl = __webpack_require__(90);
+var destroyImpl = __webpack_require__(106);
 
 util.inherits(Writable, Stream);
 
 function nop() {}
 
 function WritableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(25);
+  Duplex = Duplex || __webpack_require__(28);
 
   options = options || {};
 
@@ -19950,7 +22134,7 @@ if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.protot
 }
 
 function Writable(options) {
-  Duplex = Duplex || __webpack_require__(25);
+  Duplex = Duplex || __webpack_require__(28);
 
   // Writable ctor is applied to Duplexes, too.
   // `realHasInstance` is necessary because using plain `instanceof`
@@ -20377,10 +22561,10 @@ Writable.prototype._destroy = function (err, cb) {
   this.end();
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(86).setImmediate, __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(102).setImmediate, __webpack_require__(8)))
 
 /***/ }),
-/* 64 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var exports = module.exports = function SHA (algorithm) {
@@ -20392,21 +22576,21 @@ var exports = module.exports = function SHA (algorithm) {
   return new Algorithm()
 }
 
-exports.sha = __webpack_require__(172)
-exports.sha1 = __webpack_require__(173)
-exports.sha224 = __webpack_require__(174)
-exports.sha256 = __webpack_require__(92)
-exports.sha384 = __webpack_require__(175)
-exports.sha512 = __webpack_require__(93)
+exports.sha = __webpack_require__(198)
+exports.sha1 = __webpack_require__(199)
+exports.sha224 = __webpack_require__(200)
+exports.sha256 = __webpack_require__(108)
+exports.sha384 = __webpack_require__(201)
+exports.sha512 = __webpack_require__(109)
 
 
 /***/ }),
-/* 65 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ciphers = __webpack_require__(182)
-var deciphers = __webpack_require__(190)
-var modes = __webpack_require__(102)
+var ciphers = __webpack_require__(208)
+var deciphers = __webpack_require__(216)
+var modes = __webpack_require__(118)
 
 function getCiphers () {
   return Object.keys(modes)
@@ -20420,21 +22604,21 @@ exports.listCiphers = exports.getCiphers = getCiphers
 
 
 /***/ }),
-/* 66 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var modeModules = {
-  ECB: __webpack_require__(183),
-  CBC: __webpack_require__(184),
-  CFB: __webpack_require__(185),
-  CFB8: __webpack_require__(186),
-  CFB1: __webpack_require__(187),
-  OFB: __webpack_require__(188),
-  CTR: __webpack_require__(100),
-  GCM: __webpack_require__(100)
+  ECB: __webpack_require__(209),
+  CBC: __webpack_require__(210),
+  CFB: __webpack_require__(211),
+  CFB8: __webpack_require__(212),
+  CFB1: __webpack_require__(213),
+  OFB: __webpack_require__(214),
+  CTR: __webpack_require__(116),
+  GCM: __webpack_require__(116)
 }
 
-var modes = __webpack_require__(102)
+var modes = __webpack_require__(118)
 
 for (var key in modes) {
   modes[key].module = modeModules[modes[key].mode]
@@ -20444,25 +22628,25 @@ module.exports = modes
 
 
 /***/ }),
-/* 67 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.utils = __webpack_require__(192);
-exports.Cipher = __webpack_require__(193);
-exports.DES = __webpack_require__(194);
-exports.CBC = __webpack_require__(195);
-exports.EDE = __webpack_require__(196);
+exports.utils = __webpack_require__(218);
+exports.Cipher = __webpack_require__(219);
+exports.DES = __webpack_require__(220);
+exports.CBC = __webpack_require__(221);
+exports.EDE = __webpack_require__(222);
 
 
 /***/ }),
-/* 68 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(6);
-var randomBytes = __webpack_require__(30);
+var randomBytes = __webpack_require__(34);
 module.exports = crt;
 function blind(priv) {
   var r = getr(priv);
@@ -20505,16 +22689,16 @@ function getr(priv) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 69 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var hash = exports;
 
-hash.utils = __webpack_require__(17);
-hash.common = __webpack_require__(38);
-hash.sha = __webpack_require__(212);
-hash.ripemd = __webpack_require__(216);
-hash.hmac = __webpack_require__(217);
+hash.utils = __webpack_require__(20);
+hash.common = __webpack_require__(44);
+hash.sha = __webpack_require__(238);
+hash.ripemd = __webpack_require__(242);
+hash.hmac = __webpack_require__(243);
 
 // Proxy hash functions to the main object
 hash.sha1 = hash.sha.sha1;
@@ -20526,11 +22710,11 @@ hash.ripemd160 = hash.ripemd.ripemd160;
 
 
 /***/ }),
-/* 70 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var http = __webpack_require__(41)
-var url = __webpack_require__(16)
+var http = __webpack_require__(47)
+var url = __webpack_require__(19)
 
 var https = module.exports
 
@@ -20563,18 +22747,18 @@ function validateParams (params) {
 
 
 /***/ }),
-/* 71 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
 
-var Key = __webpack_require__(10);
-var Fingerprint = __webpack_require__(42);
-var Signature = __webpack_require__(19);
-var PrivateKey = __webpack_require__(12);
-var Certificate = __webpack_require__(43);
-var Identity = __webpack_require__(45);
-var errs = __webpack_require__(18);
+var Key = __webpack_require__(11);
+var Fingerprint = __webpack_require__(48);
+var Signature = __webpack_require__(22);
+var PrivateKey = __webpack_require__(13);
+var Certificate = __webpack_require__(49);
+var Identity = __webpack_require__(51);
+var errs = __webpack_require__(21);
 
 module.exports = {
 	/* top-level classes */
@@ -20608,7 +22792,7 @@ module.exports = {
 
 
 /***/ }),
-/* 72 */
+/* 80 */
 /***/ (function(module, exports) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -20627,7 +22811,7 @@ module.exports = {
 
 
 /***/ }),
-/* 73 */
+/* 81 */
 /***/ (function(module, exports) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -20669,7 +22853,7 @@ module.exports = {
 
 
 /***/ }),
-/* 74 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -20682,15 +22866,15 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var asn1 = __webpack_require__(24);
-var algs = __webpack_require__(11);
+var asn1 = __webpack_require__(27);
+var algs = __webpack_require__(12);
 var utils = __webpack_require__(9);
 
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
-var pem = __webpack_require__(23);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
+var pem = __webpack_require__(26);
 
-var pkcs8 = __webpack_require__(44);
+var pkcs8 = __webpack_require__(50);
 var readECDSACurve = pkcs8.readECDSACurve;
 
 function read(buf, options) {
@@ -20996,7 +23180,7 @@ function writePkcs1ECDSAPrivate(der, key) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 75 */
+/* 83 */
 /***/ (function(module, exports) {
 
 function Caseless (dict) {
@@ -21069,17 +23253,17 @@ module.exports.httpify = function (resp, headers) {
 
 
 /***/ }),
-/* 76 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var url = __webpack_require__(16)
-  , equal = __webpack_require__(77)
-  , util = __webpack_require__(33)
-  , SchemaObject = __webpack_require__(136)
-  , traverse = __webpack_require__(296);
+var url = __webpack_require__(19)
+  , equal = __webpack_require__(85)
+  , util = __webpack_require__(37)
+  , SchemaObject = __webpack_require__(152)
+  , traverse = __webpack_require__(322);
 
 module.exports = resolve;
 
@@ -21347,7 +23531,7 @@ function resolveIds(schema) {
 
 
 /***/ }),
-/* 77 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21397,13 +23581,13 @@ module.exports = function equal(a, b) {
 
 
 /***/ }),
-/* 78 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var resolve = __webpack_require__(76);
+var resolve = __webpack_require__(84);
 
 module.exports = {
   Validation: errorSubclass(ValidationError),
@@ -21438,11 +23622,11 @@ function errorSubclass(Subclass) {
 
 
 /***/ }),
-/* 79 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var v1 = __webpack_require__(346);
-var v4 = __webpack_require__(347);
+var v1 = __webpack_require__(372);
+var v4 = __webpack_require__(373);
 
 var uuid = v4;
 uuid.v1 = v1;
@@ -21452,13 +23636,2433 @@ module.exports = uuid;
 
 
 /***/ }),
-/* 80 */
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Writer;
+
+var util      = __webpack_require__(23);
+
+var BufferWriter; // cyclic
+
+var LongBits  = util.LongBits,
+    base64    = util.base64,
+    utf8      = util.utf8;
+
+/**
+ * Constructs a new writer operation instance.
+ * @classdesc Scheduled writer operation.
+ * @constructor
+ * @param {function(*, Uint8Array, number)} fn Function to call
+ * @param {number} len Value byte length
+ * @param {*} val Value to write
+ * @ignore
+ */
+function Op(fn, len, val) {
+
+    /**
+     * Function to call.
+     * @type {function(Uint8Array, number, *)}
+     */
+    this.fn = fn;
+
+    /**
+     * Value byte length.
+     * @type {number}
+     */
+    this.len = len;
+
+    /**
+     * Next operation.
+     * @type {Writer.Op|undefined}
+     */
+    this.next = undefined;
+
+    /**
+     * Value to write.
+     * @type {*}
+     */
+    this.val = val; // type varies
+}
+
+/* istanbul ignore next */
+function noop() {} // eslint-disable-line no-empty-function
+
+/**
+ * Constructs a new writer state instance.
+ * @classdesc Copied writer state.
+ * @memberof Writer
+ * @constructor
+ * @param {Writer} writer Writer to copy state from
+ * @ignore
+ */
+function State(writer) {
+
+    /**
+     * Current head.
+     * @type {Writer.Op}
+     */
+    this.head = writer.head;
+
+    /**
+     * Current tail.
+     * @type {Writer.Op}
+     */
+    this.tail = writer.tail;
+
+    /**
+     * Current buffer length.
+     * @type {number}
+     */
+    this.len = writer.len;
+
+    /**
+     * Next state.
+     * @type {State|null}
+     */
+    this.next = writer.states;
+}
+
+/**
+ * Constructs a new writer instance.
+ * @classdesc Wire format writer using `Uint8Array` if available, otherwise `Array`.
+ * @constructor
+ */
+function Writer() {
+
+    /**
+     * Current length.
+     * @type {number}
+     */
+    this.len = 0;
+
+    /**
+     * Operations head.
+     * @type {Object}
+     */
+    this.head = new Op(noop, 0, 0);
+
+    /**
+     * Operations tail
+     * @type {Object}
+     */
+    this.tail = this.head;
+
+    /**
+     * Linked forked states.
+     * @type {Object|null}
+     */
+    this.states = null;
+
+    // When a value is written, the writer calculates its byte length and puts it into a linked
+    // list of operations to perform when finish() is called. This both allows us to allocate
+    // buffers of the exact required size and reduces the amount of work we have to do compared
+    // to first calculating over objects and then encoding over objects. In our case, the encoding
+    // part is just a linked list walk calling operations with already prepared values.
+}
+
+/**
+ * Creates a new writer.
+ * @function
+ * @returns {BufferWriter|Writer} A {@link BufferWriter} when Buffers are supported, otherwise a {@link Writer}
+ */
+Writer.create = util.Buffer
+    ? function create_buffer_setup() {
+        return (Writer.create = function create_buffer() {
+            return new BufferWriter();
+        })();
+    }
+    /* istanbul ignore next */
+    : function create_array() {
+        return new Writer();
+    };
+
+/**
+ * Allocates a buffer of the specified size.
+ * @param {number} size Buffer size
+ * @returns {Uint8Array} Buffer
+ */
+Writer.alloc = function alloc(size) {
+    return new util.Array(size);
+};
+
+// Use Uint8Array buffer pool in the browser, just like node does with buffers
+/* istanbul ignore else */
+if (util.Array !== Array)
+    Writer.alloc = util.pool(Writer.alloc, util.Array.prototype.subarray);
+
+/**
+ * Pushes a new operation to the queue.
+ * @param {function(Uint8Array, number, *)} fn Function to call
+ * @param {number} len Value byte length
+ * @param {number} val Value to write
+ * @returns {Writer} `this`
+ * @private
+ */
+Writer.prototype._push = function push(fn, len, val) {
+    this.tail = this.tail.next = new Op(fn, len, val);
+    this.len += len;
+    return this;
+};
+
+function writeByte(val, buf, pos) {
+    buf[pos] = val & 255;
+}
+
+function writeVarint32(val, buf, pos) {
+    while (val > 127) {
+        buf[pos++] = val & 127 | 128;
+        val >>>= 7;
+    }
+    buf[pos] = val;
+}
+
+/**
+ * Constructs a new varint writer operation instance.
+ * @classdesc Scheduled varint writer operation.
+ * @extends Op
+ * @constructor
+ * @param {number} len Value byte length
+ * @param {number} val Value to write
+ * @ignore
+ */
+function VarintOp(len, val) {
+    this.len = len;
+    this.next = undefined;
+    this.val = val;
+}
+
+VarintOp.prototype = Object.create(Op.prototype);
+VarintOp.prototype.fn = writeVarint32;
+
+/**
+ * Writes an unsigned 32 bit value as a varint.
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.uint32 = function write_uint32(value) {
+    // here, the call to this.push has been inlined and a varint specific Op subclass is used.
+    // uint32 is by far the most frequently used operation and benefits significantly from this.
+    this.len += (this.tail = this.tail.next = new VarintOp(
+        (value = value >>> 0)
+                < 128       ? 1
+        : value < 16384     ? 2
+        : value < 2097152   ? 3
+        : value < 268435456 ? 4
+        :                     5,
+    value)).len;
+    return this;
+};
+
+/**
+ * Writes a signed 32 bit value as a varint.
+ * @function
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.int32 = function write_int32(value) {
+    return value < 0
+        ? this._push(writeVarint64, 10, LongBits.fromNumber(value)) // 10 bytes per spec
+        : this.uint32(value);
+};
+
+/**
+ * Writes a 32 bit value as a varint, zig-zag encoded.
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.sint32 = function write_sint32(value) {
+    return this.uint32((value << 1 ^ value >> 31) >>> 0);
+};
+
+function writeVarint64(val, buf, pos) {
+    while (val.hi) {
+        buf[pos++] = val.lo & 127 | 128;
+        val.lo = (val.lo >>> 7 | val.hi << 25) >>> 0;
+        val.hi >>>= 7;
+    }
+    while (val.lo > 127) {
+        buf[pos++] = val.lo & 127 | 128;
+        val.lo = val.lo >>> 7;
+    }
+    buf[pos++] = val.lo;
+}
+
+/**
+ * Writes an unsigned 64 bit value as a varint.
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.uint64 = function write_uint64(value) {
+    var bits = LongBits.from(value);
+    return this._push(writeVarint64, bits.length(), bits);
+};
+
+/**
+ * Writes a signed 64 bit value as a varint.
+ * @function
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.int64 = Writer.prototype.uint64;
+
+/**
+ * Writes a signed 64 bit value as a varint, zig-zag encoded.
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.sint64 = function write_sint64(value) {
+    var bits = LongBits.from(value).zzEncode();
+    return this._push(writeVarint64, bits.length(), bits);
+};
+
+/**
+ * Writes a boolish value as a varint.
+ * @param {boolean} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.bool = function write_bool(value) {
+    return this._push(writeByte, 1, value ? 1 : 0);
+};
+
+function writeFixed32(val, buf, pos) {
+    buf[pos    ] =  val         & 255;
+    buf[pos + 1] =  val >>> 8   & 255;
+    buf[pos + 2] =  val >>> 16  & 255;
+    buf[pos + 3] =  val >>> 24;
+}
+
+/**
+ * Writes an unsigned 32 bit value as fixed 32 bits.
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.fixed32 = function write_fixed32(value) {
+    return this._push(writeFixed32, 4, value >>> 0);
+};
+
+/**
+ * Writes a signed 32 bit value as fixed 32 bits.
+ * @function
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.sfixed32 = Writer.prototype.fixed32;
+
+/**
+ * Writes an unsigned 64 bit value as fixed 64 bits.
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.fixed64 = function write_fixed64(value) {
+    var bits = LongBits.from(value);
+    return this._push(writeFixed32, 4, bits.lo)._push(writeFixed32, 4, bits.hi);
+};
+
+/**
+ * Writes a signed 64 bit value as fixed 64 bits.
+ * @function
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.sfixed64 = Writer.prototype.fixed64;
+
+/**
+ * Writes a float (32 bit).
+ * @function
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.float = function write_float(value) {
+    return this._push(util.float.writeFloatLE, 4, value);
+};
+
+/**
+ * Writes a double (64 bit float).
+ * @function
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.double = function write_double(value) {
+    return this._push(util.float.writeDoubleLE, 8, value);
+};
+
+var writeBytes = util.Array.prototype.set
+    ? function writeBytes_set(val, buf, pos) {
+        buf.set(val, pos); // also works for plain array values
+    }
+    /* istanbul ignore next */
+    : function writeBytes_for(val, buf, pos) {
+        for (var i = 0; i < val.length; ++i)
+            buf[pos + i] = val[i];
+    };
+
+/**
+ * Writes a sequence of bytes.
+ * @param {Uint8Array|string} value Buffer or base64 encoded string to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.bytes = function write_bytes(value) {
+    var len = value.length >>> 0;
+    if (!len)
+        return this._push(writeByte, 1, 0);
+    if (util.isString(value)) {
+        var buf = Writer.alloc(len = base64.length(value));
+        base64.decode(value, buf, 0);
+        value = buf;
+    }
+    return this.uint32(len)._push(writeBytes, len, value);
+};
+
+/**
+ * Writes a string.
+ * @param {string} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.string = function write_string(value) {
+    var len = utf8.length(value);
+    return len
+        ? this.uint32(len)._push(utf8.write, len, value)
+        : this._push(writeByte, 1, 0);
+};
+
+/**
+ * Forks this writer's state by pushing it to a stack.
+ * Calling {@link Writer#reset|reset} or {@link Writer#ldelim|ldelim} resets the writer to the previous state.
+ * @returns {Writer} `this`
+ */
+Writer.prototype.fork = function fork() {
+    this.states = new State(this);
+    this.head = this.tail = new Op(noop, 0, 0);
+    this.len = 0;
+    return this;
+};
+
+/**
+ * Resets this instance to the last state.
+ * @returns {Writer} `this`
+ */
+Writer.prototype.reset = function reset() {
+    if (this.states) {
+        this.head   = this.states.head;
+        this.tail   = this.states.tail;
+        this.len    = this.states.len;
+        this.states = this.states.next;
+    } else {
+        this.head = this.tail = new Op(noop, 0, 0);
+        this.len  = 0;
+    }
+    return this;
+};
+
+/**
+ * Resets to the last state and appends the fork state's current write length as a varint followed by its operations.
+ * @returns {Writer} `this`
+ */
+Writer.prototype.ldelim = function ldelim() {
+    var head = this.head,
+        tail = this.tail,
+        len  = this.len;
+    this.reset().uint32(len);
+    if (len) {
+        this.tail.next = head.next; // skip noop
+        this.tail = tail;
+        this.len += len;
+    }
+    return this;
+};
+
+/**
+ * Finishes the write operation.
+ * @returns {Uint8Array} Finished buffer
+ */
+Writer.prototype.finish = function finish() {
+    var head = this.head.next, // skip noop
+        buf  = this.constructor.alloc(this.len),
+        pos  = 0;
+    while (head) {
+        head.fn(head.val, buf, pos);
+        pos += head.len;
+        head = head.next;
+    }
+    // this.head = this.tail = null;
+    return buf;
+};
+
+Writer._configure = function(BufferWriter_) {
+    BufferWriter = BufferWriter_;
+};
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Reader;
+
+var util      = __webpack_require__(23);
+
+var BufferReader; // cyclic
+
+var LongBits  = util.LongBits,
+    utf8      = util.utf8;
+
+/* istanbul ignore next */
+function indexOutOfRange(reader, writeLength) {
+    return RangeError("index out of range: " + reader.pos + " + " + (writeLength || 1) + " > " + reader.len);
+}
+
+/**
+ * Constructs a new reader instance using the specified buffer.
+ * @classdesc Wire format reader using `Uint8Array` if available, otherwise `Array`.
+ * @constructor
+ * @param {Uint8Array} buffer Buffer to read from
+ */
+function Reader(buffer) {
+
+    /**
+     * Read buffer.
+     * @type {Uint8Array}
+     */
+    this.buf = buffer;
+
+    /**
+     * Read buffer position.
+     * @type {number}
+     */
+    this.pos = 0;
+
+    /**
+     * Read buffer length.
+     * @type {number}
+     */
+    this.len = buffer.length;
+}
+
+var create_array = typeof Uint8Array !== "undefined"
+    ? function create_typed_array(buffer) {
+        if (buffer instanceof Uint8Array || Array.isArray(buffer))
+            return new Reader(buffer);
+        throw Error("illegal buffer");
+    }
+    /* istanbul ignore next */
+    : function create_array(buffer) {
+        if (Array.isArray(buffer))
+            return new Reader(buffer);
+        throw Error("illegal buffer");
+    };
+
+/**
+ * Creates a new reader using the specified buffer.
+ * @function
+ * @param {Uint8Array|Buffer} buffer Buffer to read from
+ * @returns {Reader|BufferReader} A {@link BufferReader} if `buffer` is a Buffer, otherwise a {@link Reader}
+ * @throws {Error} If `buffer` is not a valid buffer
+ */
+Reader.create = util.Buffer
+    ? function create_buffer_setup(buffer) {
+        return (Reader.create = function create_buffer(buffer) {
+            return util.Buffer.isBuffer(buffer)
+                ? new BufferReader(buffer)
+                /* istanbul ignore next */
+                : create_array(buffer);
+        })(buffer);
+    }
+    /* istanbul ignore next */
+    : create_array;
+
+Reader.prototype._slice = util.Array.prototype.subarray || /* istanbul ignore next */ util.Array.prototype.slice;
+
+/**
+ * Reads a varint as an unsigned 32 bit value.
+ * @function
+ * @returns {number} Value read
+ */
+Reader.prototype.uint32 = (function read_uint32_setup() {
+    var value = 4294967295; // optimizer type-hint, tends to deopt otherwise (?!)
+    return function read_uint32() {
+        value = (         this.buf[this.pos] & 127       ) >>> 0; if (this.buf[this.pos++] < 128) return value;
+        value = (value | (this.buf[this.pos] & 127) <<  7) >>> 0; if (this.buf[this.pos++] < 128) return value;
+        value = (value | (this.buf[this.pos] & 127) << 14) >>> 0; if (this.buf[this.pos++] < 128) return value;
+        value = (value | (this.buf[this.pos] & 127) << 21) >>> 0; if (this.buf[this.pos++] < 128) return value;
+        value = (value | (this.buf[this.pos] &  15) << 28) >>> 0; if (this.buf[this.pos++] < 128) return value;
+
+        /* istanbul ignore if */
+        if ((this.pos += 5) > this.len) {
+            this.pos = this.len;
+            throw indexOutOfRange(this, 10);
+        }
+        return value;
+    };
+})();
+
+/**
+ * Reads a varint as a signed 32 bit value.
+ * @returns {number} Value read
+ */
+Reader.prototype.int32 = function read_int32() {
+    return this.uint32() | 0;
+};
+
+/**
+ * Reads a zig-zag encoded varint as a signed 32 bit value.
+ * @returns {number} Value read
+ */
+Reader.prototype.sint32 = function read_sint32() {
+    var value = this.uint32();
+    return value >>> 1 ^ -(value & 1) | 0;
+};
+
+/* eslint-disable no-invalid-this */
+
+function readLongVarint() {
+    // tends to deopt with local vars for octet etc.
+    var bits = new LongBits(0, 0);
+    var i = 0;
+    if (this.len - this.pos > 4) { // fast route (lo)
+        for (; i < 4; ++i) {
+            // 1st..4th
+            bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i * 7) >>> 0;
+            if (this.buf[this.pos++] < 128)
+                return bits;
+        }
+        // 5th
+        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << 28) >>> 0;
+        bits.hi = (bits.hi | (this.buf[this.pos] & 127) >>  4) >>> 0;
+        if (this.buf[this.pos++] < 128)
+            return bits;
+        i = 0;
+    } else {
+        for (; i < 3; ++i) {
+            /* istanbul ignore if */
+            if (this.pos >= this.len)
+                throw indexOutOfRange(this);
+            // 1st..3th
+            bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i * 7) >>> 0;
+            if (this.buf[this.pos++] < 128)
+                return bits;
+        }
+        // 4th
+        bits.lo = (bits.lo | (this.buf[this.pos++] & 127) << i * 7) >>> 0;
+        return bits;
+    }
+    if (this.len - this.pos > 4) { // fast route (hi)
+        for (; i < 5; ++i) {
+            // 6th..10th
+            bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i * 7 + 3) >>> 0;
+            if (this.buf[this.pos++] < 128)
+                return bits;
+        }
+    } else {
+        for (; i < 5; ++i) {
+            /* istanbul ignore if */
+            if (this.pos >= this.len)
+                throw indexOutOfRange(this);
+            // 6th..10th
+            bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i * 7 + 3) >>> 0;
+            if (this.buf[this.pos++] < 128)
+                return bits;
+        }
+    }
+    /* istanbul ignore next */
+    throw Error("invalid varint encoding");
+}
+
+/* eslint-enable no-invalid-this */
+
+/**
+ * Reads a varint as a signed 64 bit value.
+ * @name Reader#int64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads a varint as an unsigned 64 bit value.
+ * @name Reader#uint64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads a zig-zag encoded varint as a signed 64 bit value.
+ * @name Reader#sint64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads a varint as a boolean.
+ * @returns {boolean} Value read
+ */
+Reader.prototype.bool = function read_bool() {
+    return this.uint32() !== 0;
+};
+
+function readFixed32_end(buf, end) { // note that this uses `end`, not `pos`
+    return (buf[end - 4]
+          | buf[end - 3] << 8
+          | buf[end - 2] << 16
+          | buf[end - 1] << 24) >>> 0;
+}
+
+/**
+ * Reads fixed 32 bits as an unsigned 32 bit integer.
+ * @returns {number} Value read
+ */
+Reader.prototype.fixed32 = function read_fixed32() {
+
+    /* istanbul ignore if */
+    if (this.pos + 4 > this.len)
+        throw indexOutOfRange(this, 4);
+
+    return readFixed32_end(this.buf, this.pos += 4);
+};
+
+/**
+ * Reads fixed 32 bits as a signed 32 bit integer.
+ * @returns {number} Value read
+ */
+Reader.prototype.sfixed32 = function read_sfixed32() {
+
+    /* istanbul ignore if */
+    if (this.pos + 4 > this.len)
+        throw indexOutOfRange(this, 4);
+
+    return readFixed32_end(this.buf, this.pos += 4) | 0;
+};
+
+/* eslint-disable no-invalid-this */
+
+function readFixed64(/* this: Reader */) {
+
+    /* istanbul ignore if */
+    if (this.pos + 8 > this.len)
+        throw indexOutOfRange(this, 8);
+
+    return new LongBits(readFixed32_end(this.buf, this.pos += 4), readFixed32_end(this.buf, this.pos += 4));
+}
+
+/* eslint-enable no-invalid-this */
+
+/**
+ * Reads fixed 64 bits.
+ * @name Reader#fixed64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads zig-zag encoded fixed 64 bits.
+ * @name Reader#sfixed64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads a float (32 bit) as a number.
+ * @function
+ * @returns {number} Value read
+ */
+Reader.prototype.float = function read_float() {
+
+    /* istanbul ignore if */
+    if (this.pos + 4 > this.len)
+        throw indexOutOfRange(this, 4);
+
+    var value = util.float.readFloatLE(this.buf, this.pos);
+    this.pos += 4;
+    return value;
+};
+
+/**
+ * Reads a double (64 bit float) as a number.
+ * @function
+ * @returns {number} Value read
+ */
+Reader.prototype.double = function read_double() {
+
+    /* istanbul ignore if */
+    if (this.pos + 8 > this.len)
+        throw indexOutOfRange(this, 4);
+
+    var value = util.float.readDoubleLE(this.buf, this.pos);
+    this.pos += 8;
+    return value;
+};
+
+/**
+ * Reads a sequence of bytes preceeded by its length as a varint.
+ * @returns {Uint8Array} Value read
+ */
+Reader.prototype.bytes = function read_bytes() {
+    var length = this.uint32(),
+        start  = this.pos,
+        end    = this.pos + length;
+
+    /* istanbul ignore if */
+    if (end > this.len)
+        throw indexOutOfRange(this, length);
+
+    this.pos += length;
+    if (Array.isArray(this.buf)) // plain array
+        return this.buf.slice(start, end);
+    return start === end // fix for IE 10/Win8 and others' subarray returning array of size 1
+        ? new this.buf.constructor(0)
+        : this._slice.call(this.buf, start, end);
+};
+
+/**
+ * Reads a string preceeded by its byte length as a varint.
+ * @returns {string} Value read
+ */
+Reader.prototype.string = function read_string() {
+    var bytes = this.bytes();
+    return utf8.read(bytes, 0, bytes.length);
+};
+
+/**
+ * Skips the specified number of bytes if specified, otherwise skips a varint.
+ * @param {number} [length] Length if known, otherwise a varint is assumed
+ * @returns {Reader} `this`
+ */
+Reader.prototype.skip = function skip(length) {
+    if (typeof length === "number") {
+        /* istanbul ignore if */
+        if (this.pos + length > this.len)
+            throw indexOutOfRange(this, length);
+        this.pos += length;
+    } else {
+        do {
+            /* istanbul ignore if */
+            if (this.pos >= this.len)
+                throw indexOutOfRange(this);
+        } while (this.buf[this.pos++] & 128);
+    }
+    return this;
+};
+
+/**
+ * Skips the next element of the specified wire type.
+ * @param {number} wireType Wire type received
+ * @returns {Reader} `this`
+ */
+Reader.prototype.skipType = function(wireType) {
+    switch (wireType) {
+        case 0:
+            this.skip();
+            break;
+        case 1:
+            this.skip(8);
+            break;
+        case 2:
+            this.skip(this.uint32());
+            break;
+        case 3:
+            do { // eslint-disable-line no-constant-condition
+                if ((wireType = this.uint32() & 7) === 4)
+                    break;
+                this.skipType(wireType);
+            } while (true);
+            break;
+        case 5:
+            this.skip(4);
+            break;
+
+        /* istanbul ignore next */
+        default:
+            throw Error("invalid wire type " + wireType + " at offset " + this.pos);
+    }
+    return this;
+};
+
+Reader._configure = function(BufferReader_) {
+    BufferReader = BufferReader_;
+
+    var fn = util.Long ? "toLong" : /* istanbul ignore next */ "toNumber";
+    util.merge(Reader.prototype, {
+
+        int64: function read_int64() {
+            return readLongVarint.call(this)[fn](false);
+        },
+
+        uint64: function read_uint64() {
+            return readLongVarint.call(this)[fn](true);
+        },
+
+        sint64: function read_sint64() {
+            return readLongVarint.call(this).zzDecode()[fn](false);
+        },
+
+        fixed64: function read_fixed64() {
+            return readFixed64.call(this)[fn](true);
+        },
+
+        sfixed64: function read_sfixed64() {
+            return readFixed64.call(this)[fn](false);
+        }
+
+    });
+};
+
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Type;
+
+// extends Namespace
+var Namespace = __webpack_require__(52);
+((Type.prototype = Object.create(Namespace.prototype)).constructor = Type).className = "Type";
+
+var Enum      = __webpack_require__(17),
+    OneOf     = __webpack_require__(65),
+    Field     = __webpack_require__(32),
+    MapField  = __webpack_require__(91),
+    Service   = __webpack_require__(92),
+    Message   = __webpack_require__(94),
+    Reader    = __webpack_require__(89),
+    Writer    = __webpack_require__(88),
+    util      = __webpack_require__(10),
+    encoder   = __webpack_require__(166),
+    decoder   = __webpack_require__(167),
+    verifier  = __webpack_require__(168),
+    converter = __webpack_require__(169),
+    wrappers  = __webpack_require__(170);
+
+/**
+ * Constructs a new reflected message type instance.
+ * @classdesc Reflected message type.
+ * @extends NamespaceBase
+ * @constructor
+ * @param {string} name Message name
+ * @param {Object.<string,*>} [options] Declared options
+ */
+function Type(name, options) {
+    Namespace.call(this, name, options);
+
+    /**
+     * Message fields.
+     * @type {Object.<string,Field>}
+     */
+    this.fields = {};  // toJSON, marker
+
+    /**
+     * Oneofs declared within this namespace, if any.
+     * @type {Object.<string,OneOf>}
+     */
+    this.oneofs = undefined; // toJSON
+
+    /**
+     * Extension ranges, if any.
+     * @type {number[][]}
+     */
+    this.extensions = undefined; // toJSON
+
+    /**
+     * Reserved ranges, if any.
+     * @type {Array.<number[]|string>}
+     */
+    this.reserved = undefined; // toJSON
+
+    /*?
+     * Whether this type is a legacy group.
+     * @type {boolean|undefined}
+     */
+    this.group = undefined; // toJSON
+
+    /**
+     * Cached fields by id.
+     * @type {Object.<number,Field>|null}
+     * @private
+     */
+    this._fieldsById = null;
+
+    /**
+     * Cached fields as an array.
+     * @type {Field[]|null}
+     * @private
+     */
+    this._fieldsArray = null;
+
+    /**
+     * Cached oneofs as an array.
+     * @type {OneOf[]|null}
+     * @private
+     */
+    this._oneofsArray = null;
+
+    /**
+     * Cached constructor.
+     * @type {Constructor<{}>}
+     * @private
+     */
+    this._ctor = null;
+}
+
+Object.defineProperties(Type.prototype, {
+
+    /**
+     * Message fields by id.
+     * @name Type#fieldsById
+     * @type {Object.<number,Field>}
+     * @readonly
+     */
+    fieldsById: {
+        get: function() {
+
+            /* istanbul ignore if */
+            if (this._fieldsById)
+                return this._fieldsById;
+
+            this._fieldsById = {};
+            for (var names = Object.keys(this.fields), i = 0; i < names.length; ++i) {
+                var field = this.fields[names[i]],
+                    id = field.id;
+
+                /* istanbul ignore if */
+                if (this._fieldsById[id])
+                    throw Error("duplicate id " + id + " in " + this);
+
+                this._fieldsById[id] = field;
+            }
+            return this._fieldsById;
+        }
+    },
+
+    /**
+     * Fields of this message as an array for iteration.
+     * @name Type#fieldsArray
+     * @type {Field[]}
+     * @readonly
+     */
+    fieldsArray: {
+        get: function() {
+            return this._fieldsArray || (this._fieldsArray = util.toArray(this.fields));
+        }
+    },
+
+    /**
+     * Oneofs of this message as an array for iteration.
+     * @name Type#oneofsArray
+     * @type {OneOf[]}
+     * @readonly
+     */
+    oneofsArray: {
+        get: function() {
+            return this._oneofsArray || (this._oneofsArray = util.toArray(this.oneofs));
+        }
+    },
+
+    /**
+     * The registered constructor, if any registered, otherwise a generic constructor.
+     * Assigning a function replaces the internal constructor. If the function does not extend {@link Message} yet, its prototype will be setup accordingly and static methods will be populated. If it already extends {@link Message}, it will just replace the internal constructor.
+     * @name Type#ctor
+     * @type {Constructor<{}>}
+     */
+    ctor: {
+        get: function() {
+            return this._ctor || (this.ctor = Type.generateConstructor(this)());
+        },
+        set: function(ctor) {
+
+            // Ensure proper prototype
+            var prototype = ctor.prototype;
+            if (!(prototype instanceof Message)) {
+                (ctor.prototype = new Message()).constructor = ctor;
+                util.merge(ctor.prototype, prototype);
+            }
+
+            // Classes and messages reference their reflected type
+            ctor.$type = ctor.prototype.$type = this;
+
+            // Mix in static methods
+            util.merge(ctor, Message, true);
+
+            this._ctor = ctor;
+
+            // Messages have non-enumerable default values on their prototype
+            var i = 0;
+            for (; i < /* initializes */ this.fieldsArray.length; ++i)
+                this._fieldsArray[i].resolve(); // ensures a proper value
+
+            // Messages have non-enumerable getters and setters for each virtual oneof field
+            var ctorProperties = {};
+            for (i = 0; i < /* initializes */ this.oneofsArray.length; ++i)
+                ctorProperties[this._oneofsArray[i].resolve().name] = {
+                    get: util.oneOfGetter(this._oneofsArray[i].oneof),
+                    set: util.oneOfSetter(this._oneofsArray[i].oneof)
+                };
+            if (i)
+                Object.defineProperties(ctor.prototype, ctorProperties);
+        }
+    }
+});
+
+/**
+ * Generates a constructor function for the specified type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+Type.generateConstructor = function generateConstructor(mtype) {
+    /* eslint-disable no-unexpected-multiline */
+    var gen = util.codegen(["p"], mtype.name);
+    // explicitly initialize mutable object/array fields so that these aren't just inherited from the prototype
+    for (var i = 0, field; i < mtype.fieldsArray.length; ++i)
+        if ((field = mtype._fieldsArray[i]).map) gen
+            ("this%s={}", util.safeProp(field.name));
+        else if (field.repeated) gen
+            ("this%s=[]", util.safeProp(field.name));
+    return gen
+    ("if(p)for(var ks=Object.keys(p),i=0;i<ks.length;++i)if(p[ks[i]]!=null)") // omit undefined or null
+        ("this[ks[i]]=p[ks[i]]");
+    /* eslint-enable no-unexpected-multiline */
+};
+
+function clearCache(type) {
+    type._fieldsById = type._fieldsArray = type._oneofsArray = null;
+    delete type.encode;
+    delete type.decode;
+    delete type.verify;
+    return type;
+}
+
+/**
+ * Message type descriptor.
+ * @interface IType
+ * @extends INamespace
+ * @property {Object.<string,IOneOf>} [oneofs] Oneof descriptors
+ * @property {Object.<string,IField>} fields Field descriptors
+ * @property {number[][]} [extensions] Extension ranges
+ * @property {number[][]} [reserved] Reserved ranges
+ * @property {boolean} [group=false] Whether a legacy group or not
+ */
+
+/**
+ * Creates a message type from a message type descriptor.
+ * @param {string} name Message name
+ * @param {IType} json Message type descriptor
+ * @returns {Type} Created message type
+ */
+Type.fromJSON = function fromJSON(name, json) {
+    var type = new Type(name, json.options);
+    type.extensions = json.extensions;
+    type.reserved = json.reserved;
+    var names = Object.keys(json.fields),
+        i = 0;
+    for (; i < names.length; ++i)
+        type.add(
+            ( typeof json.fields[names[i]].keyType !== "undefined"
+            ? MapField.fromJSON
+            : Field.fromJSON )(names[i], json.fields[names[i]])
+        );
+    if (json.oneofs)
+        for (names = Object.keys(json.oneofs), i = 0; i < names.length; ++i)
+            type.add(OneOf.fromJSON(names[i], json.oneofs[names[i]]));
+    if (json.nested)
+        for (names = Object.keys(json.nested), i = 0; i < names.length; ++i) {
+            var nested = json.nested[names[i]];
+            type.add( // most to least likely
+                ( nested.id !== undefined
+                ? Field.fromJSON
+                : nested.fields !== undefined
+                ? Type.fromJSON
+                : nested.values !== undefined
+                ? Enum.fromJSON
+                : nested.methods !== undefined
+                ? Service.fromJSON
+                : Namespace.fromJSON )(names[i], nested)
+            );
+        }
+    if (json.extensions && json.extensions.length)
+        type.extensions = json.extensions;
+    if (json.reserved && json.reserved.length)
+        type.reserved = json.reserved;
+    if (json.group)
+        type.group = true;
+    return type;
+};
+
+/**
+ * Converts this message type to a message type descriptor.
+ * @returns {IType} Message type descriptor
+ */
+Type.prototype.toJSON = function toJSON() {
+    var inherited = Namespace.prototype.toJSON.call(this);
+    return util.toObject([
+        "options"    , inherited && inherited.options || undefined,
+        "oneofs"     , Namespace.arrayToJSON(this.oneofsArray),
+        "fields"     , Namespace.arrayToJSON(this.fieldsArray.filter(function(obj) { return !obj.declaringField; })) || {},
+        "extensions" , this.extensions && this.extensions.length ? this.extensions : undefined,
+        "reserved"   , this.reserved && this.reserved.length ? this.reserved : undefined,
+        "group"      , this.group || undefined,
+        "nested"     , inherited && inherited.nested || undefined
+    ]);
+};
+
+/**
+ * @override
+ */
+Type.prototype.resolveAll = function resolveAll() {
+    var fields = this.fieldsArray, i = 0;
+    while (i < fields.length)
+        fields[i++].resolve();
+    var oneofs = this.oneofsArray; i = 0;
+    while (i < oneofs.length)
+        oneofs[i++].resolve();
+    return Namespace.prototype.resolveAll.call(this);
+};
+
+/**
+ * @override
+ */
+Type.prototype.get = function get(name) {
+    return this.fields[name]
+        || this.oneofs && this.oneofs[name]
+        || this.nested && this.nested[name]
+        || null;
+};
+
+/**
+ * Adds a nested object to this type.
+ * @param {ReflectionObject} object Nested object to add
+ * @returns {Type} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If there is already a nested object with this name or, if a field, when there is already a field with this id
+ */
+Type.prototype.add = function add(object) {
+
+    if (this.get(object.name))
+        throw Error("duplicate name '" + object.name + "' in " + this);
+
+    if (object instanceof Field && object.extend === undefined) {
+        // NOTE: Extension fields aren't actual fields on the declaring type, but nested objects.
+        // The root object takes care of adding distinct sister-fields to the respective extended
+        // type instead.
+
+        // avoids calling the getter if not absolutely necessary because it's called quite frequently
+        if (this._fieldsById ? /* istanbul ignore next */ this._fieldsById[object.id] : this.fieldsById[object.id])
+            throw Error("duplicate id " + object.id + " in " + this);
+        if (this.isReservedId(object.id))
+            throw Error("id " + object.id + " is reserved in " + this);
+        if (this.isReservedName(object.name))
+            throw Error("name '" + object.name + "' is reserved in " + this);
+
+        if (object.parent)
+            object.parent.remove(object);
+        this.fields[object.name] = object;
+        object.message = this;
+        object.onAdd(this);
+        return clearCache(this);
+    }
+    if (object instanceof OneOf) {
+        if (!this.oneofs)
+            this.oneofs = {};
+        this.oneofs[object.name] = object;
+        object.onAdd(this);
+        return clearCache(this);
+    }
+    return Namespace.prototype.add.call(this, object);
+};
+
+/**
+ * Removes a nested object from this type.
+ * @param {ReflectionObject} object Nested object to remove
+ * @returns {Type} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If `object` is not a member of this type
+ */
+Type.prototype.remove = function remove(object) {
+    if (object instanceof Field && object.extend === undefined) {
+        // See Type#add for the reason why extension fields are excluded here.
+
+        /* istanbul ignore if */
+        if (!this.fields || this.fields[object.name] !== object)
+            throw Error(object + " is not a member of " + this);
+
+        delete this.fields[object.name];
+        object.parent = null;
+        object.onRemove(this);
+        return clearCache(this);
+    }
+    if (object instanceof OneOf) {
+
+        /* istanbul ignore if */
+        if (!this.oneofs || this.oneofs[object.name] !== object)
+            throw Error(object + " is not a member of " + this);
+
+        delete this.oneofs[object.name];
+        object.parent = null;
+        object.onRemove(this);
+        return clearCache(this);
+    }
+    return Namespace.prototype.remove.call(this, object);
+};
+
+/**
+ * Tests if the specified id is reserved.
+ * @param {number} id Id to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Type.prototype.isReservedId = function isReservedId(id) {
+    return Namespace.isReservedId(this.reserved, id);
+};
+
+/**
+ * Tests if the specified name is reserved.
+ * @param {string} name Name to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Type.prototype.isReservedName = function isReservedName(name) {
+    return Namespace.isReservedName(this.reserved, name);
+};
+
+/**
+ * Creates a new message of this type using the specified properties.
+ * @param {Object.<string,*>} [properties] Properties to set
+ * @returns {Message<{}>} Message instance
+ */
+Type.prototype.create = function create(properties) {
+    return new this.ctor(properties);
+};
+
+/**
+ * Sets up {@link Type#encode|encode}, {@link Type#decode|decode} and {@link Type#verify|verify}.
+ * @returns {Type} `this`
+ */
+Type.prototype.setup = function setup() {
+    // Sets up everything at once so that the prototype chain does not have to be re-evaluated
+    // multiple times (V8, soft-deopt prototype-check).
+
+    var fullName = this.fullName,
+        types    = [];
+    for (var i = 0; i < /* initializes */ this.fieldsArray.length; ++i)
+        types.push(this._fieldsArray[i].resolve().resolvedType);
+
+    // Replace setup methods with type-specific generated functions
+    this.encode = encoder(this)({
+        Writer : Writer,
+        types  : types,
+        util   : util
+    });
+    this.decode = decoder(this)({
+        Reader : Reader,
+        types  : types,
+        util   : util
+    });
+    this.verify = verifier(this)({
+        types : types,
+        util  : util
+    });
+    this.fromObject = converter.fromObject(this)({
+        types : types,
+        util  : util
+    });
+    this.toObject = converter.toObject(this)({
+        types : types,
+        util  : util
+    });
+
+    // Inject custom wrappers for common types
+    var wrapper = wrappers[fullName];
+    if (wrapper) {
+        var originalThis = Object.create(this);
+        // if (wrapper.fromObject) {
+            originalThis.fromObject = this.fromObject;
+            this.fromObject = wrapper.fromObject.bind(originalThis);
+        // }
+        // if (wrapper.toObject) {
+            originalThis.toObject = this.toObject;
+            this.toObject = wrapper.toObject.bind(originalThis);
+        // }
+    }
+
+    return this;
+};
+
+/**
+ * Encodes a message of this type. Does not implicitly {@link Type#verify|verify} messages.
+ * @param {Message<{}>|Object.<string,*>} message Message instance or plain object
+ * @param {Writer} [writer] Writer to encode to
+ * @returns {Writer} writer
+ */
+Type.prototype.encode = function encode_setup(message, writer) {
+    return this.setup().encode(message, writer); // overrides this method
+};
+
+/**
+ * Encodes a message of this type preceeded by its byte length as a varint. Does not implicitly {@link Type#verify|verify} messages.
+ * @param {Message<{}>|Object.<string,*>} message Message instance or plain object
+ * @param {Writer} [writer] Writer to encode to
+ * @returns {Writer} writer
+ */
+Type.prototype.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+};
+
+/**
+ * Decodes a message of this type.
+ * @param {Reader|Uint8Array} reader Reader or buffer to decode from
+ * @param {number} [length] Length of the message, if known beforehand
+ * @returns {Message<{}>} Decoded message
+ * @throws {Error} If the payload is not a reader or valid buffer
+ * @throws {util.ProtocolError<{}>} If required fields are missing
+ */
+Type.prototype.decode = function decode_setup(reader, length) {
+    return this.setup().decode(reader, length); // overrides this method
+};
+
+/**
+ * Decodes a message of this type preceeded by its byte length as a varint.
+ * @param {Reader|Uint8Array} reader Reader or buffer to decode from
+ * @returns {Message<{}>} Decoded message
+ * @throws {Error} If the payload is not a reader or valid buffer
+ * @throws {util.ProtocolError} If required fields are missing
+ */
+Type.prototype.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof Reader))
+        reader = Reader.create(reader);
+    return this.decode(reader, reader.uint32());
+};
+
+/**
+ * Verifies that field values are valid and that required fields are present.
+ * @param {Object.<string,*>} message Plain object to verify
+ * @returns {null|string} `null` if valid, otherwise the reason why it is not
+ */
+Type.prototype.verify = function verify_setup(message) {
+    return this.setup().verify(message); // overrides this method
+};
+
+/**
+ * Creates a new message of this type from a plain object. Also converts values to their respective internal types.
+ * @param {Object.<string,*>} object Plain object to convert
+ * @returns {Message<{}>} Message instance
+ */
+Type.prototype.fromObject = function fromObject(object) {
+    return this.setup().fromObject(object);
+};
+
+/**
+ * Conversion options as used by {@link Type#toObject} and {@link Message.toObject}.
+ * @interface IConversionOptions
+ * @property {Function} [longs] Long conversion type.
+ * Valid values are `String` and `Number` (the global types).
+ * Defaults to copy the present value, which is a possibly unsafe number without and a {@link Long} with a long library.
+ * @property {Function} [enums] Enum value conversion type.
+ * Only valid value is `String` (the global type).
+ * Defaults to copy the present value, which is the numeric id.
+ * @property {Function} [bytes] Bytes value conversion type.
+ * Valid values are `Array` and (a base64 encoded) `String` (the global types).
+ * Defaults to copy the present value, which usually is a Buffer under node and an Uint8Array in the browser.
+ * @property {boolean} [defaults=false] Also sets default values on the resulting object
+ * @property {boolean} [arrays=false] Sets empty arrays for missing repeated fields even if `defaults=false`
+ * @property {boolean} [objects=false] Sets empty objects for missing map fields even if `defaults=false`
+ * @property {boolean} [oneofs=false] Includes virtual oneof properties set to the present field's name, if any
+ * @property {boolean} [json=false] Performs additional JSON compatibility conversions, i.e. NaN and Infinity to strings
+ */
+
+/**
+ * Creates a plain object from a message of this type. Also converts values to other types if specified.
+ * @param {Message<{}>} message Message instance
+ * @param {IConversionOptions} [options] Conversion options
+ * @returns {Object.<string,*>} Plain object
+ */
+Type.prototype.toObject = function toObject(message, options) {
+    return this.setup().toObject(message, options);
+};
+
+/**
+ * Decorator function as returned by {@link Type.d} (TypeScript).
+ * @typedef TypeDecorator
+ * @type {function}
+ * @param {Constructor<T>} target Target constructor
+ * @returns {undefined}
+ * @template T extends Message<T>
+ */
+
+/**
+ * Type decorator (TypeScript).
+ * @param {string} [typeName] Type name, defaults to the constructor's name
+ * @returns {TypeDecorator<T>} Decorator function
+ * @template T extends Message<T>
+ */
+Type.d = function decorateType(typeName) {
+    return function typeDecorator(target) {
+        util.decorateType(target, typeName);
+    };
+};
+
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = MapField;
+
+// extends Field
+var Field = __webpack_require__(32);
+((MapField.prototype = Object.create(Field.prototype)).constructor = MapField).className = "MapField";
+
+var types   = __webpack_require__(39),
+    util    = __webpack_require__(10);
+
+/**
+ * Constructs a new map field instance.
+ * @classdesc Reflected map field.
+ * @extends FieldBase
+ * @constructor
+ * @param {string} name Unique name within its namespace
+ * @param {number} id Unique id within its namespace
+ * @param {string} keyType Key type
+ * @param {string} type Value type
+ * @param {Object.<string,*>} [options] Declared options
+ */
+function MapField(name, id, keyType, type, options) {
+    Field.call(this, name, id, type, options);
+
+    /* istanbul ignore if */
+    if (!util.isString(keyType))
+        throw TypeError("keyType must be a string");
+
+    /**
+     * Key type.
+     * @type {string}
+     */
+    this.keyType = keyType; // toJSON, marker
+
+    /**
+     * Resolved key type if not a basic type.
+     * @type {ReflectionObject|null}
+     */
+    this.resolvedKeyType = null;
+
+    // Overrides Field#map
+    this.map = true;
+}
+
+/**
+ * Map field descriptor.
+ * @interface IMapField
+ * @extends {IField}
+ * @property {string} keyType Key type
+ */
+
+/**
+ * Extension map field descriptor.
+ * @interface IExtensionMapField
+ * @extends IMapField
+ * @property {string} extend Extended type
+ */
+
+/**
+ * Constructs a map field from a map field descriptor.
+ * @param {string} name Field name
+ * @param {IMapField} json Map field descriptor
+ * @returns {MapField} Created map field
+ * @throws {TypeError} If arguments are invalid
+ */
+MapField.fromJSON = function fromJSON(name, json) {
+    return new MapField(name, json.id, json.keyType, json.type, json.options);
+};
+
+/**
+ * Converts this map field to a map field descriptor.
+ * @returns {IMapField} Map field descriptor
+ */
+MapField.prototype.toJSON = function toJSON() {
+    return util.toObject([
+        "keyType" , this.keyType,
+        "type"    , this.type,
+        "id"      , this.id,
+        "extend"  , this.extend,
+        "options" , this.options
+    ]);
+};
+
+/**
+ * @override
+ */
+MapField.prototype.resolve = function resolve() {
+    if (this.resolved)
+        return this;
+
+    // Besides a value type, map fields have a key type that may be "any scalar type except for floating point types and bytes"
+    if (types.mapKey[this.keyType] === undefined)
+        throw Error("invalid key type: " + this.keyType);
+
+    return Field.prototype.resolve.call(this);
+};
+
+/**
+ * Map field decorator (TypeScript).
+ * @name MapField.d
+ * @function
+ * @param {number} fieldId Field id
+ * @param {"int32"|"uint32"|"sint32"|"fixed32"|"sfixed32"|"int64"|"uint64"|"sint64"|"fixed64"|"sfixed64"|"bool"|"string"} fieldKeyType Field key type
+ * @param {"double"|"float"|"int32"|"uint32"|"sint32"|"fixed32"|"sfixed32"|"int64"|"uint64"|"sint64"|"fixed64"|"sfixed64"|"bool"|"string"|"bytes"|Object|Constructor<{}>} fieldValueType Field value type
+ * @returns {FieldDecorator} Decorator function
+ * @template T extends { [key: string]: number | Long | string | boolean | Uint8Array | Buffer | number[] | Message<{}> }
+ */
+MapField.d = function decorateMapField(fieldId, fieldKeyType, fieldValueType) {
+
+    // submessage value: decorate the submessage and use its name as the type
+    if (typeof fieldValueType === "function")
+        fieldValueType = util.decorateType(fieldValueType).name;
+
+    // enum reference value: create a reflected copy of the enum and keep reuseing it
+    else if (fieldValueType && typeof fieldValueType === "object")
+        fieldValueType = util.decorateEnum(fieldValueType).name;
+
+    return function mapFieldDecorator(prototype, fieldName) {
+        util.decorateType(prototype.constructor)
+            .add(new MapField(fieldName, fieldId, fieldKeyType, fieldValueType));
+    };
+};
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Service;
+
+// extends Namespace
+var Namespace = __webpack_require__(52);
+((Service.prototype = Object.create(Namespace.prototype)).constructor = Service).className = "Service";
+
+var Method = __webpack_require__(93),
+    util   = __webpack_require__(10),
+    rpc    = __webpack_require__(164);
+
+/**
+ * Constructs a new service instance.
+ * @classdesc Reflected service.
+ * @extends NamespaceBase
+ * @constructor
+ * @param {string} name Service name
+ * @param {Object.<string,*>} [options] Service options
+ * @throws {TypeError} If arguments are invalid
+ */
+function Service(name, options) {
+    Namespace.call(this, name, options);
+
+    /**
+     * Service methods.
+     * @type {Object.<string,Method>}
+     */
+    this.methods = {}; // toJSON, marker
+
+    /**
+     * Cached methods as an array.
+     * @type {Method[]|null}
+     * @private
+     */
+    this._methodsArray = null;
+}
+
+/**
+ * Service descriptor.
+ * @interface IService
+ * @extends INamespace
+ * @property {Object.<string,IMethod>} methods Method descriptors
+ */
+
+/**
+ * Constructs a service from a service descriptor.
+ * @param {string} name Service name
+ * @param {IService} json Service descriptor
+ * @returns {Service} Created service
+ * @throws {TypeError} If arguments are invalid
+ */
+Service.fromJSON = function fromJSON(name, json) {
+    var service = new Service(name, json.options);
+    /* istanbul ignore else */
+    if (json.methods)
+        for (var names = Object.keys(json.methods), i = 0; i < names.length; ++i)
+            service.add(Method.fromJSON(names[i], json.methods[names[i]]));
+    if (json.nested)
+        service.addJSON(json.nested);
+    return service;
+};
+
+/**
+ * Converts this service to a service descriptor.
+ * @returns {IService} Service descriptor
+ */
+Service.prototype.toJSON = function toJSON() {
+    var inherited = Namespace.prototype.toJSON.call(this);
+    return util.toObject([
+        "options" , inherited && inherited.options || undefined,
+        "methods" , Namespace.arrayToJSON(this.methodsArray) || /* istanbul ignore next */ {},
+        "nested"  , inherited && inherited.nested || undefined
+    ]);
+};
+
+/**
+ * Methods of this service as an array for iteration.
+ * @name Service#methodsArray
+ * @type {Method[]}
+ * @readonly
+ */
+Object.defineProperty(Service.prototype, "methodsArray", {
+    get: function() {
+        return this._methodsArray || (this._methodsArray = util.toArray(this.methods));
+    }
+});
+
+function clearCache(service) {
+    service._methodsArray = null;
+    return service;
+}
+
+/**
+ * @override
+ */
+Service.prototype.get = function get(name) {
+    return this.methods[name]
+        || Namespace.prototype.get.call(this, name);
+};
+
+/**
+ * @override
+ */
+Service.prototype.resolveAll = function resolveAll() {
+    var methods = this.methodsArray;
+    for (var i = 0; i < methods.length; ++i)
+        methods[i].resolve();
+    return Namespace.prototype.resolve.call(this);
+};
+
+/**
+ * @override
+ */
+Service.prototype.add = function add(object) {
+
+    /* istanbul ignore if */
+    if (this.get(object.name))
+        throw Error("duplicate name '" + object.name + "' in " + this);
+
+    if (object instanceof Method) {
+        this.methods[object.name] = object;
+        object.parent = this;
+        return clearCache(this);
+    }
+    return Namespace.prototype.add.call(this, object);
+};
+
+/**
+ * @override
+ */
+Service.prototype.remove = function remove(object) {
+    if (object instanceof Method) {
+
+        /* istanbul ignore if */
+        if (this.methods[object.name] !== object)
+            throw Error(object + " is not a member of " + this);
+
+        delete this.methods[object.name];
+        object.parent = null;
+        return clearCache(this);
+    }
+    return Namespace.prototype.remove.call(this, object);
+};
+
+/**
+ * Creates a runtime service using the specified rpc implementation.
+ * @param {RPCImpl} rpcImpl RPC implementation
+ * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+ * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+ * @returns {rpc.Service} RPC service. Useful where requests and/or responses are streamed.
+ */
+Service.prototype.create = function create(rpcImpl, requestDelimited, responseDelimited) {
+    var rpcService = new rpc.Service(rpcImpl, requestDelimited, responseDelimited);
+    for (var i = 0, method; i < /* initializes */ this.methodsArray.length; ++i) {
+        var methodName = util.lcFirst((method = this._methodsArray[i]).resolve().name).replace(/[^$\w_]/g, "");
+        rpcService[methodName] = util.codegen(["r","c"], util.isReserved(methodName) ? methodName + "_" : methodName)("return this.rpcCall(m,q,s,r,c)")({
+            m: method,
+            q: method.resolvedRequestType.ctor,
+            s: method.resolvedResponseType.ctor
+        });
+    }
+    return rpcService;
+};
+
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Method;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(38);
+((Method.prototype = Object.create(ReflectionObject.prototype)).constructor = Method).className = "Method";
+
+var util = __webpack_require__(10);
+
+/**
+ * Constructs a new service method instance.
+ * @classdesc Reflected service method.
+ * @extends ReflectionObject
+ * @constructor
+ * @param {string} name Method name
+ * @param {string|undefined} type Method type, usually `"rpc"`
+ * @param {string} requestType Request message type
+ * @param {string} responseType Response message type
+ * @param {boolean|Object.<string,*>} [requestStream] Whether the request is streamed
+ * @param {boolean|Object.<string,*>} [responseStream] Whether the response is streamed
+ * @param {Object.<string,*>} [options] Declared options
+ */
+function Method(name, type, requestType, responseType, requestStream, responseStream, options) {
+
+    /* istanbul ignore next */
+    if (util.isObject(requestStream)) {
+        options = requestStream;
+        requestStream = responseStream = undefined;
+    } else if (util.isObject(responseStream)) {
+        options = responseStream;
+        responseStream = undefined;
+    }
+
+    /* istanbul ignore if */
+    if (!(type === undefined || util.isString(type)))
+        throw TypeError("type must be a string");
+
+    /* istanbul ignore if */
+    if (!util.isString(requestType))
+        throw TypeError("requestType must be a string");
+
+    /* istanbul ignore if */
+    if (!util.isString(responseType))
+        throw TypeError("responseType must be a string");
+
+    ReflectionObject.call(this, name, options);
+
+    /**
+     * Method type.
+     * @type {string}
+     */
+    this.type = type || "rpc"; // toJSON
+
+    /**
+     * Request type.
+     * @type {string}
+     */
+    this.requestType = requestType; // toJSON, marker
+
+    /**
+     * Whether requests are streamed or not.
+     * @type {boolean|undefined}
+     */
+    this.requestStream = requestStream ? true : undefined; // toJSON
+
+    /**
+     * Response type.
+     * @type {string}
+     */
+    this.responseType = responseType; // toJSON
+
+    /**
+     * Whether responses are streamed or not.
+     * @type {boolean|undefined}
+     */
+    this.responseStream = responseStream ? true : undefined; // toJSON
+
+    /**
+     * Resolved request type.
+     * @type {Type|null}
+     */
+    this.resolvedRequestType = null;
+
+    /**
+     * Resolved response type.
+     * @type {Type|null}
+     */
+    this.resolvedResponseType = null;
+}
+
+/**
+ * Method descriptor.
+ * @interface IMethod
+ * @property {string} [type="rpc"] Method type
+ * @property {string} requestType Request type
+ * @property {string} responseType Response type
+ * @property {boolean} [requestStream=false] Whether requests are streamed
+ * @property {boolean} [responseStream=false] Whether responses are streamed
+ * @property {Object.<string,*>} [options] Method options
+ */
+
+/**
+ * Constructs a method from a method descriptor.
+ * @param {string} name Method name
+ * @param {IMethod} json Method descriptor
+ * @returns {Method} Created method
+ * @throws {TypeError} If arguments are invalid
+ */
+Method.fromJSON = function fromJSON(name, json) {
+    return new Method(name, json.type, json.requestType, json.responseType, json.requestStream, json.responseStream, json.options);
+};
+
+/**
+ * Converts this method to a method descriptor.
+ * @returns {IMethod} Method descriptor
+ */
+Method.prototype.toJSON = function toJSON() {
+    return util.toObject([
+        "type"           , this.type !== "rpc" && /* istanbul ignore next */ this.type || undefined,
+        "requestType"    , this.requestType,
+        "requestStream"  , this.requestStream,
+        "responseType"   , this.responseType,
+        "responseStream" , this.responseStream,
+        "options"        , this.options
+    ]);
+};
+
+/**
+ * @override
+ */
+Method.prototype.resolve = function resolve() {
+
+    /* istanbul ignore if */
+    if (this.resolved)
+        return this;
+
+    this.resolvedRequestType = this.parent.lookupType(this.requestType);
+    this.resolvedResponseType = this.parent.lookupType(this.responseType);
+
+    return ReflectionObject.prototype.resolve.call(this);
+};
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Message;
+
+var util = __webpack_require__(23);
+
+/**
+ * Constructs a new message instance.
+ * @classdesc Abstract runtime message.
+ * @constructor
+ * @param {Properties<T>} [properties] Properties to set
+ * @template T extends object
+ */
+function Message(properties) {
+    // not used internally
+    if (properties)
+        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+            this[keys[i]] = properties[keys[i]];
+}
+
+/**
+ * Reference to the reflected type.
+ * @name Message.$type
+ * @type {Type}
+ * @readonly
+ */
+
+/**
+ * Reference to the reflected type.
+ * @name Message#$type
+ * @type {Type}
+ * @readonly
+ */
+
+/*eslint-disable valid-jsdoc*/
+
+/**
+ * Creates a new message of this type using the specified properties.
+ * @param {Object.<string,*>} [properties] Properties to set
+ * @returns {Message<T>} Message instance
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.create = function create(properties) {
+    return this.$type.create(properties);
+};
+
+/**
+ * Encodes a message of this type.
+ * @param {T|Object.<string,*>} message Message to encode
+ * @param {Writer} [writer] Writer to use
+ * @returns {Writer} Writer
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.encode = function encode(message, writer) {
+    return this.$type.encode(message, writer);
+};
+
+/**
+ * Encodes a message of this type preceeded by its length as a varint.
+ * @param {T|Object.<string,*>} message Message to encode
+ * @param {Writer} [writer] Writer to use
+ * @returns {Writer} Writer
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.$type.encodeDelimited(message, writer);
+};
+
+/**
+ * Decodes a message of this type.
+ * @name Message.decode
+ * @function
+ * @param {Reader|Uint8Array} reader Reader or buffer to decode
+ * @returns {T} Decoded message
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.decode = function decode(reader) {
+    return this.$type.decode(reader);
+};
+
+/**
+ * Decodes a message of this type preceeded by its length as a varint.
+ * @name Message.decodeDelimited
+ * @function
+ * @param {Reader|Uint8Array} reader Reader or buffer to decode
+ * @returns {T} Decoded message
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.decodeDelimited = function decodeDelimited(reader) {
+    return this.$type.decodeDelimited(reader);
+};
+
+/**
+ * Verifies a message of this type.
+ * @name Message.verify
+ * @function
+ * @param {Object.<string,*>} message Plain object to verify
+ * @returns {string|null} `null` if valid, otherwise the reason why it is not
+ */
+Message.verify = function verify(message) {
+    return this.$type.verify(message);
+};
+
+/**
+ * Creates a new message of this type from a plain object. Also converts values to their respective internal types.
+ * @param {Object.<string,*>} object Plain object
+ * @returns {T} Message instance
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.fromObject = function fromObject(object) {
+    return this.$type.fromObject(object);
+};
+
+/**
+ * Creates a plain object from a message of this type. Also converts values to other types if specified.
+ * @param {T} message Message instance
+ * @param {IConversionOptions} [options] Conversion options
+ * @returns {Object.<string,*>} Plain object
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.toObject = function toObject(message, options) {
+    return this.$type.toObject(message, options);
+};
+
+/**
+ * Converts this message to JSON.
+ * @returns {Object.<string,*>} JSON object
+ */
+Message.prototype.toJSON = function toJSON() {
+    return this.$type.toObject(this, util.toJSONOptions);
+};
+
+/*eslint-enable valid-jsdoc*/
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Root;
+
+// extends Namespace
+var Namespace = __webpack_require__(52);
+((Root.prototype = Object.create(Namespace.prototype)).constructor = Root).className = "Root";
+
+var Field   = __webpack_require__(32),
+    Enum    = __webpack_require__(17),
+    OneOf   = __webpack_require__(65),
+    util    = __webpack_require__(10);
+
+var Type,   // cyclic
+    parse,  // might be excluded
+    common; // "
+
+/**
+ * Constructs a new root namespace instance.
+ * @classdesc Root namespace wrapping all types, enums, services, sub-namespaces etc. that belong together.
+ * @extends NamespaceBase
+ * @constructor
+ * @param {Object.<string,*>} [options] Top level options
+ */
+function Root(options) {
+    Namespace.call(this, "", options);
+
+    /**
+     * Deferred extension fields.
+     * @type {Field[]}
+     */
+    this.deferred = [];
+
+    /**
+     * Resolved file names of loaded files.
+     * @type {string[]}
+     */
+    this.files = [];
+}
+
+/**
+ * Loads a namespace descriptor into a root namespace.
+ * @param {INamespace} json Nameespace descriptor
+ * @param {Root} [root] Root namespace, defaults to create a new one if omitted
+ * @returns {Root} Root namespace
+ */
+Root.fromJSON = function fromJSON(json, root) {
+    if (!root)
+        root = new Root();
+    if (json.options)
+        root.setOptions(json.options);
+    return root.addJSON(json.nested);
+};
+
+/**
+ * Resolves the path of an imported file, relative to the importing origin.
+ * This method exists so you can override it with your own logic in case your imports are scattered over multiple directories.
+ * @function
+ * @param {string} origin The file name of the importing file
+ * @param {string} target The file name being imported
+ * @returns {string|null} Resolved path to `target` or `null` to skip the file
+ */
+Root.prototype.resolvePath = util.path.resolve;
+
+// A symbol-like function to safely signal synchronous loading
+/* istanbul ignore next */
+function SYNC() {} // eslint-disable-line no-empty-function
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into this root namespace and calls the callback.
+ * @param {string|string[]} filename Names of one or multiple files to load
+ * @param {IParseOptions} options Parse options
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ */
+Root.prototype.load = function load(filename, options, callback) {
+    if (typeof options === "function") {
+        callback = options;
+        options = undefined;
+    }
+    var self = this;
+    if (!callback)
+        return util.asPromise(load, self, filename, options);
+
+    var sync = callback === SYNC; // undocumented
+
+    // Finishes loading by calling the callback (exactly once)
+    function finish(err, root) {
+        /* istanbul ignore if */
+        if (!callback)
+            return;
+        var cb = callback;
+        callback = null;
+        if (sync)
+            throw err;
+        cb(err, root);
+    }
+
+    // Processes a single file
+    function process(filename, source) {
+        try {
+            if (util.isString(source) && source.charAt(0) === "{")
+                source = JSON.parse(source);
+            if (!util.isString(source))
+                self.setOptions(source.options).addJSON(source.nested);
+            else {
+                parse.filename = filename;
+                var parsed = parse(source, self, options),
+                    resolved,
+                    i = 0;
+                if (parsed.imports)
+                    for (; i < parsed.imports.length; ++i)
+                        if (resolved = self.resolvePath(filename, parsed.imports[i]))
+                            fetch(resolved);
+                if (parsed.weakImports)
+                    for (i = 0; i < parsed.weakImports.length; ++i)
+                        if (resolved = self.resolvePath(filename, parsed.weakImports[i]))
+                            fetch(resolved, true);
+            }
+        } catch (err) {
+            finish(err);
+        }
+        if (!sync && !queued)
+            finish(null, self); // only once anyway
+    }
+
+    // Fetches a single file
+    function fetch(filename, weak) {
+
+        // Strip path if this file references a bundled definition
+        var idx = filename.lastIndexOf("google/protobuf/");
+        if (idx > -1) {
+            var altname = filename.substring(idx);
+            if (altname in common)
+                filename = altname;
+        }
+
+        // Skip if already loaded / attempted
+        if (self.files.indexOf(filename) > -1)
+            return;
+        self.files.push(filename);
+
+        // Shortcut bundled definitions
+        if (filename in common) {
+            if (sync)
+                process(filename, common[filename]);
+            else {
+                ++queued;
+                setTimeout(function() {
+                    --queued;
+                    process(filename, common[filename]);
+                });
+            }
+            return;
+        }
+
+        // Otherwise fetch from disk or network
+        if (sync) {
+            var source;
+            try {
+                source = util.fs.readFileSync(filename).toString("utf8");
+            } catch (err) {
+                if (!weak)
+                    finish(err);
+                return;
+            }
+            process(filename, source);
+        } else {
+            ++queued;
+            util.fetch(filename, function(err, source) {
+                --queued;
+                /* istanbul ignore if */
+                if (!callback)
+                    return; // terminated meanwhile
+                if (err) {
+                    /* istanbul ignore else */
+                    if (!weak)
+                        finish(err);
+                    else if (!queued) // can't be covered reliably
+                        finish(null, self);
+                    return;
+                }
+                process(filename, source);
+            });
+        }
+    }
+    var queued = 0;
+
+    // Assembling the root namespace doesn't require working type
+    // references anymore, so we can load everything in parallel
+    if (util.isString(filename))
+        filename = [ filename ];
+    for (var i = 0, resolved; i < filename.length; ++i)
+        if (resolved = self.resolvePath("", filename[i]))
+            fetch(resolved);
+
+    if (sync)
+        return self;
+    if (!queued)
+        finish(null, self);
+    return undefined;
+};
+// function load(filename:string, options:IParseOptions, callback:LoadCallback):undefined
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into this root namespace and calls the callback.
+ * @function Root#load
+ * @param {string|string[]} filename Names of one or multiple files to load
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ * @variation 2
+ */
+// function load(filename:string, callback:LoadCallback):undefined
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into this root namespace and returns a promise.
+ * @function Root#load
+ * @param {string|string[]} filename Names of one or multiple files to load
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {Promise<Root>} Promise
+ * @variation 3
+ */
+// function load(filename:string, [options:IParseOptions]):Promise<Root>
+
+/**
+ * Synchronously loads one or multiple .proto or preprocessed .json files into this root namespace (node only).
+ * @function Root#loadSync
+ * @param {string|string[]} filename Names of one or multiple files to load
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {Root} Root namespace
+ * @throws {Error} If synchronous fetching is not supported (i.e. in browsers) or if a file's syntax is invalid
+ */
+Root.prototype.loadSync = function loadSync(filename, options) {
+    if (!util.isNode)
+        throw Error("not supported");
+    return this.load(filename, options, SYNC);
+};
+
+/**
+ * @override
+ */
+Root.prototype.resolveAll = function resolveAll() {
+    if (this.deferred.length)
+        throw Error("unresolvable extensions: " + this.deferred.map(function(field) {
+            return "'extend " + field.extend + "' in " + field.parent.fullName;
+        }).join(", "));
+    return Namespace.prototype.resolveAll.call(this);
+};
+
+// only uppercased (and thus conflict-free) children are exposed, see below
+var exposeRe = /^[A-Z]/;
+
+/**
+ * Handles a deferred declaring extension field by creating a sister field to represent it within its extended type.
+ * @param {Root} root Root instance
+ * @param {Field} field Declaring extension field witin the declaring type
+ * @returns {boolean} `true` if successfully added to the extended type, `false` otherwise
+ * @inner
+ * @ignore
+ */
+function tryHandleExtension(root, field) {
+    var extendedType = field.parent.lookup(field.extend);
+    if (extendedType) {
+        var sisterField = new Field(field.fullName, field.id, field.type, field.rule, undefined, field.options);
+        sisterField.declaringField = field;
+        field.extensionField = sisterField;
+        extendedType.add(sisterField);
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Called when any object is added to this root or its sub-namespaces.
+ * @param {ReflectionObject} object Object added
+ * @returns {undefined}
+ * @private
+ */
+Root.prototype._handleAdd = function _handleAdd(object) {
+    if (object instanceof Field) {
+
+        if (/* an extension field (implies not part of a oneof) */ object.extend !== undefined && /* not already handled */ !object.extensionField)
+            if (!tryHandleExtension(this, object))
+                this.deferred.push(object);
+
+    } else if (object instanceof Enum) {
+
+        if (exposeRe.test(object.name))
+            object.parent[object.name] = object.values; // expose enum values as property of its parent
+
+    } else if (!(object instanceof OneOf)) /* everything else is a namespace */ {
+
+        if (object instanceof Type) // Try to handle any deferred extensions
+            for (var i = 0; i < this.deferred.length;)
+                if (tryHandleExtension(this, this.deferred[i]))
+                    this.deferred.splice(i, 1);
+                else
+                    ++i;
+        for (var j = 0; j < /* initializes */ object.nestedArray.length; ++j) // recurse into the namespace
+            this._handleAdd(object._nestedArray[j]);
+        if (exposeRe.test(object.name))
+            object.parent[object.name] = object; // expose namespace as property of its parent
+    }
+
+    // The above also adds uppercased (and thus conflict-free) nested types, services and enums as
+    // properties of namespaces just like static code does. This allows using a .d.ts generated for
+    // a static module with reflection-based solutions where the condition is met.
+};
+
+/**
+ * Called when any object is removed from this root or its sub-namespaces.
+ * @param {ReflectionObject} object Object removed
+ * @returns {undefined}
+ * @private
+ */
+Root.prototype._handleRemove = function _handleRemove(object) {
+    if (object instanceof Field) {
+
+        if (/* an extension field */ object.extend !== undefined) {
+            if (/* already handled */ object.extensionField) { // remove its sister field
+                object.extensionField.parent.remove(object.extensionField);
+                object.extensionField = null;
+            } else { // cancel the extension
+                var index = this.deferred.indexOf(object);
+                /* istanbul ignore else */
+                if (index > -1)
+                    this.deferred.splice(index, 1);
+            }
+        }
+
+    } else if (object instanceof Enum) {
+
+        if (exposeRe.test(object.name))
+            delete object.parent[object.name]; // unexpose enum values
+
+    } else if (object instanceof Namespace) {
+
+        for (var i = 0; i < /* initializes */ object.nestedArray.length; ++i) // recurse into the namespace
+            this._handleRemove(object._nestedArray[i]);
+
+        if (exposeRe.test(object.name))
+            delete object.parent[object.name]; // unexpose namespaces
+
+    }
+};
+
+Root._configure = function(Type_, parse_, common_) {
+    Type = Type_;
+    parse = parse_;
+    common = common_;
+};
+
+
+/***/ }),
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var tough = __webpack_require__(148)
+var tough = __webpack_require__(177)
 
 var Cookie = tough.Cookie
 var CookieJar = tough.CookieJar
@@ -21497,7 +26101,7 @@ exports.jar = function (store) {
 
 
 /***/ }),
-/* 81 */
+/* 97 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -21525,7 +26129,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 82 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21536,7 +26140,7 @@ module.exports = function(module) {
 
 
 
-var punycode = __webpack_require__(59);
+var punycode = __webpack_require__(67);
 
 module.exports.getPublicSuffix = function getPublicSuffix(domain) {
   /*!
@@ -21630,7 +26234,7 @@ var index = module.exports.index = Object.freeze(
 
 
 /***/ }),
-/* 83 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21708,7 +26312,7 @@ Store.prototype.getAllCookies = function(cb) {
 
 
 /***/ }),
-/* 84 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21743,7 +26347,7 @@ Store.prototype.getAllCookies = function(cb) {
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-var pubsuffix = __webpack_require__(82);
+var pubsuffix = __webpack_require__(98);
 
 // Gives the permutation of all possible domainMatch()es of a given domain. The
 // array is in shortest-to-longest order.  Handy for indexing.
@@ -21771,7 +26375,7 @@ exports.permuteDomain = permuteDomain;
 
 
 /***/ }),
-/* 85 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21839,7 +26443,7 @@ exports.pathMatch = pathMatch;
 
 
 /***/ }),
-/* 86 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
@@ -21892,7 +26496,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(157);
+__webpack_require__(183);
 // On some exotic environments, it's not clear which object `setimmeidate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -21906,7 +26510,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 87 */
+/* 103 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -21917,7 +26521,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 88 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21946,13 +26550,13 @@ module.exports = Array.isArray || function (arr) {
 
 /*<replacement>*/
 
-var processNextTick = __webpack_require__(47).nextTick;
+var processNextTick = __webpack_require__(54).nextTick;
 /*</replacement>*/
 
 module.exports = Readable;
 
 /*<replacement>*/
-var isArray = __webpack_require__(87);
+var isArray = __webpack_require__(103);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -21962,7 +26566,7 @@ var Duplex;
 Readable.ReadableState = ReadableState;
 
 /*<replacement>*/
-var EE = __webpack_require__(46).EventEmitter;
+var EE = __webpack_require__(53).EventEmitter;
 
 var EElistenerCount = function (emitter, type) {
   return emitter.listeners(type).length;
@@ -21970,7 +26574,7 @@ var EElistenerCount = function (emitter, type) {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(89);
+var Stream = __webpack_require__(105);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -21987,12 +26591,12 @@ function _isUint8Array(obj) {
 /*</replacement>*/
 
 /*<replacement>*/
-var util = __webpack_require__(31);
+var util = __webpack_require__(35);
 util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(163);
+var debugUtil = __webpack_require__(189);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -22001,8 +26605,8 @@ if (debugUtil && debugUtil.debuglog) {
 }
 /*</replacement>*/
 
-var BufferList = __webpack_require__(164);
-var destroyImpl = __webpack_require__(90);
+var BufferList = __webpack_require__(190);
+var destroyImpl = __webpack_require__(106);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -22022,7 +26626,7 @@ function prependListener(emitter, event, fn) {
 }
 
 function ReadableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(25);
+  Duplex = Duplex || __webpack_require__(28);
 
   options = options || {};
 
@@ -22092,14 +26696,14 @@ function ReadableState(options, stream) {
   this.decoder = null;
   this.encoding = null;
   if (options.encoding) {
-    if (!StringDecoder) StringDecoder = __webpack_require__(48).StringDecoder;
+    if (!StringDecoder) StringDecoder = __webpack_require__(55).StringDecoder;
     this.decoder = new StringDecoder(options.encoding);
     this.encoding = options.encoding;
   }
 }
 
 function Readable(options) {
-  Duplex = Duplex || __webpack_require__(25);
+  Duplex = Duplex || __webpack_require__(28);
 
   if (!(this instanceof Readable)) return new Readable(options);
 
@@ -22248,7 +26852,7 @@ Readable.prototype.isPaused = function () {
 
 // backwards compatibility.
 Readable.prototype.setEncoding = function (enc) {
-  if (!StringDecoder) StringDecoder = __webpack_require__(48).StringDecoder;
+  if (!StringDecoder) StringDecoder = __webpack_require__(55).StringDecoder;
   this._readableState.decoder = new StringDecoder(enc);
   this._readableState.encoding = enc;
   return this;
@@ -22939,14 +27543,14 @@ function indexOf(xs, x) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(5)))
 
 /***/ }),
-/* 89 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(46).EventEmitter;
+module.exports = __webpack_require__(53).EventEmitter;
 
 
 /***/ }),
-/* 90 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22954,7 +27558,7 @@ module.exports = __webpack_require__(46).EventEmitter;
 
 /*<replacement>*/
 
-var processNextTick = __webpack_require__(47).nextTick;
+var processNextTick = __webpack_require__(54).nextTick;
 /*</replacement>*/
 
 // undocumented cb() API, needed for core, not for public API
@@ -23026,7 +27630,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 91 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23097,10 +27701,10 @@ module.exports = {
 
 module.exports = Transform;
 
-var Duplex = __webpack_require__(25);
+var Duplex = __webpack_require__(28);
 
 /*<replacement>*/
-var util = __webpack_require__(31);
+var util = __webpack_require__(35);
 util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
@@ -23246,7 +27850,7 @@ function done(stream, er, data) {
 }
 
 /***/ }),
-/* 92 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -23258,7 +27862,7 @@ function done(stream, er, data) {
  */
 
 var inherits = __webpack_require__(1)
-var Hash = __webpack_require__(32)
+var Hash = __webpack_require__(36)
 var Buffer = __webpack_require__(2).Buffer
 
 var K = [
@@ -23387,11 +27991,11 @@ module.exports = Sha256
 
 
 /***/ }),
-/* 93 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(1)
-var Hash = __webpack_require__(32)
+var Hash = __webpack_require__(36)
 var Buffer = __webpack_require__(2).Buffer
 
 var K = [
@@ -23653,19 +28257,19 @@ module.exports = Sha512
 
 
 /***/ }),
-/* 94 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var inherits = __webpack_require__(1)
-var Legacy = __webpack_require__(176)
-var Base = __webpack_require__(22)
+var Legacy = __webpack_require__(202)
+var Base = __webpack_require__(25)
 var Buffer = __webpack_require__(2).Buffer
-var md5 = __webpack_require__(61)
-var RIPEMD160 = __webpack_require__(62)
+var md5 = __webpack_require__(69)
+var RIPEMD160 = __webpack_require__(70)
 
-var sha = __webpack_require__(64)
+var sha = __webpack_require__(72)
 
 var ZEROS = Buffer.alloc(128)
 
@@ -23722,23 +28326,23 @@ module.exports = function createHmac (alg, key) {
 
 
 /***/ }),
-/* 95 */
+/* 111 */
 /***/ (function(module, exports) {
 
 module.exports = {"sha224WithRSAEncryption":{"sign":"rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"RSA-SHA224":{"sign":"ecdsa/rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"sha256WithRSAEncryption":{"sign":"rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"RSA-SHA256":{"sign":"ecdsa/rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"sha384WithRSAEncryption":{"sign":"rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"RSA-SHA384":{"sign":"ecdsa/rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"sha512WithRSAEncryption":{"sign":"rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA512":{"sign":"ecdsa/rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA1":{"sign":"rsa","hash":"sha1","id":"3021300906052b0e03021a05000414"},"ecdsa-with-SHA1":{"sign":"ecdsa","hash":"sha1","id":""},"sha256":{"sign":"ecdsa","hash":"sha256","id":""},"sha224":{"sign":"ecdsa","hash":"sha224","id":""},"sha384":{"sign":"ecdsa","hash":"sha384","id":""},"sha512":{"sign":"ecdsa","hash":"sha512","id":""},"DSA-SHA":{"sign":"dsa","hash":"sha1","id":""},"DSA-SHA1":{"sign":"dsa","hash":"sha1","id":""},"DSA":{"sign":"dsa","hash":"sha1","id":""},"DSA-WITH-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-WITH-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-WITH-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-WITH-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-RIPEMD160":{"sign":"dsa","hash":"rmd160","id":""},"ripemd160WithRSA":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"RSA-RIPEMD160":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"md5WithRSAEncryption":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"},"RSA-MD5":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"}}
 
 /***/ }),
-/* 96 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-exports.pbkdf2 = __webpack_require__(178)
+exports.pbkdf2 = __webpack_require__(204)
 
-exports.pbkdf2Sync = __webpack_require__(99)
+exports.pbkdf2Sync = __webpack_require__(115)
 
 
 /***/ }),
-/* 97 */
+/* 113 */
 /***/ (function(module, exports) {
 
 var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
@@ -23762,7 +28366,7 @@ module.exports = function (iterations, keylen) {
 
 
 /***/ }),
-/* 98 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var defaultEncoding
@@ -23779,15 +28383,15 @@ module.exports = defaultEncoding
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 99 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var md5 = __webpack_require__(61)
-var rmd160 = __webpack_require__(62)
-var sha = __webpack_require__(64)
+var md5 = __webpack_require__(69)
+var rmd160 = __webpack_require__(70)
+var sha = __webpack_require__(72)
 
-var checkParameters = __webpack_require__(97)
-var defaultEncoding = __webpack_require__(98)
+var checkParameters = __webpack_require__(113)
+var defaultEncoding = __webpack_require__(114)
 var Buffer = __webpack_require__(2).Buffer
 var ZEROS = Buffer.alloc(128)
 var sizes = {
@@ -23886,12 +28490,12 @@ module.exports = pbkdf2
 
 
 /***/ }),
-/* 100 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(37)
+var xor = __webpack_require__(43)
 var Buffer = __webpack_require__(2).Buffer
-var incr32 = __webpack_require__(101)
+var incr32 = __webpack_require__(117)
 
 function getBlock (self) {
   var out = self._cipher.encryptBlockRaw(self._prev)
@@ -23922,7 +28526,7 @@ exports.encrypt = function (self, chunk) {
 
 
 /***/ }),
-/* 101 */
+/* 117 */
 /***/ (function(module, exports) {
 
 function incr32 (iv) {
@@ -23943,22 +28547,22 @@ module.exports = incr32
 
 
 /***/ }),
-/* 102 */
+/* 118 */
 /***/ (function(module, exports) {
 
 module.exports = {"aes-128-ecb":{"cipher":"AES","key":128,"iv":0,"mode":"ECB","type":"block"},"aes-192-ecb":{"cipher":"AES","key":192,"iv":0,"mode":"ECB","type":"block"},"aes-256-ecb":{"cipher":"AES","key":256,"iv":0,"mode":"ECB","type":"block"},"aes-128-cbc":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes-192-cbc":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes-256-cbc":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes128":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes192":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes256":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes-128-cfb":{"cipher":"AES","key":128,"iv":16,"mode":"CFB","type":"stream"},"aes-192-cfb":{"cipher":"AES","key":192,"iv":16,"mode":"CFB","type":"stream"},"aes-256-cfb":{"cipher":"AES","key":256,"iv":16,"mode":"CFB","type":"stream"},"aes-128-cfb8":{"cipher":"AES","key":128,"iv":16,"mode":"CFB8","type":"stream"},"aes-192-cfb8":{"cipher":"AES","key":192,"iv":16,"mode":"CFB8","type":"stream"},"aes-256-cfb8":{"cipher":"AES","key":256,"iv":16,"mode":"CFB8","type":"stream"},"aes-128-cfb1":{"cipher":"AES","key":128,"iv":16,"mode":"CFB1","type":"stream"},"aes-192-cfb1":{"cipher":"AES","key":192,"iv":16,"mode":"CFB1","type":"stream"},"aes-256-cfb1":{"cipher":"AES","key":256,"iv":16,"mode":"CFB1","type":"stream"},"aes-128-ofb":{"cipher":"AES","key":128,"iv":16,"mode":"OFB","type":"stream"},"aes-192-ofb":{"cipher":"AES","key":192,"iv":16,"mode":"OFB","type":"stream"},"aes-256-ofb":{"cipher":"AES","key":256,"iv":16,"mode":"OFB","type":"stream"},"aes-128-ctr":{"cipher":"AES","key":128,"iv":16,"mode":"CTR","type":"stream"},"aes-192-ctr":{"cipher":"AES","key":192,"iv":16,"mode":"CTR","type":"stream"},"aes-256-ctr":{"cipher":"AES","key":256,"iv":16,"mode":"CTR","type":"stream"},"aes-128-gcm":{"cipher":"AES","key":128,"iv":12,"mode":"GCM","type":"auth"},"aes-192-gcm":{"cipher":"AES","key":192,"iv":12,"mode":"GCM","type":"auth"},"aes-256-gcm":{"cipher":"AES","key":256,"iv":12,"mode":"GCM","type":"auth"}}
 
 /***/ }),
-/* 103 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(50)
+var aes = __webpack_require__(57)
 var Buffer = __webpack_require__(2).Buffer
-var Transform = __webpack_require__(22)
+var Transform = __webpack_require__(25)
 var inherits = __webpack_require__(1)
-var GHASH = __webpack_require__(189)
-var xor = __webpack_require__(37)
-var incr32 = __webpack_require__(101)
+var GHASH = __webpack_require__(215)
+var xor = __webpack_require__(43)
+var incr32 = __webpack_require__(117)
 
 function xorTest (a, b) {
   var out = 0
@@ -24072,12 +28676,12 @@ module.exports = StreamCipher
 
 
 /***/ }),
-/* 104 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(50)
+var aes = __webpack_require__(57)
 var Buffer = __webpack_require__(2).Buffer
-var Transform = __webpack_require__(22)
+var Transform = __webpack_require__(25)
 var inherits = __webpack_require__(1)
 
 function StreamCipher (mode, key, iv, decrypt) {
@@ -24105,16 +28709,16 @@ module.exports = StreamCipher
 
 
 /***/ }),
-/* 105 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var randomBytes = __webpack_require__(30);
+var randomBytes = __webpack_require__(34);
 module.exports = findPrime;
 findPrime.simpleSieve = simpleSieve;
 findPrime.fermatTest = fermatTest;
 var BN = __webpack_require__(6);
 var TWENTYFOUR = new BN(24);
-var MillerRabin = __webpack_require__(106);
+var MillerRabin = __webpack_require__(122);
 var millerRabin = new MillerRabin();
 var ONE = new BN(1);
 var TWO = new BN(2);
@@ -24216,11 +28820,11 @@ function findPrime(bits, gen) {
 
 
 /***/ }),
-/* 106 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var bn = __webpack_require__(6);
-var brorand = __webpack_require__(107);
+var brorand = __webpack_require__(123);
 
 function MillerRabin(rand) {
   this.rand = rand || new brorand.Rand();
@@ -24337,7 +28941,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
 
 
 /***/ }),
-/* 107 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var r;
@@ -24395,7 +28999,7 @@ if (typeof self === 'object') {
 } else {
   // Node.js or Web worker with no crypto support
   try {
-    var crypto = __webpack_require__(200);
+    var crypto = __webpack_require__(226);
     if (typeof crypto.randomBytes !== 'function')
       throw new Error('Not supported');
 
@@ -24408,7 +29012,7 @@ if (typeof self === 'object') {
 
 
 /***/ }),
-/* 108 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24473,13 +29077,13 @@ utils.encode = function encode(arr, enc) {
 
 
 /***/ }),
-/* 109 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(17);
+var utils = __webpack_require__(20);
 var rotr32 = utils.rotr32;
 
 function ft_1(s, x, y, z) {
@@ -24529,16 +29133,16 @@ exports.g1_256 = g1_256;
 
 
 /***/ }),
-/* 110 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(17);
-var common = __webpack_require__(38);
-var shaCommon = __webpack_require__(109);
-var assert = __webpack_require__(15);
+var utils = __webpack_require__(20);
+var common = __webpack_require__(44);
+var shaCommon = __webpack_require__(125);
+var assert = __webpack_require__(16);
 
 var sum32 = utils.sum32;
 var sum32_4 = utils.sum32_4;
@@ -24641,15 +29245,15 @@ SHA256.prototype._digest = function digest(enc) {
 
 
 /***/ }),
-/* 111 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(17);
-var common = __webpack_require__(38);
-var assert = __webpack_require__(15);
+var utils = __webpack_require__(20);
+var common = __webpack_require__(44);
+var assert = __webpack_require__(16);
 
 var rotr64_hi = utils.rotr64_hi;
 var rotr64_lo = utils.rotr64_lo;
@@ -24978,11 +29582,11 @@ function g1_512_lo(xh, xl) {
 
 
 /***/ }),
-/* 112 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(1);
-var Reporter = __webpack_require__(40).Reporter;
+var Reporter = __webpack_require__(46).Reporter;
 var Buffer = __webpack_require__(0).Buffer;
 
 function DecoderBuffer(base, options) {
@@ -25100,7 +29704,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
 
 
 /***/ }),
-/* 113 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var constants = exports;
@@ -25121,16 +29725,16 @@ constants._reverse = function reverse(map) {
   return res;
 };
 
-constants.der = __webpack_require__(232);
+constants.der = __webpack_require__(258);
 
 
 /***/ }),
-/* 114 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(1);
 
-var asn1 = __webpack_require__(39);
+var asn1 = __webpack_require__(45);
 var base = asn1.base;
 var bignum = asn1.bignum;
 
@@ -25455,13 +30059,13 @@ function derDecodeLen(buf, primitive, fail) {
 
 
 /***/ }),
-/* 115 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(1);
 var Buffer = __webpack_require__(0).Buffer;
 
-var asn1 = __webpack_require__(39);
+var asn1 = __webpack_require__(45);
 var base = asn1.base;
 
 // Import DER constants
@@ -25756,16 +30360,16 @@ function encodeTag(tag, primitive, cls, reporter) {
 
 
 /***/ }),
-/* 116 */
+/* 132 */
 /***/ (function(module, exports) {
 
 module.exports = {"1.3.132.0.10":"secp256k1","1.3.132.0.33":"p224","1.2.840.10045.3.1.1":"p192","1.2.840.10045.3.1.7":"p256","1.3.132.0.34":"p384","1.3.132.0.35":"p521"}
 
 /***/ }),
-/* 117 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(35);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(41);
 module.exports = function (seed, len) {
   var t = new Buffer('');
   var  i = 0, c;
@@ -25784,7 +30388,7 @@ function i2ops(c) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 118 */
+/* 134 */
 /***/ (function(module, exports) {
 
 module.exports = function xor(a, b) {
@@ -25797,7 +30401,7 @@ module.exports = function xor(a, b) {
 };
 
 /***/ }),
-/* 119 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(6);
@@ -25813,7 +30417,7 @@ module.exports = withPublic;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 120 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {exports.fetch = isFunction(global.fetch) && isFunction(global.ReadableStream)
@@ -25893,12 +30497,12 @@ xhr = null // Help gc
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 121 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(process, Buffer, global) {var capability = __webpack_require__(120)
+/* WEBPACK VAR INJECTION */(function(process, Buffer, global) {var capability = __webpack_require__(136)
 var inherits = __webpack_require__(1)
-var stream = __webpack_require__(36)
+var stream = __webpack_require__(42)
 
 var rStates = exports.readyStates = {
 	UNSENT: 0,
@@ -26117,7 +30721,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(0).Buffer, __webpack_require__(8)))
 
 /***/ }),
-/* 122 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26175,7 +30779,7 @@ module.exports = adler32;
 
 
 /***/ }),
-/* 123 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26241,7 +30845,7 @@ module.exports = crc32;
 
 
 /***/ }),
-/* 124 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2017 Joyent, Inc.
@@ -26254,12 +30858,12 @@ module.exports = {
 
 var assert = __webpack_require__(3);
 var crypto = __webpack_require__(7);
-var algs = __webpack_require__(11);
+var algs = __webpack_require__(12);
 var utils = __webpack_require__(9);
 var nacl;
 
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
 
 var CRYPTO_HAVE_ECDH = (crypto.createECDH !== undefined);
 
@@ -26289,11 +30893,11 @@ function DiffieHellman(key) {
 	} else if (key.type === 'ecdsa') {
 		if (!CRYPTO_HAVE_ECDH) {
 			if (ecdh === undefined)
-				ecdh = __webpack_require__(125);
+				ecdh = __webpack_require__(141);
 			if (ec === undefined)
-				ec = __webpack_require__(55);
+				ec = __webpack_require__(62);
 			if (jsbn === undefined)
-				jsbn = __webpack_require__(26).BigInteger;
+				jsbn = __webpack_require__(29).BigInteger;
 
 			this._ecParams = new X9ECParameters(this._curve);
 
@@ -26322,7 +30926,7 @@ function DiffieHellman(key) {
 
 	} else if (key.type === 'curve25519') {
 		if (nacl === undefined)
-			nacl = __webpack_require__(27);
+			nacl = __webpack_require__(30);
 
 		if (this._isPriv) {
 			this._priv = key.part.r.data;
@@ -26564,7 +31168,7 @@ ECPrivate.prototype.deriveSharedSecret = function (pubKey) {
 
 function generateED25519() {
 	if (nacl === undefined)
-		nacl = __webpack_require__(27);
+		nacl = __webpack_require__(30);
 
 	var pair = nacl.sign.keyPair();
 	var priv = new Buffer(pair.secretKey);
@@ -26618,11 +31222,11 @@ function generateECDSA(curve) {
 
 	} else {
 		if (ecdh === undefined)
-			ecdh = __webpack_require__(125);
+			ecdh = __webpack_require__(141);
 		if (ec === undefined)
-			ec = __webpack_require__(55);
+			ec = __webpack_require__(62);
 		if (jsbn === undefined)
-			jsbn = __webpack_require__(26).BigInteger;
+			jsbn = __webpack_require__(29).BigInteger;
 
 		var ecParams = new X9ECParameters(curve);
 
@@ -26659,13 +31263,13 @@ function generateECDSA(curve) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 125 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var crypto = __webpack_require__(7);
-var BigInteger = __webpack_require__(26).BigInteger;
-var ECPointFp = __webpack_require__(55).ECPointFp;
-exports.ECCurves = __webpack_require__(267);
+var BigInteger = __webpack_require__(29).BigInteger;
+var ECPointFp = __webpack_require__(62).ECPointFp;
+exports.ECCurves = __webpack_require__(293);
 
 // zero prepad
 function unstupid(hex,len)
@@ -26723,7 +31327,7 @@ exports.ECKey = function(curve, key, isPublic)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 126 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -26734,14 +31338,14 @@ module.exports = {
 };
 
 var nacl;
-var stream = __webpack_require__(14);
+var stream = __webpack_require__(15);
 var util = __webpack_require__(4);
 var assert = __webpack_require__(3);
-var Signature = __webpack_require__(19);
+var Signature = __webpack_require__(22);
 
 function Verifier(key, hashAlgo) {
 	if (nacl === undefined)
-		nacl = __webpack_require__(27);
+		nacl = __webpack_require__(30);
 
 	if (hashAlgo.toLowerCase() !== 'sha512')
 		throw (new Error('ED25519 only supports the use of ' +
@@ -26789,7 +31393,7 @@ Verifier.prototype.verify = function (signature, fmt) {
 
 function Signer(key, hashAlgo) {
 	if (nacl === undefined)
-		nacl = __webpack_require__(27);
+		nacl = __webpack_require__(30);
 
 	if (hashAlgo.toLowerCase() !== 'sha512')
 		throw (new Error('ED25519 only supports the use of ' +
@@ -26826,7 +31430,7 @@ Signer.prototype.sign = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 127 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -26838,12 +31442,12 @@ module.exports = {
 
 var assert = __webpack_require__(3);
 var utils = __webpack_require__(9);
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
 
-var pem = __webpack_require__(23);
-var ssh = __webpack_require__(129);
-var rfc4253 = __webpack_require__(28);
+var pem = __webpack_require__(26);
+var ssh = __webpack_require__(145);
+var rfc4253 = __webpack_require__(31);
 
 function read(buf, options) {
 	if (typeof (buf) === 'string') {
@@ -26906,13 +31510,13 @@ function write(key, options) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 128 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var crypto_hash_sha512 = __webpack_require__(27).lowlevel.crypto_hash;
+var crypto_hash_sha512 = __webpack_require__(30).lowlevel.crypto_hash;
 
 /*
  * This file is a 1:1 port from the OpenBSD blowfish.c and bcrypt_pbkdf.c. As a
@@ -27469,7 +32073,7 @@ module.exports = {
 
 
 /***/ }),
-/* 129 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -27480,12 +32084,12 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var rfc4253 = __webpack_require__(28);
+var rfc4253 = __webpack_require__(31);
 var utils = __webpack_require__(9);
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
 
-var sshpriv = __webpack_require__(56);
+var sshpriv = __webpack_require__(63);
 
 /*JSSTYLED*/
 var SSHKEY_RE = /^([a-z0-9-]+)[ \t]+([a-zA-Z0-9+\/]+[=]*)([\n \t]+([^\n]+))?$/;
@@ -27590,7 +32194,7 @@ function write(key, options) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 130 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2017 Joyent, Inc.
@@ -27604,16 +32208,16 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var asn1 = __webpack_require__(24);
-var algs = __webpack_require__(11);
+var asn1 = __webpack_require__(27);
+var algs = __webpack_require__(12);
 var utils = __webpack_require__(9);
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
-var pem = __webpack_require__(23);
-var Identity = __webpack_require__(45);
-var Signature = __webpack_require__(19);
-var Certificate = __webpack_require__(43);
-var pkcs8 = __webpack_require__(44);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
+var pem = __webpack_require__(26);
+var Identity = __webpack_require__(51);
+var Signature = __webpack_require__(22);
+var Certificate = __webpack_require__(49);
+var pkcs8 = __webpack_require__(50);
 
 /*
  * This file is based on RFC5280 (X.509).
@@ -28323,14 +32927,14 @@ function writeBitField(setBits, bitIndex) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 131 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/*
  * extsprintf.js: extended POSIX-style sprintf
  */
 
-var mod_assert = __webpack_require__(21);
+var mod_assert = __webpack_require__(24);
 var mod_util = __webpack_require__(4);
 
 /*
@@ -28513,10 +33117,10 @@ function dumpException(ex)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 132 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var stream = __webpack_require__(14)
+var stream = __webpack_require__(15)
 
 
 function isStream (obj) {
@@ -28546,15 +33150,15 @@ module.exports.isDuplex   = isDuplex
 
 
 /***/ }),
-/* 133 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var stringify = __webpack_require__(289);
-var parse = __webpack_require__(290);
-var formats = __webpack_require__(135);
+var stringify = __webpack_require__(315);
+var parse = __webpack_require__(316);
+var formats = __webpack_require__(151);
 
 module.exports = {
     formats: formats,
@@ -28564,7 +33168,7 @@ module.exports = {
 
 
 /***/ }),
-/* 134 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28773,7 +33377,7 @@ exports.isBuffer = function isBuffer(obj) {
 
 
 /***/ }),
-/* 135 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28798,13 +33402,13 @@ module.exports = {
 
 
 /***/ }),
-/* 136 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var util = __webpack_require__(33);
+var util = __webpack_require__(37);
 
 module.exports = SchemaObject;
 
@@ -28814,7 +33418,7 @@ function SchemaObject(obj) {
 
 
 /***/ }),
-/* 137 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28880,7 +33484,7 @@ module.exports = function (data, opts) {
 
 
 /***/ }),
-/* 138 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29345,7 +33949,7 @@ module.exports = function generate_validate(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 139 */
+/* 155 */
 /***/ (function(module, exports) {
 
 
@@ -29588,7 +34192,7 @@ function isObject(val) {
 
 
 /***/ }),
-/* 140 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29744,7 +34348,7 @@ module.exports = function generate__limit(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 141 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29827,7 +34431,7 @@ module.exports = function generate__limitItems(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 142 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29915,7 +34519,7 @@ module.exports = function generate__limitLength(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 143 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29998,7 +34602,7 @@ module.exports = function generate__limitProperties(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 144 */
+/* 160 */
 /***/ (function(module, exports) {
 
 // Unique ID creation requires a high quality random # generator.  In the
@@ -30036,7 +34640,7 @@ if (getRandomValues) {
 
 
 /***/ }),
-/* 145 */
+/* 161 */
 /***/ (function(module, exports) {
 
 /**
@@ -30065,26 +34669,1302 @@ module.exports = bytesToUuid;
 
 
 /***/ }),
-/* 146 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+module.exports = asPromise;
+
+/**
+ * Callback as used by {@link util.asPromise}.
+ * @typedef asPromiseCallback
+ * @type {function}
+ * @param {Error|null} error Error, if any
+ * @param {...*} params Additional arguments
+ * @returns {undefined}
+ */
+
+/**
+ * Returns a promise from a node-style callback function.
+ * @memberof util
+ * @param {asPromiseCallback} fn Function to call
+ * @param {*} ctx Function context
+ * @param {...*} params Function arguments
+ * @returns {Promise<*>} Promisified function
+ */
+function asPromise(fn, ctx/*, varargs */) {
+    var params  = new Array(arguments.length - 1),
+        offset  = 0,
+        index   = 2,
+        pending = true;
+    while (index < arguments.length)
+        params[offset++] = arguments[index++];
+    return new Promise(function executor(resolve, reject) {
+        params[offset] = function callback(err/*, varargs */) {
+            if (pending) {
+                pending = false;
+                if (err)
+                    reject(err);
+                else {
+                    var params = new Array(arguments.length - 1),
+                        offset = 0;
+                    while (offset < params.length)
+                        params[offset++] = arguments[offset];
+                    resolve.apply(null, params);
+                }
+            }
+        };
+        try {
+            fn.apply(ctx || null, params);
+        } catch (err) {
+            if (pending) {
+                pending = false;
+                reject(err);
+            }
+        }
+    });
+}
+
+
+/***/ }),
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = inquire;
+
+/**
+ * Requires a module only if available.
+ * @memberof util
+ * @param {string} moduleName Module to require
+ * @returns {?Object} Required module if available and not empty, otherwise `null`
+ */
+function inquire(moduleName) {
+    try {
+        var mod = eval("quire".replace(/^/,"re"))(moduleName); // eslint-disable-line no-eval
+        if (mod && (mod.length || Object.keys(mod).length))
+            return mod;
+    } catch (e) {} // eslint-disable-line no-empty
+    return null;
+}
+
+
+/***/ }),
+/* 164 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Streaming RPC helpers.
+ * @namespace
+ */
+var rpc = exports;
+
+/**
+ * RPC implementation passed to {@link Service#create} performing a service request on network level, i.e. by utilizing http requests or websockets.
+ * @typedef RPCImpl
+ * @type {function}
+ * @param {Method|rpc.ServiceMethod<Message<{}>,Message<{}>>} method Reflected or static method being called
+ * @param {Uint8Array} requestData Request data
+ * @param {RPCImplCallback} callback Callback function
+ * @returns {undefined}
+ * @example
+ * function rpcImpl(method, requestData, callback) {
+ *     if (protobuf.util.lcFirst(method.name) !== "myMethod") // compatible with static code
+ *         throw Error("no such method");
+ *     asynchronouslyObtainAResponse(requestData, function(err, responseData) {
+ *         callback(err, responseData);
+ *     });
+ * }
+ */
+
+/**
+ * Node-style callback as used by {@link RPCImpl}.
+ * @typedef RPCImplCallback
+ * @type {function}
+ * @param {Error|null} error Error, if any, otherwise `null`
+ * @param {Uint8Array|null} [response] Response data or `null` to signal end of stream, if there hasn't been an error
+ * @returns {undefined}
+ */
+
+rpc.Service = __webpack_require__(397);
+
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = {};
+
+/**
+ * Named roots.
+ * This is where pbjs stores generated structures (the option `-r, --root` specifies a name).
+ * Can also be used manually to make roots available accross modules.
+ * @name roots
+ * @type {Object.<string,Root>}
+ * @example
+ * // pbjs -r myroot -o compiled.js ...
+ *
+ * // in another module:
+ * require("./compiled.js");
+ *
+ * // in any subsequent module:
+ * var root = protobuf.roots["myroot"];
+ */
+
+
+/***/ }),
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = encoder;
+
+var Enum     = __webpack_require__(17),
+    types    = __webpack_require__(39),
+    util     = __webpack_require__(10);
+
+/**
+ * Generates a partial message type encoder.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {number} fieldIndex Field index
+ * @param {string} ref Variable reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genTypePartial(gen, field, fieldIndex, ref) {
+    return field.resolvedType.group
+        ? gen("types[%i].encode(%s,w.uint32(%i)).uint32(%i)", fieldIndex, ref, (field.id << 3 | 3) >>> 0, (field.id << 3 | 4) >>> 0)
+        : gen("types[%i].encode(%s,w.uint32(%i).fork()).ldelim()", fieldIndex, ref, (field.id << 3 | 2) >>> 0);
+}
+
+/**
+ * Generates an encoder specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+function encoder(mtype) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    var gen = util.codegen(["m", "w"], mtype.name + "$encode")
+    ("if(!w)")
+        ("w=Writer.create()");
+
+    var i, ref;
+
+    // "when a message is serialized its known fields should be written sequentially by field number"
+    var fields = /* initializes */ mtype.fieldsArray.slice().sort(util.compareFieldsById);
+
+    for (var i = 0; i < fields.length; ++i) {
+        var field    = fields[i].resolve(),
+            index    = mtype._fieldsArray.indexOf(field),
+            type     = field.resolvedType instanceof Enum ? "int32" : field.type,
+            wireType = types.basic[type];
+            ref      = "m" + util.safeProp(field.name);
+
+        // Map fields
+        if (field.map) {
+            gen
+    ("if(%s!=null&&m.hasOwnProperty(%j)){", ref, field.name) // !== undefined && !== null
+        ("for(var ks=Object.keys(%s),i=0;i<ks.length;++i){", ref)
+            ("w.uint32(%i).fork().uint32(%i).%s(ks[i])", (field.id << 3 | 2) >>> 0, 8 | types.mapKey[field.keyType], field.keyType);
+            if (wireType === undefined) gen
+            ("types[%i].encode(%s[ks[i]],w.uint32(18).fork()).ldelim().ldelim()", index, ref); // can't be groups
+            else gen
+            (".uint32(%i).%s(%s[ks[i]]).ldelim()", 16 | wireType, type, ref);
+            gen
+        ("}")
+    ("}");
+
+            // Repeated fields
+        } else if (field.repeated) { gen
+    ("if(%s!=null&&%s.length){", ref, ref); // !== undefined && !== null
+
+            // Packed repeated
+            if (field.packed && types.packed[type] !== undefined) { gen
+
+        ("w.uint32(%i).fork()", (field.id << 3 | 2) >>> 0)
+        ("for(var i=0;i<%s.length;++i)", ref)
+            ("w.%s(%s[i])", type, ref)
+        ("w.ldelim()");
+
+            // Non-packed
+            } else { gen
+
+        ("for(var i=0;i<%s.length;++i)", ref);
+                if (wireType === undefined)
+            genTypePartial(gen, field, index, ref + "[i]");
+                else gen
+            ("w.uint32(%i).%s(%s[i])", (field.id << 3 | wireType) >>> 0, type, ref);
+
+            } gen
+    ("}");
+
+        // Non-repeated
+        } else {
+            if (field.optional) gen
+    ("if(%s!=null&&m.hasOwnProperty(%j))", ref, field.name); // !== undefined && !== null
+
+            if (wireType === undefined)
+        genTypePartial(gen, field, index, ref);
+            else gen
+        ("w.uint32(%i).%s(%s)", (field.id << 3 | wireType) >>> 0, type, ref);
+
+        }
+    }
+
+    return gen
+    ("return w");
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+}
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = decoder;
+
+var Enum    = __webpack_require__(17),
+    types   = __webpack_require__(39),
+    util    = __webpack_require__(10);
+
+function missing(field) {
+    return "missing required '" + field.name + "'";
+}
+
+/**
+ * Generates a decoder specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+function decoder(mtype) {
+    /* eslint-disable no-unexpected-multiline */
+    var gen = util.codegen(["r", "l"], mtype.name + "$decode")
+    ("if(!(r instanceof Reader))")
+        ("r=Reader.create(r)")
+    ("var c=l===undefined?r.len:r.pos+l,m=new this.ctor" + (mtype.fieldsArray.filter(function(field) { return field.map; }).length ? ",k" : ""))
+    ("while(r.pos<c){")
+        ("var t=r.uint32()");
+    if (mtype.group) gen
+        ("if((t&7)===4)")
+            ("break");
+    gen
+        ("switch(t>>>3){");
+
+    var i = 0;
+    for (; i < /* initializes */ mtype.fieldsArray.length; ++i) {
+        var field = mtype._fieldsArray[i].resolve(),
+            type  = field.resolvedType instanceof Enum ? "int32" : field.type,
+            ref   = "m" + util.safeProp(field.name); gen
+            ("case %i:", field.id);
+
+        // Map fields
+        if (field.map) { gen
+                ("r.skip().pos++") // assumes id 1 + key wireType
+                ("if(%s===util.emptyObject)", ref)
+                    ("%s={}", ref)
+                ("k=r.%s()", field.keyType)
+                ("r.pos++"); // assumes id 2 + value wireType
+            if (types.long[field.keyType] !== undefined) {
+                if (types.basic[type] === undefined) gen
+                ("%s[typeof k===\"object\"?util.longToHash(k):k]=types[%i].decode(r,r.uint32())", ref, i); // can't be groups
+                else gen
+                ("%s[typeof k===\"object\"?util.longToHash(k):k]=r.%s()", ref, type);
+            } else {
+                if (types.basic[type] === undefined) gen
+                ("%s[k]=types[%i].decode(r,r.uint32())", ref, i); // can't be groups
+                else gen
+                ("%s[k]=r.%s()", ref, type);
+            }
+
+        // Repeated fields
+        } else if (field.repeated) { gen
+
+                ("if(!(%s&&%s.length))", ref, ref)
+                    ("%s=[]", ref);
+
+            // Packable (always check for forward and backward compatiblity)
+            if (types.packed[type] !== undefined) gen
+                ("if((t&7)===2){")
+                    ("var c2=r.uint32()+r.pos")
+                    ("while(r.pos<c2)")
+                        ("%s.push(r.%s())", ref, type)
+                ("}else");
+
+            // Non-packed
+            if (types.basic[type] === undefined) gen(field.resolvedType.group
+                    ? "%s.push(types[%i].decode(r))"
+                    : "%s.push(types[%i].decode(r,r.uint32()))", ref, i);
+            else gen
+                    ("%s.push(r.%s())", ref, type);
+
+        // Non-repeated
+        } else if (types.basic[type] === undefined) gen(field.resolvedType.group
+                ? "%s=types[%i].decode(r)"
+                : "%s=types[%i].decode(r,r.uint32())", ref, i);
+        else gen
+                ("%s=r.%s()", ref, type);
+        gen
+                ("break");
+    // Unknown fields
+    } gen
+            ("default:")
+                ("r.skipType(t&7)")
+                ("break")
+
+        ("}")
+    ("}");
+
+    // Field presence
+    for (i = 0; i < mtype._fieldsArray.length; ++i) {
+        var rfield = mtype._fieldsArray[i];
+        if (rfield.required) gen
+    ("if(!m.hasOwnProperty(%j))", rfield.name)
+        ("throw util.ProtocolError(%j,{instance:m})", missing(rfield));
+    }
+
+    return gen
+    ("return m");
+    /* eslint-enable no-unexpected-multiline */
+}
+
+
+/***/ }),
+/* 168 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = verifier;
+
+var Enum      = __webpack_require__(17),
+    util      = __webpack_require__(10);
+
+function invalid(field, expected) {
+    return field.name + ": " + expected + (field.repeated && expected !== "array" ? "[]" : field.map && expected !== "object" ? "{k:"+field.keyType+"}" : "") + " expected";
+}
+
+/**
+ * Generates a partial value verifier.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {number} fieldIndex Field index
+ * @param {string} ref Variable reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genVerifyValue(gen, field, fieldIndex, ref) {
+    /* eslint-disable no-unexpected-multiline */
+    if (field.resolvedType) {
+        if (field.resolvedType instanceof Enum) { gen
+            ("switch(%s){", ref)
+                ("default:")
+                    ("return%j", invalid(field, "enum value"));
+            for (var keys = Object.keys(field.resolvedType.values), j = 0; j < keys.length; ++j) gen
+                ("case %i:", field.resolvedType.values[keys[j]]);
+            gen
+                    ("break")
+            ("}");
+        } else {
+            gen
+            ("{")
+                ("var e=types[%i].verify(%s);", fieldIndex, ref)
+                ("if(e)")
+                    ("return%j+e", field.name + ".")
+            ("}");
+        }
+    } else {
+        switch (field.type) {
+            case "int32":
+            case "uint32":
+            case "sint32":
+            case "fixed32":
+            case "sfixed32": gen
+                ("if(!util.isInteger(%s))", ref)
+                    ("return%j", invalid(field, "integer"));
+                break;
+            case "int64":
+            case "uint64":
+            case "sint64":
+            case "fixed64":
+            case "sfixed64": gen
+                ("if(!util.isInteger(%s)&&!(%s&&util.isInteger(%s.low)&&util.isInteger(%s.high)))", ref, ref, ref, ref)
+                    ("return%j", invalid(field, "integer|Long"));
+                break;
+            case "float":
+            case "double": gen
+                ("if(typeof %s!==\"number\")", ref)
+                    ("return%j", invalid(field, "number"));
+                break;
+            case "bool": gen
+                ("if(typeof %s!==\"boolean\")", ref)
+                    ("return%j", invalid(field, "boolean"));
+                break;
+            case "string": gen
+                ("if(!util.isString(%s))", ref)
+                    ("return%j", invalid(field, "string"));
+                break;
+            case "bytes": gen
+                ("if(!(%s&&typeof %s.length===\"number\"||util.isString(%s)))", ref, ref, ref)
+                    ("return%j", invalid(field, "buffer"));
+                break;
+        }
+    }
+    return gen;
+    /* eslint-enable no-unexpected-multiline */
+}
+
+/**
+ * Generates a partial key verifier.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {string} ref Variable reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genVerifyKey(gen, field, ref) {
+    /* eslint-disable no-unexpected-multiline */
+    switch (field.keyType) {
+        case "int32":
+        case "uint32":
+        case "sint32":
+        case "fixed32":
+        case "sfixed32": gen
+            ("if(!util.key32Re.test(%s))", ref)
+                ("return%j", invalid(field, "integer key"));
+            break;
+        case "int64":
+        case "uint64":
+        case "sint64":
+        case "fixed64":
+        case "sfixed64": gen
+            ("if(!util.key64Re.test(%s))", ref) // see comment above: x is ok, d is not
+                ("return%j", invalid(field, "integer|Long key"));
+            break;
+        case "bool": gen
+            ("if(!util.key2Re.test(%s))", ref)
+                ("return%j", invalid(field, "boolean key"));
+            break;
+    }
+    return gen;
+    /* eslint-enable no-unexpected-multiline */
+}
+
+/**
+ * Generates a verifier specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+function verifier(mtype) {
+    /* eslint-disable no-unexpected-multiline */
+
+    var gen = util.codegen(["m"], mtype.name + "$verify")
+    ("if(typeof m!==\"object\"||m===null)")
+        ("return%j", "object expected");
+    var oneofs = mtype.oneofsArray,
+        seenFirstField = {};
+    if (oneofs.length) gen
+    ("var p={}");
+
+    for (var i = 0; i < /* initializes */ mtype.fieldsArray.length; ++i) {
+        var field = mtype._fieldsArray[i].resolve(),
+            ref   = "m" + util.safeProp(field.name);
+
+        if (field.optional) gen
+        ("if(%s!=null&&m.hasOwnProperty(%j)){", ref, field.name); // !== undefined && !== null
+
+        // map fields
+        if (field.map) { gen
+            ("if(!util.isObject(%s))", ref)
+                ("return%j", invalid(field, "object"))
+            ("var k=Object.keys(%s)", ref)
+            ("for(var i=0;i<k.length;++i){");
+                genVerifyKey(gen, field, "k[i]");
+                genVerifyValue(gen, field, i, ref + "[k[i]]")
+            ("}");
+
+        // repeated fields
+        } else if (field.repeated) { gen
+            ("if(!Array.isArray(%s))", ref)
+                ("return%j", invalid(field, "array"))
+            ("for(var i=0;i<%s.length;++i){", ref);
+                genVerifyValue(gen, field, i, ref + "[i]")
+            ("}");
+
+        // required or present fields
+        } else {
+            if (field.partOf) {
+                var oneofProp = util.safeProp(field.partOf.name);
+                if (seenFirstField[field.partOf.name] === 1) gen
+            ("if(p%s===1)", oneofProp)
+                ("return%j", field.partOf.name + ": multiple values");
+                seenFirstField[field.partOf.name] = 1;
+                gen
+            ("p%s=1", oneofProp);
+            }
+            genVerifyValue(gen, field, i, ref);
+        }
+        if (field.optional) gen
+        ("}");
+    }
+    return gen
+    ("return null");
+    /* eslint-enable no-unexpected-multiline */
+}
+
+/***/ }),
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * Runtime message from/to plain object converters.
+ * @namespace
+ */
+var converter = exports;
+
+var Enum = __webpack_require__(17),
+    util = __webpack_require__(10);
+
+/**
+ * Generates a partial value fromObject conveter.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {number} fieldIndex Field index
+ * @param {string} prop Property reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genValuePartial_fromObject(gen, field, fieldIndex, prop) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    if (field.resolvedType) {
+        if (field.resolvedType instanceof Enum) { gen
+            ("switch(d%s){", prop);
+            for (var values = field.resolvedType.values, keys = Object.keys(values), i = 0; i < keys.length; ++i) {
+                if (field.repeated && values[keys[i]] === field.typeDefault) gen
+                ("default:");
+                gen
+                ("case%j:", keys[i])
+                ("case %i:", values[keys[i]])
+                    ("m%s=%j", prop, values[keys[i]])
+                    ("break");
+            } gen
+            ("}");
+        } else gen
+            ("if(typeof d%s!==\"object\")", prop)
+                ("throw TypeError(%j)", field.fullName + ": object expected")
+            ("m%s=types[%i].fromObject(d%s)", prop, fieldIndex, prop);
+    } else {
+        var isUnsigned = false;
+        switch (field.type) {
+            case "double":
+            case "float": gen
+                ("m%s=Number(d%s)", prop, prop); // also catches "NaN", "Infinity"
+                break;
+            case "uint32":
+            case "fixed32": gen
+                ("m%s=d%s>>>0", prop, prop);
+                break;
+            case "int32":
+            case "sint32":
+            case "sfixed32": gen
+                ("m%s=d%s|0", prop, prop);
+                break;
+            case "uint64":
+                isUnsigned = true;
+                // eslint-disable-line no-fallthrough
+            case "int64":
+            case "sint64":
+            case "fixed64":
+            case "sfixed64": gen
+                ("if(util.Long)")
+                    ("(m%s=util.Long.fromValue(d%s)).unsigned=%j", prop, prop, isUnsigned)
+                ("else if(typeof d%s===\"string\")", prop)
+                    ("m%s=parseInt(d%s,10)", prop, prop)
+                ("else if(typeof d%s===\"number\")", prop)
+                    ("m%s=d%s", prop, prop)
+                ("else if(typeof d%s===\"object\")", prop)
+                    ("m%s=new util.LongBits(d%s.low>>>0,d%s.high>>>0).toNumber(%s)", prop, prop, prop, isUnsigned ? "true" : "");
+                break;
+            case "bytes": gen
+                ("if(typeof d%s===\"string\")", prop)
+                    ("util.base64.decode(d%s,m%s=util.newBuffer(util.base64.length(d%s)),0)", prop, prop, prop)
+                ("else if(d%s.length)", prop)
+                    ("m%s=d%s", prop, prop);
+                break;
+            case "string": gen
+                ("m%s=String(d%s)", prop, prop);
+                break;
+            case "bool": gen
+                ("m%s=Boolean(d%s)", prop, prop);
+                break;
+            /* default: gen
+                ("m%s=d%s", prop, prop);
+                break; */
+        }
+    }
+    return gen;
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+}
+
+/**
+ * Generates a plain object to runtime message converter specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+converter.fromObject = function fromObject(mtype) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    var fields = mtype.fieldsArray;
+    var gen = util.codegen(["d"], mtype.name + "$fromObject")
+    ("if(d instanceof this.ctor)")
+        ("return d");
+    if (!fields.length) return gen
+    ("return new this.ctor");
+    gen
+    ("var m=new this.ctor");
+    for (var i = 0; i < fields.length; ++i) {
+        var field  = fields[i].resolve(),
+            prop   = util.safeProp(field.name);
+
+        // Map fields
+        if (field.map) { gen
+    ("if(d%s){", prop)
+        ("if(typeof d%s!==\"object\")", prop)
+            ("throw TypeError(%j)", field.fullName + ": object expected")
+        ("m%s={}", prop)
+        ("for(var ks=Object.keys(d%s),i=0;i<ks.length;++i){", prop);
+            genValuePartial_fromObject(gen, field, /* not sorted */ i, prop + "[ks[i]]")
+        ("}")
+    ("}");
+
+        // Repeated fields
+        } else if (field.repeated) { gen
+    ("if(d%s){", prop)
+        ("if(!Array.isArray(d%s))", prop)
+            ("throw TypeError(%j)", field.fullName + ": array expected")
+        ("m%s=[]", prop)
+        ("for(var i=0;i<d%s.length;++i){", prop);
+            genValuePartial_fromObject(gen, field, /* not sorted */ i, prop + "[i]")
+        ("}")
+    ("}");
+
+        // Non-repeated fields
+        } else {
+            if (!(field.resolvedType instanceof Enum)) gen // no need to test for null/undefined if an enum (uses switch)
+    ("if(d%s!=null){", prop); // !== undefined && !== null
+        genValuePartial_fromObject(gen, field, /* not sorted */ i, prop);
+            if (!(field.resolvedType instanceof Enum)) gen
+    ("}");
+        }
+    } return gen
+    ("return m");
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+};
+
+/**
+ * Generates a partial value toObject converter.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {number} fieldIndex Field index
+ * @param {string} prop Property reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genValuePartial_toObject(gen, field, fieldIndex, prop) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    if (field.resolvedType) {
+        if (field.resolvedType instanceof Enum) gen
+            ("d%s=o.enums===String?types[%i].values[m%s]:m%s", prop, fieldIndex, prop, prop);
+        else gen
+            ("d%s=types[%i].toObject(m%s,o)", prop, fieldIndex, prop);
+    } else {
+        var isUnsigned = false;
+        switch (field.type) {
+            case "double":
+            case "float": gen
+            ("d%s=o.json&&!isFinite(m%s)?String(m%s):m%s", prop, prop, prop, prop);
+                break;
+            case "uint64":
+                isUnsigned = true;
+                // eslint-disable-line no-fallthrough
+            case "int64":
+            case "sint64":
+            case "fixed64":
+            case "sfixed64": gen
+            ("if(typeof m%s===\"number\")", prop)
+                ("d%s=o.longs===String?String(m%s):m%s", prop, prop, prop)
+            ("else") // Long-like
+                ("d%s=o.longs===String?util.Long.prototype.toString.call(m%s):o.longs===Number?new util.LongBits(m%s.low>>>0,m%s.high>>>0).toNumber(%s):m%s", prop, prop, prop, prop, isUnsigned ? "true": "", prop);
+                break;
+            case "bytes": gen
+            ("d%s=o.bytes===String?util.base64.encode(m%s,0,m%s.length):o.bytes===Array?Array.prototype.slice.call(m%s):m%s", prop, prop, prop, prop, prop);
+                break;
+            default: gen
+            ("d%s=m%s", prop, prop);
+                break;
+        }
+    }
+    return gen;
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+}
+
+/**
+ * Generates a runtime message to plain object converter specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+converter.toObject = function toObject(mtype) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    var fields = mtype.fieldsArray.slice().sort(util.compareFieldsById);
+    if (!fields.length)
+        return util.codegen()("return {}");
+    var gen = util.codegen(["m", "o"], mtype.name + "$toObject")
+    ("if(!o)")
+        ("o={}")
+    ("var d={}");
+
+    var repeatedFields = [],
+        mapFields = [],
+        normalFields = [],
+        i = 0;
+    for (; i < fields.length; ++i)
+        if (!fields[i].partOf)
+            ( fields[i].resolve().repeated ? repeatedFields
+            : fields[i].map ? mapFields
+            : normalFields).push(fields[i]);
+
+    if (repeatedFields.length) { gen
+    ("if(o.arrays||o.defaults){");
+        for (i = 0; i < repeatedFields.length; ++i) gen
+        ("d%s=[]", util.safeProp(repeatedFields[i].name));
+        gen
+    ("}");
+    }
+
+    if (mapFields.length) { gen
+    ("if(o.objects||o.defaults){");
+        for (i = 0; i < mapFields.length; ++i) gen
+        ("d%s={}", util.safeProp(mapFields[i].name));
+        gen
+    ("}");
+    }
+
+    if (normalFields.length) { gen
+    ("if(o.defaults){");
+        for (i = 0; i < normalFields.length; ++i) {
+            var field = normalFields[i],
+                prop  = util.safeProp(field.name);
+            if (field.resolvedType instanceof Enum) gen
+        ("d%s=o.enums===String?%j:%j", prop, field.resolvedType.valuesById[field.typeDefault], field.typeDefault);
+            else if (field.long) gen
+        ("if(util.Long){")
+            ("var n=new util.Long(%i,%i,%j)", field.typeDefault.low, field.typeDefault.high, field.typeDefault.unsigned)
+            ("d%s=o.longs===String?n.toString():o.longs===Number?n.toNumber():n", prop)
+        ("}else")
+            ("d%s=o.longs===String?%j:%i", prop, field.typeDefault.toString(), field.typeDefault.toNumber());
+            else if (field.bytes) gen
+        ("d%s=o.bytes===String?%j:%s", prop, String.fromCharCode.apply(String, field.typeDefault), "[" + Array.prototype.slice.call(field.typeDefault).join(",") + "]");
+            else gen
+        ("d%s=%j", prop, field.typeDefault); // also messages (=null)
+        } gen
+    ("}");
+    }
+    var hasKs2 = false;
+    for (i = 0; i < fields.length; ++i) {
+        var field = fields[i],
+            index = mtype._fieldsArray.indexOf(field),
+            prop  = util.safeProp(field.name);
+        if (field.map) {
+            if (!hasKs2) { hasKs2 = true; gen
+    ("var ks2");
+            } gen
+    ("if(m%s&&(ks2=Object.keys(m%s)).length){", prop, prop)
+        ("d%s={}", prop)
+        ("for(var j=0;j<ks2.length;++j){");
+            genValuePartial_toObject(gen, field, /* sorted */ index, prop + "[ks2[j]]")
+        ("}");
+        } else if (field.repeated) { gen
+    ("if(m%s&&m%s.length){", prop, prop)
+        ("d%s=[]", prop)
+        ("for(var j=0;j<m%s.length;++j){", prop);
+            genValuePartial_toObject(gen, field, /* sorted */ index, prop + "[j]")
+        ("}");
+        } else { gen
+    ("if(m%s!=null&&m.hasOwnProperty(%j)){", prop, field.name); // !== undefined && !== null
+        genValuePartial_toObject(gen, field, /* sorted */ index, prop);
+        if (field.partOf) gen
+        ("if(o.oneofs)")
+            ("d%s=%j", util.safeProp(field.partOf.name), field.name);
+        }
+        gen
+    ("}");
+    }
+    return gen
+    ("return d");
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+};
+
+
+/***/ }),
+/* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Wrappers for common types.
+ * @type {Object.<string,IWrapper>}
+ * @const
+ */
+var wrappers = exports;
+
+var Message = __webpack_require__(94);
+
+/**
+ * From object converter part of an {@link IWrapper}.
+ * @typedef WrapperFromObjectConverter
+ * @type {function}
+ * @param {Object.<string,*>} object Plain object
+ * @returns {Message<{}>} Message instance
+ * @this Type
+ */
+
+/**
+ * To object converter part of an {@link IWrapper}.
+ * @typedef WrapperToObjectConverter
+ * @type {function}
+ * @param {Message<{}>} message Message instance
+ * @param {IConversionOptions} [options] Conversion options
+ * @returns {Object.<string,*>} Plain object
+ * @this Type
+ */
+
+/**
+ * Common type wrapper part of {@link wrappers}.
+ * @interface IWrapper
+ * @property {WrapperFromObjectConverter} [fromObject] From object converter
+ * @property {WrapperToObjectConverter} [toObject] To object converter
+ */
+
+// Custom wrapper for Any
+wrappers[".google.protobuf.Any"] = {
+
+    fromObject: function(object) {
+
+        // unwrap value type if mapped
+        if (object && object["@type"]) {
+            var type = this.lookup(object["@type"]);
+            /* istanbul ignore else */
+            if (type) {
+                // type_url does not accept leading "."
+                var type_url = object["@type"].charAt(0) === "." ?
+                    object["@type"].substr(1) : object["@type"];
+                // type_url prefix is optional, but path seperator is required
+                return this.create({
+                    type_url: "/" + type_url,
+                    value: type.encode(type.fromObject(object)).finish()
+                });
+            }
+        }
+
+        return this.fromObject(object);
+    },
+
+    toObject: function(message, options) {
+
+        // decode value if requested and unmapped
+        if (options && options.json && message.type_url && message.value) {
+            // Only use fully qualified type name after the last '/'
+            var name = message.type_url.substring(message.type_url.lastIndexOf("/") + 1);
+            var type = this.lookup(name);
+            /* istanbul ignore else */
+            if (type)
+                message = type.decode(message.value);
+        }
+
+        // wrap value if unmapped
+        if (!(message instanceof this.ctor) && message instanceof Message) {
+            var object = message.$type.toObject(message, options);
+            object["@type"] = message.$type.fullName;
+            return object;
+        }
+
+        return this.toObject(message, options);
+    }
+};
+
+
+/***/ }),
+/* 171 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = tokenize;
+
+var delimRe        = /[\s{}=;:[\],'"()<>]/g,
+    stringDoubleRe = /(?:"([^"\\]*(?:\\.[^"\\]*)*)")/g,
+    stringSingleRe = /(?:'([^'\\]*(?:\\.[^'\\]*)*)')/g;
+
+var setCommentRe = /^ *[*/]+ */,
+    setCommentSplitRe = /\n/g,
+    whitespaceRe = /\s/,
+    unescapeRe = /\\(.?)/g;
+
+var unescapeMap = {
+    "0": "\0",
+    "r": "\r",
+    "n": "\n",
+    "t": "\t"
+};
+
+/**
+ * Unescapes a string.
+ * @param {string} str String to unescape
+ * @returns {string} Unescaped string
+ * @property {Object.<string,string>} map Special characters map
+ * @memberof tokenize
+ */
+function unescape(str) {
+    return str.replace(unescapeRe, function($0, $1) {
+        switch ($1) {
+            case "\\":
+            case "":
+                return $1;
+            default:
+                return unescapeMap[$1] || "";
+        }
+    });
+}
+
+tokenize.unescape = unescape;
+
+/**
+ * Gets the next token and advances.
+ * @typedef TokenizerHandleNext
+ * @type {function}
+ * @returns {string|null} Next token or `null` on eof
+ */
+
+/**
+ * Peeks for the next token.
+ * @typedef TokenizerHandlePeek
+ * @type {function}
+ * @returns {string|null} Next token or `null` on eof
+ */
+
+/**
+ * Pushes a token back to the stack.
+ * @typedef TokenizerHandlePush
+ * @type {function}
+ * @param {string} token Token
+ * @returns {undefined}
+ */
+
+/**
+ * Skips the next token.
+ * @typedef TokenizerHandleSkip
+ * @type {function}
+ * @param {string} expected Expected token
+ * @param {boolean} [optional=false] If optional
+ * @returns {boolean} Whether the token matched
+ * @throws {Error} If the token didn't match and is not optional
+ */
+
+/**
+ * Gets the comment on the previous line or, alternatively, the line comment on the specified line.
+ * @typedef TokenizerHandleCmnt
+ * @type {function}
+ * @param {number} [line] Line number
+ * @returns {string|null} Comment text or `null` if none
+ */
+
+/**
+ * Handle object returned from {@link tokenize}.
+ * @interface ITokenizerHandle
+ * @property {TokenizerHandleNext} next Gets the next token and advances (`null` on eof)
+ * @property {TokenizerHandlePeek} peek Peeks for the next token (`null` on eof)
+ * @property {TokenizerHandlePush} push Pushes a token back to the stack
+ * @property {TokenizerHandleSkip} skip Skips a token, returns its presence and advances or, if non-optional and not present, throws
+ * @property {TokenizerHandleCmnt} cmnt Gets the comment on the previous line or the line comment on the specified line, if any
+ * @property {number} line Current line number
+ */
+
+/**
+ * Tokenizes the given .proto source and returns an object with useful utility functions.
+ * @param {string} source Source contents
+ * @returns {ITokenizerHandle} Tokenizer handle
+ */
+function tokenize(source) {
+    /* eslint-disable callback-return */
+    source = source.toString();
+
+    var offset = 0,
+        length = source.length,
+        line = 1,
+        commentType = null,
+        commentText = null,
+        commentLine = 0,
+        commentLineEmpty = false;
+
+    var stack = [];
+
+    var stringDelim = null;
+
+    /* istanbul ignore next */
+    /**
+     * Creates an error for illegal syntax.
+     * @param {string} subject Subject
+     * @returns {Error} Error created
+     * @inner
+     */
+    function illegal(subject) {
+        return Error("illegal " + subject + " (line " + line + ")");
+    }
+
+    /**
+     * Reads a string till its end.
+     * @returns {string} String read
+     * @inner
+     */
+    function readString() {
+        var re = stringDelim === "'" ? stringSingleRe : stringDoubleRe;
+        re.lastIndex = offset - 1;
+        var match = re.exec(source);
+        if (!match)
+            throw illegal("string");
+        offset = re.lastIndex;
+        push(stringDelim);
+        stringDelim = null;
+        return unescape(match[1]);
+    }
+
+    /**
+     * Gets the character at `pos` within the source.
+     * @param {number} pos Position
+     * @returns {string} Character
+     * @inner
+     */
+    function charAt(pos) {
+        return source.charAt(pos);
+    }
+
+    /**
+     * Sets the current comment text.
+     * @param {number} start Start offset
+     * @param {number} end End offset
+     * @returns {undefined}
+     * @inner
+     */
+    function setComment(start, end) {
+        commentType = source.charAt(start++);
+        commentLine = line;
+        commentLineEmpty = false;
+        var offset = start - 3, // "///" or "/**"
+            c;
+        do {
+            if (--offset < 0 || (c = source.charAt(offset)) === "\n") {
+                commentLineEmpty = true;
+                break;
+            }
+        } while (c === " " || c === "\t");
+        var lines = source
+            .substring(start, end)
+            .split(setCommentSplitRe);
+        for (var i = 0; i < lines.length; ++i)
+            lines[i] = lines[i].replace(setCommentRe, "").trim();
+        commentText = lines
+            .join("\n")
+            .trim();
+    }
+
+    /**
+     * Obtains the next token.
+     * @returns {string|null} Next token or `null` on eof
+     * @inner
+     */
+    function next() {
+        if (stack.length > 0)
+            return stack.shift();
+        if (stringDelim)
+            return readString();
+        var repeat,
+            prev,
+            curr,
+            start,
+            isDoc;
+        do {
+            if (offset === length)
+                return null;
+            repeat = false;
+            while (whitespaceRe.test(curr = charAt(offset))) {
+                if (curr === "\n")
+                    ++line;
+                if (++offset === length)
+                    return null;
+            }
+            if (charAt(offset) === "/") {
+                if (++offset === length)
+                    throw illegal("comment");
+                if (charAt(offset) === "/") { // Line
+                    isDoc = charAt(start = offset + 1) === "/";
+                    while (charAt(++offset) !== "\n")
+                        if (offset === length)
+                            return null;
+                    ++offset;
+                    if (isDoc) /// Comment
+                        setComment(start, offset - 1);
+                    ++line;
+                    repeat = true;
+                } else if ((curr = charAt(offset)) === "*") { /* Block */
+                    isDoc = charAt(start = offset + 1) === "*";
+                    do {
+                        if (curr === "\n")
+                            ++line;
+                        if (++offset === length)
+                            throw illegal("comment");
+                        prev = curr;
+                        curr = charAt(offset);
+                    } while (prev !== "*" || curr !== "/");
+                    ++offset;
+                    if (isDoc) /** Comment */
+                        setComment(start, offset - 2);
+                    repeat = true;
+                } else
+                    return "/";
+            }
+        } while (repeat);
+
+        // offset !== length if we got here
+
+        var end = offset;
+        delimRe.lastIndex = 0;
+        var delim = delimRe.test(charAt(end++));
+        if (!delim)
+            while (end < length && !delimRe.test(charAt(end)))
+                ++end;
+        var token = source.substring(offset, offset = end);
+        if (token === "\"" || token === "'")
+            stringDelim = token;
+        return token;
+    }
+
+    /**
+     * Pushes a token back to the stack.
+     * @param {string} token Token
+     * @returns {undefined}
+     * @inner
+     */
+    function push(token) {
+        stack.push(token);
+    }
+
+    /**
+     * Peeks for the next token.
+     * @returns {string|null} Token or `null` on eof
+     * @inner
+     */
+    function peek() {
+        if (!stack.length) {
+            var token = next();
+            if (token === null)
+                return null;
+            push(token);
+        }
+        return stack[0];
+    }
+
+    /**
+     * Skips a token.
+     * @param {string} expected Expected token
+     * @param {boolean} [optional=false] Whether the token is optional
+     * @returns {boolean} `true` when skipped, `false` if not
+     * @throws {Error} When a required token is not present
+     * @inner
+     */
+    function skip(expected, optional) {
+        var actual = peek(),
+            equals = actual === expected;
+        if (equals) {
+            next();
+            return true;
+        }
+        if (!optional)
+            throw illegal("token '" + actual + "', '" + expected + "' expected");
+        return false;
+    }
+
+    /**
+     * Gets a comment.
+     * @param {number} [trailingLine] Line number if looking for a trailing comment
+     * @returns {string|null} Comment text
+     * @inner
+     */
+    function cmnt(trailingLine) {
+        var ret = null;
+        if (trailingLine === undefined) {
+            if (commentLine === line - 1 && (commentType === "*" || commentLineEmpty))
+                ret = commentText;
+        } else {
+            /* istanbul ignore else */
+            if (commentLine < trailingLine)
+                peek();
+            if (commentLine === trailingLine && !commentLineEmpty && commentType === "/")
+                ret = commentText;
+        }
+        return ret;
+    }
+
+    return Object.defineProperty({
+        next: next,
+        peek: peek,
+        push: push,
+        skip: skip,
+        cmnt: cmnt
+    }, "line", {
+        get: function() { return line; }
+    });
+    /* eslint-enable callback-return */
+}
+
+
+/***/ }),
+/* 172 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(console) {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 // const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
-var request = __webpack_require__(147);
-var config = __webpack_require__(357);
+var request = __webpack_require__(176);
+var config = __webpack_require__(383);
+// const protobuf = require('protobufjs');
 // const populateStops = require('./stops');
+var GtfsRealtimeBindings = __webpack_require__(384);
 
 module.exports = function () {
   function Trains() {
     _classCallCheck(this, Trains);
 
     this.trains = [];
+    // protobuf.load("./nyct-subway.proto").then((root) => {
+    //
+    // });
     // populateStops((stops) => {
     //   this.stops = stops;
     // });
@@ -30110,7 +35990,9 @@ module.exports = function () {
       };
       request(requestSettings, function (error, response, body) {
         if (!error && response.statusCode == 200) {
+          console.log(body);
 
+          // const feed =
           // const feed = GtfsRealtimeBindings.FeedMessage.decode(body);
           // feed.entity.forEach((entity) => {
           //   this.trains.push(entity);
@@ -30122,9 +36004,61 @@ module.exports = function () {
 
   return Trains;
 }();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
 
 /***/ }),
-/* 147 */
+/* 173 */
+/***/ (function(module, exports) {
+
+module.exports = function isBuffer(arg) {
+  return arg && typeof arg === 'object'
+    && typeof arg.copy === 'function'
+    && typeof arg.fill === 'function'
+    && typeof arg.readUInt8 === 'function';
+}
+
+/***/ }),
+/* 174 */
+/***/ (function(module, exports) {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+
+/***/ }),
+/* 175 */
+/***/ (function(module, exports) {
+
+module.exports = now
+
+function now() {
+    return new Date().getTime()
+}
+
+
+/***/ }),
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30144,9 +36078,9 @@ module.exports = function () {
 
 
 
-var extend = __webpack_require__(58)
-var cookies = __webpack_require__(80)
-var helpers = __webpack_require__(60)
+var extend = __webpack_require__(66)
+var cookies = __webpack_require__(96)
+var helpers = __webpack_require__(68)
 
 var paramsHaveRequestBody = helpers.paramsHaveRequestBody
 
@@ -30270,7 +36204,7 @@ request.forever = function (agentOptions, optionsArg) {
 // Exports
 
 module.exports = request
-request.Request = __webpack_require__(246)
+request.Request = __webpack_require__(272)
 request.initParams = initParams
 
 // Backwards compatibility for request.debug
@@ -30286,7 +36220,7 @@ Object.defineProperty(request, 'debug', {
 
 
 /***/ }),
-/* 148 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30321,17 +36255,17 @@ Object.defineProperty(request, 'debug', {
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-var net = __webpack_require__(29);
-var urlParse = __webpack_require__(16).parse;
-var pubsuffix = __webpack_require__(82);
-var Store = __webpack_require__(83).Store;
-var MemoryCookieStore = __webpack_require__(155).MemoryCookieStore;
-var pathMatch = __webpack_require__(85).pathMatch;
-var VERSION = __webpack_require__(156).version;
+var net = __webpack_require__(33);
+var urlParse = __webpack_require__(19).parse;
+var pubsuffix = __webpack_require__(98);
+var Store = __webpack_require__(99).Store;
+var MemoryCookieStore = __webpack_require__(181).MemoryCookieStore;
+var pathMatch = __webpack_require__(101).pathMatch;
+var VERSION = __webpack_require__(182).version;
 
 var punycode;
 try {
-  punycode = __webpack_require__(59);
+  punycode = __webpack_require__(67);
 } catch(e) {
   console.warn("cookie: can't load punycode; won't use punycode for domain normalization");
 }
@@ -31627,66 +37561,15 @@ module.exports = {
   pathMatch: pathMatch,
   getPublicSuffix: pubsuffix.getPublicSuffix,
   cookieCompare: cookieCompare,
-  permuteDomain: __webpack_require__(84).permuteDomain,
+  permuteDomain: __webpack_require__(100).permuteDomain,
   permutePath: permutePath,
   canonicalDomain: canonicalDomain
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
 
 /***/ }),
-/* 149 */
-/***/ (function(module, exports) {
-
-module.exports = function isBuffer(arg) {
-  return arg && typeof arg === 'object'
-    && typeof arg.copy === 'function'
-    && typeof arg.fill === 'function'
-    && typeof arg.readUInt8 === 'function';
-}
-
-/***/ }),
-/* 150 */
-/***/ (function(module, exports) {
-
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-
-/***/ }),
-/* 151 */
-/***/ (function(module, exports) {
-
-module.exports = now
-
-function now() {
-    return new Date().getTime()
-}
-
-
-/***/ }),
-/* 152 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31709,7 +37592,7 @@ module.exports = {
 
 
 /***/ }),
-/* 153 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31800,7 +37683,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 154 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31892,7 +37775,7 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 155 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31927,9 +37810,9 @@ var objectKeys = Object.keys || function (obj) {
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-var Store = __webpack_require__(83).Store;
-var permuteDomain = __webpack_require__(84).permuteDomain;
-var pathMatch = __webpack_require__(85).pathMatch;
+var Store = __webpack_require__(99).Store;
+var permuteDomain = __webpack_require__(100).permuteDomain;
+var pathMatch = __webpack_require__(101).pathMatch;
 var util = __webpack_require__(4);
 
 function MemoryCookieStore() {
@@ -32069,13 +37952,13 @@ MemoryCookieStore.prototype.getAllCookies = function(cb) {
 
 
 /***/ }),
-/* 156 */
+/* 182 */
 /***/ (function(module, exports) {
 
 module.exports = {"_args":[[{"raw":"tough-cookie@~2.3.3","scope":null,"escapedName":"tough-cookie","name":"tough-cookie","rawSpec":"~2.3.3","spec":">=2.3.3 <2.4.0","type":"range"},"/Users/jpshugrue/Documents/projects/trainSpotter/node_modules/request"]],"_from":"tough-cookie@>=2.3.3 <2.4.0","_id":"tough-cookie@2.3.3","_inCache":true,"_location":"/tough-cookie","_nodeVersion":"7.9.0","_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/tough-cookie-2.3.3.tgz_1506027901957_0.13104762020520866"},"_npmUser":{"name":"jstash","email":"jstash@gmail.com"},"_npmVersion":"4.2.0","_phantomChildren":{},"_requested":{"raw":"tough-cookie@~2.3.3","scope":null,"escapedName":"tough-cookie","name":"tough-cookie","rawSpec":"~2.3.3","spec":">=2.3.3 <2.4.0","type":"range"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.3.tgz","_shasum":"0b618a5565b6dea90bf3425d04d55edc475a7561","_shrinkwrap":null,"_spec":"tough-cookie@~2.3.3","_where":"/Users/jpshugrue/Documents/projects/trainSpotter/node_modules/request","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"directories":{},"dist":{"shasum":"0b618a5565b6dea90bf3425d04d55edc475a7561","tarball":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.3.tgz"},"engines":{"node":">=0.8"},"files":["lib"],"gitHead":"12d426678f77bd34dd1234b7acbf47b299f50439","homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","maintainers":[{"name":"awaterma","email":"awaterma@awaterma.net"},{"name":"jstash","email":"jstash@gmail.com"},{"name":"nexxy","email":"emily@contactvibe.com"}],"name":"tough-cookie","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.3"}
 
 /***/ }),
-/* 157 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -32268,7 +38151,7 @@ module.exports = {"_args":[[{"raw":"tough-cookie@~2.3.3","scope":null,"escapedNa
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(5)))
 
 /***/ }),
-/* 158 */
+/* 184 */
 /***/ (function(module, exports) {
 
 exports = module.exports = stringify
@@ -32301,7 +38184,7 @@ function serializer(replacer, cycleReplacer) {
 
 
 /***/ }),
-/* 159 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32422,7 +38305,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 160 */
+/* 186 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -32512,7 +38395,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 161 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32550,12 +38433,12 @@ module.exports = function hash (buf, fn) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 162 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
-var Transform = __webpack_require__(14).Transform
+var Transform = __webpack_require__(15).Transform
 var inherits = __webpack_require__(1)
 
 function HashBase (blockSize) {
@@ -32641,13 +38524,13 @@ module.exports = HashBase
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 163 */
+/* 189 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 164 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32656,7 +38539,7 @@ module.exports = HashBase
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Buffer = __webpack_require__(2).Buffer;
-var util = __webpack_require__(165);
+var util = __webpack_require__(191);
 
 function copyBuffer(src, target, offset) {
   src.copy(target, offset);
@@ -32732,13 +38615,13 @@ if (util && util.inspect && util.inspect.custom) {
 }
 
 /***/ }),
-/* 165 */
+/* 191 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 166 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(console, global) {
@@ -32809,10 +38692,10 @@ function config (name) {
   return String(val).toLowerCase() === 'true';
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20), __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18), __webpack_require__(8)))
 
 /***/ }),
-/* 167 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32845,10 +38728,10 @@ function config (name) {
 
 module.exports = PassThrough;
 
-var Transform = __webpack_require__(91);
+var Transform = __webpack_require__(107);
 
 /*<replacement>*/
-var util = __webpack_require__(31);
+var util = __webpack_require__(35);
 util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
@@ -32865,35 +38748,35 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 };
 
 /***/ }),
-/* 168 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(63);
+module.exports = __webpack_require__(71);
 
 
 /***/ }),
-/* 169 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(25);
+module.exports = __webpack_require__(28);
 
 
 /***/ }),
-/* 170 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(36).Transform
+module.exports = __webpack_require__(42).Transform
 
 
 /***/ }),
-/* 171 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(36).PassThrough
+module.exports = __webpack_require__(42).PassThrough
 
 
 /***/ }),
-/* 172 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -32905,7 +38788,7 @@ module.exports = __webpack_require__(36).PassThrough
  */
 
 var inherits = __webpack_require__(1)
-var Hash = __webpack_require__(32)
+var Hash = __webpack_require__(36)
 var Buffer = __webpack_require__(2).Buffer
 
 var K = [
@@ -32993,7 +38876,7 @@ module.exports = Sha
 
 
 /***/ }),
-/* 173 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -33006,7 +38889,7 @@ module.exports = Sha
  */
 
 var inherits = __webpack_require__(1)
-var Hash = __webpack_require__(32)
+var Hash = __webpack_require__(36)
 var Buffer = __webpack_require__(2).Buffer
 
 var K = [
@@ -33098,7 +38981,7 @@ module.exports = Sha1
 
 
 /***/ }),
-/* 174 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -33110,8 +38993,8 @@ module.exports = Sha1
  */
 
 var inherits = __webpack_require__(1)
-var Sha256 = __webpack_require__(92)
-var Hash = __webpack_require__(32)
+var Sha256 = __webpack_require__(108)
+var Hash = __webpack_require__(36)
 var Buffer = __webpack_require__(2).Buffer
 
 var W = new Array(64)
@@ -33157,12 +39040,12 @@ module.exports = Sha224
 
 
 /***/ }),
-/* 175 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(1)
-var SHA512 = __webpack_require__(93)
-var Hash = __webpack_require__(32)
+var SHA512 = __webpack_require__(109)
+var Hash = __webpack_require__(36)
 var Buffer = __webpack_require__(2).Buffer
 
 var W = new Array(160)
@@ -33220,7 +39103,7 @@ module.exports = Sha384
 
 
 /***/ }),
-/* 176 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33228,7 +39111,7 @@ module.exports = Sha384
 var inherits = __webpack_require__(1)
 var Buffer = __webpack_require__(2).Buffer
 
-var Base = __webpack_require__(22)
+var Base = __webpack_require__(25)
 
 var ZEROS = Buffer.alloc(128)
 var blocksize = 64
@@ -33273,19 +39156,19 @@ module.exports = Hmac
 
 
 /***/ }),
-/* 177 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(95)
+module.exports = __webpack_require__(111)
 
 
 /***/ }),
-/* 178 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(97)
-var defaultEncoding = __webpack_require__(98)
-var sync = __webpack_require__(99)
+/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(113)
+var defaultEncoding = __webpack_require__(114)
+var sync = __webpack_require__(115)
 var Buffer = __webpack_require__(2).Buffer
 
 var ZERO_BUF
@@ -33385,14 +39268,14 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(5)))
 
 /***/ }),
-/* 179 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ebtk = __webpack_require__(49)
-var aes = __webpack_require__(65)
-var DES = __webpack_require__(191)
-var desModes = __webpack_require__(197)
-var aesModes = __webpack_require__(66)
+var ebtk = __webpack_require__(56)
+var aes = __webpack_require__(73)
+var DES = __webpack_require__(217)
+var desModes = __webpack_require__(223)
+var aesModes = __webpack_require__(74)
 function createCipher (suite, password) {
   var keyLen, ivLen
   suite = suite.toLowerCase()
@@ -33464,13 +39347,13 @@ exports.listCiphers = exports.getCiphers = getCiphers
 
 
 /***/ }),
-/* 180 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 var inherits = __webpack_require__(1)
-var HashBase = __webpack_require__(181)
+var HashBase = __webpack_require__(207)
 
 var ARRAY16 = new Array(16)
 
@@ -33617,13 +39500,13 @@ module.exports = MD5
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 181 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Buffer = __webpack_require__(2).Buffer
-var Transform = __webpack_require__(14).Transform
+var Transform = __webpack_require__(15).Transform
 var inherits = __webpack_require__(1)
 
 function throwIfNotStringOrBuffer (val, prefix) {
@@ -33719,16 +39602,16 @@ module.exports = HashBase
 
 
 /***/ }),
-/* 182 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var MODES = __webpack_require__(66)
-var AuthCipher = __webpack_require__(103)
+var MODES = __webpack_require__(74)
+var AuthCipher = __webpack_require__(119)
 var Buffer = __webpack_require__(2).Buffer
-var StreamCipher = __webpack_require__(104)
-var Transform = __webpack_require__(22)
-var aes = __webpack_require__(50)
-var ebtk = __webpack_require__(49)
+var StreamCipher = __webpack_require__(120)
+var Transform = __webpack_require__(25)
+var aes = __webpack_require__(57)
+var ebtk = __webpack_require__(56)
 var inherits = __webpack_require__(1)
 
 function Cipher (mode, key, iv) {
@@ -33839,7 +39722,7 @@ exports.createCipher = createCipher
 
 
 /***/ }),
-/* 183 */
+/* 209 */
 /***/ (function(module, exports) {
 
 exports.encrypt = function (self, block) {
@@ -33852,10 +39735,10 @@ exports.decrypt = function (self, block) {
 
 
 /***/ }),
-/* 184 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(37)
+var xor = __webpack_require__(43)
 
 exports.encrypt = function (self, block) {
   var data = xor(block, self._prev)
@@ -33875,11 +39758,11 @@ exports.decrypt = function (self, block) {
 
 
 /***/ }),
-/* 185 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(2).Buffer
-var xor = __webpack_require__(37)
+var xor = __webpack_require__(43)
 
 function encryptStart (self, data, decrypt) {
   var len = data.length
@@ -33914,7 +39797,7 @@ exports.encrypt = function (self, data, decrypt) {
 
 
 /***/ }),
-/* 186 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(2).Buffer
@@ -33945,7 +39828,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 
 
 /***/ }),
-/* 187 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(2).Buffer
@@ -33993,10 +39876,10 @@ exports.encrypt = function (self, chunk, decrypt) {
 
 
 /***/ }),
-/* 188 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(37)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(43)
 
 function getBlock (self) {
   self._prev = self._cipher.encryptBlock(self._prev)
@@ -34016,7 +39899,7 @@ exports.encrypt = function (self, chunk) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 189 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(2).Buffer
@@ -34111,16 +39994,16 @@ module.exports = GHASH
 
 
 /***/ }),
-/* 190 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var AuthCipher = __webpack_require__(103)
+var AuthCipher = __webpack_require__(119)
 var Buffer = __webpack_require__(2).Buffer
-var MODES = __webpack_require__(66)
-var StreamCipher = __webpack_require__(104)
-var Transform = __webpack_require__(22)
-var aes = __webpack_require__(50)
-var ebtk = __webpack_require__(49)
+var MODES = __webpack_require__(74)
+var StreamCipher = __webpack_require__(120)
+var Transform = __webpack_require__(25)
+var aes = __webpack_require__(57)
+var ebtk = __webpack_require__(56)
 var inherits = __webpack_require__(1)
 
 function Decipher (mode, key, iv) {
@@ -34238,11 +40121,11 @@ exports.createDecipheriv = createDecipheriv
 
 
 /***/ }),
-/* 191 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var CipherBase = __webpack_require__(22)
-var des = __webpack_require__(67)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var CipherBase = __webpack_require__(25)
+var des = __webpack_require__(75)
 var inherits = __webpack_require__(1)
 
 var modes = {
@@ -34288,7 +40171,7 @@ DES.prototype._final = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 192 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34551,13 +40434,13 @@ exports.padSplit = function padSplit(num, size, group) {
 
 
 /***/ }),
-/* 193 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var assert = __webpack_require__(15);
+var assert = __webpack_require__(16);
 
 function Cipher(options) {
   this.options = options;
@@ -34699,16 +40582,16 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
 
 
 /***/ }),
-/* 194 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var assert = __webpack_require__(15);
+var assert = __webpack_require__(16);
 var inherits = __webpack_require__(1);
 
-var des = __webpack_require__(67);
+var des = __webpack_require__(75);
 var utils = des.utils;
 var Cipher = des.Cipher;
 
@@ -34849,13 +40732,13 @@ DES.prototype._decrypt = function _decrypt(state, lStart, rStart, out, off) {
 
 
 /***/ }),
-/* 195 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var assert = __webpack_require__(15);
+var assert = __webpack_require__(16);
 var inherits = __webpack_require__(1);
 
 var proto = {};
@@ -34921,16 +40804,16 @@ proto._update = function _update(inp, inOff, out, outOff) {
 
 
 /***/ }),
-/* 196 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var assert = __webpack_require__(15);
+var assert = __webpack_require__(16);
 var inherits = __webpack_require__(1);
 
-var des = __webpack_require__(67);
+var des = __webpack_require__(75);
 var Cipher = des.Cipher;
 var DES = des.DES;
 
@@ -34983,7 +40866,7 @@ EDE.prototype._unpad = DES.prototype._unpad;
 
 
 /***/ }),
-/* 197 */
+/* 223 */
 /***/ (function(module, exports) {
 
 exports['des-ecb'] = {
@@ -35013,13 +40896,13 @@ exports['des-ede'] = {
 
 
 /***/ }),
-/* 198 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(105)
-var primes = __webpack_require__(201)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(121)
+var primes = __webpack_require__(227)
 
-var DH = __webpack_require__(202)
+var DH = __webpack_require__(228)
 
 function getDiffieHellman (mod) {
   var prime = new Buffer(primes[mod].prime, 'hex')
@@ -35062,37 +40945,37 @@ exports.createDiffieHellman = exports.DiffieHellman = createDiffieHellman
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 199 */
+/* 225 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 200 */
+/* 226 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 201 */
+/* 227 */
 /***/ (function(module, exports) {
 
 module.exports = {"modp1":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a63a3620ffffffffffffffff"},"modp2":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece65381ffffffffffffffff"},"modp5":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca237327ffffffffffffffff"},"modp14":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aacaa68ffffffffffffffff"},"modp15":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a93ad2caffffffffffffffff"},"modp16":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c934063199ffffffffffffffff"},"modp17":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c93402849236c3fab4d27c7026c1d4dcb2602646dec9751e763dba37bdf8ff9406ad9e530ee5db382f413001aeb06a53ed9027d831179727b0865a8918da3edbebcf9b14ed44ce6cbaced4bb1bdb7f1447e6cc254b332051512bd7af426fb8f401378cd2bf5983ca01c64b92ecf032ea15d1721d03f482d7ce6e74fef6d55e702f46980c82b5a84031900b1c9e59e7c97fbec7e8f323a97a7e36cc88be0f1d45b7ff585ac54bd407b22b4154aacc8f6d7ebf48e1d814cc5ed20f8037e0a79715eef29be32806a1d58bb7c5da76f550aa3d8a1fbff0eb19ccb1a313d55cda56c9ec2ef29632387fe8d76e3c0468043e8f663f4860ee12bf2d5b0b7474d6e694f91e6dcc4024ffffffffffffffff"},"modp18":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c93402849236c3fab4d27c7026c1d4dcb2602646dec9751e763dba37bdf8ff9406ad9e530ee5db382f413001aeb06a53ed9027d831179727b0865a8918da3edbebcf9b14ed44ce6cbaced4bb1bdb7f1447e6cc254b332051512bd7af426fb8f401378cd2bf5983ca01c64b92ecf032ea15d1721d03f482d7ce6e74fef6d55e702f46980c82b5a84031900b1c9e59e7c97fbec7e8f323a97a7e36cc88be0f1d45b7ff585ac54bd407b22b4154aacc8f6d7ebf48e1d814cc5ed20f8037e0a79715eef29be32806a1d58bb7c5da76f550aa3d8a1fbff0eb19ccb1a313d55cda56c9ec2ef29632387fe8d76e3c0468043e8f663f4860ee12bf2d5b0b7474d6e694f91e6dbe115974a3926f12fee5e438777cb6a932df8cd8bec4d073b931ba3bc832b68d9dd300741fa7bf8afc47ed2576f6936ba424663aab639c5ae4f5683423b4742bf1c978238f16cbe39d652de3fdb8befc848ad922222e04a4037c0713eb57a81a23f0c73473fc646cea306b4bcbc8862f8385ddfa9d4b7fa2c087e879683303ed5bdd3a062b3cf5b3a278a66d2a13f83f44f82ddf310ee074ab6a364597e899a0255dc164f31cc50846851df9ab48195ded7ea1b1d510bd7ee74d73faf36bc31ecfa268359046f4eb879f924009438b481c6cd7889a002ed5ee382bc9190da6fc026e479558e4475677e9aa9e3050e2765694dfc81f56e880b96e7160c980dd98edd3dfffffffffffffffff"}}
 
 /***/ }),
-/* 202 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var BN = __webpack_require__(6);
-var MillerRabin = __webpack_require__(106);
+var MillerRabin = __webpack_require__(122);
 var millerRabin = new MillerRabin();
 var TWENTYFOUR = new BN(24);
 var ELEVEN = new BN(11);
 var TEN = new BN(10);
 var THREE = new BN(3);
 var SEVEN = new BN(7);
-var primes = __webpack_require__(105);
-var randomBytes = __webpack_require__(30);
+var primes = __webpack_require__(121);
+var randomBytes = __webpack_require__(34);
 module.exports = DH;
 
 function setPublicKey(pub, enc) {
@@ -35251,16 +41134,16 @@ function formatReturnValue(bn, enc) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 203 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(35)
-var stream = __webpack_require__(14)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(41)
+var stream = __webpack_require__(15)
 var inherits = __webpack_require__(1)
-var sign = __webpack_require__(204)
-var verify = __webpack_require__(240)
+var sign = __webpack_require__(230)
+var verify = __webpack_require__(266)
 
-var algorithms = __webpack_require__(95)
+var algorithms = __webpack_require__(111)
 Object.keys(algorithms).forEach(function (key) {
   algorithms[key].id = new Buffer(algorithms[key].id, 'hex')
   algorithms[key.toLowerCase()] = algorithms[key]
@@ -35349,16 +41232,16 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 204 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
-var createHmac = __webpack_require__(94)
-var crt = __webpack_require__(68)
-var EC = __webpack_require__(13).ec
+var createHmac = __webpack_require__(110)
+var crt = __webpack_require__(76)
+var EC = __webpack_require__(14).ec
 var BN = __webpack_require__(6)
-var parseKeys = __webpack_require__(52)
-var curves = __webpack_require__(116)
+var parseKeys = __webpack_require__(59)
+var curves = __webpack_require__(132)
 
 function sign (hash, key, hashType, signType, tag) {
   var priv = parseKeys(key)
@@ -35501,13 +41384,13 @@ module.exports.makeKey = makeKey
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 205 */
+/* 231 */
 /***/ (function(module, exports) {
 
 module.exports = {"_args":[[{"raw":"elliptic@^6.0.0","scope":null,"escapedName":"elliptic","name":"elliptic","rawSpec":"^6.0.0","spec":">=6.0.0 <7.0.0","type":"range"},"/Users/jpshugrue/Documents/projects/trainSpotter/node_modules/browserify-sign"]],"_from":"elliptic@>=6.0.0 <7.0.0","_id":"elliptic@6.4.0","_inCache":true,"_location":"/elliptic","_nodeVersion":"7.0.0","_npmOperationalInternal":{"host":"packages-18-east.internal.npmjs.com","tmp":"tmp/elliptic-6.4.0.tgz_1487798866428_0.30510620190761983"},"_npmUser":{"name":"indutny","email":"fedor@indutny.com"},"_npmVersion":"3.10.8","_phantomChildren":{},"_requested":{"raw":"elliptic@^6.0.0","scope":null,"escapedName":"elliptic","name":"elliptic","rawSpec":"^6.0.0","spec":">=6.0.0 <7.0.0","type":"range"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_shrinkwrap":null,"_spec":"elliptic@^6.0.0","_where":"/Users/jpshugrue/Documents/projects/trainSpotter/node_modules/browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"directories":{},"dist":{"shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","tarball":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz"},"files":["lib"],"gitHead":"6b0d2b76caae91471649c8e21f0b1d3ba0f96090","homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","maintainers":[{"name":"indutny","email":"fedor@indutny.com"}],"name":"elliptic","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"}
 
 /***/ }),
-/* 206 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35515,8 +41398,8 @@ module.exports = {"_args":[[{"raw":"elliptic@^6.0.0","scope":null,"escapedName":
 
 var utils = exports;
 var BN = __webpack_require__(6);
-var minAssert = __webpack_require__(15);
-var minUtils = __webpack_require__(108);
+var minAssert = __webpack_require__(16);
+var minUtils = __webpack_require__(124);
 
 utils.assert = minAssert;
 utils.toArray = minUtils.toArray;
@@ -35634,14 +41517,14 @@ utils.intFromLE = intFromLE;
 
 
 /***/ }),
-/* 207 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var BN = __webpack_require__(6);
-var elliptic = __webpack_require__(13);
+var elliptic = __webpack_require__(14);
 var utils = elliptic.utils;
 var getNAF = utils.getNAF;
 var getJSF = utils.getJSF;
@@ -36016,14 +41899,14 @@ BasePoint.prototype.dblp = function dblp(k) {
 
 
 /***/ }),
-/* 208 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var curve = __webpack_require__(51);
-var elliptic = __webpack_require__(13);
+var curve = __webpack_require__(58);
+var elliptic = __webpack_require__(14);
 var BN = __webpack_require__(6);
 var inherits = __webpack_require__(1);
 var Base = curve.base;
@@ -36961,18 +42844,18 @@ JPoint.prototype.isInfinity = function isInfinity() {
 
 
 /***/ }),
-/* 209 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var curve = __webpack_require__(51);
+var curve = __webpack_require__(58);
 var BN = __webpack_require__(6);
 var inherits = __webpack_require__(1);
 var Base = curve.base;
 
-var elliptic = __webpack_require__(13);
+var elliptic = __webpack_require__(14);
 var utils = elliptic.utils;
 
 function MontCurve(conf) {
@@ -37148,14 +43031,14 @@ Point.prototype.getX = function getX() {
 
 
 /***/ }),
-/* 210 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var curve = __webpack_require__(51);
-var elliptic = __webpack_require__(13);
+var curve = __webpack_require__(58);
+var elliptic = __webpack_require__(14);
 var BN = __webpack_require__(6);
 var inherits = __webpack_require__(1);
 var Base = curve.base;
@@ -37588,7 +43471,7 @@ Point.prototype.mixedAdd = Point.prototype.add;
 
 
 /***/ }),
-/* 211 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37596,8 +43479,8 @@ Point.prototype.mixedAdd = Point.prototype.add;
 
 var curves = exports;
 
-var hash = __webpack_require__(69);
-var elliptic = __webpack_require__(13);
+var hash = __webpack_require__(77);
+var elliptic = __webpack_require__(14);
 
 var assert = elliptic.utils.assert;
 
@@ -37761,7 +43644,7 @@ defineCurve('ed25519', {
 
 var pre;
 try {
-  pre = __webpack_require__(218);
+  pre = __webpack_require__(244);
 } catch (e) {
   pre = undefined;
 }
@@ -37800,29 +43683,29 @@ defineCurve('secp256k1', {
 
 
 /***/ }),
-/* 212 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.sha1 = __webpack_require__(213);
-exports.sha224 = __webpack_require__(214);
-exports.sha256 = __webpack_require__(110);
-exports.sha384 = __webpack_require__(215);
-exports.sha512 = __webpack_require__(111);
+exports.sha1 = __webpack_require__(239);
+exports.sha224 = __webpack_require__(240);
+exports.sha256 = __webpack_require__(126);
+exports.sha384 = __webpack_require__(241);
+exports.sha512 = __webpack_require__(127);
 
 
 /***/ }),
-/* 213 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(17);
-var common = __webpack_require__(38);
-var shaCommon = __webpack_require__(109);
+var utils = __webpack_require__(20);
+var common = __webpack_require__(44);
+var shaCommon = __webpack_require__(125);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -37895,14 +43778,14 @@ SHA1.prototype._digest = function digest(enc) {
 
 
 /***/ }),
-/* 214 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(17);
-var SHA256 = __webpack_require__(110);
+var utils = __webpack_require__(20);
+var SHA256 = __webpack_require__(126);
 
 function SHA224() {
   if (!(this instanceof SHA224))
@@ -37932,15 +43815,15 @@ SHA224.prototype._digest = function digest(enc) {
 
 
 /***/ }),
-/* 215 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(17);
+var utils = __webpack_require__(20);
 
-var SHA512 = __webpack_require__(111);
+var SHA512 = __webpack_require__(127);
 
 function SHA384() {
   if (!(this instanceof SHA384))
@@ -37974,14 +43857,14 @@ SHA384.prototype._digest = function digest(enc) {
 
 
 /***/ }),
-/* 216 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(17);
-var common = __webpack_require__(38);
+var utils = __webpack_require__(20);
+var common = __webpack_require__(44);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -38127,14 +44010,14 @@ var sh = [
 
 
 /***/ }),
-/* 217 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(17);
-var assert = __webpack_require__(15);
+var utils = __webpack_require__(20);
+var assert = __webpack_require__(16);
 
 function Hmac(hash, key, enc) {
   if (!(this instanceof Hmac))
@@ -38181,7 +44064,7 @@ Hmac.prototype.digest = function digest(enc) {
 
 
 /***/ }),
-/* 218 */
+/* 244 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -38967,20 +44850,20 @@ module.exports = {
 
 
 /***/ }),
-/* 219 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var BN = __webpack_require__(6);
-var HmacDRBG = __webpack_require__(220);
-var elliptic = __webpack_require__(13);
+var HmacDRBG = __webpack_require__(246);
+var elliptic = __webpack_require__(14);
 var utils = elliptic.utils;
 var assert = utils.assert;
 
-var KeyPair = __webpack_require__(221);
-var Signature = __webpack_require__(222);
+var KeyPair = __webpack_require__(247);
+var Signature = __webpack_require__(248);
 
 function EC(options) {
   if (!(this instanceof EC))
@@ -39214,15 +45097,15 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
 
 
 /***/ }),
-/* 220 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var hash = __webpack_require__(69);
-var utils = __webpack_require__(108);
-var assert = __webpack_require__(15);
+var hash = __webpack_require__(77);
+var utils = __webpack_require__(124);
+var assert = __webpack_require__(16);
 
 function HmacDRBG(options) {
   if (!(this instanceof HmacDRBG))
@@ -39334,14 +45217,14 @@ HmacDRBG.prototype.generate = function generate(len, enc, add, addEnc) {
 
 
 /***/ }),
-/* 221 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var BN = __webpack_require__(6);
-var elliptic = __webpack_require__(13);
+var elliptic = __webpack_require__(14);
 var utils = elliptic.utils;
 var assert = utils.assert;
 
@@ -39460,7 +45343,7 @@ KeyPair.prototype.inspect = function inspect() {
 
 
 /***/ }),
-/* 222 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39468,7 +45351,7 @@ KeyPair.prototype.inspect = function inspect() {
 
 var BN = __webpack_require__(6);
 
-var elliptic = __webpack_require__(13);
+var elliptic = __webpack_require__(14);
 var utils = elliptic.utils;
 var assert = utils.assert;
 
@@ -39602,19 +45485,19 @@ Signature.prototype.toDER = function toDER(enc) {
 
 
 /***/ }),
-/* 223 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var hash = __webpack_require__(69);
-var elliptic = __webpack_require__(13);
+var hash = __webpack_require__(77);
+var elliptic = __webpack_require__(14);
 var utils = elliptic.utils;
 var assert = utils.assert;
 var parseBytes = utils.parseBytes;
-var KeyPair = __webpack_require__(224);
-var Signature = __webpack_require__(225);
+var KeyPair = __webpack_require__(250);
+var Signature = __webpack_require__(251);
 
 function EDDSA(curve) {
   assert(curve === 'ed25519', 'only tested with ed25519 so far');
@@ -39727,13 +45610,13 @@ EDDSA.prototype.isPoint = function isPoint(val) {
 
 
 /***/ }),
-/* 224 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var elliptic = __webpack_require__(13);
+var elliptic = __webpack_require__(14);
 var utils = elliptic.utils;
 var assert = utils.assert;
 var parseBytes = utils.parseBytes;
@@ -39830,14 +45713,14 @@ module.exports = KeyPair;
 
 
 /***/ }),
-/* 225 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var BN = __webpack_require__(6);
-var elliptic = __webpack_require__(13);
+var elliptic = __webpack_require__(14);
 var utils = elliptic.utils;
 var assert = utils.assert;
 var cachedProperty = utils.cachedProperty;
@@ -39903,7 +45786,7 @@ module.exports = Signature;
 
 
 /***/ }),
-/* 226 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39911,9 +45794,9 @@ module.exports = Signature;
 // Fedor, you are amazing.
 
 
-var asn1 = __webpack_require__(39)
+var asn1 = __webpack_require__(45)
 
-exports.certificate = __webpack_require__(237)
+exports.certificate = __webpack_require__(263)
 
 var RSAPrivateKey = asn1.define('RSAPrivateKey', function () {
   this.seq().obj(
@@ -40032,10 +45915,10 @@ exports.signature = asn1.define('signature', function () {
 
 
 /***/ }),
-/* 227 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var asn1 = __webpack_require__(39);
+var asn1 = __webpack_require__(45);
 var inherits = __webpack_require__(1);
 
 var api = exports;
@@ -40055,7 +45938,7 @@ function Entity(name, body) {
 Entity.prototype._createNamed = function createNamed(base) {
   var named;
   try {
-    named = __webpack_require__(228).runInThisContext(
+    named = __webpack_require__(254).runInThisContext(
       '(function ' + this.name + '(entity) {\n' +
       '  this._initNamed(entity);\n' +
       '})'
@@ -40099,10 +45982,10 @@ Entity.prototype.encode = function encode(data, enc, /* internal */ reporter) {
 
 
 /***/ }),
-/* 228 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var indexOf = __webpack_require__(229);
+var indexOf = __webpack_require__(255);
 
 var Object_keys = function (obj) {
     if (Object.keys) return Object.keys(obj)
@@ -40243,7 +46126,7 @@ exports.createContext = Script.createContext = function (context) {
 
 
 /***/ }),
-/* 229 */
+/* 255 */
 /***/ (function(module, exports) {
 
 
@@ -40258,7 +46141,7 @@ module.exports = function(arr, obj){
 };
 
 /***/ }),
-/* 230 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(1);
@@ -40385,13 +46268,13 @@ ReporterError.prototype.rethrow = function rethrow(msg) {
 
 
 /***/ }),
-/* 231 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Reporter = __webpack_require__(40).Reporter;
-var EncoderBuffer = __webpack_require__(40).EncoderBuffer;
-var DecoderBuffer = __webpack_require__(40).DecoderBuffer;
-var assert = __webpack_require__(15);
+var Reporter = __webpack_require__(46).Reporter;
+var EncoderBuffer = __webpack_require__(46).EncoderBuffer;
+var DecoderBuffer = __webpack_require__(46).DecoderBuffer;
+var assert = __webpack_require__(16);
 
 // Supported tags
 var tags = [
@@ -41025,10 +46908,10 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
 
 
 /***/ }),
-/* 232 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var constants = __webpack_require__(113);
+var constants = __webpack_require__(129);
 
 exports.tagClass = {
   0: 'universal',
@@ -41073,23 +46956,23 @@ exports.tagByName = constants._reverse(exports.tag);
 
 
 /***/ }),
-/* 233 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var decoders = exports;
 
-decoders.der = __webpack_require__(114);
-decoders.pem = __webpack_require__(234);
+decoders.der = __webpack_require__(130);
+decoders.pem = __webpack_require__(260);
 
 
 /***/ }),
-/* 234 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(1);
 var Buffer = __webpack_require__(0).Buffer;
 
-var DERDecoder = __webpack_require__(114);
+var DERDecoder = __webpack_require__(130);
 
 function PEMDecoder(entity) {
   DERDecoder.call(this, entity);
@@ -41138,22 +47021,22 @@ PEMDecoder.prototype.decode = function decode(data, options) {
 
 
 /***/ }),
-/* 235 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var encoders = exports;
 
-encoders.der = __webpack_require__(115);
-encoders.pem = __webpack_require__(236);
+encoders.der = __webpack_require__(131);
+encoders.pem = __webpack_require__(262);
 
 
 /***/ }),
-/* 236 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(1);
 
-var DEREncoder = __webpack_require__(115);
+var DEREncoder = __webpack_require__(131);
 
 function PEMEncoder(entity) {
   DEREncoder.call(this, entity);
@@ -41175,7 +47058,7 @@ PEMEncoder.prototype.encode = function encode(data, options) {
 
 
 /***/ }),
-/* 237 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41184,7 +47067,7 @@ PEMEncoder.prototype.encode = function encode(data, options) {
 
 
 
-var asn = __webpack_require__(39)
+var asn = __webpack_require__(45)
 
 var Time = asn.define('Time', function () {
   this.choice({
@@ -41270,21 +47153,21 @@ module.exports = X509Certificate
 
 
 /***/ }),
-/* 238 */
+/* 264 */
 /***/ (function(module, exports) {
 
 module.exports = {"2.16.840.1.101.3.4.1.1":"aes-128-ecb","2.16.840.1.101.3.4.1.2":"aes-128-cbc","2.16.840.1.101.3.4.1.3":"aes-128-ofb","2.16.840.1.101.3.4.1.4":"aes-128-cfb","2.16.840.1.101.3.4.1.21":"aes-192-ecb","2.16.840.1.101.3.4.1.22":"aes-192-cbc","2.16.840.1.101.3.4.1.23":"aes-192-ofb","2.16.840.1.101.3.4.1.24":"aes-192-cfb","2.16.840.1.101.3.4.1.41":"aes-256-ecb","2.16.840.1.101.3.4.1.42":"aes-256-cbc","2.16.840.1.101.3.4.1.43":"aes-256-ofb","2.16.840.1.101.3.4.1.44":"aes-256-cfb"}
 
 /***/ }),
-/* 239 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// adapted from https://github.com/apatil/pemstrip
 var findProc = /Proc-Type: 4,ENCRYPTED\n\r?DEK-Info: AES-((?:128)|(?:192)|(?:256))-CBC,([0-9A-H]+)\n\r?\n\r?([0-9A-z\n\r\+\/\=]+)\n\r?/m
 var startRegex = /^-----BEGIN ((?:.* KEY)|CERTIFICATE)-----\n/m
 var fullRegex = /^-----BEGIN ((?:.* KEY)|CERTIFICATE)-----\n\r?([0-9A-z\n\r\+\/\=]+)\n\r?-----END \1-----$/m
-var evp = __webpack_require__(49)
-var ciphers = __webpack_require__(65)
+var evp = __webpack_require__(56)
+var ciphers = __webpack_require__(73)
 module.exports = function (okey, password) {
   var key = okey.toString()
   var match = key.match(findProc)
@@ -41313,14 +47196,14 @@ module.exports = function (okey, password) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 240 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var BN = __webpack_require__(6)
-var EC = __webpack_require__(13).ec
-var parseKeys = __webpack_require__(52)
-var curves = __webpack_require__(116)
+var EC = __webpack_require__(14).ec
+var parseKeys = __webpack_require__(59)
+var curves = __webpack_require__(132)
 
 function verify (sig, hash, key, signType, tag) {
   var pub = parseKeys(key)
@@ -41403,10 +47286,10 @@ module.exports = verify
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 241 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var elliptic = __webpack_require__(13);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var elliptic = __webpack_require__(14);
 var BN = __webpack_require__(6);
 
 module.exports = function createECDH(curve) {
@@ -41532,11 +47415,11 @@ function formatReturnValue(bn, enc, len) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 242 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports.publicEncrypt = __webpack_require__(243);
-exports.privateDecrypt = __webpack_require__(244);
+exports.publicEncrypt = __webpack_require__(269);
+exports.privateDecrypt = __webpack_require__(270);
 
 exports.privateEncrypt = function privateEncrypt(key, buf) {
   return exports.publicEncrypt(key, buf, true);
@@ -41547,17 +47430,17 @@ exports.publicDecrypt = function publicDecrypt(key, buf) {
 };
 
 /***/ }),
-/* 243 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var parseKeys = __webpack_require__(52);
-var randomBytes = __webpack_require__(30);
-var createHash = __webpack_require__(35);
-var mgf = __webpack_require__(117);
-var xor = __webpack_require__(118);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var parseKeys = __webpack_require__(59);
+var randomBytes = __webpack_require__(34);
+var createHash = __webpack_require__(41);
+var mgf = __webpack_require__(133);
+var xor = __webpack_require__(134);
 var bn = __webpack_require__(6);
-var withPublic = __webpack_require__(119);
-var crt = __webpack_require__(68);
+var withPublic = __webpack_require__(135);
+var crt = __webpack_require__(76);
 
 var constants = {
   RSA_PKCS1_OAEP_PADDING: 4,
@@ -41648,16 +47531,16 @@ function nonZero(len, crypto) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 244 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var parseKeys = __webpack_require__(52);
-var mgf = __webpack_require__(117);
-var xor = __webpack_require__(118);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var parseKeys = __webpack_require__(59);
+var mgf = __webpack_require__(133);
+var xor = __webpack_require__(134);
 var bn = __webpack_require__(6);
-var crt = __webpack_require__(68);
-var createHash = __webpack_require__(35);
-var withPublic = __webpack_require__(119);
+var crt = __webpack_require__(76);
+var createHash = __webpack_require__(41);
+var withPublic = __webpack_require__(135);
 module.exports = function privateDecrypt(private_key, enc, reverse) {
   var padding;
   if (private_key.padding) {
@@ -41762,7 +47645,7 @@ function compare(a, b){
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 245 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41772,7 +47655,7 @@ function oldBrowser () {
   throw new Error('secure random number generation not supported by this browser\nuse chrome, FireFox or Internet Explorer 11')
 }
 var safeBuffer = __webpack_require__(2)
-var randombytes = __webpack_require__(30)
+var randombytes = __webpack_require__(34)
 var Buffer = safeBuffer.Buffer
 var kBufferMaxLength = safeBuffer.kMaxLength
 var crypto = global.crypto || global.msCrypto
@@ -41878,41 +47761,41 @@ function randomFillSync (buf, offset, size) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(5)))
 
 /***/ }),
-/* 246 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process, console) {
 
-var http = __webpack_require__(41)
-var https = __webpack_require__(70)
-var url = __webpack_require__(16)
+var http = __webpack_require__(47)
+var https = __webpack_require__(78)
+var url = __webpack_require__(19)
 var util = __webpack_require__(4)
-var stream = __webpack_require__(14)
-var zlib = __webpack_require__(251)
-var hawk = __webpack_require__(261)
-var aws2 = __webpack_require__(262)
-var aws4 = __webpack_require__(263)
-var httpSignature = __webpack_require__(265)
-var mime = __webpack_require__(279)
-var stringstream = __webpack_require__(283)
-var caseless = __webpack_require__(75)
-var ForeverAgent = __webpack_require__(284)
-var FormData = __webpack_require__(285)
-var extend = __webpack_require__(58)
-var isstream = __webpack_require__(132)
-var isTypedArray = __webpack_require__(286).strict
-var helpers = __webpack_require__(60)
-var cookies = __webpack_require__(80)
-var getProxyFromURI = __webpack_require__(287)
-var Querystring = __webpack_require__(288).Querystring
-var Har = __webpack_require__(291).Har
-var Auth = __webpack_require__(345).Auth
-var OAuth = __webpack_require__(348).OAuth
-var Multipart = __webpack_require__(350).Multipart
-var Redirect = __webpack_require__(353).Redirect
-var Tunnel = __webpack_require__(354).Tunnel
-var now = __webpack_require__(356)
+var stream = __webpack_require__(15)
+var zlib = __webpack_require__(277)
+var hawk = __webpack_require__(287)
+var aws2 = __webpack_require__(288)
+var aws4 = __webpack_require__(289)
+var httpSignature = __webpack_require__(291)
+var mime = __webpack_require__(305)
+var stringstream = __webpack_require__(309)
+var caseless = __webpack_require__(83)
+var ForeverAgent = __webpack_require__(310)
+var FormData = __webpack_require__(311)
+var extend = __webpack_require__(66)
+var isstream = __webpack_require__(148)
+var isTypedArray = __webpack_require__(312).strict
+var helpers = __webpack_require__(68)
+var cookies = __webpack_require__(96)
+var getProxyFromURI = __webpack_require__(313)
+var Querystring = __webpack_require__(314).Querystring
+var Har = __webpack_require__(317).Har
+var Auth = __webpack_require__(371).Auth
+var OAuth = __webpack_require__(374).OAuth
+var Multipart = __webpack_require__(376).Multipart
+var Redirect = __webpack_require__(379).Redirect
+var Tunnel = __webpack_require__(380).Tunnel
+var now = __webpack_require__(382)
 var Buffer = __webpack_require__(2).Buffer
 
 var safeStringify = helpers.safeStringify
@@ -43435,17 +49318,17 @@ Request.defaultProxyHeaderExclusiveList =
 Request.prototype.toJSON = requestToJSON
 module.exports = Request
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(18)))
 
 /***/ }),
-/* 247 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer, global, process) {var capability = __webpack_require__(120)
+/* WEBPACK VAR INJECTION */(function(Buffer, global, process) {var capability = __webpack_require__(136)
 var inherits = __webpack_require__(1)
-var response = __webpack_require__(121)
-var stream = __webpack_require__(36)
-var toArrayBuffer = __webpack_require__(248)
+var response = __webpack_require__(137)
+var stream = __webpack_require__(42)
+var toArrayBuffer = __webpack_require__(274)
 
 var IncomingMessage = response.IncomingMessage
 var rStates = response.readyStates
@@ -43768,7 +49651,7 @@ var unsafeHeaders = [
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer, __webpack_require__(8), __webpack_require__(5)))
 
 /***/ }),
-/* 248 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(0).Buffer
@@ -43801,7 +49684,7 @@ module.exports = function (buf) {
 
 
 /***/ }),
-/* 249 */
+/* 275 */
 /***/ (function(module, exports) {
 
 module.exports = extend
@@ -43826,7 +49709,7 @@ function extend() {
 
 
 /***/ }),
-/* 250 */
+/* 276 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -43896,17 +49779,17 @@ module.exports = {
 
 
 /***/ }),
-/* 251 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var Buffer = __webpack_require__(0).Buffer;
-var Transform = __webpack_require__(14).Transform;
-var binding = __webpack_require__(252);
+var Transform = __webpack_require__(15).Transform;
+var binding = __webpack_require__(278);
 var util = __webpack_require__(4);
-var assert = __webpack_require__(21).ok;
+var assert = __webpack_require__(24).ok;
 var kMaxLength = __webpack_require__(0).kMaxLength;
 var kRangeErrorMessage = 'Cannot create final Buffer. It would be larger ' + 'than 0x' + kMaxLength.toString(16) + ' bytes';
 
@@ -44512,19 +50395,19 @@ util.inherits(Unzip, Zlib);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 252 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer, process) {
 /* eslint camelcase: "off" */
 
-var assert = __webpack_require__(21);
+var assert = __webpack_require__(24);
 
-var Zstream = __webpack_require__(253);
-var zlib_deflate = __webpack_require__(254);
-var zlib_inflate = __webpack_require__(257);
-var constants = __webpack_require__(260);
+var Zstream = __webpack_require__(279);
+var zlib_deflate = __webpack_require__(280);
+var zlib_inflate = __webpack_require__(283);
+var constants = __webpack_require__(286);
 
 for (var key in constants) {
   exports[key] = constants[key];
@@ -44928,7 +50811,7 @@ exports.Zlib = Zlib;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer, __webpack_require__(5)))
 
 /***/ }),
-/* 253 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44982,7 +50865,7 @@ module.exports = ZStream;
 
 
 /***/ }),
-/* 254 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45007,11 +50890,11 @@ module.exports = ZStream;
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils   = __webpack_require__(53);
-var trees   = __webpack_require__(255);
-var adler32 = __webpack_require__(122);
-var crc32   = __webpack_require__(123);
-var msg     = __webpack_require__(256);
+var utils   = __webpack_require__(60);
+var trees   = __webpack_require__(281);
+var adler32 = __webpack_require__(138);
+var crc32   = __webpack_require__(139);
+var msg     = __webpack_require__(282);
 
 /* Public constants ==========================================================*/
 /* ===========================================================================*/
@@ -46863,7 +52746,7 @@ exports.deflateTune = deflateTune;
 
 
 /***/ }),
-/* 255 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46888,7 +52771,7 @@ exports.deflateTune = deflateTune;
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils = __webpack_require__(53);
+var utils = __webpack_require__(60);
 
 /* Public constants ==========================================================*/
 /* ===========================================================================*/
@@ -48090,7 +53973,7 @@ exports._tr_align = _tr_align;
 
 
 /***/ }),
-/* 256 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48129,7 +54012,7 @@ module.exports = {
 
 
 /***/ }),
-/* 257 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48154,11 +54037,11 @@ module.exports = {
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils         = __webpack_require__(53);
-var adler32       = __webpack_require__(122);
-var crc32         = __webpack_require__(123);
-var inflate_fast  = __webpack_require__(258);
-var inflate_table = __webpack_require__(259);
+var utils         = __webpack_require__(60);
+var adler32       = __webpack_require__(138);
+var crc32         = __webpack_require__(139);
+var inflate_fast  = __webpack_require__(284);
+var inflate_table = __webpack_require__(285);
 
 var CODES = 0;
 var LENS = 1;
@@ -49692,7 +55575,7 @@ exports.inflateUndermine = inflateUndermine;
 
 
 /***/ }),
-/* 258 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50044,7 +55927,7 @@ module.exports = function inflate_fast(strm, start) {
 
 
 /***/ }),
-/* 259 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50069,7 +55952,7 @@ module.exports = function inflate_fast(strm, start) {
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils = __webpack_require__(53);
+var utils = __webpack_require__(60);
 
 var MAXBITS = 15;
 var ENOUGH_LENS = 852;
@@ -50394,7 +56277,7 @@ module.exports = function inflate_table(type, lens, lens_index, codes, table, ta
 
 
 /***/ }),
-/* 260 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50469,7 +56352,7 @@ module.exports = {
 
 
 /***/ }),
-/* 261 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51267,10 +57150,10 @@ if (typeof module !== 'undefined' && module.exports) {
 /* eslint-enable */
 // $lab:coverage:on$
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
 
 /***/ }),
-/* 262 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -51295,7 +57178,7 @@ if (typeof module !== 'undefined' && module.exports) {
  */
 
 var crypto = __webpack_require__(7)
-  , parse = __webpack_require__(16).parse
+  , parse = __webpack_require__(19).parse
   ;
 
 /**
@@ -51488,14 +57371,14 @@ module.exports.canonicalizeResource = canonicalizeResource
 
 
 /***/ }),
-/* 263 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer, process) {var aws4 = exports,
-    url = __webpack_require__(16),
-    querystring = __webpack_require__(34),
+    url = __webpack_require__(19),
+    querystring = __webpack_require__(40),
     crypto = __webpack_require__(7),
-    lru = __webpack_require__(264),
+    lru = __webpack_require__(290),
     credentialsCache = lru(1000)
 
 // http://docs.amazonwebservices.com/general/latest/gr/signature-version-4.html
@@ -51827,7 +57710,7 @@ aws4.sign = function(request, credentials) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer, __webpack_require__(5)))
 
 /***/ }),
-/* 264 */
+/* 290 */
 /***/ (function(module, exports) {
 
 module.exports = function(size) {
@@ -51929,15 +57812,15 @@ function DoublyLinkedNode(key, val) {
 
 
 /***/ }),
-/* 265 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
 
-var parser = __webpack_require__(266);
-var signer = __webpack_require__(274);
-var verify = __webpack_require__(278);
-var utils = __webpack_require__(54);
+var parser = __webpack_require__(292);
+var signer = __webpack_require__(300);
+var verify = __webpack_require__(304);
+var utils = __webpack_require__(61);
 
 
 
@@ -51964,14 +57847,14 @@ module.exports = {
 
 
 /***/ }),
-/* 266 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2012 Joyent, Inc.  All rights reserved.
 
 var assert = __webpack_require__(3);
 var util = __webpack_require__(4);
-var utils = __webpack_require__(54);
+var utils = __webpack_require__(61);
 
 
 
@@ -52285,14 +58168,14 @@ module.exports = {
 
 
 /***/ }),
-/* 267 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Named EC curves
 
 // Requires ec.js, jsbn.js, and jsbn2.js
-var BigInteger = __webpack_require__(26).BigInteger
-var ECCurveFp = __webpack_require__(55).ECCurveFp
+var BigInteger = __webpack_require__(29).BigInteger
+var ECCurveFp = __webpack_require__(62).ECCurveFp
 
 
 // ----------------
@@ -52461,22 +58344,22 @@ module.exports = {
 
 
 /***/ }),
-/* 268 */
+/* 294 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 269 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
 
-var errors = __webpack_require__(72);
-var types = __webpack_require__(73);
+var errors = __webpack_require__(80);
+var types = __webpack_require__(81);
 
-var Reader = __webpack_require__(270);
-var Writer = __webpack_require__(271);
+var Reader = __webpack_require__(296);
+var Writer = __webpack_require__(297);
 
 
 ///--- Exports
@@ -52500,15 +58383,15 @@ for (var e in errors) {
 
 
 /***/ }),
-/* 270 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
 
-var assert = __webpack_require__(21);
+var assert = __webpack_require__(24);
 
-var ASN1 = __webpack_require__(73);
-var errors = __webpack_require__(72);
+var ASN1 = __webpack_require__(81);
+var errors = __webpack_require__(80);
 
 
 ///--- Globals
@@ -52768,14 +58651,14 @@ module.exports = Reader;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 271 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
 
-var assert = __webpack_require__(21);
-var ASN1 = __webpack_require__(73);
-var errors = __webpack_require__(72);
+var assert = __webpack_require__(24);
+var ASN1 = __webpack_require__(81);
+var errors = __webpack_require__(80);
 
 
 ///--- Globals
@@ -53091,7 +58974,7 @@ module.exports = Writer;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 272 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2017 Joyent, Inc.
@@ -53109,16 +58992,16 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var SSHBuffer = __webpack_require__(57);
+var SSHBuffer = __webpack_require__(64);
 var crypto = __webpack_require__(7);
-var algs = __webpack_require__(11);
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
-var Identity = __webpack_require__(45);
-var rfc4253 = __webpack_require__(28);
-var Signature = __webpack_require__(19);
+var algs = __webpack_require__(12);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
+var Identity = __webpack_require__(51);
+var rfc4253 = __webpack_require__(31);
+var Signature = __webpack_require__(22);
 var utils = __webpack_require__(9);
-var Certificate = __webpack_require__(43);
+var Certificate = __webpack_require__(49);
 
 function verify(cert, key) {
 	/*
@@ -53420,12 +59303,12 @@ function getCertType(key) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 273 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2016 Joyent, Inc.
 
-var x509 = __webpack_require__(130);
+var x509 = __webpack_require__(146);
 
 module.exports = {
 	read: read,
@@ -53435,15 +59318,15 @@ module.exports = {
 };
 
 var assert = __webpack_require__(3);
-var asn1 = __webpack_require__(24);
-var algs = __webpack_require__(11);
+var asn1 = __webpack_require__(27);
+var algs = __webpack_require__(12);
 var utils = __webpack_require__(9);
-var Key = __webpack_require__(10);
-var PrivateKey = __webpack_require__(12);
-var pem = __webpack_require__(23);
-var Identity = __webpack_require__(45);
-var Signature = __webpack_require__(19);
-var Certificate = __webpack_require__(43);
+var Key = __webpack_require__(11);
+var PrivateKey = __webpack_require__(13);
+var pem = __webpack_require__(26);
+var Identity = __webpack_require__(51);
+var Signature = __webpack_require__(22);
+var Certificate = __webpack_require__(49);
 
 function read(buf, options) {
 	if (typeof (buf) !== 'string') {
@@ -53504,18 +59387,18 @@ function write(cert, options) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 274 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2012 Joyent, Inc.  All rights reserved.
 
 var assert = __webpack_require__(3);
 var crypto = __webpack_require__(7);
-var http = __webpack_require__(41);
+var http = __webpack_require__(47);
 var util = __webpack_require__(4);
-var sshpk = __webpack_require__(71);
-var jsprim = __webpack_require__(275);
-var utils = __webpack_require__(54);
+var sshpk = __webpack_require__(79);
+var jsprim = __webpack_require__(301);
+var utils = __webpack_require__(61);
 
 var sprintf = __webpack_require__(4).format;
 
@@ -53912,7 +59795,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 275 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -53922,9 +59805,9 @@ module.exports = {
 var mod_assert = __webpack_require__(3);
 var mod_util = __webpack_require__(4);
 
-var mod_extsprintf = __webpack_require__(131);
-var mod_verror = __webpack_require__(276);
-var mod_jsonschema = __webpack_require__(277);
+var mod_extsprintf = __webpack_require__(147);
+var mod_verror = __webpack_require__(302);
+var mod_jsonschema = __webpack_require__(303);
 
 /*
  * Public interface
@@ -54653,7 +60536,7 @@ function mergeObjects(provided, overrides, defaults)
 
 
 /***/ }),
-/* 276 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -54663,8 +60546,8 @@ function mergeObjects(provided, overrides, defaults)
 var mod_assertplus = __webpack_require__(3);
 var mod_util = __webpack_require__(4);
 
-var mod_extsprintf = __webpack_require__(131);
-var mod_isError = __webpack_require__(31).isError;
+var mod_extsprintf = __webpack_require__(147);
+var mod_isError = __webpack_require__(35).isError;
 var sprintf = mod_extsprintf.sprintf;
 
 /*
@@ -55110,7 +60993,7 @@ WError.prototype.cause = function we_cause(c)
 
 
 /***/ }),
-/* 277 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -55390,15 +61273,15 @@ return exports;
 
 
 /***/ }),
-/* 278 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
 
 var assert = __webpack_require__(3);
 var crypto = __webpack_require__(7);
-var sshpk = __webpack_require__(71);
-var utils = __webpack_require__(54);
+var sshpk = __webpack_require__(79);
+var utils = __webpack_require__(61);
 
 var HASH_ALGOS = utils.HASH_ALGOS;
 var PK_ALGOS = utils.PK_ALGOS;
@@ -55485,7 +61368,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 279 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55503,8 +61386,8 @@ module.exports = {
  * @private
  */
 
-var db = __webpack_require__(280)
-var extname = __webpack_require__(282).extname
+var db = __webpack_require__(306)
+var extname = __webpack_require__(308).extname
 
 /**
  * Module variables.
@@ -55680,7 +61563,7 @@ function populateMaps (extensions, types) {
 
 
 /***/ }),
-/* 280 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -55693,17 +61576,17 @@ function populateMaps (extensions, types) {
  * Module exports.
  */
 
-module.exports = __webpack_require__(281)
+module.exports = __webpack_require__(307)
 
 
 /***/ }),
-/* 281 */
+/* 307 */
 /***/ (function(module, exports) {
 
 module.exports = {"application/1d-interleaved-parityfec":{"source":"iana"},"application/3gpdash-qoe-report+xml":{"source":"iana"},"application/3gpp-ims+xml":{"source":"iana"},"application/a2l":{"source":"iana"},"application/activemessage":{"source":"iana"},"application/alto-costmap+json":{"source":"iana","compressible":true},"application/alto-costmapfilter+json":{"source":"iana","compressible":true},"application/alto-directory+json":{"source":"iana","compressible":true},"application/alto-endpointcost+json":{"source":"iana","compressible":true},"application/alto-endpointcostparams+json":{"source":"iana","compressible":true},"application/alto-endpointprop+json":{"source":"iana","compressible":true},"application/alto-endpointpropparams+json":{"source":"iana","compressible":true},"application/alto-error+json":{"source":"iana","compressible":true},"application/alto-networkmap+json":{"source":"iana","compressible":true},"application/alto-networkmapfilter+json":{"source":"iana","compressible":true},"application/aml":{"source":"iana"},"application/andrew-inset":{"source":"iana","extensions":["ez"]},"application/applefile":{"source":"iana"},"application/applixware":{"source":"apache","extensions":["aw"]},"application/atf":{"source":"iana"},"application/atfx":{"source":"iana"},"application/atom+xml":{"source":"iana","compressible":true,"extensions":["atom"]},"application/atomcat+xml":{"source":"iana","extensions":["atomcat"]},"application/atomdeleted+xml":{"source":"iana"},"application/atomicmail":{"source":"iana"},"application/atomsvc+xml":{"source":"iana","extensions":["atomsvc"]},"application/atxml":{"source":"iana"},"application/auth-policy+xml":{"source":"iana"},"application/bacnet-xdd+zip":{"source":"iana"},"application/batch-smtp":{"source":"iana"},"application/bdoc":{"compressible":false,"extensions":["bdoc"]},"application/beep+xml":{"source":"iana"},"application/calendar+json":{"source":"iana","compressible":true},"application/calendar+xml":{"source":"iana"},"application/call-completion":{"source":"iana"},"application/cals-1840":{"source":"iana"},"application/cbor":{"source":"iana"},"application/cccex":{"source":"iana"},"application/ccmp+xml":{"source":"iana"},"application/ccxml+xml":{"source":"iana","extensions":["ccxml"]},"application/cdfx+xml":{"source":"iana"},"application/cdmi-capability":{"source":"iana","extensions":["cdmia"]},"application/cdmi-container":{"source":"iana","extensions":["cdmic"]},"application/cdmi-domain":{"source":"iana","extensions":["cdmid"]},"application/cdmi-object":{"source":"iana","extensions":["cdmio"]},"application/cdmi-queue":{"source":"iana","extensions":["cdmiq"]},"application/cdni":{"source":"iana"},"application/cea":{"source":"iana"},"application/cea-2018+xml":{"source":"iana"},"application/cellml+xml":{"source":"iana"},"application/cfw":{"source":"iana"},"application/clue_info+xml":{"source":"iana"},"application/cms":{"source":"iana"},"application/cnrp+xml":{"source":"iana"},"application/coap-group+json":{"source":"iana","compressible":true},"application/coap-payload":{"source":"iana"},"application/commonground":{"source":"iana"},"application/conference-info+xml":{"source":"iana"},"application/cose":{"source":"iana"},"application/cose-key":{"source":"iana"},"application/cose-key-set":{"source":"iana"},"application/cpl+xml":{"source":"iana"},"application/csrattrs":{"source":"iana"},"application/csta+xml":{"source":"iana"},"application/cstadata+xml":{"source":"iana"},"application/csvm+json":{"source":"iana","compressible":true},"application/cu-seeme":{"source":"apache","extensions":["cu"]},"application/cybercash":{"source":"iana"},"application/dart":{"compressible":true},"application/dash+xml":{"source":"iana","extensions":["mpd"]},"application/dashdelta":{"source":"iana"},"application/davmount+xml":{"source":"iana","extensions":["davmount"]},"application/dca-rft":{"source":"iana"},"application/dcd":{"source":"iana"},"application/dec-dx":{"source":"iana"},"application/dialog-info+xml":{"source":"iana"},"application/dicom":{"source":"iana"},"application/dicom+json":{"source":"iana","compressible":true},"application/dicom+xml":{"source":"iana"},"application/dii":{"source":"iana"},"application/dit":{"source":"iana"},"application/dns":{"source":"iana"},"application/docbook+xml":{"source":"apache","extensions":["dbk"]},"application/dskpp+xml":{"source":"iana"},"application/dssc+der":{"source":"iana","extensions":["dssc"]},"application/dssc+xml":{"source":"iana","extensions":["xdssc"]},"application/dvcs":{"source":"iana"},"application/ecmascript":{"source":"iana","compressible":true,"extensions":["ecma"]},"application/edi-consent":{"source":"iana"},"application/edi-x12":{"source":"iana","compressible":false},"application/edifact":{"source":"iana","compressible":false},"application/efi":{"source":"iana"},"application/emergencycalldata.comment+xml":{"source":"iana"},"application/emergencycalldata.control+xml":{"source":"iana"},"application/emergencycalldata.deviceinfo+xml":{"source":"iana"},"application/emergencycalldata.ecall.msd":{"source":"iana"},"application/emergencycalldata.providerinfo+xml":{"source":"iana"},"application/emergencycalldata.serviceinfo+xml":{"source":"iana"},"application/emergencycalldata.subscriberinfo+xml":{"source":"iana"},"application/emergencycalldata.veds+xml":{"source":"iana"},"application/emma+xml":{"source":"iana","extensions":["emma"]},"application/emotionml+xml":{"source":"iana"},"application/encaprtp":{"source":"iana"},"application/epp+xml":{"source":"iana"},"application/epub+zip":{"source":"iana","extensions":["epub"]},"application/eshop":{"source":"iana"},"application/exi":{"source":"iana","extensions":["exi"]},"application/fastinfoset":{"source":"iana"},"application/fastsoap":{"source":"iana"},"application/fdt+xml":{"source":"iana"},"application/fido.trusted-apps+json":{"compressible":true},"application/fits":{"source":"iana"},"application/font-sfnt":{"source":"iana"},"application/font-tdpfr":{"source":"iana","extensions":["pfr"]},"application/font-woff":{"source":"iana","compressible":false,"extensions":["woff"]},"application/font-woff2":{"compressible":false,"extensions":["woff2"]},"application/framework-attributes+xml":{"source":"iana"},"application/geo+json":{"source":"iana","compressible":true,"extensions":["geojson"]},"application/geo+json-seq":{"source":"iana"},"application/geoxacml+xml":{"source":"iana"},"application/gml+xml":{"source":"iana","extensions":["gml"]},"application/gpx+xml":{"source":"apache","extensions":["gpx"]},"application/gxf":{"source":"apache","extensions":["gxf"]},"application/gzip":{"source":"iana","compressible":false,"extensions":["gz"]},"application/h224":{"source":"iana"},"application/held+xml":{"source":"iana"},"application/http":{"source":"iana"},"application/hyperstudio":{"source":"iana","extensions":["stk"]},"application/ibe-key-request+xml":{"source":"iana"},"application/ibe-pkg-reply+xml":{"source":"iana"},"application/ibe-pp-data":{"source":"iana"},"application/iges":{"source":"iana"},"application/im-iscomposing+xml":{"source":"iana"},"application/index":{"source":"iana"},"application/index.cmd":{"source":"iana"},"application/index.obj":{"source":"iana"},"application/index.response":{"source":"iana"},"application/index.vnd":{"source":"iana"},"application/inkml+xml":{"source":"iana","extensions":["ink","inkml"]},"application/iotp":{"source":"iana"},"application/ipfix":{"source":"iana","extensions":["ipfix"]},"application/ipp":{"source":"iana"},"application/isup":{"source":"iana"},"application/its+xml":{"source":"iana"},"application/java-archive":{"source":"apache","compressible":false,"extensions":["jar","war","ear"]},"application/java-serialized-object":{"source":"apache","compressible":false,"extensions":["ser"]},"application/java-vm":{"source":"apache","compressible":false,"extensions":["class"]},"application/javascript":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["js","mjs"]},"application/jf2feed+json":{"source":"iana","compressible":true},"application/jose":{"source":"iana"},"application/jose+json":{"source":"iana","compressible":true},"application/jrd+json":{"source":"iana","compressible":true},"application/json":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["json","map"]},"application/json-patch+json":{"source":"iana","compressible":true},"application/json-seq":{"source":"iana"},"application/json5":{"extensions":["json5"]},"application/jsonml+json":{"source":"apache","compressible":true,"extensions":["jsonml"]},"application/jwk+json":{"source":"iana","compressible":true},"application/jwk-set+json":{"source":"iana","compressible":true},"application/jwt":{"source":"iana"},"application/kpml-request+xml":{"source":"iana"},"application/kpml-response+xml":{"source":"iana"},"application/ld+json":{"source":"iana","compressible":true,"extensions":["jsonld"]},"application/lgr+xml":{"source":"iana"},"application/link-format":{"source":"iana"},"application/load-control+xml":{"source":"iana"},"application/lost+xml":{"source":"iana","extensions":["lostxml"]},"application/lostsync+xml":{"source":"iana"},"application/lxf":{"source":"iana"},"application/mac-binhex40":{"source":"iana","extensions":["hqx"]},"application/mac-compactpro":{"source":"apache","extensions":["cpt"]},"application/macwriteii":{"source":"iana"},"application/mads+xml":{"source":"iana","extensions":["mads"]},"application/manifest+json":{"charset":"UTF-8","compressible":true,"extensions":["webmanifest"]},"application/marc":{"source":"iana","extensions":["mrc"]},"application/marcxml+xml":{"source":"iana","extensions":["mrcx"]},"application/mathematica":{"source":"iana","extensions":["ma","nb","mb"]},"application/mathml+xml":{"source":"iana","extensions":["mathml"]},"application/mathml-content+xml":{"source":"iana"},"application/mathml-presentation+xml":{"source":"iana"},"application/mbms-associated-procedure-description+xml":{"source":"iana"},"application/mbms-deregister+xml":{"source":"iana"},"application/mbms-envelope+xml":{"source":"iana"},"application/mbms-msk+xml":{"source":"iana"},"application/mbms-msk-response+xml":{"source":"iana"},"application/mbms-protection-description+xml":{"source":"iana"},"application/mbms-reception-report+xml":{"source":"iana"},"application/mbms-register+xml":{"source":"iana"},"application/mbms-register-response+xml":{"source":"iana"},"application/mbms-schedule+xml":{"source":"iana"},"application/mbms-user-service-description+xml":{"source":"iana"},"application/mbox":{"source":"iana","extensions":["mbox"]},"application/media-policy-dataset+xml":{"source":"iana"},"application/media_control+xml":{"source":"iana"},"application/mediaservercontrol+xml":{"source":"iana","extensions":["mscml"]},"application/merge-patch+json":{"source":"iana","compressible":true},"application/metalink+xml":{"source":"apache","extensions":["metalink"]},"application/metalink4+xml":{"source":"iana","extensions":["meta4"]},"application/mets+xml":{"source":"iana","extensions":["mets"]},"application/mf4":{"source":"iana"},"application/mikey":{"source":"iana"},"application/mmt-usd+xml":{"source":"iana"},"application/mods+xml":{"source":"iana","extensions":["mods"]},"application/moss-keys":{"source":"iana"},"application/moss-signature":{"source":"iana"},"application/mosskey-data":{"source":"iana"},"application/mosskey-request":{"source":"iana"},"application/mp21":{"source":"iana","extensions":["m21","mp21"]},"application/mp4":{"source":"iana","extensions":["mp4s","m4p"]},"application/mpeg4-generic":{"source":"iana"},"application/mpeg4-iod":{"source":"iana"},"application/mpeg4-iod-xmt":{"source":"iana"},"application/mrb-consumer+xml":{"source":"iana"},"application/mrb-publish+xml":{"source":"iana"},"application/msc-ivr+xml":{"source":"iana"},"application/msc-mixer+xml":{"source":"iana"},"application/msword":{"source":"iana","compressible":false,"extensions":["doc","dot"]},"application/mud+json":{"source":"iana","compressible":true},"application/mxf":{"source":"iana","extensions":["mxf"]},"application/n-quads":{"source":"iana"},"application/n-triples":{"source":"iana"},"application/nasdata":{"source":"iana"},"application/news-checkgroups":{"source":"iana"},"application/news-groupinfo":{"source":"iana"},"application/news-transmission":{"source":"iana"},"application/nlsml+xml":{"source":"iana"},"application/nss":{"source":"iana"},"application/ocsp-request":{"source":"iana"},"application/ocsp-response":{"source":"iana"},"application/octet-stream":{"source":"iana","compressible":false,"extensions":["bin","dms","lrf","mar","so","dist","distz","pkg","bpk","dump","elc","deploy","exe","dll","deb","dmg","iso","img","msi","msp","msm","buffer"]},"application/oda":{"source":"iana","extensions":["oda"]},"application/odx":{"source":"iana"},"application/oebps-package+xml":{"source":"iana","extensions":["opf"]},"application/ogg":{"source":"iana","compressible":false,"extensions":["ogx"]},"application/omdoc+xml":{"source":"apache","extensions":["omdoc"]},"application/onenote":{"source":"apache","extensions":["onetoc","onetoc2","onetmp","onepkg"]},"application/oxps":{"source":"iana","extensions":["oxps"]},"application/p2p-overlay+xml":{"source":"iana"},"application/parityfec":{"source":"iana"},"application/passport":{"source":"iana"},"application/patch-ops-error+xml":{"source":"iana","extensions":["xer"]},"application/pdf":{"source":"iana","compressible":false,"extensions":["pdf"]},"application/pdx":{"source":"iana"},"application/pgp-encrypted":{"source":"iana","compressible":false,"extensions":["pgp"]},"application/pgp-keys":{"source":"iana"},"application/pgp-signature":{"source":"iana","extensions":["asc","sig"]},"application/pics-rules":{"source":"apache","extensions":["prf"]},"application/pidf+xml":{"source":"iana"},"application/pidf-diff+xml":{"source":"iana"},"application/pkcs10":{"source":"iana","extensions":["p10"]},"application/pkcs12":{"source":"iana"},"application/pkcs7-mime":{"source":"iana","extensions":["p7m","p7c"]},"application/pkcs7-signature":{"source":"iana","extensions":["p7s"]},"application/pkcs8":{"source":"iana","extensions":["p8"]},"application/pkix-attr-cert":{"source":"iana","extensions":["ac"]},"application/pkix-cert":{"source":"iana","extensions":["cer"]},"application/pkix-crl":{"source":"iana","extensions":["crl"]},"application/pkix-pkipath":{"source":"iana","extensions":["pkipath"]},"application/pkixcmp":{"source":"iana","extensions":["pki"]},"application/pls+xml":{"source":"iana","extensions":["pls"]},"application/poc-settings+xml":{"source":"iana"},"application/postscript":{"source":"iana","compressible":true,"extensions":["ai","eps","ps"]},"application/ppsp-tracker+json":{"source":"iana","compressible":true},"application/problem+json":{"source":"iana","compressible":true},"application/problem+xml":{"source":"iana"},"application/provenance+xml":{"source":"iana"},"application/prs.alvestrand.titrax-sheet":{"source":"iana"},"application/prs.cww":{"source":"iana","extensions":["cww"]},"application/prs.hpub+zip":{"source":"iana"},"application/prs.nprend":{"source":"iana"},"application/prs.plucker":{"source":"iana"},"application/prs.rdf-xml-crypt":{"source":"iana"},"application/prs.xsf+xml":{"source":"iana"},"application/pskc+xml":{"source":"iana","extensions":["pskcxml"]},"application/qsig":{"source":"iana"},"application/raptorfec":{"source":"iana"},"application/rdap+json":{"source":"iana","compressible":true},"application/rdf+xml":{"source":"iana","compressible":true,"extensions":["rdf"]},"application/reginfo+xml":{"source":"iana","extensions":["rif"]},"application/relax-ng-compact-syntax":{"source":"iana","extensions":["rnc"]},"application/remote-printing":{"source":"iana"},"application/reputon+json":{"source":"iana","compressible":true},"application/resource-lists+xml":{"source":"iana","extensions":["rl"]},"application/resource-lists-diff+xml":{"source":"iana","extensions":["rld"]},"application/rfc+xml":{"source":"iana"},"application/riscos":{"source":"iana"},"application/rlmi+xml":{"source":"iana"},"application/rls-services+xml":{"source":"iana","extensions":["rs"]},"application/route-apd+xml":{"source":"iana"},"application/route-s-tsid+xml":{"source":"iana"},"application/route-usd+xml":{"source":"iana"},"application/rpki-ghostbusters":{"source":"iana","extensions":["gbr"]},"application/rpki-manifest":{"source":"iana","extensions":["mft"]},"application/rpki-publication":{"source":"iana"},"application/rpki-roa":{"source":"iana","extensions":["roa"]},"application/rpki-updown":{"source":"iana"},"application/rsd+xml":{"source":"apache","extensions":["rsd"]},"application/rss+xml":{"source":"apache","compressible":true,"extensions":["rss"]},"application/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"application/rtploopback":{"source":"iana"},"application/rtx":{"source":"iana"},"application/samlassertion+xml":{"source":"iana"},"application/samlmetadata+xml":{"source":"iana"},"application/sbml+xml":{"source":"iana","extensions":["sbml"]},"application/scaip+xml":{"source":"iana"},"application/scim+json":{"source":"iana","compressible":true},"application/scvp-cv-request":{"source":"iana","extensions":["scq"]},"application/scvp-cv-response":{"source":"iana","extensions":["scs"]},"application/scvp-vp-request":{"source":"iana","extensions":["spq"]},"application/scvp-vp-response":{"source":"iana","extensions":["spp"]},"application/sdp":{"source":"iana","extensions":["sdp"]},"application/sep+xml":{"source":"iana"},"application/sep-exi":{"source":"iana"},"application/session-info":{"source":"iana"},"application/set-payment":{"source":"iana"},"application/set-payment-initiation":{"source":"iana","extensions":["setpay"]},"application/set-registration":{"source":"iana"},"application/set-registration-initiation":{"source":"iana","extensions":["setreg"]},"application/sgml":{"source":"iana"},"application/sgml-open-catalog":{"source":"iana"},"application/shf+xml":{"source":"iana","extensions":["shf"]},"application/sieve":{"source":"iana"},"application/simple-filter+xml":{"source":"iana"},"application/simple-message-summary":{"source":"iana"},"application/simplesymbolcontainer":{"source":"iana"},"application/slate":{"source":"iana"},"application/smil":{"source":"iana"},"application/smil+xml":{"source":"iana","extensions":["smi","smil"]},"application/smpte336m":{"source":"iana"},"application/soap+fastinfoset":{"source":"iana"},"application/soap+xml":{"source":"iana","compressible":true},"application/sparql-query":{"source":"iana","extensions":["rq"]},"application/sparql-results+xml":{"source":"iana","extensions":["srx"]},"application/spirits-event+xml":{"source":"iana"},"application/sql":{"source":"iana"},"application/srgs":{"source":"iana","extensions":["gram"]},"application/srgs+xml":{"source":"iana","extensions":["grxml"]},"application/sru+xml":{"source":"iana","extensions":["sru"]},"application/ssdl+xml":{"source":"apache","extensions":["ssdl"]},"application/ssml+xml":{"source":"iana","extensions":["ssml"]},"application/tamp-apex-update":{"source":"iana"},"application/tamp-apex-update-confirm":{"source":"iana"},"application/tamp-community-update":{"source":"iana"},"application/tamp-community-update-confirm":{"source":"iana"},"application/tamp-error":{"source":"iana"},"application/tamp-sequence-adjust":{"source":"iana"},"application/tamp-sequence-adjust-confirm":{"source":"iana"},"application/tamp-status-query":{"source":"iana"},"application/tamp-status-response":{"source":"iana"},"application/tamp-update":{"source":"iana"},"application/tamp-update-confirm":{"source":"iana"},"application/tar":{"compressible":true},"application/tei+xml":{"source":"iana","extensions":["tei","teicorpus"]},"application/thraud+xml":{"source":"iana","extensions":["tfi"]},"application/timestamp-query":{"source":"iana"},"application/timestamp-reply":{"source":"iana"},"application/timestamped-data":{"source":"iana","extensions":["tsd"]},"application/trig":{"source":"iana"},"application/ttml+xml":{"source":"iana"},"application/tve-trigger":{"source":"iana"},"application/ulpfec":{"source":"iana"},"application/urc-grpsheet+xml":{"source":"iana"},"application/urc-ressheet+xml":{"source":"iana"},"application/urc-targetdesc+xml":{"source":"iana"},"application/urc-uisocketdesc+xml":{"source":"iana"},"application/vcard+json":{"source":"iana","compressible":true},"application/vcard+xml":{"source":"iana"},"application/vemmi":{"source":"iana"},"application/vividence.scriptfile":{"source":"apache"},"application/vnd.1000minds.decision-model+xml":{"source":"iana"},"application/vnd.3gpp-prose+xml":{"source":"iana"},"application/vnd.3gpp-prose-pc3ch+xml":{"source":"iana"},"application/vnd.3gpp.access-transfer-events+xml":{"source":"iana"},"application/vnd.3gpp.bsf+xml":{"source":"iana"},"application/vnd.3gpp.gmop+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-info+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-mbms-usage-info+xml":{"source":"iana"},"application/vnd.3gpp.mid-call+xml":{"source":"iana"},"application/vnd.3gpp.pic-bw-large":{"source":"iana","extensions":["plb"]},"application/vnd.3gpp.pic-bw-small":{"source":"iana","extensions":["psb"]},"application/vnd.3gpp.pic-bw-var":{"source":"iana","extensions":["pvb"]},"application/vnd.3gpp.sms":{"source":"iana"},"application/vnd.3gpp.sms+xml":{"source":"iana"},"application/vnd.3gpp.srvcc-ext+xml":{"source":"iana"},"application/vnd.3gpp.srvcc-info+xml":{"source":"iana"},"application/vnd.3gpp.state-and-event-info+xml":{"source":"iana"},"application/vnd.3gpp.ussd+xml":{"source":"iana"},"application/vnd.3gpp2.bcmcsinfo+xml":{"source":"iana"},"application/vnd.3gpp2.sms":{"source":"iana"},"application/vnd.3gpp2.tcap":{"source":"iana","extensions":["tcap"]},"application/vnd.3lightssoftware.imagescal":{"source":"iana"},"application/vnd.3m.post-it-notes":{"source":"iana","extensions":["pwn"]},"application/vnd.accpac.simply.aso":{"source":"iana","extensions":["aso"]},"application/vnd.accpac.simply.imp":{"source":"iana","extensions":["imp"]},"application/vnd.acucobol":{"source":"iana","extensions":["acu"]},"application/vnd.acucorp":{"source":"iana","extensions":["atc","acutc"]},"application/vnd.adobe.air-application-installer-package+zip":{"source":"apache","extensions":["air"]},"application/vnd.adobe.flash.movie":{"source":"iana"},"application/vnd.adobe.formscentral.fcdt":{"source":"iana","extensions":["fcdt"]},"application/vnd.adobe.fxp":{"source":"iana","extensions":["fxp","fxpl"]},"application/vnd.adobe.partial-upload":{"source":"iana"},"application/vnd.adobe.xdp+xml":{"source":"iana","extensions":["xdp"]},"application/vnd.adobe.xfdf":{"source":"iana","extensions":["xfdf"]},"application/vnd.aether.imp":{"source":"iana"},"application/vnd.ah-barcode":{"source":"iana"},"application/vnd.ahead.space":{"source":"iana","extensions":["ahead"]},"application/vnd.airzip.filesecure.azf":{"source":"iana","extensions":["azf"]},"application/vnd.airzip.filesecure.azs":{"source":"iana","extensions":["azs"]},"application/vnd.amazon.ebook":{"source":"apache","extensions":["azw"]},"application/vnd.amazon.mobi8-ebook":{"source":"iana"},"application/vnd.americandynamics.acc":{"source":"iana","extensions":["acc"]},"application/vnd.amiga.ami":{"source":"iana","extensions":["ami"]},"application/vnd.amundsen.maze+xml":{"source":"iana"},"application/vnd.android.package-archive":{"source":"apache","compressible":false,"extensions":["apk"]},"application/vnd.anki":{"source":"iana"},"application/vnd.anser-web-certificate-issue-initiation":{"source":"iana","extensions":["cii"]},"application/vnd.anser-web-funds-transfer-initiation":{"source":"apache","extensions":["fti"]},"application/vnd.antix.game-component":{"source":"iana","extensions":["atx"]},"application/vnd.apache.thrift.binary":{"source":"iana"},"application/vnd.apache.thrift.compact":{"source":"iana"},"application/vnd.apache.thrift.json":{"source":"iana"},"application/vnd.api+json":{"source":"iana","compressible":true},"application/vnd.apothekende.reservation+json":{"source":"iana","compressible":true},"application/vnd.apple.installer+xml":{"source":"iana","extensions":["mpkg"]},"application/vnd.apple.mpegurl":{"source":"iana","extensions":["m3u8"]},"application/vnd.apple.pkpass":{"compressible":false,"extensions":["pkpass"]},"application/vnd.arastra.swi":{"source":"iana"},"application/vnd.aristanetworks.swi":{"source":"iana","extensions":["swi"]},"application/vnd.artsquare":{"source":"iana"},"application/vnd.astraea-software.iota":{"source":"iana","extensions":["iota"]},"application/vnd.audiograph":{"source":"iana","extensions":["aep"]},"application/vnd.autopackage":{"source":"iana"},"application/vnd.avistar+xml":{"source":"iana"},"application/vnd.balsamiq.bmml+xml":{"source":"iana"},"application/vnd.balsamiq.bmpr":{"source":"iana"},"application/vnd.bekitzur-stech+json":{"source":"iana","compressible":true},"application/vnd.bint.med-content":{"source":"iana"},"application/vnd.biopax.rdf+xml":{"source":"iana"},"application/vnd.blink-idb-value-wrapper":{"source":"iana"},"application/vnd.blueice.multipass":{"source":"iana","extensions":["mpm"]},"application/vnd.bluetooth.ep.oob":{"source":"iana"},"application/vnd.bluetooth.le.oob":{"source":"iana"},"application/vnd.bmi":{"source":"iana","extensions":["bmi"]},"application/vnd.businessobjects":{"source":"iana","extensions":["rep"]},"application/vnd.cab-jscript":{"source":"iana"},"application/vnd.canon-cpdl":{"source":"iana"},"application/vnd.canon-lips":{"source":"iana"},"application/vnd.capasystems-pg+json":{"source":"iana","compressible":true},"application/vnd.cendio.thinlinc.clientconf":{"source":"iana"},"application/vnd.century-systems.tcp_stream":{"source":"iana"},"application/vnd.chemdraw+xml":{"source":"iana","extensions":["cdxml"]},"application/vnd.chess-pgn":{"source":"iana"},"application/vnd.chipnuts.karaoke-mmd":{"source":"iana","extensions":["mmd"]},"application/vnd.cinderella":{"source":"iana","extensions":["cdy"]},"application/vnd.cirpack.isdn-ext":{"source":"iana"},"application/vnd.citationstyles.style+xml":{"source":"iana"},"application/vnd.claymore":{"source":"iana","extensions":["cla"]},"application/vnd.cloanto.rp9":{"source":"iana","extensions":["rp9"]},"application/vnd.clonk.c4group":{"source":"iana","extensions":["c4g","c4d","c4f","c4p","c4u"]},"application/vnd.cluetrust.cartomobile-config":{"source":"iana","extensions":["c11amc"]},"application/vnd.cluetrust.cartomobile-config-pkg":{"source":"iana","extensions":["c11amz"]},"application/vnd.coffeescript":{"source":"iana"},"application/vnd.collection+json":{"source":"iana","compressible":true},"application/vnd.collection.doc+json":{"source":"iana","compressible":true},"application/vnd.collection.next+json":{"source":"iana","compressible":true},"application/vnd.comicbook+zip":{"source":"iana"},"application/vnd.commerce-battelle":{"source":"iana"},"application/vnd.commonspace":{"source":"iana","extensions":["csp"]},"application/vnd.contact.cmsg":{"source":"iana","extensions":["cdbcmsg"]},"application/vnd.coreos.ignition+json":{"source":"iana","compressible":true},"application/vnd.cosmocaller":{"source":"iana","extensions":["cmc"]},"application/vnd.crick.clicker":{"source":"iana","extensions":["clkx"]},"application/vnd.crick.clicker.keyboard":{"source":"iana","extensions":["clkk"]},"application/vnd.crick.clicker.palette":{"source":"iana","extensions":["clkp"]},"application/vnd.crick.clicker.template":{"source":"iana","extensions":["clkt"]},"application/vnd.crick.clicker.wordbank":{"source":"iana","extensions":["clkw"]},"application/vnd.criticaltools.wbs+xml":{"source":"iana","extensions":["wbs"]},"application/vnd.ctc-posml":{"source":"iana","extensions":["pml"]},"application/vnd.ctct.ws+xml":{"source":"iana"},"application/vnd.cups-pdf":{"source":"iana"},"application/vnd.cups-postscript":{"source":"iana"},"application/vnd.cups-ppd":{"source":"iana","extensions":["ppd"]},"application/vnd.cups-raster":{"source":"iana"},"application/vnd.cups-raw":{"source":"iana"},"application/vnd.curl":{"source":"iana"},"application/vnd.curl.car":{"source":"apache","extensions":["car"]},"application/vnd.curl.pcurl":{"source":"apache","extensions":["pcurl"]},"application/vnd.cyan.dean.root+xml":{"source":"iana"},"application/vnd.cybank":{"source":"iana"},"application/vnd.d2l.coursepackage1p0+zip":{"source":"iana"},"application/vnd.dart":{"source":"iana","compressible":true,"extensions":["dart"]},"application/vnd.data-vision.rdz":{"source":"iana","extensions":["rdz"]},"application/vnd.datapackage+json":{"source":"iana","compressible":true},"application/vnd.dataresource+json":{"source":"iana","compressible":true},"application/vnd.debian.binary-package":{"source":"iana"},"application/vnd.dece.data":{"source":"iana","extensions":["uvf","uvvf","uvd","uvvd"]},"application/vnd.dece.ttml+xml":{"source":"iana","extensions":["uvt","uvvt"]},"application/vnd.dece.unspecified":{"source":"iana","extensions":["uvx","uvvx"]},"application/vnd.dece.zip":{"source":"iana","extensions":["uvz","uvvz"]},"application/vnd.denovo.fcselayout-link":{"source":"iana","extensions":["fe_launch"]},"application/vnd.desmume-movie":{"source":"iana"},"application/vnd.desmume.movie":{"source":"apache"},"application/vnd.dir-bi.plate-dl-nosuffix":{"source":"iana"},"application/vnd.dm.delegation+xml":{"source":"iana"},"application/vnd.dna":{"source":"iana","extensions":["dna"]},"application/vnd.document+json":{"source":"iana","compressible":true},"application/vnd.dolby.mlp":{"source":"apache","extensions":["mlp"]},"application/vnd.dolby.mobile.1":{"source":"iana"},"application/vnd.dolby.mobile.2":{"source":"iana"},"application/vnd.doremir.scorecloud-binary-document":{"source":"iana"},"application/vnd.dpgraph":{"source":"iana","extensions":["dpg"]},"application/vnd.dreamfactory":{"source":"iana","extensions":["dfac"]},"application/vnd.drive+json":{"source":"iana","compressible":true},"application/vnd.ds-keypoint":{"source":"apache","extensions":["kpxx"]},"application/vnd.dtg.local":{"source":"iana"},"application/vnd.dtg.local.flash":{"source":"iana"},"application/vnd.dtg.local.html":{"source":"iana"},"application/vnd.dvb.ait":{"source":"iana","extensions":["ait"]},"application/vnd.dvb.dvbj":{"source":"iana"},"application/vnd.dvb.esgcontainer":{"source":"iana"},"application/vnd.dvb.ipdcdftnotifaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess2":{"source":"iana"},"application/vnd.dvb.ipdcesgpdd":{"source":"iana"},"application/vnd.dvb.ipdcroaming":{"source":"iana"},"application/vnd.dvb.iptv.alfec-base":{"source":"iana"},"application/vnd.dvb.iptv.alfec-enhancement":{"source":"iana"},"application/vnd.dvb.notif-aggregate-root+xml":{"source":"iana"},"application/vnd.dvb.notif-container+xml":{"source":"iana"},"application/vnd.dvb.notif-generic+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-msglist+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-registration-request+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-registration-response+xml":{"source":"iana"},"application/vnd.dvb.notif-init+xml":{"source":"iana"},"application/vnd.dvb.pfr":{"source":"iana"},"application/vnd.dvb.service":{"source":"iana","extensions":["svc"]},"application/vnd.dxr":{"source":"iana"},"application/vnd.dynageo":{"source":"iana","extensions":["geo"]},"application/vnd.dzr":{"source":"iana"},"application/vnd.easykaraoke.cdgdownload":{"source":"iana"},"application/vnd.ecdis-update":{"source":"iana"},"application/vnd.ecowin.chart":{"source":"iana","extensions":["mag"]},"application/vnd.ecowin.filerequest":{"source":"iana"},"application/vnd.ecowin.fileupdate":{"source":"iana"},"application/vnd.ecowin.series":{"source":"iana"},"application/vnd.ecowin.seriesrequest":{"source":"iana"},"application/vnd.ecowin.seriesupdate":{"source":"iana"},"application/vnd.efi.img":{"source":"iana"},"application/vnd.efi.iso":{"source":"iana"},"application/vnd.emclient.accessrequest+xml":{"source":"iana"},"application/vnd.enliven":{"source":"iana","extensions":["nml"]},"application/vnd.enphase.envoy":{"source":"iana"},"application/vnd.eprints.data+xml":{"source":"iana"},"application/vnd.epson.esf":{"source":"iana","extensions":["esf"]},"application/vnd.epson.msf":{"source":"iana","extensions":["msf"]},"application/vnd.epson.quickanime":{"source":"iana","extensions":["qam"]},"application/vnd.epson.salt":{"source":"iana","extensions":["slt"]},"application/vnd.epson.ssf":{"source":"iana","extensions":["ssf"]},"application/vnd.ericsson.quickcall":{"source":"iana"},"application/vnd.espass-espass+zip":{"source":"iana"},"application/vnd.eszigno3+xml":{"source":"iana","extensions":["es3","et3"]},"application/vnd.etsi.aoc+xml":{"source":"iana"},"application/vnd.etsi.asic-e+zip":{"source":"iana"},"application/vnd.etsi.asic-s+zip":{"source":"iana"},"application/vnd.etsi.cug+xml":{"source":"iana"},"application/vnd.etsi.iptvcommand+xml":{"source":"iana"},"application/vnd.etsi.iptvdiscovery+xml":{"source":"iana"},"application/vnd.etsi.iptvprofile+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-bc+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-cod+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-npvr+xml":{"source":"iana"},"application/vnd.etsi.iptvservice+xml":{"source":"iana"},"application/vnd.etsi.iptvsync+xml":{"source":"iana"},"application/vnd.etsi.iptvueprofile+xml":{"source":"iana"},"application/vnd.etsi.mcid+xml":{"source":"iana"},"application/vnd.etsi.mheg5":{"source":"iana"},"application/vnd.etsi.overload-control-policy-dataset+xml":{"source":"iana"},"application/vnd.etsi.pstn+xml":{"source":"iana"},"application/vnd.etsi.sci+xml":{"source":"iana"},"application/vnd.etsi.simservs+xml":{"source":"iana"},"application/vnd.etsi.timestamp-token":{"source":"iana"},"application/vnd.etsi.tsl+xml":{"source":"iana"},"application/vnd.etsi.tsl.der":{"source":"iana"},"application/vnd.eudora.data":{"source":"iana"},"application/vnd.evolv.ecig.profile":{"source":"iana"},"application/vnd.evolv.ecig.settings":{"source":"iana"},"application/vnd.evolv.ecig.theme":{"source":"iana"},"application/vnd.ezpix-album":{"source":"iana","extensions":["ez2"]},"application/vnd.ezpix-package":{"source":"iana","extensions":["ez3"]},"application/vnd.f-secure.mobile":{"source":"iana"},"application/vnd.fastcopy-disk-image":{"source":"iana"},"application/vnd.fdf":{"source":"iana","extensions":["fdf"]},"application/vnd.fdsn.mseed":{"source":"iana","extensions":["mseed"]},"application/vnd.fdsn.seed":{"source":"iana","extensions":["seed","dataless"]},"application/vnd.ffsns":{"source":"iana"},"application/vnd.filmit.zfc":{"source":"iana"},"application/vnd.fints":{"source":"iana"},"application/vnd.firemonkeys.cloudcell":{"source":"iana"},"application/vnd.flographit":{"source":"iana","extensions":["gph"]},"application/vnd.fluxtime.clip":{"source":"iana","extensions":["ftc"]},"application/vnd.font-fontforge-sfd":{"source":"iana"},"application/vnd.framemaker":{"source":"iana","extensions":["fm","frame","maker","book"]},"application/vnd.frogans.fnc":{"source":"iana","extensions":["fnc"]},"application/vnd.frogans.ltf":{"source":"iana","extensions":["ltf"]},"application/vnd.fsc.weblaunch":{"source":"iana","extensions":["fsc"]},"application/vnd.fujitsu.oasys":{"source":"iana","extensions":["oas"]},"application/vnd.fujitsu.oasys2":{"source":"iana","extensions":["oa2"]},"application/vnd.fujitsu.oasys3":{"source":"iana","extensions":["oa3"]},"application/vnd.fujitsu.oasysgp":{"source":"iana","extensions":["fg5"]},"application/vnd.fujitsu.oasysprs":{"source":"iana","extensions":["bh2"]},"application/vnd.fujixerox.art-ex":{"source":"iana"},"application/vnd.fujixerox.art4":{"source":"iana"},"application/vnd.fujixerox.ddd":{"source":"iana","extensions":["ddd"]},"application/vnd.fujixerox.docuworks":{"source":"iana","extensions":["xdw"]},"application/vnd.fujixerox.docuworks.binder":{"source":"iana","extensions":["xbd"]},"application/vnd.fujixerox.docuworks.container":{"source":"iana"},"application/vnd.fujixerox.hbpl":{"source":"iana"},"application/vnd.fut-misnet":{"source":"iana"},"application/vnd.fuzzysheet":{"source":"iana","extensions":["fzs"]},"application/vnd.genomatix.tuxedo":{"source":"iana","extensions":["txd"]},"application/vnd.geo+json":{"source":"iana","compressible":true},"application/vnd.geocube+xml":{"source":"iana"},"application/vnd.geogebra.file":{"source":"iana","extensions":["ggb"]},"application/vnd.geogebra.tool":{"source":"iana","extensions":["ggt"]},"application/vnd.geometry-explorer":{"source":"iana","extensions":["gex","gre"]},"application/vnd.geonext":{"source":"iana","extensions":["gxt"]},"application/vnd.geoplan":{"source":"iana","extensions":["g2w"]},"application/vnd.geospace":{"source":"iana","extensions":["g3w"]},"application/vnd.gerber":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt-response":{"source":"iana"},"application/vnd.gmx":{"source":"iana","extensions":["gmx"]},"application/vnd.google-apps.document":{"compressible":false,"extensions":["gdoc"]},"application/vnd.google-apps.presentation":{"compressible":false,"extensions":["gslides"]},"application/vnd.google-apps.spreadsheet":{"compressible":false,"extensions":["gsheet"]},"application/vnd.google-earth.kml+xml":{"source":"iana","compressible":true,"extensions":["kml"]},"application/vnd.google-earth.kmz":{"source":"iana","compressible":false,"extensions":["kmz"]},"application/vnd.gov.sk.e-form+xml":{"source":"iana"},"application/vnd.gov.sk.e-form+zip":{"source":"iana"},"application/vnd.gov.sk.xmldatacontainer+xml":{"source":"iana"},"application/vnd.grafeq":{"source":"iana","extensions":["gqf","gqs"]},"application/vnd.gridmp":{"source":"iana"},"application/vnd.groove-account":{"source":"iana","extensions":["gac"]},"application/vnd.groove-help":{"source":"iana","extensions":["ghf"]},"application/vnd.groove-identity-message":{"source":"iana","extensions":["gim"]},"application/vnd.groove-injector":{"source":"iana","extensions":["grv"]},"application/vnd.groove-tool-message":{"source":"iana","extensions":["gtm"]},"application/vnd.groove-tool-template":{"source":"iana","extensions":["tpl"]},"application/vnd.groove-vcard":{"source":"iana","extensions":["vcg"]},"application/vnd.hal+json":{"source":"iana","compressible":true},"application/vnd.hal+xml":{"source":"iana","extensions":["hal"]},"application/vnd.handheld-entertainment+xml":{"source":"iana","extensions":["zmm"]},"application/vnd.hbci":{"source":"iana","extensions":["hbci"]},"application/vnd.hc+json":{"source":"iana","compressible":true},"application/vnd.hcl-bireports":{"source":"iana"},"application/vnd.hdt":{"source":"iana"},"application/vnd.heroku+json":{"source":"iana","compressible":true},"application/vnd.hhe.lesson-player":{"source":"iana","extensions":["les"]},"application/vnd.hp-hpgl":{"source":"iana","extensions":["hpgl"]},"application/vnd.hp-hpid":{"source":"iana","extensions":["hpid"]},"application/vnd.hp-hps":{"source":"iana","extensions":["hps"]},"application/vnd.hp-jlyt":{"source":"iana","extensions":["jlt"]},"application/vnd.hp-pcl":{"source":"iana","extensions":["pcl"]},"application/vnd.hp-pclxl":{"source":"iana","extensions":["pclxl"]},"application/vnd.httphone":{"source":"iana"},"application/vnd.hydrostatix.sof-data":{"source":"iana","extensions":["sfd-hdstx"]},"application/vnd.hyper-item+json":{"source":"iana","compressible":true},"application/vnd.hyperdrive+json":{"source":"iana","compressible":true},"application/vnd.hzn-3d-crossword":{"source":"iana"},"application/vnd.ibm.afplinedata":{"source":"iana"},"application/vnd.ibm.electronic-media":{"source":"iana"},"application/vnd.ibm.minipay":{"source":"iana","extensions":["mpy"]},"application/vnd.ibm.modcap":{"source":"iana","extensions":["afp","listafp","list3820"]},"application/vnd.ibm.rights-management":{"source":"iana","extensions":["irm"]},"application/vnd.ibm.secure-container":{"source":"iana","extensions":["sc"]},"application/vnd.iccprofile":{"source":"iana","extensions":["icc","icm"]},"application/vnd.ieee.1905":{"source":"iana"},"application/vnd.igloader":{"source":"iana","extensions":["igl"]},"application/vnd.imagemeter.folder+zip":{"source":"iana"},"application/vnd.imagemeter.image+zip":{"source":"iana"},"application/vnd.immervision-ivp":{"source":"iana","extensions":["ivp"]},"application/vnd.immervision-ivu":{"source":"iana","extensions":["ivu"]},"application/vnd.ims.imsccv1p1":{"source":"iana"},"application/vnd.ims.imsccv1p2":{"source":"iana"},"application/vnd.ims.imsccv1p3":{"source":"iana"},"application/vnd.ims.lis.v2.result+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolconsumerprofile+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy.id+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings.simple+json":{"source":"iana","compressible":true},"application/vnd.informedcontrol.rms+xml":{"source":"iana"},"application/vnd.informix-visionary":{"source":"iana"},"application/vnd.infotech.project":{"source":"iana"},"application/vnd.infotech.project+xml":{"source":"iana"},"application/vnd.innopath.wamp.notification":{"source":"iana"},"application/vnd.insors.igm":{"source":"iana","extensions":["igm"]},"application/vnd.intercon.formnet":{"source":"iana","extensions":["xpw","xpx"]},"application/vnd.intergeo":{"source":"iana","extensions":["i2g"]},"application/vnd.intertrust.digibox":{"source":"iana"},"application/vnd.intertrust.nncp":{"source":"iana"},"application/vnd.intu.qbo":{"source":"iana","extensions":["qbo"]},"application/vnd.intu.qfx":{"source":"iana","extensions":["qfx"]},"application/vnd.iptc.g2.catalogitem+xml":{"source":"iana"},"application/vnd.iptc.g2.conceptitem+xml":{"source":"iana"},"application/vnd.iptc.g2.knowledgeitem+xml":{"source":"iana"},"application/vnd.iptc.g2.newsitem+xml":{"source":"iana"},"application/vnd.iptc.g2.newsmessage+xml":{"source":"iana"},"application/vnd.iptc.g2.packageitem+xml":{"source":"iana"},"application/vnd.iptc.g2.planningitem+xml":{"source":"iana"},"application/vnd.ipunplugged.rcprofile":{"source":"iana","extensions":["rcprofile"]},"application/vnd.irepository.package+xml":{"source":"iana","extensions":["irp"]},"application/vnd.is-xpr":{"source":"iana","extensions":["xpr"]},"application/vnd.isac.fcs":{"source":"iana","extensions":["fcs"]},"application/vnd.jam":{"source":"iana","extensions":["jam"]},"application/vnd.japannet-directory-service":{"source":"iana"},"application/vnd.japannet-jpnstore-wakeup":{"source":"iana"},"application/vnd.japannet-payment-wakeup":{"source":"iana"},"application/vnd.japannet-registration":{"source":"iana"},"application/vnd.japannet-registration-wakeup":{"source":"iana"},"application/vnd.japannet-setstore-wakeup":{"source":"iana"},"application/vnd.japannet-verification":{"source":"iana"},"application/vnd.japannet-verification-wakeup":{"source":"iana"},"application/vnd.jcp.javame.midlet-rms":{"source":"iana","extensions":["rms"]},"application/vnd.jisp":{"source":"iana","extensions":["jisp"]},"application/vnd.joost.joda-archive":{"source":"iana","extensions":["joda"]},"application/vnd.jsk.isdn-ngn":{"source":"iana"},"application/vnd.kahootz":{"source":"iana","extensions":["ktz","ktr"]},"application/vnd.kde.karbon":{"source":"iana","extensions":["karbon"]},"application/vnd.kde.kchart":{"source":"iana","extensions":["chrt"]},"application/vnd.kde.kformula":{"source":"iana","extensions":["kfo"]},"application/vnd.kde.kivio":{"source":"iana","extensions":["flw"]},"application/vnd.kde.kontour":{"source":"iana","extensions":["kon"]},"application/vnd.kde.kpresenter":{"source":"iana","extensions":["kpr","kpt"]},"application/vnd.kde.kspread":{"source":"iana","extensions":["ksp"]},"application/vnd.kde.kword":{"source":"iana","extensions":["kwd","kwt"]},"application/vnd.kenameaapp":{"source":"iana","extensions":["htke"]},"application/vnd.kidspiration":{"source":"iana","extensions":["kia"]},"application/vnd.kinar":{"source":"iana","extensions":["kne","knp"]},"application/vnd.koan":{"source":"iana","extensions":["skp","skd","skt","skm"]},"application/vnd.kodak-descriptor":{"source":"iana","extensions":["sse"]},"application/vnd.las.las+json":{"source":"iana","compressible":true},"application/vnd.las.las+xml":{"source":"iana","extensions":["lasxml"]},"application/vnd.liberty-request+xml":{"source":"iana"},"application/vnd.llamagraphics.life-balance.desktop":{"source":"iana","extensions":["lbd"]},"application/vnd.llamagraphics.life-balance.exchange+xml":{"source":"iana","extensions":["lbe"]},"application/vnd.lotus-1-2-3":{"source":"iana","extensions":["123"]},"application/vnd.lotus-approach":{"source":"iana","extensions":["apr"]},"application/vnd.lotus-freelance":{"source":"iana","extensions":["pre"]},"application/vnd.lotus-notes":{"source":"iana","extensions":["nsf"]},"application/vnd.lotus-organizer":{"source":"iana","extensions":["org"]},"application/vnd.lotus-screencam":{"source":"iana","extensions":["scm"]},"application/vnd.lotus-wordpro":{"source":"iana","extensions":["lwp"]},"application/vnd.macports.portpkg":{"source":"iana","extensions":["portpkg"]},"application/vnd.mapbox-vector-tile":{"source":"iana"},"application/vnd.marlin.drm.actiontoken+xml":{"source":"iana"},"application/vnd.marlin.drm.conftoken+xml":{"source":"iana"},"application/vnd.marlin.drm.license+xml":{"source":"iana"},"application/vnd.marlin.drm.mdcf":{"source":"iana"},"application/vnd.mason+json":{"source":"iana","compressible":true},"application/vnd.maxmind.maxmind-db":{"source":"iana"},"application/vnd.mcd":{"source":"iana","extensions":["mcd"]},"application/vnd.medcalcdata":{"source":"iana","extensions":["mc1"]},"application/vnd.mediastation.cdkey":{"source":"iana","extensions":["cdkey"]},"application/vnd.meridian-slingshot":{"source":"iana"},"application/vnd.mfer":{"source":"iana","extensions":["mwf"]},"application/vnd.mfmp":{"source":"iana","extensions":["mfm"]},"application/vnd.micro+json":{"source":"iana","compressible":true},"application/vnd.micrografx.flo":{"source":"iana","extensions":["flo"]},"application/vnd.micrografx.igx":{"source":"iana","extensions":["igx"]},"application/vnd.microsoft.portable-executable":{"source":"iana"},"application/vnd.microsoft.windows.thumbnail-cache":{"source":"iana"},"application/vnd.miele+json":{"source":"iana","compressible":true},"application/vnd.mif":{"source":"iana","extensions":["mif"]},"application/vnd.minisoft-hp3000-save":{"source":"iana"},"application/vnd.mitsubishi.misty-guard.trustweb":{"source":"iana"},"application/vnd.mobius.daf":{"source":"iana","extensions":["daf"]},"application/vnd.mobius.dis":{"source":"iana","extensions":["dis"]},"application/vnd.mobius.mbk":{"source":"iana","extensions":["mbk"]},"application/vnd.mobius.mqy":{"source":"iana","extensions":["mqy"]},"application/vnd.mobius.msl":{"source":"iana","extensions":["msl"]},"application/vnd.mobius.plc":{"source":"iana","extensions":["plc"]},"application/vnd.mobius.txf":{"source":"iana","extensions":["txf"]},"application/vnd.mophun.application":{"source":"iana","extensions":["mpn"]},"application/vnd.mophun.certificate":{"source":"iana","extensions":["mpc"]},"application/vnd.motorola.flexsuite":{"source":"iana"},"application/vnd.motorola.flexsuite.adsi":{"source":"iana"},"application/vnd.motorola.flexsuite.fis":{"source":"iana"},"application/vnd.motorola.flexsuite.gotap":{"source":"iana"},"application/vnd.motorola.flexsuite.kmr":{"source":"iana"},"application/vnd.motorola.flexsuite.ttc":{"source":"iana"},"application/vnd.motorola.flexsuite.wem":{"source":"iana"},"application/vnd.motorola.iprm":{"source":"iana"},"application/vnd.mozilla.xul+xml":{"source":"iana","compressible":true,"extensions":["xul"]},"application/vnd.ms-3mfdocument":{"source":"iana"},"application/vnd.ms-artgalry":{"source":"iana","extensions":["cil"]},"application/vnd.ms-asf":{"source":"iana"},"application/vnd.ms-cab-compressed":{"source":"iana","extensions":["cab"]},"application/vnd.ms-color.iccprofile":{"source":"apache"},"application/vnd.ms-excel":{"source":"iana","compressible":false,"extensions":["xls","xlm","xla","xlc","xlt","xlw"]},"application/vnd.ms-excel.addin.macroenabled.12":{"source":"iana","extensions":["xlam"]},"application/vnd.ms-excel.sheet.binary.macroenabled.12":{"source":"iana","extensions":["xlsb"]},"application/vnd.ms-excel.sheet.macroenabled.12":{"source":"iana","extensions":["xlsm"]},"application/vnd.ms-excel.template.macroenabled.12":{"source":"iana","extensions":["xltm"]},"application/vnd.ms-fontobject":{"source":"iana","compressible":true,"extensions":["eot"]},"application/vnd.ms-htmlhelp":{"source":"iana","extensions":["chm"]},"application/vnd.ms-ims":{"source":"iana","extensions":["ims"]},"application/vnd.ms-lrm":{"source":"iana","extensions":["lrm"]},"application/vnd.ms-office.activex+xml":{"source":"iana"},"application/vnd.ms-officetheme":{"source":"iana","extensions":["thmx"]},"application/vnd.ms-opentype":{"source":"apache","compressible":true},"application/vnd.ms-outlook":{"compressible":false,"extensions":["msg"]},"application/vnd.ms-package.obfuscated-opentype":{"source":"apache"},"application/vnd.ms-pki.seccat":{"source":"apache","extensions":["cat"]},"application/vnd.ms-pki.stl":{"source":"apache","extensions":["stl"]},"application/vnd.ms-playready.initiator+xml":{"source":"iana"},"application/vnd.ms-powerpoint":{"source":"iana","compressible":false,"extensions":["ppt","pps","pot"]},"application/vnd.ms-powerpoint.addin.macroenabled.12":{"source":"iana","extensions":["ppam"]},"application/vnd.ms-powerpoint.presentation.macroenabled.12":{"source":"iana","extensions":["pptm"]},"application/vnd.ms-powerpoint.slide.macroenabled.12":{"source":"iana","extensions":["sldm"]},"application/vnd.ms-powerpoint.slideshow.macroenabled.12":{"source":"iana","extensions":["ppsm"]},"application/vnd.ms-powerpoint.template.macroenabled.12":{"source":"iana","extensions":["potm"]},"application/vnd.ms-printdevicecapabilities+xml":{"source":"iana"},"application/vnd.ms-printing.printticket+xml":{"source":"apache"},"application/vnd.ms-printschematicket+xml":{"source":"iana"},"application/vnd.ms-project":{"source":"iana","extensions":["mpp","mpt"]},"application/vnd.ms-tnef":{"source":"iana"},"application/vnd.ms-windows.devicepairing":{"source":"iana"},"application/vnd.ms-windows.nwprinting.oob":{"source":"iana"},"application/vnd.ms-windows.printerpairing":{"source":"iana"},"application/vnd.ms-windows.wsd.oob":{"source":"iana"},"application/vnd.ms-wmdrm.lic-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.lic-resp":{"source":"iana"},"application/vnd.ms-wmdrm.meter-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.meter-resp":{"source":"iana"},"application/vnd.ms-word.document.macroenabled.12":{"source":"iana","extensions":["docm"]},"application/vnd.ms-word.template.macroenabled.12":{"source":"iana","extensions":["dotm"]},"application/vnd.ms-works":{"source":"iana","extensions":["wps","wks","wcm","wdb"]},"application/vnd.ms-wpl":{"source":"iana","extensions":["wpl"]},"application/vnd.ms-xpsdocument":{"source":"iana","compressible":false,"extensions":["xps"]},"application/vnd.msa-disk-image":{"source":"iana"},"application/vnd.mseq":{"source":"iana","extensions":["mseq"]},"application/vnd.msign":{"source":"iana"},"application/vnd.multiad.creator":{"source":"iana"},"application/vnd.multiad.creator.cif":{"source":"iana"},"application/vnd.music-niff":{"source":"iana"},"application/vnd.musician":{"source":"iana","extensions":["mus"]},"application/vnd.muvee.style":{"source":"iana","extensions":["msty"]},"application/vnd.mynfc":{"source":"iana","extensions":["taglet"]},"application/vnd.ncd.control":{"source":"iana"},"application/vnd.ncd.reference":{"source":"iana"},"application/vnd.nearst.inv+json":{"source":"iana","compressible":true},"application/vnd.nervana":{"source":"iana"},"application/vnd.netfpx":{"source":"iana"},"application/vnd.neurolanguage.nlu":{"source":"iana","extensions":["nlu"]},"application/vnd.nintendo.nitro.rom":{"source":"iana"},"application/vnd.nintendo.snes.rom":{"source":"iana"},"application/vnd.nitf":{"source":"iana","extensions":["ntf","nitf"]},"application/vnd.noblenet-directory":{"source":"iana","extensions":["nnd"]},"application/vnd.noblenet-sealer":{"source":"iana","extensions":["nns"]},"application/vnd.noblenet-web":{"source":"iana","extensions":["nnw"]},"application/vnd.nokia.catalogs":{"source":"iana"},"application/vnd.nokia.conml+wbxml":{"source":"iana"},"application/vnd.nokia.conml+xml":{"source":"iana"},"application/vnd.nokia.iptv.config+xml":{"source":"iana"},"application/vnd.nokia.isds-radio-presets":{"source":"iana"},"application/vnd.nokia.landmark+wbxml":{"source":"iana"},"application/vnd.nokia.landmark+xml":{"source":"iana"},"application/vnd.nokia.landmarkcollection+xml":{"source":"iana"},"application/vnd.nokia.n-gage.ac+xml":{"source":"iana"},"application/vnd.nokia.n-gage.data":{"source":"iana","extensions":["ngdat"]},"application/vnd.nokia.n-gage.symbian.install":{"source":"iana","extensions":["n-gage"]},"application/vnd.nokia.ncd":{"source":"iana"},"application/vnd.nokia.pcd+wbxml":{"source":"iana"},"application/vnd.nokia.pcd+xml":{"source":"iana"},"application/vnd.nokia.radio-preset":{"source":"iana","extensions":["rpst"]},"application/vnd.nokia.radio-presets":{"source":"iana","extensions":["rpss"]},"application/vnd.novadigm.edm":{"source":"iana","extensions":["edm"]},"application/vnd.novadigm.edx":{"source":"iana","extensions":["edx"]},"application/vnd.novadigm.ext":{"source":"iana","extensions":["ext"]},"application/vnd.ntt-local.content-share":{"source":"iana"},"application/vnd.ntt-local.file-transfer":{"source":"iana"},"application/vnd.ntt-local.ogw_remote-access":{"source":"iana"},"application/vnd.ntt-local.sip-ta_remote":{"source":"iana"},"application/vnd.ntt-local.sip-ta_tcp_stream":{"source":"iana"},"application/vnd.oasis.opendocument.chart":{"source":"iana","extensions":["odc"]},"application/vnd.oasis.opendocument.chart-template":{"source":"iana","extensions":["otc"]},"application/vnd.oasis.opendocument.database":{"source":"iana","extensions":["odb"]},"application/vnd.oasis.opendocument.formula":{"source":"iana","extensions":["odf"]},"application/vnd.oasis.opendocument.formula-template":{"source":"iana","extensions":["odft"]},"application/vnd.oasis.opendocument.graphics":{"source":"iana","compressible":false,"extensions":["odg"]},"application/vnd.oasis.opendocument.graphics-template":{"source":"iana","extensions":["otg"]},"application/vnd.oasis.opendocument.image":{"source":"iana","extensions":["odi"]},"application/vnd.oasis.opendocument.image-template":{"source":"iana","extensions":["oti"]},"application/vnd.oasis.opendocument.presentation":{"source":"iana","compressible":false,"extensions":["odp"]},"application/vnd.oasis.opendocument.presentation-template":{"source":"iana","extensions":["otp"]},"application/vnd.oasis.opendocument.spreadsheet":{"source":"iana","compressible":false,"extensions":["ods"]},"application/vnd.oasis.opendocument.spreadsheet-template":{"source":"iana","extensions":["ots"]},"application/vnd.oasis.opendocument.text":{"source":"iana","compressible":false,"extensions":["odt"]},"application/vnd.oasis.opendocument.text-master":{"source":"iana","extensions":["odm"]},"application/vnd.oasis.opendocument.text-template":{"source":"iana","extensions":["ott"]},"application/vnd.oasis.opendocument.text-web":{"source":"iana","extensions":["oth"]},"application/vnd.obn":{"source":"iana"},"application/vnd.ocf+cbor":{"source":"iana"},"application/vnd.oftn.l10n+json":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessdownload+xml":{"source":"iana"},"application/vnd.oipf.contentaccessstreaming+xml":{"source":"iana"},"application/vnd.oipf.cspg-hexbinary":{"source":"iana"},"application/vnd.oipf.dae.svg+xml":{"source":"iana"},"application/vnd.oipf.dae.xhtml+xml":{"source":"iana"},"application/vnd.oipf.mippvcontrolmessage+xml":{"source":"iana"},"application/vnd.oipf.pae.gem":{"source":"iana"},"application/vnd.oipf.spdiscovery+xml":{"source":"iana"},"application/vnd.oipf.spdlist+xml":{"source":"iana"},"application/vnd.oipf.ueprofile+xml":{"source":"iana"},"application/vnd.oipf.userprofile+xml":{"source":"iana"},"application/vnd.olpc-sugar":{"source":"iana","extensions":["xo"]},"application/vnd.oma-scws-config":{"source":"iana"},"application/vnd.oma-scws-http-request":{"source":"iana"},"application/vnd.oma-scws-http-response":{"source":"iana"},"application/vnd.oma.bcast.associated-procedure-parameter+xml":{"source":"iana"},"application/vnd.oma.bcast.drm-trigger+xml":{"source":"iana"},"application/vnd.oma.bcast.imd+xml":{"source":"iana"},"application/vnd.oma.bcast.ltkm":{"source":"iana"},"application/vnd.oma.bcast.notification+xml":{"source":"iana"},"application/vnd.oma.bcast.provisioningtrigger":{"source":"iana"},"application/vnd.oma.bcast.sgboot":{"source":"iana"},"application/vnd.oma.bcast.sgdd+xml":{"source":"iana"},"application/vnd.oma.bcast.sgdu":{"source":"iana"},"application/vnd.oma.bcast.simple-symbol-container":{"source":"iana"},"application/vnd.oma.bcast.smartcard-trigger+xml":{"source":"iana"},"application/vnd.oma.bcast.sprov+xml":{"source":"iana"},"application/vnd.oma.bcast.stkm":{"source":"iana"},"application/vnd.oma.cab-address-book+xml":{"source":"iana"},"application/vnd.oma.cab-feature-handler+xml":{"source":"iana"},"application/vnd.oma.cab-pcc+xml":{"source":"iana"},"application/vnd.oma.cab-subs-invite+xml":{"source":"iana"},"application/vnd.oma.cab-user-prefs+xml":{"source":"iana"},"application/vnd.oma.dcd":{"source":"iana"},"application/vnd.oma.dcdc":{"source":"iana"},"application/vnd.oma.dd2+xml":{"source":"iana","extensions":["dd2"]},"application/vnd.oma.drm.risd+xml":{"source":"iana"},"application/vnd.oma.group-usage-list+xml":{"source":"iana"},"application/vnd.oma.lwm2m+json":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+tlv":{"source":"iana"},"application/vnd.oma.pal+xml":{"source":"iana"},"application/vnd.oma.poc.detailed-progress-report+xml":{"source":"iana"},"application/vnd.oma.poc.final-report+xml":{"source":"iana"},"application/vnd.oma.poc.groups+xml":{"source":"iana"},"application/vnd.oma.poc.invocation-descriptor+xml":{"source":"iana"},"application/vnd.oma.poc.optimized-progress-report+xml":{"source":"iana"},"application/vnd.oma.push":{"source":"iana"},"application/vnd.oma.scidm.messages+xml":{"source":"iana"},"application/vnd.oma.xcap-directory+xml":{"source":"iana"},"application/vnd.omads-email+xml":{"source":"iana"},"application/vnd.omads-file+xml":{"source":"iana"},"application/vnd.omads-folder+xml":{"source":"iana"},"application/vnd.omaloc-supl-init":{"source":"iana"},"application/vnd.onepager":{"source":"iana"},"application/vnd.onepagertamp":{"source":"iana"},"application/vnd.onepagertamx":{"source":"iana"},"application/vnd.onepagertat":{"source":"iana"},"application/vnd.onepagertatp":{"source":"iana"},"application/vnd.onepagertatx":{"source":"iana"},"application/vnd.openblox.game+xml":{"source":"iana"},"application/vnd.openblox.game-binary":{"source":"iana"},"application/vnd.openeye.oeb":{"source":"iana"},"application/vnd.openofficeorg.extension":{"source":"apache","extensions":["oxt"]},"application/vnd.openstreetmap.data+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.custom-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.customxmlproperties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawing+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.chart+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramcolors+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramdata+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramlayout+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramstyle+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.extended-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml-template":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.commentauthors+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.handoutmaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.notesmaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.notesslide+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.presentation":{"source":"iana","compressible":false,"extensions":["pptx"]},"application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.presprops+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slide":{"source":"iana","extensions":["sldx"]},"application/vnd.openxmlformats-officedocument.presentationml.slide+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slidelayout+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slidemaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slideshow":{"source":"iana","extensions":["ppsx"]},"application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slideupdateinfo+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.tablestyles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.tags+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.template":{"source":"apache","extensions":["potx"]},"application/vnd.openxmlformats-officedocument.presentationml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.viewprops+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml-template":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.calcchain+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.connections+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.externallink+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcachedefinition+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcacherecords+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivottable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.querytable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionheaders+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionlog+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sharedstrings+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":{"source":"iana","compressible":false,"extensions":["xlsx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheetmetadata+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.tablesinglecells+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.template":{"source":"apache","extensions":["xltx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.usernames+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.volatiledependencies+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.theme+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.themeoverride+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.vmldrawing":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml-template":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.document":{"source":"iana","compressible":false,"extensions":["docx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.fonttable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.template":{"source":"apache","extensions":["dotx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.websettings+xml":{"source":"iana"},"application/vnd.openxmlformats-package.core-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml":{"source":"iana"},"application/vnd.openxmlformats-package.relationships+xml":{"source":"iana"},"application/vnd.oracle.resource+json":{"source":"iana","compressible":true},"application/vnd.orange.indata":{"source":"iana"},"application/vnd.osa.netdeploy":{"source":"iana"},"application/vnd.osgeo.mapguide.package":{"source":"iana","extensions":["mgp"]},"application/vnd.osgi.bundle":{"source":"iana"},"application/vnd.osgi.dp":{"source":"iana","extensions":["dp"]},"application/vnd.osgi.subsystem":{"source":"iana","extensions":["esa"]},"application/vnd.otps.ct-kip+xml":{"source":"iana"},"application/vnd.oxli.countgraph":{"source":"iana"},"application/vnd.pagerduty+json":{"source":"iana","compressible":true},"application/vnd.palm":{"source":"iana","extensions":["pdb","pqa","oprc"]},"application/vnd.panoply":{"source":"iana"},"application/vnd.paos+xml":{"source":"iana"},"application/vnd.paos.xml":{"source":"apache"},"application/vnd.pawaafile":{"source":"iana","extensions":["paw"]},"application/vnd.pcos":{"source":"iana"},"application/vnd.pg.format":{"source":"iana","extensions":["str"]},"application/vnd.pg.osasli":{"source":"iana","extensions":["ei6"]},"application/vnd.piaccess.application-licence":{"source":"iana"},"application/vnd.picsel":{"source":"iana","extensions":["efif"]},"application/vnd.pmi.widget":{"source":"iana","extensions":["wg"]},"application/vnd.poc.group-advertisement+xml":{"source":"iana"},"application/vnd.pocketlearn":{"source":"iana","extensions":["plf"]},"application/vnd.powerbuilder6":{"source":"iana","extensions":["pbd"]},"application/vnd.powerbuilder6-s":{"source":"iana"},"application/vnd.powerbuilder7":{"source":"iana"},"application/vnd.powerbuilder7-s":{"source":"iana"},"application/vnd.powerbuilder75":{"source":"iana"},"application/vnd.powerbuilder75-s":{"source":"iana"},"application/vnd.preminet":{"source":"iana"},"application/vnd.previewsystems.box":{"source":"iana","extensions":["box"]},"application/vnd.proteus.magazine":{"source":"iana","extensions":["mgz"]},"application/vnd.publishare-delta-tree":{"source":"iana","extensions":["qps"]},"application/vnd.pvi.ptid1":{"source":"iana","extensions":["ptid"]},"application/vnd.pwg-multiplexed":{"source":"iana"},"application/vnd.pwg-xhtml-print+xml":{"source":"iana"},"application/vnd.qualcomm.brew-app-res":{"source":"iana"},"application/vnd.quarantainenet":{"source":"iana"},"application/vnd.quark.quarkxpress":{"source":"iana","extensions":["qxd","qxt","qwd","qwt","qxl","qxb"]},"application/vnd.quobject-quoxdocument":{"source":"iana"},"application/vnd.radisys.moml+xml":{"source":"iana"},"application/vnd.radisys.msml+xml":{"source":"iana"},"application/vnd.radisys.msml-audit+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-conf+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-conn+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-dialog+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-stream+xml":{"source":"iana"},"application/vnd.radisys.msml-conf+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-base+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-fax-detect+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-fax-sendrecv+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-group+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-speech+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-transform+xml":{"source":"iana"},"application/vnd.rainstor.data":{"source":"iana"},"application/vnd.rapid":{"source":"iana"},"application/vnd.rar":{"source":"iana"},"application/vnd.realvnc.bed":{"source":"iana","extensions":["bed"]},"application/vnd.recordare.musicxml":{"source":"iana","extensions":["mxl"]},"application/vnd.recordare.musicxml+xml":{"source":"iana","extensions":["musicxml"]},"application/vnd.renlearn.rlprint":{"source":"iana"},"application/vnd.rig.cryptonote":{"source":"iana","extensions":["cryptonote"]},"application/vnd.rim.cod":{"source":"apache","extensions":["cod"]},"application/vnd.rn-realmedia":{"source":"apache","extensions":["rm"]},"application/vnd.rn-realmedia-vbr":{"source":"apache","extensions":["rmvb"]},"application/vnd.route66.link66+xml":{"source":"iana","extensions":["link66"]},"application/vnd.rs-274x":{"source":"iana"},"application/vnd.ruckus.download":{"source":"iana"},"application/vnd.s3sms":{"source":"iana"},"application/vnd.sailingtracker.track":{"source":"iana","extensions":["st"]},"application/vnd.sbm.cid":{"source":"iana"},"application/vnd.sbm.mid2":{"source":"iana"},"application/vnd.scribus":{"source":"iana"},"application/vnd.sealed.3df":{"source":"iana"},"application/vnd.sealed.csf":{"source":"iana"},"application/vnd.sealed.doc":{"source":"iana"},"application/vnd.sealed.eml":{"source":"iana"},"application/vnd.sealed.mht":{"source":"iana"},"application/vnd.sealed.net":{"source":"iana"},"application/vnd.sealed.ppt":{"source":"iana"},"application/vnd.sealed.tiff":{"source":"iana"},"application/vnd.sealed.xls":{"source":"iana"},"application/vnd.sealedmedia.softseal.html":{"source":"iana"},"application/vnd.sealedmedia.softseal.pdf":{"source":"iana"},"application/vnd.seemail":{"source":"iana","extensions":["see"]},"application/vnd.sema":{"source":"iana","extensions":["sema"]},"application/vnd.semd":{"source":"iana","extensions":["semd"]},"application/vnd.semf":{"source":"iana","extensions":["semf"]},"application/vnd.shana.informed.formdata":{"source":"iana","extensions":["ifm"]},"application/vnd.shana.informed.formtemplate":{"source":"iana","extensions":["itp"]},"application/vnd.shana.informed.interchange":{"source":"iana","extensions":["iif"]},"application/vnd.shana.informed.package":{"source":"iana","extensions":["ipk"]},"application/vnd.sigrok.session":{"source":"iana"},"application/vnd.simtech-mindmapper":{"source":"iana","extensions":["twd","twds"]},"application/vnd.siren+json":{"source":"iana","compressible":true},"application/vnd.smaf":{"source":"iana","extensions":["mmf"]},"application/vnd.smart.notebook":{"source":"iana"},"application/vnd.smart.teacher":{"source":"iana","extensions":["teacher"]},"application/vnd.software602.filler.form+xml":{"source":"iana"},"application/vnd.software602.filler.form-xml-zip":{"source":"iana"},"application/vnd.solent.sdkm+xml":{"source":"iana","extensions":["sdkm","sdkd"]},"application/vnd.spotfire.dxp":{"source":"iana","extensions":["dxp"]},"application/vnd.spotfire.sfs":{"source":"iana","extensions":["sfs"]},"application/vnd.sss-cod":{"source":"iana"},"application/vnd.sss-dtf":{"source":"iana"},"application/vnd.sss-ntf":{"source":"iana"},"application/vnd.stardivision.calc":{"source":"apache","extensions":["sdc"]},"application/vnd.stardivision.draw":{"source":"apache","extensions":["sda"]},"application/vnd.stardivision.impress":{"source":"apache","extensions":["sdd"]},"application/vnd.stardivision.math":{"source":"apache","extensions":["smf"]},"application/vnd.stardivision.writer":{"source":"apache","extensions":["sdw","vor"]},"application/vnd.stardivision.writer-global":{"source":"apache","extensions":["sgl"]},"application/vnd.stepmania.package":{"source":"iana","extensions":["smzip"]},"application/vnd.stepmania.stepchart":{"source":"iana","extensions":["sm"]},"application/vnd.street-stream":{"source":"iana"},"application/vnd.sun.wadl+xml":{"source":"iana","compressible":true,"extensions":["wadl"]},"application/vnd.sun.xml.calc":{"source":"apache","extensions":["sxc"]},"application/vnd.sun.xml.calc.template":{"source":"apache","extensions":["stc"]},"application/vnd.sun.xml.draw":{"source":"apache","extensions":["sxd"]},"application/vnd.sun.xml.draw.template":{"source":"apache","extensions":["std"]},"application/vnd.sun.xml.impress":{"source":"apache","extensions":["sxi"]},"application/vnd.sun.xml.impress.template":{"source":"apache","extensions":["sti"]},"application/vnd.sun.xml.math":{"source":"apache","extensions":["sxm"]},"application/vnd.sun.xml.writer":{"source":"apache","extensions":["sxw"]},"application/vnd.sun.xml.writer.global":{"source":"apache","extensions":["sxg"]},"application/vnd.sun.xml.writer.template":{"source":"apache","extensions":["stw"]},"application/vnd.sus-calendar":{"source":"iana","extensions":["sus","susp"]},"application/vnd.svd":{"source":"iana","extensions":["svd"]},"application/vnd.swiftview-ics":{"source":"iana"},"application/vnd.symbian.install":{"source":"apache","extensions":["sis","sisx"]},"application/vnd.syncml+xml":{"source":"iana","extensions":["xsm"]},"application/vnd.syncml.dm+wbxml":{"source":"iana","extensions":["bdm"]},"application/vnd.syncml.dm+xml":{"source":"iana","extensions":["xdm"]},"application/vnd.syncml.dm.notification":{"source":"iana"},"application/vnd.syncml.dmddf+wbxml":{"source":"iana"},"application/vnd.syncml.dmddf+xml":{"source":"iana"},"application/vnd.syncml.dmtnds+wbxml":{"source":"iana"},"application/vnd.syncml.dmtnds+xml":{"source":"iana"},"application/vnd.syncml.ds.notification":{"source":"iana"},"application/vnd.tableschema+json":{"source":"iana","compressible":true},"application/vnd.tao.intent-module-archive":{"source":"iana","extensions":["tao"]},"application/vnd.tcpdump.pcap":{"source":"iana","extensions":["pcap","cap","dmp"]},"application/vnd.tmd.mediaflex.api+xml":{"source":"iana"},"application/vnd.tml":{"source":"iana"},"application/vnd.tmobile-livetv":{"source":"iana","extensions":["tmo"]},"application/vnd.tri.onesource":{"source":"iana"},"application/vnd.trid.tpt":{"source":"iana","extensions":["tpt"]},"application/vnd.triscape.mxs":{"source":"iana","extensions":["mxs"]},"application/vnd.trueapp":{"source":"iana","extensions":["tra"]},"application/vnd.truedoc":{"source":"iana"},"application/vnd.ubisoft.webplayer":{"source":"iana"},"application/vnd.ufdl":{"source":"iana","extensions":["ufd","ufdl"]},"application/vnd.uiq.theme":{"source":"iana","extensions":["utz"]},"application/vnd.umajin":{"source":"iana","extensions":["umj"]},"application/vnd.unity":{"source":"iana","extensions":["unityweb"]},"application/vnd.uoml+xml":{"source":"iana","extensions":["uoml"]},"application/vnd.uplanet.alert":{"source":"iana"},"application/vnd.uplanet.alert-wbxml":{"source":"iana"},"application/vnd.uplanet.bearer-choice":{"source":"iana"},"application/vnd.uplanet.bearer-choice-wbxml":{"source":"iana"},"application/vnd.uplanet.cacheop":{"source":"iana"},"application/vnd.uplanet.cacheop-wbxml":{"source":"iana"},"application/vnd.uplanet.channel":{"source":"iana"},"application/vnd.uplanet.channel-wbxml":{"source":"iana"},"application/vnd.uplanet.list":{"source":"iana"},"application/vnd.uplanet.list-wbxml":{"source":"iana"},"application/vnd.uplanet.listcmd":{"source":"iana"},"application/vnd.uplanet.listcmd-wbxml":{"source":"iana"},"application/vnd.uplanet.signal":{"source":"iana"},"application/vnd.uri-map":{"source":"iana"},"application/vnd.valve.source.material":{"source":"iana"},"application/vnd.vcx":{"source":"iana","extensions":["vcx"]},"application/vnd.vd-study":{"source":"iana"},"application/vnd.vectorworks":{"source":"iana"},"application/vnd.vel+json":{"source":"iana","compressible":true},"application/vnd.verimatrix.vcas":{"source":"iana"},"application/vnd.vidsoft.vidconference":{"source":"iana"},"application/vnd.visio":{"source":"iana","extensions":["vsd","vst","vss","vsw"]},"application/vnd.visionary":{"source":"iana","extensions":["vis"]},"application/vnd.vividence.scriptfile":{"source":"iana"},"application/vnd.vsf":{"source":"iana","extensions":["vsf"]},"application/vnd.wap.sic":{"source":"iana"},"application/vnd.wap.slc":{"source":"iana"},"application/vnd.wap.wbxml":{"source":"iana","extensions":["wbxml"]},"application/vnd.wap.wmlc":{"source":"iana","extensions":["wmlc"]},"application/vnd.wap.wmlscriptc":{"source":"iana","extensions":["wmlsc"]},"application/vnd.webturbo":{"source":"iana","extensions":["wtb"]},"application/vnd.wfa.p2p":{"source":"iana"},"application/vnd.wfa.wsc":{"source":"iana"},"application/vnd.windows.devicepairing":{"source":"iana"},"application/vnd.wmc":{"source":"iana"},"application/vnd.wmf.bootstrap":{"source":"iana"},"application/vnd.wolfram.mathematica":{"source":"iana"},"application/vnd.wolfram.mathematica.package":{"source":"iana"},"application/vnd.wolfram.player":{"source":"iana","extensions":["nbp"]},"application/vnd.wordperfect":{"source":"iana","extensions":["wpd"]},"application/vnd.wqd":{"source":"iana","extensions":["wqd"]},"application/vnd.wrq-hp3000-labelled":{"source":"iana"},"application/vnd.wt.stf":{"source":"iana","extensions":["stf"]},"application/vnd.wv.csp+wbxml":{"source":"iana"},"application/vnd.wv.csp+xml":{"source":"iana"},"application/vnd.wv.ssp+xml":{"source":"iana"},"application/vnd.xacml+json":{"source":"iana","compressible":true},"application/vnd.xara":{"source":"iana","extensions":["xar"]},"application/vnd.xfdl":{"source":"iana","extensions":["xfdl"]},"application/vnd.xfdl.webform":{"source":"iana"},"application/vnd.xmi+xml":{"source":"iana"},"application/vnd.xmpie.cpkg":{"source":"iana"},"application/vnd.xmpie.dpkg":{"source":"iana"},"application/vnd.xmpie.plan":{"source":"iana"},"application/vnd.xmpie.ppkg":{"source":"iana"},"application/vnd.xmpie.xlim":{"source":"iana"},"application/vnd.yamaha.hv-dic":{"source":"iana","extensions":["hvd"]},"application/vnd.yamaha.hv-script":{"source":"iana","extensions":["hvs"]},"application/vnd.yamaha.hv-voice":{"source":"iana","extensions":["hvp"]},"application/vnd.yamaha.openscoreformat":{"source":"iana","extensions":["osf"]},"application/vnd.yamaha.openscoreformat.osfpvg+xml":{"source":"iana","extensions":["osfpvg"]},"application/vnd.yamaha.remote-setup":{"source":"iana"},"application/vnd.yamaha.smaf-audio":{"source":"iana","extensions":["saf"]},"application/vnd.yamaha.smaf-phrase":{"source":"iana","extensions":["spf"]},"application/vnd.yamaha.through-ngn":{"source":"iana"},"application/vnd.yamaha.tunnel-udpencap":{"source":"iana"},"application/vnd.yaoweme":{"source":"iana"},"application/vnd.yellowriver-custom-menu":{"source":"iana","extensions":["cmp"]},"application/vnd.zul":{"source":"iana","extensions":["zir","zirz"]},"application/vnd.zzazz.deck+xml":{"source":"iana","extensions":["zaz"]},"application/voicexml+xml":{"source":"iana","extensions":["vxml"]},"application/vq-rtcpxr":{"source":"iana"},"application/watcherinfo+xml":{"source":"iana"},"application/whoispp-query":{"source":"iana"},"application/whoispp-response":{"source":"iana"},"application/widget":{"source":"iana","extensions":["wgt"]},"application/winhlp":{"source":"apache","extensions":["hlp"]},"application/wita":{"source":"iana"},"application/wordperfect5.1":{"source":"iana"},"application/wsdl+xml":{"source":"iana","extensions":["wsdl"]},"application/wspolicy+xml":{"source":"iana","extensions":["wspolicy"]},"application/x-7z-compressed":{"source":"apache","compressible":false,"extensions":["7z"]},"application/x-abiword":{"source":"apache","extensions":["abw"]},"application/x-ace-compressed":{"source":"apache","extensions":["ace"]},"application/x-amf":{"source":"apache"},"application/x-apple-diskimage":{"source":"apache","extensions":["dmg"]},"application/x-arj":{"compressible":false,"extensions":["arj"]},"application/x-authorware-bin":{"source":"apache","extensions":["aab","x32","u32","vox"]},"application/x-authorware-map":{"source":"apache","extensions":["aam"]},"application/x-authorware-seg":{"source":"apache","extensions":["aas"]},"application/x-bcpio":{"source":"apache","extensions":["bcpio"]},"application/x-bdoc":{"compressible":false,"extensions":["bdoc"]},"application/x-bittorrent":{"source":"apache","extensions":["torrent"]},"application/x-blorb":{"source":"apache","extensions":["blb","blorb"]},"application/x-bzip":{"source":"apache","compressible":false,"extensions":["bz"]},"application/x-bzip2":{"source":"apache","compressible":false,"extensions":["bz2","boz"]},"application/x-cbr":{"source":"apache","extensions":["cbr","cba","cbt","cbz","cb7"]},"application/x-cdlink":{"source":"apache","extensions":["vcd"]},"application/x-cfs-compressed":{"source":"apache","extensions":["cfs"]},"application/x-chat":{"source":"apache","extensions":["chat"]},"application/x-chess-pgn":{"source":"apache","extensions":["pgn"]},"application/x-chrome-extension":{"extensions":["crx"]},"application/x-cocoa":{"source":"nginx","extensions":["cco"]},"application/x-compress":{"source":"apache"},"application/x-conference":{"source":"apache","extensions":["nsc"]},"application/x-cpio":{"source":"apache","extensions":["cpio"]},"application/x-csh":{"source":"apache","extensions":["csh"]},"application/x-deb":{"compressible":false},"application/x-debian-package":{"source":"apache","extensions":["deb","udeb"]},"application/x-dgc-compressed":{"source":"apache","extensions":["dgc"]},"application/x-director":{"source":"apache","extensions":["dir","dcr","dxr","cst","cct","cxt","w3d","fgd","swa"]},"application/x-doom":{"source":"apache","extensions":["wad"]},"application/x-dtbncx+xml":{"source":"apache","extensions":["ncx"]},"application/x-dtbook+xml":{"source":"apache","extensions":["dtb"]},"application/x-dtbresource+xml":{"source":"apache","extensions":["res"]},"application/x-dvi":{"source":"apache","compressible":false,"extensions":["dvi"]},"application/x-envoy":{"source":"apache","extensions":["evy"]},"application/x-eva":{"source":"apache","extensions":["eva"]},"application/x-font-bdf":{"source":"apache","extensions":["bdf"]},"application/x-font-dos":{"source":"apache"},"application/x-font-framemaker":{"source":"apache"},"application/x-font-ghostscript":{"source":"apache","extensions":["gsf"]},"application/x-font-libgrx":{"source":"apache"},"application/x-font-linux-psf":{"source":"apache","extensions":["psf"]},"application/x-font-otf":{"source":"apache","compressible":true,"extensions":["otf"]},"application/x-font-pcf":{"source":"apache","extensions":["pcf"]},"application/x-font-snf":{"source":"apache","extensions":["snf"]},"application/x-font-speedo":{"source":"apache"},"application/x-font-sunos-news":{"source":"apache"},"application/x-font-ttf":{"source":"apache","compressible":true,"extensions":["ttf","ttc"]},"application/x-font-type1":{"source":"apache","extensions":["pfa","pfb","pfm","afm"]},"application/x-font-vfont":{"source":"apache"},"application/x-freearc":{"source":"apache","extensions":["arc"]},"application/x-futuresplash":{"source":"apache","extensions":["spl"]},"application/x-gca-compressed":{"source":"apache","extensions":["gca"]},"application/x-glulx":{"source":"apache","extensions":["ulx"]},"application/x-gnumeric":{"source":"apache","extensions":["gnumeric"]},"application/x-gramps-xml":{"source":"apache","extensions":["gramps"]},"application/x-gtar":{"source":"apache","extensions":["gtar"]},"application/x-gzip":{"source":"apache"},"application/x-hdf":{"source":"apache","extensions":["hdf"]},"application/x-httpd-php":{"compressible":true,"extensions":["php"]},"application/x-install-instructions":{"source":"apache","extensions":["install"]},"application/x-iso9660-image":{"source":"apache","extensions":["iso"]},"application/x-java-archive-diff":{"source":"nginx","extensions":["jardiff"]},"application/x-java-jnlp-file":{"source":"apache","compressible":false,"extensions":["jnlp"]},"application/x-javascript":{"compressible":true},"application/x-latex":{"source":"apache","compressible":false,"extensions":["latex"]},"application/x-lua-bytecode":{"extensions":["luac"]},"application/x-lzh-compressed":{"source":"apache","extensions":["lzh","lha"]},"application/x-makeself":{"source":"nginx","extensions":["run"]},"application/x-mie":{"source":"apache","extensions":["mie"]},"application/x-mobipocket-ebook":{"source":"apache","extensions":["prc","mobi"]},"application/x-mpegurl":{"compressible":false},"application/x-ms-application":{"source":"apache","extensions":["application"]},"application/x-ms-shortcut":{"source":"apache","extensions":["lnk"]},"application/x-ms-wmd":{"source":"apache","extensions":["wmd"]},"application/x-ms-wmz":{"source":"apache","extensions":["wmz"]},"application/x-ms-xbap":{"source":"apache","extensions":["xbap"]},"application/x-msaccess":{"source":"apache","extensions":["mdb"]},"application/x-msbinder":{"source":"apache","extensions":["obd"]},"application/x-mscardfile":{"source":"apache","extensions":["crd"]},"application/x-msclip":{"source":"apache","extensions":["clp"]},"application/x-msdos-program":{"extensions":["exe"]},"application/x-msdownload":{"source":"apache","extensions":["exe","dll","com","bat","msi"]},"application/x-msmediaview":{"source":"apache","extensions":["mvb","m13","m14"]},"application/x-msmetafile":{"source":"apache","extensions":["wmf","wmz","emf","emz"]},"application/x-msmoney":{"source":"apache","extensions":["mny"]},"application/x-mspublisher":{"source":"apache","extensions":["pub"]},"application/x-msschedule":{"source":"apache","extensions":["scd"]},"application/x-msterminal":{"source":"apache","extensions":["trm"]},"application/x-mswrite":{"source":"apache","extensions":["wri"]},"application/x-netcdf":{"source":"apache","extensions":["nc","cdf"]},"application/x-ns-proxy-autoconfig":{"compressible":true,"extensions":["pac"]},"application/x-nzb":{"source":"apache","extensions":["nzb"]},"application/x-perl":{"source":"nginx","extensions":["pl","pm"]},"application/x-pilot":{"source":"nginx","extensions":["prc","pdb"]},"application/x-pkcs12":{"source":"apache","compressible":false,"extensions":["p12","pfx"]},"application/x-pkcs7-certificates":{"source":"apache","extensions":["p7b","spc"]},"application/x-pkcs7-certreqresp":{"source":"apache","extensions":["p7r"]},"application/x-rar-compressed":{"source":"apache","compressible":false,"extensions":["rar"]},"application/x-redhat-package-manager":{"source":"nginx","extensions":["rpm"]},"application/x-research-info-systems":{"source":"apache","extensions":["ris"]},"application/x-sea":{"source":"nginx","extensions":["sea"]},"application/x-sh":{"source":"apache","compressible":true,"extensions":["sh"]},"application/x-shar":{"source":"apache","extensions":["shar"]},"application/x-shockwave-flash":{"source":"apache","compressible":false,"extensions":["swf"]},"application/x-silverlight-app":{"source":"apache","extensions":["xap"]},"application/x-sql":{"source":"apache","extensions":["sql"]},"application/x-stuffit":{"source":"apache","compressible":false,"extensions":["sit"]},"application/x-stuffitx":{"source":"apache","extensions":["sitx"]},"application/x-subrip":{"source":"apache","extensions":["srt"]},"application/x-sv4cpio":{"source":"apache","extensions":["sv4cpio"]},"application/x-sv4crc":{"source":"apache","extensions":["sv4crc"]},"application/x-t3vm-image":{"source":"apache","extensions":["t3"]},"application/x-tads":{"source":"apache","extensions":["gam"]},"application/x-tar":{"source":"apache","compressible":true,"extensions":["tar"]},"application/x-tcl":{"source":"apache","extensions":["tcl","tk"]},"application/x-tex":{"source":"apache","extensions":["tex"]},"application/x-tex-tfm":{"source":"apache","extensions":["tfm"]},"application/x-texinfo":{"source":"apache","extensions":["texinfo","texi"]},"application/x-tgif":{"source":"apache","extensions":["obj"]},"application/x-ustar":{"source":"apache","extensions":["ustar"]},"application/x-virtualbox-hdd":{"compressible":true,"extensions":["hdd"]},"application/x-virtualbox-ova":{"compressible":true,"extensions":["ova"]},"application/x-virtualbox-ovf":{"compressible":true,"extensions":["ovf"]},"application/x-virtualbox-vbox":{"compressible":true,"extensions":["vbox"]},"application/x-virtualbox-vbox-extpack":{"compressible":false,"extensions":["vbox-extpack"]},"application/x-virtualbox-vdi":{"compressible":true,"extensions":["vdi"]},"application/x-virtualbox-vhd":{"compressible":true,"extensions":["vhd"]},"application/x-virtualbox-vmdk":{"compressible":true,"extensions":["vmdk"]},"application/x-wais-source":{"source":"apache","extensions":["src"]},"application/x-web-app-manifest+json":{"compressible":true,"extensions":["webapp"]},"application/x-www-form-urlencoded":{"source":"iana","compressible":true},"application/x-x509-ca-cert":{"source":"apache","extensions":["der","crt","pem"]},"application/x-xfig":{"source":"apache","extensions":["fig"]},"application/x-xliff+xml":{"source":"apache","extensions":["xlf"]},"application/x-xpinstall":{"source":"apache","compressible":false,"extensions":["xpi"]},"application/x-xz":{"source":"apache","extensions":["xz"]},"application/x-zmachine":{"source":"apache","extensions":["z1","z2","z3","z4","z5","z6","z7","z8"]},"application/x400-bp":{"source":"iana"},"application/xacml+xml":{"source":"iana"},"application/xaml+xml":{"source":"apache","extensions":["xaml"]},"application/xcap-att+xml":{"source":"iana"},"application/xcap-caps+xml":{"source":"iana"},"application/xcap-diff+xml":{"source":"iana","extensions":["xdf"]},"application/xcap-el+xml":{"source":"iana"},"application/xcap-error+xml":{"source":"iana"},"application/xcap-ns+xml":{"source":"iana"},"application/xcon-conference-info+xml":{"source":"iana"},"application/xcon-conference-info-diff+xml":{"source":"iana"},"application/xenc+xml":{"source":"iana","extensions":["xenc"]},"application/xhtml+xml":{"source":"iana","compressible":true,"extensions":["xhtml","xht"]},"application/xhtml-voice+xml":{"source":"apache"},"application/xml":{"source":"iana","compressible":true,"extensions":["xml","xsl","xsd","rng"]},"application/xml-dtd":{"source":"iana","compressible":true,"extensions":["dtd"]},"application/xml-external-parsed-entity":{"source":"iana"},"application/xml-patch+xml":{"source":"iana"},"application/xmpp+xml":{"source":"iana"},"application/xop+xml":{"source":"iana","compressible":true,"extensions":["xop"]},"application/xproc+xml":{"source":"apache","extensions":["xpl"]},"application/xslt+xml":{"source":"iana","extensions":["xslt"]},"application/xspf+xml":{"source":"apache","extensions":["xspf"]},"application/xv+xml":{"source":"iana","extensions":["mxml","xhvml","xvml","xvm"]},"application/yang":{"source":"iana","extensions":["yang"]},"application/yang-data+json":{"source":"iana","compressible":true},"application/yang-data+xml":{"source":"iana"},"application/yang-patch+json":{"source":"iana","compressible":true},"application/yang-patch+xml":{"source":"iana"},"application/yin+xml":{"source":"iana","extensions":["yin"]},"application/zip":{"source":"iana","compressible":false,"extensions":["zip"]},"application/zlib":{"source":"iana"},"audio/1d-interleaved-parityfec":{"source":"iana"},"audio/32kadpcm":{"source":"iana"},"audio/3gpp":{"source":"iana","compressible":false,"extensions":["3gpp"]},"audio/3gpp2":{"source":"iana"},"audio/ac3":{"source":"iana"},"audio/adpcm":{"source":"apache","extensions":["adp"]},"audio/amr":{"source":"iana"},"audio/amr-wb":{"source":"iana"},"audio/amr-wb+":{"source":"iana"},"audio/aptx":{"source":"iana"},"audio/asc":{"source":"iana"},"audio/atrac-advanced-lossless":{"source":"iana"},"audio/atrac-x":{"source":"iana"},"audio/atrac3":{"source":"iana"},"audio/basic":{"source":"iana","compressible":false,"extensions":["au","snd"]},"audio/bv16":{"source":"iana"},"audio/bv32":{"source":"iana"},"audio/clearmode":{"source":"iana"},"audio/cn":{"source":"iana"},"audio/dat12":{"source":"iana"},"audio/dls":{"source":"iana"},"audio/dsr-es201108":{"source":"iana"},"audio/dsr-es202050":{"source":"iana"},"audio/dsr-es202211":{"source":"iana"},"audio/dsr-es202212":{"source":"iana"},"audio/dv":{"source":"iana"},"audio/dvi4":{"source":"iana"},"audio/eac3":{"source":"iana"},"audio/encaprtp":{"source":"iana"},"audio/evrc":{"source":"iana"},"audio/evrc-qcp":{"source":"iana"},"audio/evrc0":{"source":"iana"},"audio/evrc1":{"source":"iana"},"audio/evrcb":{"source":"iana"},"audio/evrcb0":{"source":"iana"},"audio/evrcb1":{"source":"iana"},"audio/evrcnw":{"source":"iana"},"audio/evrcnw0":{"source":"iana"},"audio/evrcnw1":{"source":"iana"},"audio/evrcwb":{"source":"iana"},"audio/evrcwb0":{"source":"iana"},"audio/evrcwb1":{"source":"iana"},"audio/evs":{"source":"iana"},"audio/fwdred":{"source":"iana"},"audio/g711-0":{"source":"iana"},"audio/g719":{"source":"iana"},"audio/g722":{"source":"iana"},"audio/g7221":{"source":"iana"},"audio/g723":{"source":"iana"},"audio/g726-16":{"source":"iana"},"audio/g726-24":{"source":"iana"},"audio/g726-32":{"source":"iana"},"audio/g726-40":{"source":"iana"},"audio/g728":{"source":"iana"},"audio/g729":{"source":"iana"},"audio/g7291":{"source":"iana"},"audio/g729d":{"source":"iana"},"audio/g729e":{"source":"iana"},"audio/gsm":{"source":"iana"},"audio/gsm-efr":{"source":"iana"},"audio/gsm-hr-08":{"source":"iana"},"audio/ilbc":{"source":"iana"},"audio/ip-mr_v2.5":{"source":"iana"},"audio/isac":{"source":"apache"},"audio/l16":{"source":"iana"},"audio/l20":{"source":"iana"},"audio/l24":{"source":"iana","compressible":false},"audio/l8":{"source":"iana"},"audio/lpc":{"source":"iana"},"audio/melp":{"source":"iana"},"audio/melp1200":{"source":"iana"},"audio/melp2400":{"source":"iana"},"audio/melp600":{"source":"iana"},"audio/midi":{"source":"apache","extensions":["mid","midi","kar","rmi"]},"audio/mobile-xmf":{"source":"iana"},"audio/mp3":{"compressible":false,"extensions":["mp3"]},"audio/mp4":{"source":"iana","compressible":false,"extensions":["m4a","mp4a"]},"audio/mp4a-latm":{"source":"iana"},"audio/mpa":{"source":"iana"},"audio/mpa-robust":{"source":"iana"},"audio/mpeg":{"source":"iana","compressible":false,"extensions":["mpga","mp2","mp2a","mp3","m2a","m3a"]},"audio/mpeg4-generic":{"source":"iana"},"audio/musepack":{"source":"apache"},"audio/ogg":{"source":"iana","compressible":false,"extensions":["oga","ogg","spx"]},"audio/opus":{"source":"iana"},"audio/parityfec":{"source":"iana"},"audio/pcma":{"source":"iana"},"audio/pcma-wb":{"source":"iana"},"audio/pcmu":{"source":"iana"},"audio/pcmu-wb":{"source":"iana"},"audio/prs.sid":{"source":"iana"},"audio/qcelp":{"source":"iana"},"audio/raptorfec":{"source":"iana"},"audio/red":{"source":"iana"},"audio/rtp-enc-aescm128":{"source":"iana"},"audio/rtp-midi":{"source":"iana"},"audio/rtploopback":{"source":"iana"},"audio/rtx":{"source":"iana"},"audio/s3m":{"source":"apache","extensions":["s3m"]},"audio/silk":{"source":"apache","extensions":["sil"]},"audio/smv":{"source":"iana"},"audio/smv-qcp":{"source":"iana"},"audio/smv0":{"source":"iana"},"audio/sp-midi":{"source":"iana"},"audio/speex":{"source":"iana"},"audio/t140c":{"source":"iana"},"audio/t38":{"source":"iana"},"audio/telephone-event":{"source":"iana"},"audio/tone":{"source":"iana"},"audio/uemclip":{"source":"iana"},"audio/ulpfec":{"source":"iana"},"audio/vdvi":{"source":"iana"},"audio/vmr-wb":{"source":"iana"},"audio/vnd.3gpp.iufp":{"source":"iana"},"audio/vnd.4sb":{"source":"iana"},"audio/vnd.audiokoz":{"source":"iana"},"audio/vnd.celp":{"source":"iana"},"audio/vnd.cisco.nse":{"source":"iana"},"audio/vnd.cmles.radio-events":{"source":"iana"},"audio/vnd.cns.anp1":{"source":"iana"},"audio/vnd.cns.inf1":{"source":"iana"},"audio/vnd.dece.audio":{"source":"iana","extensions":["uva","uvva"]},"audio/vnd.digital-winds":{"source":"iana","extensions":["eol"]},"audio/vnd.dlna.adts":{"source":"iana"},"audio/vnd.dolby.heaac.1":{"source":"iana"},"audio/vnd.dolby.heaac.2":{"source":"iana"},"audio/vnd.dolby.mlp":{"source":"iana"},"audio/vnd.dolby.mps":{"source":"iana"},"audio/vnd.dolby.pl2":{"source":"iana"},"audio/vnd.dolby.pl2x":{"source":"iana"},"audio/vnd.dolby.pl2z":{"source":"iana"},"audio/vnd.dolby.pulse.1":{"source":"iana"},"audio/vnd.dra":{"source":"iana","extensions":["dra"]},"audio/vnd.dts":{"source":"iana","extensions":["dts"]},"audio/vnd.dts.hd":{"source":"iana","extensions":["dtshd"]},"audio/vnd.dvb.file":{"source":"iana"},"audio/vnd.everad.plj":{"source":"iana"},"audio/vnd.hns.audio":{"source":"iana"},"audio/vnd.lucent.voice":{"source":"iana","extensions":["lvp"]},"audio/vnd.ms-playready.media.pya":{"source":"iana","extensions":["pya"]},"audio/vnd.nokia.mobile-xmf":{"source":"iana"},"audio/vnd.nortel.vbk":{"source":"iana"},"audio/vnd.nuera.ecelp4800":{"source":"iana","extensions":["ecelp4800"]},"audio/vnd.nuera.ecelp7470":{"source":"iana","extensions":["ecelp7470"]},"audio/vnd.nuera.ecelp9600":{"source":"iana","extensions":["ecelp9600"]},"audio/vnd.octel.sbc":{"source":"iana"},"audio/vnd.presonus.multitrack":{"source":"iana"},"audio/vnd.qcelp":{"source":"iana"},"audio/vnd.rhetorex.32kadpcm":{"source":"iana"},"audio/vnd.rip":{"source":"iana","extensions":["rip"]},"audio/vnd.rn-realaudio":{"compressible":false},"audio/vnd.sealedmedia.softseal.mpeg":{"source":"iana"},"audio/vnd.vmx.cvsd":{"source":"iana"},"audio/vnd.wave":{"compressible":false},"audio/vorbis":{"source":"iana","compressible":false},"audio/vorbis-config":{"source":"iana"},"audio/wav":{"compressible":false,"extensions":["wav"]},"audio/wave":{"compressible":false,"extensions":["wav"]},"audio/webm":{"source":"apache","compressible":false,"extensions":["weba"]},"audio/x-aac":{"source":"apache","compressible":false,"extensions":["aac"]},"audio/x-aiff":{"source":"apache","extensions":["aif","aiff","aifc"]},"audio/x-caf":{"source":"apache","compressible":false,"extensions":["caf"]},"audio/x-flac":{"source":"apache","extensions":["flac"]},"audio/x-m4a":{"source":"nginx","extensions":["m4a"]},"audio/x-matroska":{"source":"apache","extensions":["mka"]},"audio/x-mpegurl":{"source":"apache","extensions":["m3u"]},"audio/x-ms-wax":{"source":"apache","extensions":["wax"]},"audio/x-ms-wma":{"source":"apache","extensions":["wma"]},"audio/x-pn-realaudio":{"source":"apache","extensions":["ram","ra"]},"audio/x-pn-realaudio-plugin":{"source":"apache","extensions":["rmp"]},"audio/x-realaudio":{"source":"nginx","extensions":["ra"]},"audio/x-tta":{"source":"apache"},"audio/x-wav":{"source":"apache","extensions":["wav"]},"audio/xm":{"source":"apache","extensions":["xm"]},"chemical/x-cdx":{"source":"apache","extensions":["cdx"]},"chemical/x-cif":{"source":"apache","extensions":["cif"]},"chemical/x-cmdf":{"source":"apache","extensions":["cmdf"]},"chemical/x-cml":{"source":"apache","extensions":["cml"]},"chemical/x-csml":{"source":"apache","extensions":["csml"]},"chemical/x-pdb":{"source":"apache"},"chemical/x-xyz":{"source":"apache","extensions":["xyz"]},"font/otf":{"compressible":true,"extensions":["otf"]},"image/apng":{"compressible":false,"extensions":["apng"]},"image/bmp":{"source":"iana","compressible":true,"extensions":["bmp"]},"image/cgm":{"source":"iana","extensions":["cgm"]},"image/dicom-rle":{"source":"iana"},"image/emf":{"source":"iana"},"image/fits":{"source":"iana"},"image/g3fax":{"source":"iana","extensions":["g3"]},"image/gif":{"source":"iana","compressible":false,"extensions":["gif"]},"image/ief":{"source":"iana","extensions":["ief"]},"image/jls":{"source":"iana"},"image/jp2":{"source":"iana"},"image/jpeg":{"source":"iana","compressible":false,"extensions":["jpeg","jpg","jpe"]},"image/jpm":{"source":"iana"},"image/jpx":{"source":"iana"},"image/ktx":{"source":"iana","extensions":["ktx"]},"image/naplps":{"source":"iana"},"image/pjpeg":{"compressible":false},"image/png":{"source":"iana","compressible":false,"extensions":["png"]},"image/prs.btif":{"source":"iana","extensions":["btif"]},"image/prs.pti":{"source":"iana"},"image/pwg-raster":{"source":"iana"},"image/sgi":{"source":"apache","extensions":["sgi"]},"image/svg+xml":{"source":"iana","compressible":true,"extensions":["svg","svgz"]},"image/t38":{"source":"iana"},"image/tiff":{"source":"iana","compressible":false,"extensions":["tiff","tif"]},"image/tiff-fx":{"source":"iana"},"image/vnd.adobe.photoshop":{"source":"iana","compressible":true,"extensions":["psd"]},"image/vnd.airzip.accelerator.azv":{"source":"iana"},"image/vnd.cns.inf2":{"source":"iana"},"image/vnd.dece.graphic":{"source":"iana","extensions":["uvi","uvvi","uvg","uvvg"]},"image/vnd.djvu":{"source":"iana","extensions":["djvu","djv"]},"image/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"image/vnd.dwg":{"source":"iana","extensions":["dwg"]},"image/vnd.dxf":{"source":"iana","extensions":["dxf"]},"image/vnd.fastbidsheet":{"source":"iana","extensions":["fbs"]},"image/vnd.fpx":{"source":"iana","extensions":["fpx"]},"image/vnd.fst":{"source":"iana","extensions":["fst"]},"image/vnd.fujixerox.edmics-mmr":{"source":"iana","extensions":["mmr"]},"image/vnd.fujixerox.edmics-rlc":{"source":"iana","extensions":["rlc"]},"image/vnd.globalgraphics.pgb":{"source":"iana"},"image/vnd.microsoft.icon":{"source":"iana"},"image/vnd.mix":{"source":"iana"},"image/vnd.mozilla.apng":{"source":"iana"},"image/vnd.ms-modi":{"source":"iana","extensions":["mdi"]},"image/vnd.ms-photo":{"source":"apache","extensions":["wdp"]},"image/vnd.net-fpx":{"source":"iana","extensions":["npx"]},"image/vnd.radiance":{"source":"iana"},"image/vnd.sealed.png":{"source":"iana"},"image/vnd.sealedmedia.softseal.gif":{"source":"iana"},"image/vnd.sealedmedia.softseal.jpg":{"source":"iana"},"image/vnd.svf":{"source":"iana"},"image/vnd.tencent.tap":{"source":"iana"},"image/vnd.valve.source.texture":{"source":"iana"},"image/vnd.wap.wbmp":{"source":"iana","extensions":["wbmp"]},"image/vnd.xiff":{"source":"iana","extensions":["xif"]},"image/vnd.zbrush.pcx":{"source":"iana"},"image/webp":{"source":"apache","extensions":["webp"]},"image/wmf":{"source":"iana"},"image/x-3ds":{"source":"apache","extensions":["3ds"]},"image/x-cmu-raster":{"source":"apache","extensions":["ras"]},"image/x-cmx":{"source":"apache","extensions":["cmx"]},"image/x-freehand":{"source":"apache","extensions":["fh","fhc","fh4","fh5","fh7"]},"image/x-icon":{"source":"apache","compressible":true,"extensions":["ico"]},"image/x-jng":{"source":"nginx","extensions":["jng"]},"image/x-mrsid-image":{"source":"apache","extensions":["sid"]},"image/x-ms-bmp":{"source":"nginx","compressible":true,"extensions":["bmp"]},"image/x-pcx":{"source":"apache","extensions":["pcx"]},"image/x-pict":{"source":"apache","extensions":["pic","pct"]},"image/x-portable-anymap":{"source":"apache","extensions":["pnm"]},"image/x-portable-bitmap":{"source":"apache","extensions":["pbm"]},"image/x-portable-graymap":{"source":"apache","extensions":["pgm"]},"image/x-portable-pixmap":{"source":"apache","extensions":["ppm"]},"image/x-rgb":{"source":"apache","extensions":["rgb"]},"image/x-tga":{"source":"apache","extensions":["tga"]},"image/x-xbitmap":{"source":"apache","extensions":["xbm"]},"image/x-xcf":{"compressible":false},"image/x-xpixmap":{"source":"apache","extensions":["xpm"]},"image/x-xwindowdump":{"source":"apache","extensions":["xwd"]},"message/cpim":{"source":"iana"},"message/delivery-status":{"source":"iana"},"message/disposition-notification":{"source":"iana"},"message/external-body":{"source":"iana"},"message/feedback-report":{"source":"iana"},"message/global":{"source":"iana"},"message/global-delivery-status":{"source":"iana"},"message/global-disposition-notification":{"source":"iana"},"message/global-headers":{"source":"iana"},"message/http":{"source":"iana","compressible":false},"message/imdn+xml":{"source":"iana","compressible":true},"message/news":{"source":"iana"},"message/partial":{"source":"iana","compressible":false},"message/rfc822":{"source":"iana","compressible":true,"extensions":["eml","mime"]},"message/s-http":{"source":"iana"},"message/sip":{"source":"iana"},"message/sipfrag":{"source":"iana"},"message/tracking-status":{"source":"iana"},"message/vnd.si.simp":{"source":"iana"},"message/vnd.wfa.wsc":{"source":"iana"},"model/3mf":{"source":"iana"},"model/gltf+json":{"source":"iana","compressible":true,"extensions":["gltf"]},"model/gltf-binary":{"compressible":true,"extensions":["glb"]},"model/iges":{"source":"iana","compressible":false,"extensions":["igs","iges"]},"model/mesh":{"source":"iana","compressible":false,"extensions":["msh","mesh","silo"]},"model/vnd.collada+xml":{"source":"iana","extensions":["dae"]},"model/vnd.dwf":{"source":"iana","extensions":["dwf"]},"model/vnd.flatland.3dml":{"source":"iana"},"model/vnd.gdl":{"source":"iana","extensions":["gdl"]},"model/vnd.gs-gdl":{"source":"apache"},"model/vnd.gs.gdl":{"source":"iana"},"model/vnd.gtw":{"source":"iana","extensions":["gtw"]},"model/vnd.moml+xml":{"source":"iana"},"model/vnd.mts":{"source":"iana","extensions":["mts"]},"model/vnd.opengex":{"source":"iana"},"model/vnd.parasolid.transmit.binary":{"source":"iana"},"model/vnd.parasolid.transmit.text":{"source":"iana"},"model/vnd.rosette.annotated-data-model":{"source":"iana"},"model/vnd.valve.source.compiled-map":{"source":"iana"},"model/vnd.vtu":{"source":"iana","extensions":["vtu"]},"model/vrml":{"source":"iana","compressible":false,"extensions":["wrl","vrml"]},"model/x3d+binary":{"source":"apache","compressible":false,"extensions":["x3db","x3dbz"]},"model/x3d+fastinfoset":{"source":"iana"},"model/x3d+vrml":{"source":"apache","compressible":false,"extensions":["x3dv","x3dvz"]},"model/x3d+xml":{"source":"iana","compressible":true,"extensions":["x3d","x3dz"]},"model/x3d-vrml":{"source":"iana"},"multipart/alternative":{"source":"iana","compressible":false},"multipart/appledouble":{"source":"iana"},"multipart/byteranges":{"source":"iana"},"multipart/digest":{"source":"iana"},"multipart/encrypted":{"source":"iana","compressible":false},"multipart/form-data":{"source":"iana","compressible":false},"multipart/header-set":{"source":"iana"},"multipart/mixed":{"source":"iana","compressible":false},"multipart/parallel":{"source":"iana"},"multipart/related":{"source":"iana","compressible":false},"multipart/report":{"source":"iana"},"multipart/signed":{"source":"iana","compressible":false},"multipart/vnd.bint.med-plus":{"source":"iana"},"multipart/voice-message":{"source":"iana"},"multipart/x-mixed-replace":{"source":"iana"},"text/1d-interleaved-parityfec":{"source":"iana"},"text/cache-manifest":{"source":"iana","compressible":true,"extensions":["appcache","manifest"]},"text/calendar":{"source":"iana","extensions":["ics","ifb"]},"text/calender":{"compressible":true},"text/cmd":{"compressible":true},"text/coffeescript":{"extensions":["coffee","litcoffee"]},"text/css":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["css"]},"text/csv":{"source":"iana","compressible":true,"extensions":["csv"]},"text/csv-schema":{"source":"iana"},"text/directory":{"source":"iana"},"text/dns":{"source":"iana"},"text/ecmascript":{"source":"iana"},"text/encaprtp":{"source":"iana"},"text/enriched":{"source":"iana"},"text/fwdred":{"source":"iana"},"text/grammar-ref-list":{"source":"iana"},"text/hjson":{"extensions":["hjson"]},"text/html":{"source":"iana","compressible":true,"extensions":["html","htm","shtml"]},"text/jade":{"extensions":["jade"]},"text/javascript":{"source":"iana","compressible":true},"text/jcr-cnd":{"source":"iana"},"text/jsx":{"compressible":true,"extensions":["jsx"]},"text/less":{"extensions":["less"]},"text/markdown":{"source":"iana","compressible":true,"extensions":["markdown","md"]},"text/mathml":{"source":"nginx","extensions":["mml"]},"text/mizar":{"source":"iana"},"text/n3":{"source":"iana","compressible":true,"extensions":["n3"]},"text/parameters":{"source":"iana"},"text/parityfec":{"source":"iana"},"text/plain":{"source":"iana","compressible":true,"extensions":["txt","text","conf","def","list","log","in","ini"]},"text/provenance-notation":{"source":"iana"},"text/prs.fallenstein.rst":{"source":"iana"},"text/prs.lines.tag":{"source":"iana","extensions":["dsc"]},"text/prs.prop.logic":{"source":"iana"},"text/raptorfec":{"source":"iana"},"text/red":{"source":"iana"},"text/rfc822-headers":{"source":"iana"},"text/richtext":{"source":"iana","compressible":true,"extensions":["rtx"]},"text/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"text/rtp-enc-aescm128":{"source":"iana"},"text/rtploopback":{"source":"iana"},"text/rtx":{"source":"iana"},"text/sgml":{"source":"iana","extensions":["sgml","sgm"]},"text/slim":{"extensions":["slim","slm"]},"text/strings":{"source":"iana"},"text/stylus":{"extensions":["stylus","styl"]},"text/t140":{"source":"iana"},"text/tab-separated-values":{"source":"iana","compressible":true,"extensions":["tsv"]},"text/troff":{"source":"iana","extensions":["t","tr","roff","man","me","ms"]},"text/turtle":{"source":"iana","extensions":["ttl"]},"text/ulpfec":{"source":"iana"},"text/uri-list":{"source":"iana","compressible":true,"extensions":["uri","uris","urls"]},"text/vcard":{"source":"iana","compressible":true,"extensions":["vcard"]},"text/vnd.a":{"source":"iana"},"text/vnd.abc":{"source":"iana"},"text/vnd.ascii-art":{"source":"iana"},"text/vnd.curl":{"source":"iana","extensions":["curl"]},"text/vnd.curl.dcurl":{"source":"apache","extensions":["dcurl"]},"text/vnd.curl.mcurl":{"source":"apache","extensions":["mcurl"]},"text/vnd.curl.scurl":{"source":"apache","extensions":["scurl"]},"text/vnd.debian.copyright":{"source":"iana"},"text/vnd.dmclientscript":{"source":"iana"},"text/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"text/vnd.esmertec.theme-descriptor":{"source":"iana"},"text/vnd.fly":{"source":"iana","extensions":["fly"]},"text/vnd.fmi.flexstor":{"source":"iana","extensions":["flx"]},"text/vnd.graphviz":{"source":"iana","extensions":["gv"]},"text/vnd.in3d.3dml":{"source":"iana","extensions":["3dml"]},"text/vnd.in3d.spot":{"source":"iana","extensions":["spot"]},"text/vnd.iptc.newsml":{"source":"iana"},"text/vnd.iptc.nitf":{"source":"iana"},"text/vnd.latex-z":{"source":"iana"},"text/vnd.motorola.reflex":{"source":"iana"},"text/vnd.ms-mediapackage":{"source":"iana"},"text/vnd.net2phone.commcenter.command":{"source":"iana"},"text/vnd.radisys.msml-basic-layout":{"source":"iana"},"text/vnd.si.uricatalogue":{"source":"iana"},"text/vnd.sun.j2me.app-descriptor":{"source":"iana","extensions":["jad"]},"text/vnd.trolltech.linguist":{"source":"iana"},"text/vnd.wap.si":{"source":"iana"},"text/vnd.wap.sl":{"source":"iana"},"text/vnd.wap.wml":{"source":"iana","extensions":["wml"]},"text/vnd.wap.wmlscript":{"source":"iana","extensions":["wmls"]},"text/vtt":{"charset":"UTF-8","compressible":true,"extensions":["vtt"]},"text/x-asm":{"source":"apache","extensions":["s","asm"]},"text/x-c":{"source":"apache","extensions":["c","cc","cxx","cpp","h","hh","dic"]},"text/x-component":{"source":"nginx","extensions":["htc"]},"text/x-fortran":{"source":"apache","extensions":["f","for","f77","f90"]},"text/x-gwt-rpc":{"compressible":true},"text/x-handlebars-template":{"extensions":["hbs"]},"text/x-java-source":{"source":"apache","extensions":["java"]},"text/x-jquery-tmpl":{"compressible":true},"text/x-lua":{"extensions":["lua"]},"text/x-markdown":{"compressible":true,"extensions":["mkd"]},"text/x-nfo":{"source":"apache","extensions":["nfo"]},"text/x-opml":{"source":"apache","extensions":["opml"]},"text/x-org":{"compressible":true,"extensions":["org"]},"text/x-pascal":{"source":"apache","extensions":["p","pas"]},"text/x-processing":{"compressible":true,"extensions":["pde"]},"text/x-sass":{"extensions":["sass"]},"text/x-scss":{"extensions":["scss"]},"text/x-setext":{"source":"apache","extensions":["etx"]},"text/x-sfv":{"source":"apache","extensions":["sfv"]},"text/x-suse-ymp":{"compressible":true,"extensions":["ymp"]},"text/x-uuencode":{"source":"apache","extensions":["uu"]},"text/x-vcalendar":{"source":"apache","extensions":["vcs"]},"text/x-vcard":{"source":"apache","extensions":["vcf"]},"text/xml":{"source":"iana","compressible":true,"extensions":["xml"]},"text/xml-external-parsed-entity":{"source":"iana"},"text/yaml":{"extensions":["yaml","yml"]},"video/1d-interleaved-parityfec":{"source":"iana"},"video/3gpp":{"source":"iana","extensions":["3gp","3gpp"]},"video/3gpp-tt":{"source":"iana"},"video/3gpp2":{"source":"iana","extensions":["3g2"]},"video/bmpeg":{"source":"iana"},"video/bt656":{"source":"iana"},"video/celb":{"source":"iana"},"video/dv":{"source":"iana"},"video/encaprtp":{"source":"iana"},"video/h261":{"source":"iana","extensions":["h261"]},"video/h263":{"source":"iana","extensions":["h263"]},"video/h263-1998":{"source":"iana"},"video/h263-2000":{"source":"iana"},"video/h264":{"source":"iana","extensions":["h264"]},"video/h264-rcdo":{"source":"iana"},"video/h264-svc":{"source":"iana"},"video/h265":{"source":"iana"},"video/iso.segment":{"source":"iana"},"video/jpeg":{"source":"iana","extensions":["jpgv"]},"video/jpeg2000":{"source":"iana"},"video/jpm":{"source":"apache","extensions":["jpm","jpgm"]},"video/mj2":{"source":"iana","extensions":["mj2","mjp2"]},"video/mp1s":{"source":"iana"},"video/mp2p":{"source":"iana"},"video/mp2t":{"source":"iana","extensions":["ts"]},"video/mp4":{"source":"iana","compressible":false,"extensions":["mp4","mp4v","mpg4"]},"video/mp4v-es":{"source":"iana"},"video/mpeg":{"source":"iana","compressible":false,"extensions":["mpeg","mpg","mpe","m1v","m2v"]},"video/mpeg4-generic":{"source":"iana"},"video/mpv":{"source":"iana"},"video/nv":{"source":"iana"},"video/ogg":{"source":"iana","compressible":false,"extensions":["ogv"]},"video/parityfec":{"source":"iana"},"video/pointer":{"source":"iana"},"video/quicktime":{"source":"iana","compressible":false,"extensions":["qt","mov"]},"video/raptorfec":{"source":"iana"},"video/raw":{"source":"iana"},"video/rtp-enc-aescm128":{"source":"iana"},"video/rtploopback":{"source":"iana"},"video/rtx":{"source":"iana"},"video/smpte292m":{"source":"iana"},"video/ulpfec":{"source":"iana"},"video/vc1":{"source":"iana"},"video/vnd.cctv":{"source":"iana"},"video/vnd.dece.hd":{"source":"iana","extensions":["uvh","uvvh"]},"video/vnd.dece.mobile":{"source":"iana","extensions":["uvm","uvvm"]},"video/vnd.dece.mp4":{"source":"iana"},"video/vnd.dece.pd":{"source":"iana","extensions":["uvp","uvvp"]},"video/vnd.dece.sd":{"source":"iana","extensions":["uvs","uvvs"]},"video/vnd.dece.video":{"source":"iana","extensions":["uvv","uvvv"]},"video/vnd.directv.mpeg":{"source":"iana"},"video/vnd.directv.mpeg-tts":{"source":"iana"},"video/vnd.dlna.mpeg-tts":{"source":"iana"},"video/vnd.dvb.file":{"source":"iana","extensions":["dvb"]},"video/vnd.fvt":{"source":"iana","extensions":["fvt"]},"video/vnd.hns.video":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.ttsavc":{"source":"iana"},"video/vnd.iptvforum.ttsmpeg2":{"source":"iana"},"video/vnd.motorola.video":{"source":"iana"},"video/vnd.motorola.videop":{"source":"iana"},"video/vnd.mpegurl":{"source":"iana","extensions":["mxu","m4u"]},"video/vnd.ms-playready.media.pyv":{"source":"iana","extensions":["pyv"]},"video/vnd.nokia.interleaved-multimedia":{"source":"iana"},"video/vnd.nokia.videovoip":{"source":"iana"},"video/vnd.objectvideo":{"source":"iana"},"video/vnd.radgamettools.bink":{"source":"iana"},"video/vnd.radgamettools.smacker":{"source":"iana"},"video/vnd.sealed.mpeg1":{"source":"iana"},"video/vnd.sealed.mpeg4":{"source":"iana"},"video/vnd.sealed.swf":{"source":"iana"},"video/vnd.sealedmedia.softseal.mov":{"source":"iana"},"video/vnd.uvvu.mp4":{"source":"iana","extensions":["uvu","uvvu"]},"video/vnd.vivo":{"source":"iana","extensions":["viv"]},"video/vp8":{"source":"iana"},"video/webm":{"source":"apache","compressible":false,"extensions":["webm"]},"video/x-f4v":{"source":"apache","extensions":["f4v"]},"video/x-fli":{"source":"apache","extensions":["fli"]},"video/x-flv":{"source":"apache","compressible":false,"extensions":["flv"]},"video/x-m4v":{"source":"apache","extensions":["m4v"]},"video/x-matroska":{"source":"apache","compressible":false,"extensions":["mkv","mk3d","mks"]},"video/x-mng":{"source":"apache","extensions":["mng"]},"video/x-ms-asf":{"source":"apache","extensions":["asf","asx"]},"video/x-ms-vob":{"source":"apache","extensions":["vob"]},"video/x-ms-wm":{"source":"apache","extensions":["wm"]},"video/x-ms-wmv":{"source":"apache","compressible":false,"extensions":["wmv"]},"video/x-ms-wmx":{"source":"apache","extensions":["wmx"]},"video/x-ms-wvx":{"source":"apache","extensions":["wvx"]},"video/x-msvideo":{"source":"apache","extensions":["avi"]},"video/x-sgi-movie":{"source":"apache","extensions":["movie"]},"video/x-smv":{"source":"apache","extensions":["smv"]},"x-conference/x-cooltalk":{"source":"apache","extensions":["ice"]},"x-shader/x-fragment":{"compressible":true},"x-shader/x-vertex":{"compressible":true}}
 
 /***/ }),
-/* 282 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -55934,12 +61817,12 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 283 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var util = __webpack_require__(4)
-var Stream = __webpack_require__(14)
-var StringDecoder = __webpack_require__(48).StringDecoder
+var Stream = __webpack_require__(15)
+var StringDecoder = __webpack_require__(55).StringDecoder
 
 module.exports = StringStream
 module.exports.AlignedStringDecoder = AlignedStringDecoder
@@ -56043,17 +61926,17 @@ function alignedWrite(buffer) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 284 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = ForeverAgent
 ForeverAgent.SSL = ForeverAgentSSL
 
 var util = __webpack_require__(4)
-  , Agent = __webpack_require__(41).Agent
-  , net = __webpack_require__(29)
-  , tls = __webpack_require__(29)
-  , AgentSSL = __webpack_require__(70).Agent
+  , Agent = __webpack_require__(47).Agent
+  , net = __webpack_require__(33)
+  , tls = __webpack_require__(33)
+  , AgentSSL = __webpack_require__(78).Agent
   
 function getConnectionName(host, port) {  
   var name = ''
@@ -56187,7 +62070,7 @@ function createConnectionSSL (port, host, options) {
 
 
 /***/ }),
-/* 285 */
+/* 311 */
 /***/ (function(module, exports) {
 
 /* eslint-env browser */
@@ -56195,7 +62078,7 @@ module.exports = typeof self == 'object' ? self.FormData : window.FormData;
 
 
 /***/ }),
-/* 286 */
+/* 312 */
 /***/ (function(module, exports) {
 
 module.exports      = isTypedArray
@@ -56242,7 +62125,7 @@ function isLooseTypedArray(arr) {
 
 
 /***/ }),
-/* 287 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56329,14 +62212,14 @@ module.exports = getProxyFromURI
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 288 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var qs = __webpack_require__(133)
-var querystring = __webpack_require__(34)
+var qs = __webpack_require__(149)
+var querystring = __webpack_require__(40)
 
 function Querystring (request) {
   this.request = request
@@ -56386,14 +62269,14 @@ exports.Querystring = Querystring
 
 
 /***/ }),
-/* 289 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(134);
-var formats = __webpack_require__(135);
+var utils = __webpack_require__(150);
+var formats = __webpack_require__(151);
 
 var arrayPrefixGenerators = {
     brackets: function brackets(prefix) { // eslint-disable-line func-name-matching
@@ -56603,13 +62486,13 @@ module.exports = function (object, opts) {
 
 
 /***/ }),
-/* 290 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(134);
+var utils = __webpack_require__(150);
 
 var has = Object.prototype.hasOwnProperty;
 
@@ -56784,16 +62667,16 @@ module.exports = function (str, opts) {
 
 
 /***/ }),
-/* 291 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var fs = __webpack_require__(29)
-var qs = __webpack_require__(34)
-var validate = __webpack_require__(292)
-var extend = __webpack_require__(58)
+var fs = __webpack_require__(33)
+var qs = __webpack_require__(40)
+var validate = __webpack_require__(318)
+var extend = __webpack_require__(66)
 
 function Har (request) {
   this.request = request
@@ -56996,12 +62879,12 @@ exports.Har = Har
 
 
 /***/ }),
-/* 292 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Ajv = __webpack_require__(293)
-var HARError = __webpack_require__(325)
-var schemas = __webpack_require__(326)
+var Ajv = __webpack_require__(319)
+var HARError = __webpack_require__(351)
+var schemas = __webpack_require__(352)
 
 var ajv
 
@@ -57097,23 +62980,23 @@ exports.timings = function (data) {
 
 
 /***/ }),
-/* 293 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(console) {
 
-var compileSchema = __webpack_require__(294)
-  , resolve = __webpack_require__(76)
-  , Cache = __webpack_require__(297)
-  , SchemaObject = __webpack_require__(136)
-  , stableStringify = __webpack_require__(137)
-  , formats = __webpack_require__(298)
-  , rules = __webpack_require__(299)
-  , $dataMetaSchema = __webpack_require__(318)
-  , patternGroups = __webpack_require__(319)
-  , util = __webpack_require__(33)
-  , co = __webpack_require__(139);
+var compileSchema = __webpack_require__(320)
+  , resolve = __webpack_require__(84)
+  , Cache = __webpack_require__(323)
+  , SchemaObject = __webpack_require__(152)
+  , stableStringify = __webpack_require__(153)
+  , formats = __webpack_require__(324)
+  , rules = __webpack_require__(325)
+  , $dataMetaSchema = __webpack_require__(344)
+  , patternGroups = __webpack_require__(345)
+  , util = __webpack_require__(37)
+  , co = __webpack_require__(155);
 
 module.exports = Ajv;
 
@@ -57130,13 +63013,13 @@ Ajv.prototype.errorsText = errorsText;
 Ajv.prototype._addSchema = _addSchema;
 Ajv.prototype._compile = _compile;
 
-Ajv.prototype.compileAsync = __webpack_require__(320);
-var customKeyword = __webpack_require__(321);
+Ajv.prototype.compileAsync = __webpack_require__(346);
+var customKeyword = __webpack_require__(347);
 Ajv.prototype.addKeyword = customKeyword.add;
 Ajv.prototype.getKeyword = customKeyword.get;
 Ajv.prototype.removeKeyword = customKeyword.remove;
 
-var errorClasses = __webpack_require__(78);
+var errorClasses = __webpack_require__(86);
 Ajv.ValidationError = errorClasses.Validation;
 Ajv.MissingRefError = errorClasses.MissingRef;
 Ajv.$dataMetaSchema = $dataMetaSchema;
@@ -57548,11 +63431,11 @@ function addFormat(name, format) {
 function addDraft6MetaSchema(self) {
   var $dataSchema;
   if (self._opts.$data) {
-    $dataSchema = __webpack_require__(323);
+    $dataSchema = __webpack_require__(349);
     self.addMetaSchema($dataSchema, $dataSchema.$id, true);
   }
   if (self._opts.meta === false) return;
-  var metaSchema = __webpack_require__(324);
+  var metaSchema = __webpack_require__(350);
   if (self._opts.$data) metaSchema = $dataMetaSchema(metaSchema, META_SUPPORT_DATA);
   self.addMetaSchema(metaSchema, META_SCHEMA_ID, true);
   self._refs['http://json-schema.org/schema'] = META_SCHEMA_ID;
@@ -57604,29 +63487,29 @@ function setLogger(self) {
 
 function noop() {}
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
 
 /***/ }),
-/* 294 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var resolve = __webpack_require__(76)
-  , util = __webpack_require__(33)
-  , errorClasses = __webpack_require__(78)
-  , stableStringify = __webpack_require__(137);
+var resolve = __webpack_require__(84)
+  , util = __webpack_require__(37)
+  , errorClasses = __webpack_require__(86)
+  , stableStringify = __webpack_require__(153);
 
-var validateGenerator = __webpack_require__(138);
+var validateGenerator = __webpack_require__(154);
 
 /**
  * Functions below are used inside compiled validations function
  */
 
-var co = __webpack_require__(139);
+var co = __webpack_require__(155);
 var ucs2length = util.ucs2length;
-var equal = __webpack_require__(77);
+var equal = __webpack_require__(85);
 
 // this error is thrown by async schemas to return validation errors via exception
 var ValidationError = errorClasses.Validation;
@@ -57994,7 +63877,7 @@ function vars(arr, statement) {
 
 
 /***/ }),
-/* 295 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58021,7 +63904,7 @@ module.exports = function ucs2length(str) {
 
 
 /***/ }),
-/* 296 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58109,7 +63992,7 @@ function escapeJsonPtr(str) {
 
 
 /***/ }),
-/* 297 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58142,13 +64025,13 @@ Cache.prototype.clear = function Cache_clear() {
 
 
 /***/ }),
-/* 298 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var util = __webpack_require__(33);
+var util = __webpack_require__(37);
 
 var DATE = /^\d\d\d\d-(\d\d)-(\d\d)$/;
 var DAYS = [0,31,29,31,30,31,30,31,31,30,31,30,31];
@@ -58284,14 +64167,14 @@ function regex(str) {
 
 
 /***/ }),
-/* 299 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ruleModules = __webpack_require__(300)
-  , toHash = __webpack_require__(33).toHash;
+var ruleModules = __webpack_require__(326)
+  , toHash = __webpack_require__(37).toHash;
 
 module.exports = function rules() {
   var RULES = [
@@ -58349,7 +64232,7 @@ module.exports = function rules() {
 
 
 /***/ }),
-/* 300 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58357,37 +64240,37 @@ module.exports = function rules() {
 
 //all requires must be explicit because browserify won't work with dynamic requires
 module.exports = {
-  '$ref': __webpack_require__(301),
-  allOf: __webpack_require__(302),
-  anyOf: __webpack_require__(303),
-  const: __webpack_require__(304),
-  contains: __webpack_require__(305),
-  dependencies: __webpack_require__(306),
-  'enum': __webpack_require__(307),
-  format: __webpack_require__(308),
-  items: __webpack_require__(309),
-  maximum: __webpack_require__(140),
-  minimum: __webpack_require__(140),
-  maxItems: __webpack_require__(141),
-  minItems: __webpack_require__(141),
-  maxLength: __webpack_require__(142),
-  minLength: __webpack_require__(142),
-  maxProperties: __webpack_require__(143),
-  minProperties: __webpack_require__(143),
-  multipleOf: __webpack_require__(310),
-  not: __webpack_require__(311),
-  oneOf: __webpack_require__(312),
-  pattern: __webpack_require__(313),
-  properties: __webpack_require__(314),
-  propertyNames: __webpack_require__(315),
-  required: __webpack_require__(316),
-  uniqueItems: __webpack_require__(317),
-  validate: __webpack_require__(138)
+  '$ref': __webpack_require__(327),
+  allOf: __webpack_require__(328),
+  anyOf: __webpack_require__(329),
+  const: __webpack_require__(330),
+  contains: __webpack_require__(331),
+  dependencies: __webpack_require__(332),
+  'enum': __webpack_require__(333),
+  format: __webpack_require__(334),
+  items: __webpack_require__(335),
+  maximum: __webpack_require__(156),
+  minimum: __webpack_require__(156),
+  maxItems: __webpack_require__(157),
+  minItems: __webpack_require__(157),
+  maxLength: __webpack_require__(158),
+  minLength: __webpack_require__(158),
+  maxProperties: __webpack_require__(159),
+  minProperties: __webpack_require__(159),
+  multipleOf: __webpack_require__(336),
+  not: __webpack_require__(337),
+  oneOf: __webpack_require__(338),
+  pattern: __webpack_require__(339),
+  properties: __webpack_require__(340),
+  propertyNames: __webpack_require__(341),
+  required: __webpack_require__(342),
+  uniqueItems: __webpack_require__(343),
+  validate: __webpack_require__(154)
 };
 
 
 /***/ }),
-/* 301 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58517,7 +64400,7 @@ module.exports = function generate_ref(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 302 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58567,7 +64450,7 @@ module.exports = function generate_allOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 303 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58647,7 +64530,7 @@ module.exports = function generate_anyOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 304 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58709,7 +64592,7 @@ module.exports = function generate_const(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 305 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58797,7 +64680,7 @@ module.exports = function generate_contains(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 306 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58971,7 +64854,7 @@ module.exports = function generate_dependencies(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 307 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59043,7 +64926,7 @@ module.exports = function generate_enum(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 308 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59199,7 +65082,7 @@ module.exports = function generate_format(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 309 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59346,7 +65229,7 @@ module.exports = function generate_items(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 310 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59429,7 +65312,7 @@ module.exports = function generate_multipleOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 311 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59519,7 +65402,7 @@ module.exports = function generate_not(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 312 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59596,7 +65479,7 @@ module.exports = function generate_oneOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 313 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59677,7 +65560,7 @@ module.exports = function generate_pattern(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 314 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60152,7 +66035,7 @@ module.exports = function generate_properties(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 315 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60240,7 +66123,7 @@ module.exports = function generate_propertyNames(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 316 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60515,7 +66398,7 @@ module.exports = function generate_required(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 317 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60593,7 +66476,7 @@ module.exports = function generate_uniqueItems(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 318 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60649,7 +66532,7 @@ module.exports = function (metaSchema, keywordsJsonPointers) {
 
 
 /***/ }),
-/* 319 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60692,13 +66575,13 @@ module.exports = function (ajv) {
 
 
 /***/ }),
-/* 320 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var MissingRefError = __webpack_require__(78).MissingRef;
+var MissingRefError = __webpack_require__(86).MissingRef;
 
 module.exports = compileAsync;
 
@@ -60789,14 +66672,14 @@ function compileAsync(schema, meta, callback) {
 
 
 /***/ }),
-/* 321 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var IDENTIFIER = /^[a-z_$][a-z0-9_$-]*$/i;
-var customRuleCode = __webpack_require__(322);
+var customRuleCode = __webpack_require__(348);
 
 module.exports = {
   add: addKeyword,
@@ -60931,7 +66814,7 @@ function removeKeyword(keyword) {
 
 
 /***/ }),
-/* 322 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61164,19 +67047,19 @@ module.exports = function generate_custom(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 323 */
+/* 349 */
 /***/ (function(module, exports) {
 
 module.exports = {"$schema":"http://json-schema.org/draft-06/schema#","$id":"https://raw.githubusercontent.com/epoberezkin/ajv/master/lib/refs/$data.json#","description":"Meta-schema for $data reference (JSON-schema extension proposal)","type":"object","required":["$data"],"properties":{"$data":{"type":"string","anyOf":[{"format":"relative-json-pointer"},{"format":"json-pointer"}]}},"additionalProperties":false}
 
 /***/ }),
-/* 324 */
+/* 350 */
 /***/ (function(module, exports) {
 
 module.exports = {"$schema":"http://json-schema.org/draft-06/schema#","$id":"http://json-schema.org/draft-06/schema#","title":"Core schema meta-schema","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"nonNegativeInteger":{"type":"integer","minimum":0},"nonNegativeIntegerDefault0":{"allOf":[{"$ref":"#/definitions/nonNegativeInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"uniqueItems":true,"default":[]}},"type":["object","boolean"],"properties":{"$id":{"type":"string","format":"uri-reference"},"$schema":{"type":"string","format":"uri"},"$ref":{"type":"string","format":"uri-reference"},"title":{"type":"string"},"description":{"type":"string"},"default":{},"examples":{"type":"array","items":{}},"multipleOf":{"type":"number","exclusiveMinimum":0},"maximum":{"type":"number"},"exclusiveMaximum":{"type":"number"},"minimum":{"type":"number"},"exclusiveMinimum":{"type":"number"},"maxLength":{"$ref":"#/definitions/nonNegativeInteger"},"minLength":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"pattern":{"type":"string","format":"regex"},"additionalItems":{"$ref":"#"},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":{}},"maxItems":{"$ref":"#/definitions/nonNegativeInteger"},"minItems":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"uniqueItems":{"type":"boolean","default":false},"contains":{"$ref":"#"},"maxProperties":{"$ref":"#/definitions/nonNegativeInteger"},"minProperties":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"required":{"$ref":"#/definitions/stringArray"},"additionalProperties":{"$ref":"#"},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"propertyNames":{"$ref":"#"},"const":{},"enum":{"type":"array","minItems":1,"uniqueItems":true},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"format":{"type":"string"},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"}},"default":{}}
 
 /***/ }),
-/* 325 */
+/* 351 */
 /***/ (function(module, exports) {
 
 function HARError (errors) {
@@ -61199,152 +67082,152 @@ module.exports = HARError
 
 
 /***/ }),
-/* 326 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {
-  afterRequest: __webpack_require__(327),
-  beforeRequest: __webpack_require__(328),
-  browser: __webpack_require__(329),
-  cache: __webpack_require__(330),
-  content: __webpack_require__(331),
-  cookie: __webpack_require__(332),
-  creator: __webpack_require__(333),
-  entry: __webpack_require__(334),
-  har: __webpack_require__(335),
-  header: __webpack_require__(336),
-  log: __webpack_require__(337),
-  page: __webpack_require__(338),
-  pageTimings: __webpack_require__(339),
-  postData: __webpack_require__(340),
-  query: __webpack_require__(341),
-  request: __webpack_require__(342),
-  response: __webpack_require__(343),
-  timings: __webpack_require__(344)
+  afterRequest: __webpack_require__(353),
+  beforeRequest: __webpack_require__(354),
+  browser: __webpack_require__(355),
+  cache: __webpack_require__(356),
+  content: __webpack_require__(357),
+  cookie: __webpack_require__(358),
+  creator: __webpack_require__(359),
+  entry: __webpack_require__(360),
+  har: __webpack_require__(361),
+  header: __webpack_require__(362),
+  log: __webpack_require__(363),
+  page: __webpack_require__(364),
+  pageTimings: __webpack_require__(365),
+  postData: __webpack_require__(366),
+  query: __webpack_require__(367),
+  request: __webpack_require__(368),
+  response: __webpack_require__(369),
+  timings: __webpack_require__(370)
 }
 
 
 /***/ }),
-/* 327 */
+/* 353 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"afterRequest.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["lastAccess","eTag","hitCount"],"properties":{"expires":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"lastAccess":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"eTag":{"type":"string"},"hitCount":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 328 */
+/* 354 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"beforeRequest.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["lastAccess","eTag","hitCount"],"properties":{"expires":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"lastAccess":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"eTag":{"type":"string"},"hitCount":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 329 */
+/* 355 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"browser.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","version"],"properties":{"name":{"type":"string"},"version":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 330 */
+/* 356 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"cache.json#","$schema":"http://json-schema.org/draft-06/schema#","properties":{"beforeRequest":{"oneOf":[{"type":"null"},{"$ref":"beforeRequest.json#"}]},"afterRequest":{"oneOf":[{"type":"null"},{"$ref":"afterRequest.json#"}]},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 331 */
+/* 357 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"content.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["size","mimeType"],"properties":{"size":{"type":"integer"},"compression":{"type":"integer"},"mimeType":{"type":"string"},"text":{"type":"string"},"encoding":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 332 */
+/* 358 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"cookie.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"path":{"type":"string"},"domain":{"type":"string"},"expires":{"type":["string","null"],"format":"date-time"},"httpOnly":{"type":"boolean"},"secure":{"type":"boolean"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 333 */
+/* 359 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"creator.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","version"],"properties":{"name":{"type":"string"},"version":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 334 */
+/* 360 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"entry.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["startedDateTime","time","request","response","cache","timings"],"properties":{"pageref":{"type":"string"},"startedDateTime":{"type":"string","format":"date-time","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},"time":{"type":"number","min":0},"request":{"$ref":"request.json#"},"response":{"$ref":"response.json#"},"cache":{"$ref":"cache.json#"},"timings":{"$ref":"timings.json#"},"serverIPAddress":{"type":"string","oneOf":[{"format":"ipv4"},{"format":"ipv6"}]},"connection":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 335 */
+/* 361 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"har.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["log"],"properties":{"log":{"$ref":"log.json#"}}}
 
 /***/ }),
-/* 336 */
+/* 362 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"header.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 337 */
+/* 363 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"log.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["version","creator","entries"],"properties":{"version":{"type":"string"},"creator":{"$ref":"creator.json#"},"browser":{"$ref":"browser.json#"},"pages":{"type":"array","items":{"$ref":"page.json#"}},"entries":{"type":"array","items":{"$ref":"entry.json#"}},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 338 */
+/* 364 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"page.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["startedDateTime","id","title","pageTimings"],"properties":{"startedDateTime":{"type":"string","format":"date-time","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},"id":{"type":"string","unique":true},"title":{"type":"string"},"pageTimings":{"$ref":"pageTimings.json#"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 339 */
+/* 365 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"pageTimings.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","properties":{"onContentLoad":{"type":"number","min":-1},"onLoad":{"type":"number","min":-1},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 340 */
+/* 366 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"postData.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["mimeType"],"properties":{"mimeType":{"type":"string"},"text":{"type":"string"},"params":{"type":"array","required":["name"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"fileName":{"type":"string"},"contentType":{"type":"string"},"comment":{"type":"string"}}},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 341 */
+/* 367 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"query.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 342 */
+/* 368 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"request.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["method","url","httpVersion","cookies","headers","queryString","headersSize","bodySize"],"properties":{"method":{"type":"string"},"url":{"type":"string","format":"uri"},"httpVersion":{"type":"string"},"cookies":{"type":"array","items":{"$ref":"cookie.json#"}},"headers":{"type":"array","items":{"$ref":"header.json#"}},"queryString":{"type":"array","items":{"$ref":"query.json#"}},"postData":{"$ref":"postData.json#"},"headersSize":{"type":"integer"},"bodySize":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 343 */
+/* 369 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"response.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["status","statusText","httpVersion","cookies","headers","content","redirectURL","headersSize","bodySize"],"properties":{"status":{"type":"integer"},"statusText":{"type":"string"},"httpVersion":{"type":"string"},"cookies":{"type":"array","items":{"$ref":"cookie.json#"}},"headers":{"type":"array","items":{"$ref":"header.json#"}},"content":{"$ref":"content.json#"},"redirectURL":{"type":"string"},"headersSize":{"type":"integer"},"bodySize":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 344 */
+/* 370 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"timings.json#","$schema":"http://json-schema.org/draft-06/schema#","required":["send","wait","receive"],"properties":{"dns":{"type":"number","min":-1},"connect":{"type":"number","min":-1},"blocked":{"type":"number","min":-1},"send":{"type":"number","min":-1},"wait":{"type":"number","min":-1},"receive":{"type":"number","min":-1},"ssl":{"type":"number","min":-1},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 345 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var caseless = __webpack_require__(75)
-var uuid = __webpack_require__(79)
-var helpers = __webpack_require__(60)
+var caseless = __webpack_require__(83)
+var uuid = __webpack_require__(87)
+var helpers = __webpack_require__(68)
 
 var md5 = helpers.md5
 var toBase64 = helpers.toBase64
@@ -61510,11 +67393,11 @@ exports.Auth = Auth
 
 
 /***/ }),
-/* 346 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var rng = __webpack_require__(144);
-var bytesToUuid = __webpack_require__(145);
+var rng = __webpack_require__(160);
+var bytesToUuid = __webpack_require__(161);
 
 // **`v1()` - Generate time-based UUID**
 //
@@ -61625,11 +67508,11 @@ module.exports = v1;
 
 
 /***/ }),
-/* 347 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var rng = __webpack_require__(144);
-var bytesToUuid = __webpack_require__(145);
+var rng = __webpack_require__(160);
+var bytesToUuid = __webpack_require__(161);
 
 function v4(options, buf, offset) {
   var i = buf && offset || 0;
@@ -61660,17 +67543,17 @@ module.exports = v4;
 
 
 /***/ }),
-/* 348 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var url = __webpack_require__(16)
-var qs = __webpack_require__(133)
-var caseless = __webpack_require__(75)
-var uuid = __webpack_require__(79)
-var oauth = __webpack_require__(349)
+var url = __webpack_require__(19)
+var qs = __webpack_require__(149)
+var caseless = __webpack_require__(83)
+var uuid = __webpack_require__(87)
+var oauth = __webpack_require__(375)
 var crypto = __webpack_require__(7)
 var Buffer = __webpack_require__(2).Buffer
 
@@ -61815,11 +67698,11 @@ exports.OAuth = OAuth
 
 
 /***/ }),
-/* 349 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var crypto = __webpack_require__(7)
-  , qs = __webpack_require__(34)
+  , qs = __webpack_require__(40)
   ;
 
 function sha1 (key, body) {
@@ -61957,15 +67840,15 @@ exports.generateBase = generateBase
 
 
 /***/ }),
-/* 350 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var uuid = __webpack_require__(79)
-var CombinedStream = __webpack_require__(351)
-var isstream = __webpack_require__(132)
+var uuid = __webpack_require__(87)
+var CombinedStream = __webpack_require__(377)
+var isstream = __webpack_require__(148)
 var Buffer = __webpack_require__(2).Buffer
 
 function Multipart (request) {
@@ -62076,12 +67959,12 @@ exports.Multipart = Multipart
 
 
 /***/ }),
-/* 351 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var util = __webpack_require__(4);
-var Stream = __webpack_require__(14).Stream;
-var DelayedStream = __webpack_require__(352);
+var Stream = __webpack_require__(15).Stream;
+var DelayedStream = __webpack_require__(378);
 
 module.exports = CombinedStream;
 function CombinedStream() {
@@ -62271,10 +68154,10 @@ CombinedStream.prototype._emitError = function(err) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).Buffer))
 
 /***/ }),
-/* 352 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Stream = __webpack_require__(14).Stream;
+var Stream = __webpack_require__(15).Stream;
 var util = __webpack_require__(4);
 
 module.exports = DelayedStream;
@@ -62384,13 +68267,13 @@ DelayedStream.prototype._checkIfMaxDataSizeExceeded = function() {
 
 
 /***/ }),
-/* 353 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var url = __webpack_require__(16)
+var url = __webpack_require__(19)
 var isUrl = /^https?:/
 
 function Redirect (request) {
@@ -62545,14 +68428,14 @@ exports.Redirect = Redirect
 
 
 /***/ }),
-/* 354 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var url = __webpack_require__(16)
-var tunnel = __webpack_require__(355)
+var url = __webpack_require__(19)
+var tunnel = __webpack_require__(381)
 
 var defaultProxyHeaderWhiteList = [
   'accept',
@@ -62727,18 +68610,18 @@ exports.Tunnel = Tunnel
 
 
 /***/ }),
-/* 355 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process, console) {
 
-var net = __webpack_require__(29)
-  , tls = __webpack_require__(29)
-  , http = __webpack_require__(41)
-  , https = __webpack_require__(70)
-  , events = __webpack_require__(46)
-  , assert = __webpack_require__(21)
+var net = __webpack_require__(33)
+  , tls = __webpack_require__(33)
+  , http = __webpack_require__(47)
+  , https = __webpack_require__(78)
+  , events = __webpack_require__(53)
+  , assert = __webpack_require__(24)
   , util = __webpack_require__(4)
   , Buffer = __webpack_require__(2).Buffer
   ;
@@ -62976,10 +68859,10 @@ if (process.env.NODE_DEBUG && /\btunnel\b/.test(process.env.NODE_DEBUG)) {
 }
 exports.debug = debug // for test
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(18)))
 
 /***/ }),
-/* 356 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
@@ -63022,13 +68905,6752 @@ exports.debug = debug // for test
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 357 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = { mtaKey: "c14a4c2e963039cda3f644285d2cc080" };
+
+/***/ }),
+/* 384 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*eslint-disable block-scoped-var, no-redeclare, no-control-regex, no-prototype-builtins*/
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var $protobuf = __webpack_require__(385);
+
+// Common aliases
+var $Reader = $protobuf.Reader,
+    $Writer = $protobuf.Writer,
+    $util = $protobuf.util;
+
+// Exported root namespace
+var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
+
+$root.transit_realtime = function () {
+
+    /**
+     * Namespace transit_realtime.
+     * @exports transit_realtime
+     * @namespace
+     */
+    var transit_realtime = {};
+
+    transit_realtime.FeedMessage = function () {
+
+        /**
+         * Properties of a FeedMessage.
+         * @typedef transit_realtime.FeedMessage$Properties
+         * @type {Object}
+         * @property {transit_realtime.FeedHeader$Properties} header FeedMessage header.
+         * @property {Array.<transit_realtime.FeedEntity$Properties>} [entity] FeedMessage entity.
+         */
+
+        /**
+         * Constructs a new FeedMessage.
+         * @exports transit_realtime.FeedMessage
+         * @constructor
+         * @param {transit_realtime.FeedMessage$Properties=} [properties] Properties to set
+         */
+        function FeedMessage(properties) {
+            this.entity = [];
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * FeedMessage header.
+         * @type {transit_realtime.FeedHeader$Properties}
+         */
+        FeedMessage.prototype.header = null;
+
+        /**
+         * FeedMessage entity.
+         * @type {Array.<transit_realtime.FeedEntity$Properties>}
+         */
+        FeedMessage.prototype.entity = $util.emptyArray;
+
+        /**
+         * Creates a new FeedMessage instance using the specified properties.
+         * @param {transit_realtime.FeedMessage$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.FeedMessage} FeedMessage instance
+         */
+        FeedMessage.create = function create(properties) {
+            return new FeedMessage(properties);
+        };
+
+        /**
+         * Encodes the specified FeedMessage message. Does not implicitly {@link transit_realtime.FeedMessage.verify|verify} messages.
+         * @param {transit_realtime.FeedMessage$Properties} message FeedMessage message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        FeedMessage.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            $root.transit_realtime.FeedHeader.encode(message.header, writer.uint32( /* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.entity != null && message.entity.length) for (var i = 0; i < message.entity.length; ++i) {
+                $root.transit_realtime.FeedEntity.encode(message.entity[i], writer.uint32( /* id 2, wireType 2 =*/18).fork()).ldelim();
+            }return writer;
+        };
+
+        /**
+         * Encodes the specified FeedMessage message, length delimited. Does not implicitly {@link transit_realtime.FeedMessage.verify|verify} messages.
+         * @param {transit_realtime.FeedMessage$Properties} message FeedMessage message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        FeedMessage.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a FeedMessage message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.FeedMessage} FeedMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        FeedMessage.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.FeedMessage();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.header = $root.transit_realtime.FeedHeader.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        if (!(message.entity && message.entity.length)) message.entity = [];
+                        message.entity.push($root.transit_realtime.FeedEntity.decode(reader, reader.uint32()));
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            if (!message.hasOwnProperty("header")) throw $util.ProtocolError("missing required 'header'", { instance: message });
+            return message;
+        };
+
+        /**
+         * Decodes a FeedMessage message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.FeedMessage} FeedMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        FeedMessage.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a FeedMessage message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        FeedMessage.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            var error = $root.transit_realtime.FeedHeader.verify(message.header);
+            if (error) return "header." + error;
+            if (message.entity != null && message.hasOwnProperty("entity")) {
+                if (!Array.isArray(message.entity)) return "entity: array expected";
+                for (var i = 0; i < message.entity.length; ++i) {
+                    var error = $root.transit_realtime.FeedEntity.verify(message.entity[i]);
+                    if (error) return "entity." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a FeedMessage message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.FeedMessage} FeedMessage
+         */
+        FeedMessage.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.FeedMessage) return object;
+            var message = new $root.transit_realtime.FeedMessage();
+            if (object.header != null) {
+                if (_typeof(object.header) !== "object") throw TypeError(".transit_realtime.FeedMessage.header: object expected");
+                message.header = $root.transit_realtime.FeedHeader.fromObject(object.header);
+            }
+            if (object.entity) {
+                if (!Array.isArray(object.entity)) throw TypeError(".transit_realtime.FeedMessage.entity: array expected");
+                message.entity = [];
+                for (var i = 0; i < object.entity.length; ++i) {
+                    if (_typeof(object.entity[i]) !== "object") throw TypeError(".transit_realtime.FeedMessage.entity: object expected");
+                    message.entity[i] = $root.transit_realtime.FeedEntity.fromObject(object.entity[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a FeedMessage message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.FeedMessage.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.FeedMessage} FeedMessage
+         */
+        FeedMessage.from = FeedMessage.fromObject;
+
+        /**
+         * Creates a plain object from a FeedMessage message. Also converts values to other types if specified.
+         * @param {transit_realtime.FeedMessage} message FeedMessage
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        FeedMessage.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.arrays || options.defaults) object.entity = [];
+            if (options.defaults) object.header = null;
+            if (message.header != null && message.hasOwnProperty("header")) object.header = $root.transit_realtime.FeedHeader.toObject(message.header, options);
+            if (message.entity && message.entity.length) {
+                object.entity = [];
+                for (var j = 0; j < message.entity.length; ++j) {
+                    object.entity[j] = $root.transit_realtime.FeedEntity.toObject(message.entity[j], options);
+                }
+            }
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this FeedMessage message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        FeedMessage.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this FeedMessage to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        FeedMessage.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return FeedMessage;
+    }();
+
+    transit_realtime.FeedHeader = function () {
+
+        /**
+         * Properties of a FeedHeader.
+         * @typedef transit_realtime.FeedHeader$Properties
+         * @type {Object}
+         * @property {string} gtfsRealtimeVersion FeedHeader gtfsRealtimeVersion.
+         * @property {transit_realtime.FeedHeader.Incrementality} [incrementality] FeedHeader incrementality.
+         * @property {number|Long} [timestamp] FeedHeader timestamp.
+         */
+
+        /**
+         * Constructs a new FeedHeader.
+         * @exports transit_realtime.FeedHeader
+         * @constructor
+         * @param {transit_realtime.FeedHeader$Properties=} [properties] Properties to set
+         */
+        function FeedHeader(properties) {
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * FeedHeader gtfsRealtimeVersion.
+         * @type {string}
+         */
+        FeedHeader.prototype.gtfsRealtimeVersion = "";
+
+        /**
+         * FeedHeader incrementality.
+         * @type {transit_realtime.FeedHeader.Incrementality}
+         */
+        FeedHeader.prototype.incrementality = 0;
+
+        /**
+         * FeedHeader timestamp.
+         * @type {number|Long}
+         */
+        FeedHeader.prototype.timestamp = $util.Long ? $util.Long.fromBits(0, 0, true) : 0;
+
+        /**
+         * Creates a new FeedHeader instance using the specified properties.
+         * @param {transit_realtime.FeedHeader$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.FeedHeader} FeedHeader instance
+         */
+        FeedHeader.create = function create(properties) {
+            return new FeedHeader(properties);
+        };
+
+        /**
+         * Encodes the specified FeedHeader message. Does not implicitly {@link transit_realtime.FeedHeader.verify|verify} messages.
+         * @param {transit_realtime.FeedHeader$Properties} message FeedHeader message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        FeedHeader.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            writer.uint32( /* id 1, wireType 2 =*/10).string(message.gtfsRealtimeVersion);
+            if (message.incrementality != null && message.hasOwnProperty("incrementality")) writer.uint32( /* id 2, wireType 0 =*/16).uint32(message.incrementality);
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) writer.uint32( /* id 3, wireType 0 =*/24).uint64(message.timestamp);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified FeedHeader message, length delimited. Does not implicitly {@link transit_realtime.FeedHeader.verify|verify} messages.
+         * @param {transit_realtime.FeedHeader$Properties} message FeedHeader message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        FeedHeader.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a FeedHeader message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.FeedHeader} FeedHeader
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        FeedHeader.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.FeedHeader();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.gtfsRealtimeVersion = reader.string();
+                        break;
+                    case 2:
+                        message.incrementality = reader.uint32();
+                        break;
+                    case 3:
+                        message.timestamp = reader.uint64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            if (!message.hasOwnProperty("gtfsRealtimeVersion")) throw $util.ProtocolError("missing required 'gtfsRealtimeVersion'", { instance: message });
+            return message;
+        };
+
+        /**
+         * Decodes a FeedHeader message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.FeedHeader} FeedHeader
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        FeedHeader.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a FeedHeader message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        FeedHeader.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (!$util.isString(message.gtfsRealtimeVersion)) return "gtfsRealtimeVersion: string expected";
+            if (message.incrementality != null && message.hasOwnProperty("incrementality")) switch (message.incrementality) {
+                default:
+                    return "incrementality: enum value expected";
+                case 0:
+                case 1:
+                    break;
+            }
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high))) return "timestamp: integer|Long expected";
+            return null;
+        };
+
+        /**
+         * Creates a FeedHeader message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.FeedHeader} FeedHeader
+         */
+        FeedHeader.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.FeedHeader) return object;
+            var message = new $root.transit_realtime.FeedHeader();
+            if (object.gtfsRealtimeVersion != null) message.gtfsRealtimeVersion = String(object.gtfsRealtimeVersion);
+            switch (object.incrementality) {
+                case "FULL_DATASET":
+                case 0:
+                    message.incrementality = 0;
+                    break;
+                case "DIFFERENTIAL":
+                case 1:
+                    message.incrementality = 1;
+                    break;
+            }
+            if (object.timestamp != null) if ($util.Long) (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = true;else if (typeof object.timestamp === "string") message.timestamp = parseInt(object.timestamp, 10);else if (typeof object.timestamp === "number") message.timestamp = object.timestamp;else if (_typeof(object.timestamp) === "object") message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber(true);
+            return message;
+        };
+
+        /**
+         * Creates a FeedHeader message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.FeedHeader.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.FeedHeader} FeedHeader
+         */
+        FeedHeader.from = FeedHeader.fromObject;
+
+        /**
+         * Creates a plain object from a FeedHeader message. Also converts values to other types if specified.
+         * @param {transit_realtime.FeedHeader} message FeedHeader
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        FeedHeader.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.defaults) {
+                object.gtfsRealtimeVersion = "";
+                object.incrementality = options.enums === String ? "FULL_DATASET" : 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.timestamp = options.longs === String ? "0" : 0;
+            }
+            if (message.gtfsRealtimeVersion != null && message.hasOwnProperty("gtfsRealtimeVersion")) object.gtfsRealtimeVersion = message.gtfsRealtimeVersion;
+            if (message.incrementality != null && message.hasOwnProperty("incrementality")) object.incrementality = options.enums === String ? $root.transit_realtime.FeedHeader.Incrementality[message.incrementality] : message.incrementality;
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) if (typeof message.timestamp === "number") object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;else object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this FeedHeader message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        FeedHeader.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this FeedHeader to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        FeedHeader.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Incrementality enum.
+         * @name Incrementality
+         * @memberof transit_realtime.FeedHeader
+         * @enum {number}
+         * @property {number} FULL_DATASET=0 FULL_DATASET value
+         * @property {number} DIFFERENTIAL=1 DIFFERENTIAL value
+         */
+        FeedHeader.Incrementality = function () {
+            var valuesById = {},
+                values = Object.create(valuesById);
+            values[valuesById[0] = "FULL_DATASET"] = 0;
+            values[valuesById[1] = "DIFFERENTIAL"] = 1;
+            return values;
+        }();
+
+        return FeedHeader;
+    }();
+
+    transit_realtime.FeedEntity = function () {
+
+        /**
+         * Properties of a FeedEntity.
+         * @typedef transit_realtime.FeedEntity$Properties
+         * @type {Object}
+         * @property {string} id FeedEntity id.
+         * @property {boolean} [isDeleted] FeedEntity isDeleted.
+         * @property {transit_realtime.TripUpdate$Properties} [tripUpdate] FeedEntity tripUpdate.
+         * @property {transit_realtime.VehiclePosition$Properties} [vehicle] FeedEntity vehicle.
+         * @property {transit_realtime.Alert$Properties} [alert] FeedEntity alert.
+         */
+
+        /**
+         * Constructs a new FeedEntity.
+         * @exports transit_realtime.FeedEntity
+         * @constructor
+         * @param {transit_realtime.FeedEntity$Properties=} [properties] Properties to set
+         */
+        function FeedEntity(properties) {
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * FeedEntity id.
+         * @type {string}
+         */
+        FeedEntity.prototype.id = "";
+
+        /**
+         * FeedEntity isDeleted.
+         * @type {boolean}
+         */
+        FeedEntity.prototype.isDeleted = false;
+
+        /**
+         * FeedEntity tripUpdate.
+         * @type {(transit_realtime.TripUpdate$Properties|null)}
+         */
+        FeedEntity.prototype.tripUpdate = null;
+
+        /**
+         * FeedEntity vehicle.
+         * @type {(transit_realtime.VehiclePosition$Properties|null)}
+         */
+        FeedEntity.prototype.vehicle = null;
+
+        /**
+         * FeedEntity alert.
+         * @type {(transit_realtime.Alert$Properties|null)}
+         */
+        FeedEntity.prototype.alert = null;
+
+        /**
+         * Creates a new FeedEntity instance using the specified properties.
+         * @param {transit_realtime.FeedEntity$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.FeedEntity} FeedEntity instance
+         */
+        FeedEntity.create = function create(properties) {
+            return new FeedEntity(properties);
+        };
+
+        /**
+         * Encodes the specified FeedEntity message. Does not implicitly {@link transit_realtime.FeedEntity.verify|verify} messages.
+         * @param {transit_realtime.FeedEntity$Properties} message FeedEntity message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        FeedEntity.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            writer.uint32( /* id 1, wireType 2 =*/10).string(message.id);
+            if (message.isDeleted != null && message.hasOwnProperty("isDeleted")) writer.uint32( /* id 2, wireType 0 =*/16).bool(message.isDeleted);
+            if (message.tripUpdate != null && message.hasOwnProperty("tripUpdate")) $root.transit_realtime.TripUpdate.encode(message.tripUpdate, writer.uint32( /* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.vehicle != null && message.hasOwnProperty("vehicle")) $root.transit_realtime.VehiclePosition.encode(message.vehicle, writer.uint32( /* id 4, wireType 2 =*/34).fork()).ldelim();
+            if (message.alert != null && message.hasOwnProperty("alert")) $root.transit_realtime.Alert.encode(message.alert, writer.uint32( /* id 5, wireType 2 =*/42).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified FeedEntity message, length delimited. Does not implicitly {@link transit_realtime.FeedEntity.verify|verify} messages.
+         * @param {transit_realtime.FeedEntity$Properties} message FeedEntity message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        FeedEntity.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a FeedEntity message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.FeedEntity} FeedEntity
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        FeedEntity.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.FeedEntity();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.isDeleted = reader.bool();
+                        break;
+                    case 3:
+                        message.tripUpdate = $root.transit_realtime.TripUpdate.decode(reader, reader.uint32());
+                        break;
+                    case 4:
+                        message.vehicle = $root.transit_realtime.VehiclePosition.decode(reader, reader.uint32());
+                        break;
+                    case 5:
+                        message.alert = $root.transit_realtime.Alert.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            if (!message.hasOwnProperty("id")) throw $util.ProtocolError("missing required 'id'", { instance: message });
+            return message;
+        };
+
+        /**
+         * Decodes a FeedEntity message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.FeedEntity} FeedEntity
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        FeedEntity.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a FeedEntity message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        FeedEntity.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (!$util.isString(message.id)) return "id: string expected";
+            if (message.isDeleted != null && message.hasOwnProperty("isDeleted")) if (typeof message.isDeleted !== "boolean") return "isDeleted: boolean expected";
+            if (message.tripUpdate != null && message.hasOwnProperty("tripUpdate")) {
+                var error = $root.transit_realtime.TripUpdate.verify(message.tripUpdate);
+                if (error) return "tripUpdate." + error;
+            }
+            if (message.vehicle != null && message.hasOwnProperty("vehicle")) {
+                var error = $root.transit_realtime.VehiclePosition.verify(message.vehicle);
+                if (error) return "vehicle." + error;
+            }
+            if (message.alert != null && message.hasOwnProperty("alert")) {
+                var error = $root.transit_realtime.Alert.verify(message.alert);
+                if (error) return "alert." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a FeedEntity message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.FeedEntity} FeedEntity
+         */
+        FeedEntity.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.FeedEntity) return object;
+            var message = new $root.transit_realtime.FeedEntity();
+            if (object.id != null) message.id = String(object.id);
+            if (object.isDeleted != null) message.isDeleted = Boolean(object.isDeleted);
+            if (object.tripUpdate != null) {
+                if (_typeof(object.tripUpdate) !== "object") throw TypeError(".transit_realtime.FeedEntity.tripUpdate: object expected");
+                message.tripUpdate = $root.transit_realtime.TripUpdate.fromObject(object.tripUpdate);
+            }
+            if (object.vehicle != null) {
+                if (_typeof(object.vehicle) !== "object") throw TypeError(".transit_realtime.FeedEntity.vehicle: object expected");
+                message.vehicle = $root.transit_realtime.VehiclePosition.fromObject(object.vehicle);
+            }
+            if (object.alert != null) {
+                if (_typeof(object.alert) !== "object") throw TypeError(".transit_realtime.FeedEntity.alert: object expected");
+                message.alert = $root.transit_realtime.Alert.fromObject(object.alert);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a FeedEntity message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.FeedEntity.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.FeedEntity} FeedEntity
+         */
+        FeedEntity.from = FeedEntity.fromObject;
+
+        /**
+         * Creates a plain object from a FeedEntity message. Also converts values to other types if specified.
+         * @param {transit_realtime.FeedEntity} message FeedEntity
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        FeedEntity.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.defaults) {
+                object.id = "";
+                object.isDeleted = false;
+                object.tripUpdate = null;
+                object.vehicle = null;
+                object.alert = null;
+            }
+            if (message.id != null && message.hasOwnProperty("id")) object.id = message.id;
+            if (message.isDeleted != null && message.hasOwnProperty("isDeleted")) object.isDeleted = message.isDeleted;
+            if (message.tripUpdate != null && message.hasOwnProperty("tripUpdate")) object.tripUpdate = $root.transit_realtime.TripUpdate.toObject(message.tripUpdate, options);
+            if (message.vehicle != null && message.hasOwnProperty("vehicle")) object.vehicle = $root.transit_realtime.VehiclePosition.toObject(message.vehicle, options);
+            if (message.alert != null && message.hasOwnProperty("alert")) object.alert = $root.transit_realtime.Alert.toObject(message.alert, options);
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this FeedEntity message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        FeedEntity.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this FeedEntity to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        FeedEntity.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return FeedEntity;
+    }();
+
+    transit_realtime.TripUpdate = function () {
+
+        /**
+         * Properties of a TripUpdate.
+         * @typedef transit_realtime.TripUpdate$Properties
+         * @type {Object}
+         * @property {transit_realtime.TripDescriptor$Properties} trip TripUpdate trip.
+         * @property {transit_realtime.VehicleDescriptor$Properties} [vehicle] TripUpdate vehicle.
+         * @property {Array.<transit_realtime.TripUpdate.StopTimeUpdate$Properties>} [stopTimeUpdate] TripUpdate stopTimeUpdate.
+         * @property {number|Long} [timestamp] TripUpdate timestamp.
+         * @property {number} [delay] TripUpdate delay.
+         */
+
+        /**
+         * Constructs a new TripUpdate.
+         * @exports transit_realtime.TripUpdate
+         * @constructor
+         * @param {transit_realtime.TripUpdate$Properties=} [properties] Properties to set
+         */
+        function TripUpdate(properties) {
+            this.stopTimeUpdate = [];
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * TripUpdate trip.
+         * @type {transit_realtime.TripDescriptor$Properties}
+         */
+        TripUpdate.prototype.trip = null;
+
+        /**
+         * TripUpdate vehicle.
+         * @type {(transit_realtime.VehicleDescriptor$Properties|null)}
+         */
+        TripUpdate.prototype.vehicle = null;
+
+        /**
+         * TripUpdate stopTimeUpdate.
+         * @type {Array.<transit_realtime.TripUpdate.StopTimeUpdate$Properties>}
+         */
+        TripUpdate.prototype.stopTimeUpdate = $util.emptyArray;
+
+        /**
+         * TripUpdate timestamp.
+         * @type {number|Long}
+         */
+        TripUpdate.prototype.timestamp = $util.Long ? $util.Long.fromBits(0, 0, true) : 0;
+
+        /**
+         * TripUpdate delay.
+         * @type {number}
+         */
+        TripUpdate.prototype.delay = 0;
+
+        /**
+         * Creates a new TripUpdate instance using the specified properties.
+         * @param {transit_realtime.TripUpdate$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.TripUpdate} TripUpdate instance
+         */
+        TripUpdate.create = function create(properties) {
+            return new TripUpdate(properties);
+        };
+
+        /**
+         * Encodes the specified TripUpdate message. Does not implicitly {@link transit_realtime.TripUpdate.verify|verify} messages.
+         * @param {transit_realtime.TripUpdate$Properties} message TripUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TripUpdate.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            $root.transit_realtime.TripDescriptor.encode(message.trip, writer.uint32( /* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.stopTimeUpdate != null && message.stopTimeUpdate.length) for (var i = 0; i < message.stopTimeUpdate.length; ++i) {
+                $root.transit_realtime.TripUpdate.StopTimeUpdate.encode(message.stopTimeUpdate[i], writer.uint32( /* id 2, wireType 2 =*/18).fork()).ldelim();
+            }if (message.vehicle != null && message.hasOwnProperty("vehicle")) $root.transit_realtime.VehicleDescriptor.encode(message.vehicle, writer.uint32( /* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) writer.uint32( /* id 4, wireType 0 =*/32).uint64(message.timestamp);
+            if (message.delay != null && message.hasOwnProperty("delay")) writer.uint32( /* id 5, wireType 0 =*/40).int32(message.delay);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified TripUpdate message, length delimited. Does not implicitly {@link transit_realtime.TripUpdate.verify|verify} messages.
+         * @param {transit_realtime.TripUpdate$Properties} message TripUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TripUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a TripUpdate message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.TripUpdate} TripUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TripUpdate.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.TripUpdate();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.vehicle = $root.transit_realtime.VehicleDescriptor.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        if (!(message.stopTimeUpdate && message.stopTimeUpdate.length)) message.stopTimeUpdate = [];
+                        message.stopTimeUpdate.push($root.transit_realtime.TripUpdate.StopTimeUpdate.decode(reader, reader.uint32()));
+                        break;
+                    case 4:
+                        message.timestamp = reader.uint64();
+                        break;
+                    case 5:
+                        message.delay = reader.int32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            if (!message.hasOwnProperty("trip")) throw $util.ProtocolError("missing required 'trip'", { instance: message });
+            return message;
+        };
+
+        /**
+         * Decodes a TripUpdate message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.TripUpdate} TripUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TripUpdate.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a TripUpdate message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        TripUpdate.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            var error = $root.transit_realtime.TripDescriptor.verify(message.trip);
+            if (error) return "trip." + error;
+            if (message.vehicle != null && message.hasOwnProperty("vehicle")) {
+                var error = $root.transit_realtime.VehicleDescriptor.verify(message.vehicle);
+                if (error) return "vehicle." + error;
+            }
+            if (message.stopTimeUpdate != null && message.hasOwnProperty("stopTimeUpdate")) {
+                if (!Array.isArray(message.stopTimeUpdate)) return "stopTimeUpdate: array expected";
+                for (var i = 0; i < message.stopTimeUpdate.length; ++i) {
+                    var error = $root.transit_realtime.TripUpdate.StopTimeUpdate.verify(message.stopTimeUpdate[i]);
+                    if (error) return "stopTimeUpdate." + error;
+                }
+            }
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high))) return "timestamp: integer|Long expected";
+            if (message.delay != null && message.hasOwnProperty("delay")) if (!$util.isInteger(message.delay)) return "delay: integer expected";
+            return null;
+        };
+
+        /**
+         * Creates a TripUpdate message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.TripUpdate} TripUpdate
+         */
+        TripUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.TripUpdate) return object;
+            var message = new $root.transit_realtime.TripUpdate();
+            if (object.trip != null) {
+                if (_typeof(object.trip) !== "object") throw TypeError(".transit_realtime.TripUpdate.trip: object expected");
+                message.trip = $root.transit_realtime.TripDescriptor.fromObject(object.trip);
+            }
+            if (object.vehicle != null) {
+                if (_typeof(object.vehicle) !== "object") throw TypeError(".transit_realtime.TripUpdate.vehicle: object expected");
+                message.vehicle = $root.transit_realtime.VehicleDescriptor.fromObject(object.vehicle);
+            }
+            if (object.stopTimeUpdate) {
+                if (!Array.isArray(object.stopTimeUpdate)) throw TypeError(".transit_realtime.TripUpdate.stopTimeUpdate: array expected");
+                message.stopTimeUpdate = [];
+                for (var i = 0; i < object.stopTimeUpdate.length; ++i) {
+                    if (_typeof(object.stopTimeUpdate[i]) !== "object") throw TypeError(".transit_realtime.TripUpdate.stopTimeUpdate: object expected");
+                    message.stopTimeUpdate[i] = $root.transit_realtime.TripUpdate.StopTimeUpdate.fromObject(object.stopTimeUpdate[i]);
+                }
+            }
+            if (object.timestamp != null) if ($util.Long) (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = true;else if (typeof object.timestamp === "string") message.timestamp = parseInt(object.timestamp, 10);else if (typeof object.timestamp === "number") message.timestamp = object.timestamp;else if (_typeof(object.timestamp) === "object") message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber(true);
+            if (object.delay != null) message.delay = object.delay | 0;
+            return message;
+        };
+
+        /**
+         * Creates a TripUpdate message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.TripUpdate.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.TripUpdate} TripUpdate
+         */
+        TripUpdate.from = TripUpdate.fromObject;
+
+        /**
+         * Creates a plain object from a TripUpdate message. Also converts values to other types if specified.
+         * @param {transit_realtime.TripUpdate} message TripUpdate
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TripUpdate.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.arrays || options.defaults) object.stopTimeUpdate = [];
+            if (options.defaults) {
+                object.trip = null;
+                object.vehicle = null;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.timestamp = options.longs === String ? "0" : 0;
+                object.delay = 0;
+            }
+            if (message.trip != null && message.hasOwnProperty("trip")) object.trip = $root.transit_realtime.TripDescriptor.toObject(message.trip, options);
+            if (message.stopTimeUpdate && message.stopTimeUpdate.length) {
+                object.stopTimeUpdate = [];
+                for (var j = 0; j < message.stopTimeUpdate.length; ++j) {
+                    object.stopTimeUpdate[j] = $root.transit_realtime.TripUpdate.StopTimeUpdate.toObject(message.stopTimeUpdate[j], options);
+                }
+            }
+            if (message.vehicle != null && message.hasOwnProperty("vehicle")) object.vehicle = $root.transit_realtime.VehicleDescriptor.toObject(message.vehicle, options);
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) if (typeof message.timestamp === "number") object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;else object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
+            if (message.delay != null && message.hasOwnProperty("delay")) object.delay = message.delay;
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this TripUpdate message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TripUpdate.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this TripUpdate to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        TripUpdate.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        TripUpdate.StopTimeEvent = function () {
+
+            /**
+             * Properties of a StopTimeEvent.
+             * @typedef transit_realtime.TripUpdate.StopTimeEvent$Properties
+             * @type {Object}
+             * @property {number} [delay] StopTimeEvent delay.
+             * @property {number|Long} [time] StopTimeEvent time.
+             * @property {number} [uncertainty] StopTimeEvent uncertainty.
+             */
+
+            /**
+             * Constructs a new StopTimeEvent.
+             * @exports transit_realtime.TripUpdate.StopTimeEvent
+             * @constructor
+             * @param {transit_realtime.TripUpdate.StopTimeEvent$Properties=} [properties] Properties to set
+             */
+            function StopTimeEvent(properties) {
+                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                    if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+                }
+            }
+
+            /**
+             * StopTimeEvent delay.
+             * @type {number}
+             */
+            StopTimeEvent.prototype.delay = 0;
+
+            /**
+             * StopTimeEvent time.
+             * @type {number|Long}
+             */
+            StopTimeEvent.prototype.time = $util.Long ? $util.Long.fromBits(0, 0, false) : 0;
+
+            /**
+             * StopTimeEvent uncertainty.
+             * @type {number}
+             */
+            StopTimeEvent.prototype.uncertainty = 0;
+
+            /**
+             * Creates a new StopTimeEvent instance using the specified properties.
+             * @param {transit_realtime.TripUpdate.StopTimeEvent$Properties=} [properties] Properties to set
+             * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent instance
+             */
+            StopTimeEvent.create = function create(properties) {
+                return new StopTimeEvent(properties);
+            };
+
+            /**
+             * Encodes the specified StopTimeEvent message. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeEvent.verify|verify} messages.
+             * @param {transit_realtime.TripUpdate.StopTimeEvent$Properties} message StopTimeEvent message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StopTimeEvent.encode = function encode(message, writer) {
+                if (!writer) writer = $Writer.create();
+                if (message.delay != null && message.hasOwnProperty("delay")) writer.uint32( /* id 1, wireType 0 =*/8).int32(message.delay);
+                if (message.time != null && message.hasOwnProperty("time")) writer.uint32( /* id 2, wireType 0 =*/16).int64(message.time);
+                if (message.uncertainty != null && message.hasOwnProperty("uncertainty")) writer.uint32( /* id 3, wireType 0 =*/24).int32(message.uncertainty);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StopTimeEvent message, length delimited. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeEvent.verify|verify} messages.
+             * @param {transit_realtime.TripUpdate.StopTimeEvent$Properties} message StopTimeEvent message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StopTimeEvent.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StopTimeEvent message from the specified reader or buffer.
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StopTimeEvent.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length,
+                    message = new $root.transit_realtime.TripUpdate.StopTimeEvent();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                        case 1:
+                            message.delay = reader.int32();
+                            break;
+                        case 2:
+                            message.time = reader.int64();
+                            break;
+                        case 3:
+                            message.uncertainty = reader.int32();
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StopTimeEvent message from the specified reader or buffer, length delimited.
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StopTimeEvent.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader)) reader = $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StopTimeEvent message.
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {?string} `null` if valid, otherwise the reason why it is not
+             */
+            StopTimeEvent.verify = function verify(message) {
+                if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+                if (message.delay != null && message.hasOwnProperty("delay")) if (!$util.isInteger(message.delay)) return "delay: integer expected";
+                if (message.time != null && message.hasOwnProperty("time")) if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high))) return "time: integer|Long expected";
+                if (message.uncertainty != null && message.hasOwnProperty("uncertainty")) if (!$util.isInteger(message.uncertainty)) return "uncertainty: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a StopTimeEvent message from a plain object. Also converts values to their respective internal types.
+             * @param {Object.<string,*>} object Plain object
+             * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent
+             */
+            StopTimeEvent.fromObject = function fromObject(object) {
+                if (object instanceof $root.transit_realtime.TripUpdate.StopTimeEvent) return object;
+                var message = new $root.transit_realtime.TripUpdate.StopTimeEvent();
+                if (object.delay != null) message.delay = object.delay | 0;
+                if (object.time != null) if ($util.Long) (message.time = $util.Long.fromValue(object.time)).unsigned = false;else if (typeof object.time === "string") message.time = parseInt(object.time, 10);else if (typeof object.time === "number") message.time = object.time;else if (_typeof(object.time) === "object") message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber();
+                if (object.uncertainty != null) message.uncertainty = object.uncertainty | 0;
+                return message;
+            };
+
+            /**
+             * Creates a StopTimeEvent message from a plain object. Also converts values to their respective internal types.
+             * This is an alias of {@link transit_realtime.TripUpdate.StopTimeEvent.fromObject}.
+             * @function
+             * @param {Object.<string,*>} object Plain object
+             * @returns {transit_realtime.TripUpdate.StopTimeEvent} StopTimeEvent
+             */
+            StopTimeEvent.from = StopTimeEvent.fromObject;
+
+            /**
+             * Creates a plain object from a StopTimeEvent message. Also converts values to other types if specified.
+             * @param {transit_realtime.TripUpdate.StopTimeEvent} message StopTimeEvent
+             * @param {$protobuf.ConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StopTimeEvent.toObject = function toObject(message, options) {
+                if (!options) options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.delay = 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else object.time = options.longs === String ? "0" : 0;
+                    object.uncertainty = 0;
+                }
+                if (message.delay != null && message.hasOwnProperty("delay")) object.delay = message.delay;
+                if (message.time != null && message.hasOwnProperty("time")) if (typeof message.time === "number") object.time = options.longs === String ? String(message.time) : message.time;else object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber() : message.time;
+                if (message.uncertainty != null && message.hasOwnProperty("uncertainty")) object.uncertainty = message.uncertainty;
+                return object;
+            };
+
+            /**
+             * Creates a plain object from this StopTimeEvent message. Also converts values to other types if specified.
+             * @param {$protobuf.ConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StopTimeEvent.prototype.toObject = function toObject(options) {
+                return this.constructor.toObject(this, options);
+            };
+
+            /**
+             * Converts this StopTimeEvent to JSON.
+             * @returns {Object.<string,*>} JSON object
+             */
+            StopTimeEvent.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StopTimeEvent;
+        }();
+
+        TripUpdate.StopTimeUpdate = function () {
+
+            /**
+             * Properties of a StopTimeUpdate.
+             * @typedef transit_realtime.TripUpdate.StopTimeUpdate$Properties
+             * @type {Object}
+             * @property {number} [stopSequence] StopTimeUpdate stopSequence.
+             * @property {string} [stopId] StopTimeUpdate stopId.
+             * @property {transit_realtime.TripUpdate.StopTimeEvent$Properties} [arrival] StopTimeUpdate arrival.
+             * @property {transit_realtime.TripUpdate.StopTimeEvent$Properties} [departure] StopTimeUpdate departure.
+             * @property {transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship} [scheduleRelationship] StopTimeUpdate scheduleRelationship.
+             */
+
+            /**
+             * Constructs a new StopTimeUpdate.
+             * @exports transit_realtime.TripUpdate.StopTimeUpdate
+             * @constructor
+             * @param {transit_realtime.TripUpdate.StopTimeUpdate$Properties=} [properties] Properties to set
+             */
+            function StopTimeUpdate(properties) {
+                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                    if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+                }
+            }
+
+            /**
+             * StopTimeUpdate stopSequence.
+             * @type {number}
+             */
+            StopTimeUpdate.prototype.stopSequence = 0;
+
+            /**
+             * StopTimeUpdate stopId.
+             * @type {string}
+             */
+            StopTimeUpdate.prototype.stopId = "";
+
+            /**
+             * StopTimeUpdate arrival.
+             * @type {(transit_realtime.TripUpdate.StopTimeEvent$Properties|null)}
+             */
+            StopTimeUpdate.prototype.arrival = null;
+
+            /**
+             * StopTimeUpdate departure.
+             * @type {(transit_realtime.TripUpdate.StopTimeEvent$Properties|null)}
+             */
+            StopTimeUpdate.prototype.departure = null;
+
+            /**
+             * StopTimeUpdate scheduleRelationship.
+             * @type {transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship}
+             */
+            StopTimeUpdate.prototype.scheduleRelationship = 0;
+
+            /**
+             * Creates a new StopTimeUpdate instance using the specified properties.
+             * @param {transit_realtime.TripUpdate.StopTimeUpdate$Properties=} [properties] Properties to set
+             * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate instance
+             */
+            StopTimeUpdate.create = function create(properties) {
+                return new StopTimeUpdate(properties);
+            };
+
+            /**
+             * Encodes the specified StopTimeUpdate message. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeUpdate.verify|verify} messages.
+             * @param {transit_realtime.TripUpdate.StopTimeUpdate$Properties} message StopTimeUpdate message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StopTimeUpdate.encode = function encode(message, writer) {
+                if (!writer) writer = $Writer.create();
+                if (message.stopSequence != null && message.hasOwnProperty("stopSequence")) writer.uint32( /* id 1, wireType 0 =*/8).uint32(message.stopSequence);
+                if (message.arrival != null && message.hasOwnProperty("arrival")) $root.transit_realtime.TripUpdate.StopTimeEvent.encode(message.arrival, writer.uint32( /* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.departure != null && message.hasOwnProperty("departure")) $root.transit_realtime.TripUpdate.StopTimeEvent.encode(message.departure, writer.uint32( /* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.stopId != null && message.hasOwnProperty("stopId")) writer.uint32( /* id 4, wireType 2 =*/34).string(message.stopId);
+                if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship")) writer.uint32( /* id 5, wireType 0 =*/40).uint32(message.scheduleRelationship);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StopTimeUpdate message, length delimited. Does not implicitly {@link transit_realtime.TripUpdate.StopTimeUpdate.verify|verify} messages.
+             * @param {transit_realtime.TripUpdate.StopTimeUpdate$Properties} message StopTimeUpdate message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StopTimeUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StopTimeUpdate message from the specified reader or buffer.
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StopTimeUpdate.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length,
+                    message = new $root.transit_realtime.TripUpdate.StopTimeUpdate();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                        case 1:
+                            message.stopSequence = reader.uint32();
+                            break;
+                        case 4:
+                            message.stopId = reader.string();
+                            break;
+                        case 2:
+                            message.arrival = $root.transit_realtime.TripUpdate.StopTimeEvent.decode(reader, reader.uint32());
+                            break;
+                        case 3:
+                            message.departure = $root.transit_realtime.TripUpdate.StopTimeEvent.decode(reader, reader.uint32());
+                            break;
+                        case 5:
+                            message.scheduleRelationship = reader.uint32();
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StopTimeUpdate message from the specified reader or buffer, length delimited.
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StopTimeUpdate.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader)) reader = $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StopTimeUpdate message.
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {?string} `null` if valid, otherwise the reason why it is not
+             */
+            StopTimeUpdate.verify = function verify(message) {
+                if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+                if (message.stopSequence != null && message.hasOwnProperty("stopSequence")) if (!$util.isInteger(message.stopSequence)) return "stopSequence: integer expected";
+                if (message.stopId != null && message.hasOwnProperty("stopId")) if (!$util.isString(message.stopId)) return "stopId: string expected";
+                if (message.arrival != null && message.hasOwnProperty("arrival")) {
+                    var error = $root.transit_realtime.TripUpdate.StopTimeEvent.verify(message.arrival);
+                    if (error) return "arrival." + error;
+                }
+                if (message.departure != null && message.hasOwnProperty("departure")) {
+                    var error = $root.transit_realtime.TripUpdate.StopTimeEvent.verify(message.departure);
+                    if (error) return "departure." + error;
+                }
+                if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship")) switch (message.scheduleRelationship) {
+                    default:
+                        return "scheduleRelationship: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                        break;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a StopTimeUpdate message from a plain object. Also converts values to their respective internal types.
+             * @param {Object.<string,*>} object Plain object
+             * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate
+             */
+            StopTimeUpdate.fromObject = function fromObject(object) {
+                if (object instanceof $root.transit_realtime.TripUpdate.StopTimeUpdate) return object;
+                var message = new $root.transit_realtime.TripUpdate.StopTimeUpdate();
+                if (object.stopSequence != null) message.stopSequence = object.stopSequence >>> 0;
+                if (object.stopId != null) message.stopId = String(object.stopId);
+                if (object.arrival != null) {
+                    if (_typeof(object.arrival) !== "object") throw TypeError(".transit_realtime.TripUpdate.StopTimeUpdate.arrival: object expected");
+                    message.arrival = $root.transit_realtime.TripUpdate.StopTimeEvent.fromObject(object.arrival);
+                }
+                if (object.departure != null) {
+                    if (_typeof(object.departure) !== "object") throw TypeError(".transit_realtime.TripUpdate.StopTimeUpdate.departure: object expected");
+                    message.departure = $root.transit_realtime.TripUpdate.StopTimeEvent.fromObject(object.departure);
+                }
+                switch (object.scheduleRelationship) {
+                    case "SCHEDULED":
+                    case 0:
+                        message.scheduleRelationship = 0;
+                        break;
+                    case "SKIPPED":
+                    case 1:
+                        message.scheduleRelationship = 1;
+                        break;
+                    case "NO_DATA":
+                    case 2:
+                        message.scheduleRelationship = 2;
+                        break;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a StopTimeUpdate message from a plain object. Also converts values to their respective internal types.
+             * This is an alias of {@link transit_realtime.TripUpdate.StopTimeUpdate.fromObject}.
+             * @function
+             * @param {Object.<string,*>} object Plain object
+             * @returns {transit_realtime.TripUpdate.StopTimeUpdate} StopTimeUpdate
+             */
+            StopTimeUpdate.from = StopTimeUpdate.fromObject;
+
+            /**
+             * Creates a plain object from a StopTimeUpdate message. Also converts values to other types if specified.
+             * @param {transit_realtime.TripUpdate.StopTimeUpdate} message StopTimeUpdate
+             * @param {$protobuf.ConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StopTimeUpdate.toObject = function toObject(message, options) {
+                if (!options) options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.stopSequence = 0;
+                    object.arrival = null;
+                    object.departure = null;
+                    object.stopId = "";
+                    object.scheduleRelationship = options.enums === String ? "SCHEDULED" : 0;
+                }
+                if (message.stopSequence != null && message.hasOwnProperty("stopSequence")) object.stopSequence = message.stopSequence;
+                if (message.arrival != null && message.hasOwnProperty("arrival")) object.arrival = $root.transit_realtime.TripUpdate.StopTimeEvent.toObject(message.arrival, options);
+                if (message.departure != null && message.hasOwnProperty("departure")) object.departure = $root.transit_realtime.TripUpdate.StopTimeEvent.toObject(message.departure, options);
+                if (message.stopId != null && message.hasOwnProperty("stopId")) object.stopId = message.stopId;
+                if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship")) object.scheduleRelationship = options.enums === String ? $root.transit_realtime.TripUpdate.StopTimeUpdate.ScheduleRelationship[message.scheduleRelationship] : message.scheduleRelationship;
+                return object;
+            };
+
+            /**
+             * Creates a plain object from this StopTimeUpdate message. Also converts values to other types if specified.
+             * @param {$protobuf.ConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StopTimeUpdate.prototype.toObject = function toObject(options) {
+                return this.constructor.toObject(this, options);
+            };
+
+            /**
+             * Converts this StopTimeUpdate to JSON.
+             * @returns {Object.<string,*>} JSON object
+             */
+            StopTimeUpdate.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * ScheduleRelationship enum.
+             * @name ScheduleRelationship
+             * @memberof transit_realtime.TripUpdate.StopTimeUpdate
+             * @enum {number}
+             * @property {number} SCHEDULED=0 SCHEDULED value
+             * @property {number} SKIPPED=1 SKIPPED value
+             * @property {number} NO_DATA=2 NO_DATA value
+             */
+            StopTimeUpdate.ScheduleRelationship = function () {
+                var valuesById = {},
+                    values = Object.create(valuesById);
+                values[valuesById[0] = "SCHEDULED"] = 0;
+                values[valuesById[1] = "SKIPPED"] = 1;
+                values[valuesById[2] = "NO_DATA"] = 2;
+                return values;
+            }();
+
+            return StopTimeUpdate;
+        }();
+
+        return TripUpdate;
+    }();
+
+    transit_realtime.VehiclePosition = function () {
+
+        /**
+         * Properties of a VehiclePosition.
+         * @typedef transit_realtime.VehiclePosition$Properties
+         * @type {Object}
+         * @property {transit_realtime.TripDescriptor$Properties} [trip] VehiclePosition trip.
+         * @property {transit_realtime.VehicleDescriptor$Properties} [vehicle] VehiclePosition vehicle.
+         * @property {transit_realtime.Position$Properties} [position] VehiclePosition position.
+         * @property {number} [currentStopSequence] VehiclePosition currentStopSequence.
+         * @property {string} [stopId] VehiclePosition stopId.
+         * @property {transit_realtime.VehiclePosition.VehicleStopStatus} [currentStatus] VehiclePosition currentStatus.
+         * @property {number|Long} [timestamp] VehiclePosition timestamp.
+         * @property {transit_realtime.VehiclePosition.CongestionLevel} [congestionLevel] VehiclePosition congestionLevel.
+         * @property {transit_realtime.VehiclePosition.OccupancyStatus} [occupancyStatus] VehiclePosition occupancyStatus.
+         */
+
+        /**
+         * Constructs a new VehiclePosition.
+         * @exports transit_realtime.VehiclePosition
+         * @constructor
+         * @param {transit_realtime.VehiclePosition$Properties=} [properties] Properties to set
+         */
+        function VehiclePosition(properties) {
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * VehiclePosition trip.
+         * @type {(transit_realtime.TripDescriptor$Properties|null)}
+         */
+        VehiclePosition.prototype.trip = null;
+
+        /**
+         * VehiclePosition vehicle.
+         * @type {(transit_realtime.VehicleDescriptor$Properties|null)}
+         */
+        VehiclePosition.prototype.vehicle = null;
+
+        /**
+         * VehiclePosition position.
+         * @type {(transit_realtime.Position$Properties|null)}
+         */
+        VehiclePosition.prototype.position = null;
+
+        /**
+         * VehiclePosition currentStopSequence.
+         * @type {number}
+         */
+        VehiclePosition.prototype.currentStopSequence = 0;
+
+        /**
+         * VehiclePosition stopId.
+         * @type {string}
+         */
+        VehiclePosition.prototype.stopId = "";
+
+        /**
+         * VehiclePosition currentStatus.
+         * @type {transit_realtime.VehiclePosition.VehicleStopStatus}
+         */
+        VehiclePosition.prototype.currentStatus = 2;
+
+        /**
+         * VehiclePosition timestamp.
+         * @type {number|Long}
+         */
+        VehiclePosition.prototype.timestamp = $util.Long ? $util.Long.fromBits(0, 0, true) : 0;
+
+        /**
+         * VehiclePosition congestionLevel.
+         * @type {transit_realtime.VehiclePosition.CongestionLevel}
+         */
+        VehiclePosition.prototype.congestionLevel = 0;
+
+        /**
+         * VehiclePosition occupancyStatus.
+         * @type {transit_realtime.VehiclePosition.OccupancyStatus}
+         */
+        VehiclePosition.prototype.occupancyStatus = 0;
+
+        /**
+         * Creates a new VehiclePosition instance using the specified properties.
+         * @param {transit_realtime.VehiclePosition$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.VehiclePosition} VehiclePosition instance
+         */
+        VehiclePosition.create = function create(properties) {
+            return new VehiclePosition(properties);
+        };
+
+        /**
+         * Encodes the specified VehiclePosition message. Does not implicitly {@link transit_realtime.VehiclePosition.verify|verify} messages.
+         * @param {transit_realtime.VehiclePosition$Properties} message VehiclePosition message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VehiclePosition.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            if (message.trip != null && message.hasOwnProperty("trip")) $root.transit_realtime.TripDescriptor.encode(message.trip, writer.uint32( /* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.position != null && message.hasOwnProperty("position")) $root.transit_realtime.Position.encode(message.position, writer.uint32( /* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.currentStopSequence != null && message.hasOwnProperty("currentStopSequence")) writer.uint32( /* id 3, wireType 0 =*/24).uint32(message.currentStopSequence);
+            if (message.currentStatus != null && message.hasOwnProperty("currentStatus")) writer.uint32( /* id 4, wireType 0 =*/32).uint32(message.currentStatus);
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) writer.uint32( /* id 5, wireType 0 =*/40).uint64(message.timestamp);
+            if (message.congestionLevel != null && message.hasOwnProperty("congestionLevel")) writer.uint32( /* id 6, wireType 0 =*/48).uint32(message.congestionLevel);
+            if (message.stopId != null && message.hasOwnProperty("stopId")) writer.uint32( /* id 7, wireType 2 =*/58).string(message.stopId);
+            if (message.vehicle != null && message.hasOwnProperty("vehicle")) $root.transit_realtime.VehicleDescriptor.encode(message.vehicle, writer.uint32( /* id 8, wireType 2 =*/66).fork()).ldelim();
+            if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus")) writer.uint32( /* id 9, wireType 0 =*/72).uint32(message.occupancyStatus);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified VehiclePosition message, length delimited. Does not implicitly {@link transit_realtime.VehiclePosition.verify|verify} messages.
+         * @param {transit_realtime.VehiclePosition$Properties} message VehiclePosition message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VehiclePosition.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a VehiclePosition message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.VehiclePosition} VehiclePosition
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VehiclePosition.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.VehiclePosition();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
+                        break;
+                    case 8:
+                        message.vehicle = $root.transit_realtime.VehicleDescriptor.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.position = $root.transit_realtime.Position.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.currentStopSequence = reader.uint32();
+                        break;
+                    case 7:
+                        message.stopId = reader.string();
+                        break;
+                    case 4:
+                        message.currentStatus = reader.uint32();
+                        break;
+                    case 5:
+                        message.timestamp = reader.uint64();
+                        break;
+                    case 6:
+                        message.congestionLevel = reader.uint32();
+                        break;
+                    case 9:
+                        message.occupancyStatus = reader.uint32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a VehiclePosition message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.VehiclePosition} VehiclePosition
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VehiclePosition.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a VehiclePosition message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        VehiclePosition.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (message.trip != null && message.hasOwnProperty("trip")) {
+                var error = $root.transit_realtime.TripDescriptor.verify(message.trip);
+                if (error) return "trip." + error;
+            }
+            if (message.vehicle != null && message.hasOwnProperty("vehicle")) {
+                var error = $root.transit_realtime.VehicleDescriptor.verify(message.vehicle);
+                if (error) return "vehicle." + error;
+            }
+            if (message.position != null && message.hasOwnProperty("position")) {
+                var error = $root.transit_realtime.Position.verify(message.position);
+                if (error) return "position." + error;
+            }
+            if (message.currentStopSequence != null && message.hasOwnProperty("currentStopSequence")) if (!$util.isInteger(message.currentStopSequence)) return "currentStopSequence: integer expected";
+            if (message.stopId != null && message.hasOwnProperty("stopId")) if (!$util.isString(message.stopId)) return "stopId: string expected";
+            if (message.currentStatus != null && message.hasOwnProperty("currentStatus")) switch (message.currentStatus) {
+                default:
+                    return "currentStatus: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                    break;
+            }
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high))) return "timestamp: integer|Long expected";
+            if (message.congestionLevel != null && message.hasOwnProperty("congestionLevel")) switch (message.congestionLevel) {
+                default:
+                    return "congestionLevel: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    break;
+            }
+            if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus")) switch (message.occupancyStatus) {
+                default:
+                    return "occupancyStatus: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    break;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a VehiclePosition message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.VehiclePosition} VehiclePosition
+         */
+        VehiclePosition.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.VehiclePosition) return object;
+            var message = new $root.transit_realtime.VehiclePosition();
+            if (object.trip != null) {
+                if (_typeof(object.trip) !== "object") throw TypeError(".transit_realtime.VehiclePosition.trip: object expected");
+                message.trip = $root.transit_realtime.TripDescriptor.fromObject(object.trip);
+            }
+            if (object.vehicle != null) {
+                if (_typeof(object.vehicle) !== "object") throw TypeError(".transit_realtime.VehiclePosition.vehicle: object expected");
+                message.vehicle = $root.transit_realtime.VehicleDescriptor.fromObject(object.vehicle);
+            }
+            if (object.position != null) {
+                if (_typeof(object.position) !== "object") throw TypeError(".transit_realtime.VehiclePosition.position: object expected");
+                message.position = $root.transit_realtime.Position.fromObject(object.position);
+            }
+            if (object.currentStopSequence != null) message.currentStopSequence = object.currentStopSequence >>> 0;
+            if (object.stopId != null) message.stopId = String(object.stopId);
+            switch (object.currentStatus) {
+                case "INCOMING_AT":
+                case 0:
+                    message.currentStatus = 0;
+                    break;
+                case "STOPPED_AT":
+                case 1:
+                    message.currentStatus = 1;
+                    break;
+                case "IN_TRANSIT_TO":
+                case 2:
+                    message.currentStatus = 2;
+                    break;
+            }
+            if (object.timestamp != null) if ($util.Long) (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = true;else if (typeof object.timestamp === "string") message.timestamp = parseInt(object.timestamp, 10);else if (typeof object.timestamp === "number") message.timestamp = object.timestamp;else if (_typeof(object.timestamp) === "object") message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber(true);
+            switch (object.congestionLevel) {
+                case "UNKNOWN_CONGESTION_LEVEL":
+                case 0:
+                    message.congestionLevel = 0;
+                    break;
+                case "RUNNING_SMOOTHLY":
+                case 1:
+                    message.congestionLevel = 1;
+                    break;
+                case "STOP_AND_GO":
+                case 2:
+                    message.congestionLevel = 2;
+                    break;
+                case "CONGESTION":
+                case 3:
+                    message.congestionLevel = 3;
+                    break;
+                case "SEVERE_CONGESTION":
+                case 4:
+                    message.congestionLevel = 4;
+                    break;
+            }
+            switch (object.occupancyStatus) {
+                case "EMPTY":
+                case 0:
+                    message.occupancyStatus = 0;
+                    break;
+                case "MANY_SEATS_AVAILABLE":
+                case 1:
+                    message.occupancyStatus = 1;
+                    break;
+                case "FEW_SEATS_AVAILABLE":
+                case 2:
+                    message.occupancyStatus = 2;
+                    break;
+                case "STANDING_ROOM_ONLY":
+                case 3:
+                    message.occupancyStatus = 3;
+                    break;
+                case "CRUSHED_STANDING_ROOM_ONLY":
+                case 4:
+                    message.occupancyStatus = 4;
+                    break;
+                case "FULL":
+                case 5:
+                    message.occupancyStatus = 5;
+                    break;
+                case "NOT_ACCEPTING_PASSENGERS":
+                case 6:
+                    message.occupancyStatus = 6;
+                    break;
+            }
+            return message;
+        };
+
+        /**
+         * Creates a VehiclePosition message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.VehiclePosition.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.VehiclePosition} VehiclePosition
+         */
+        VehiclePosition.from = VehiclePosition.fromObject;
+
+        /**
+         * Creates a plain object from a VehiclePosition message. Also converts values to other types if specified.
+         * @param {transit_realtime.VehiclePosition} message VehiclePosition
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        VehiclePosition.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.defaults) {
+                object.trip = null;
+                object.position = null;
+                object.currentStopSequence = 0;
+                object.currentStatus = options.enums === String ? "IN_TRANSIT_TO" : 2;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.timestamp = options.longs === String ? "0" : 0;
+                object.congestionLevel = options.enums === String ? "UNKNOWN_CONGESTION_LEVEL" : 0;
+                object.stopId = "";
+                object.vehicle = null;
+                object.occupancyStatus = options.enums === String ? "EMPTY" : 0;
+            }
+            if (message.trip != null && message.hasOwnProperty("trip")) object.trip = $root.transit_realtime.TripDescriptor.toObject(message.trip, options);
+            if (message.position != null && message.hasOwnProperty("position")) object.position = $root.transit_realtime.Position.toObject(message.position, options);
+            if (message.currentStopSequence != null && message.hasOwnProperty("currentStopSequence")) object.currentStopSequence = message.currentStopSequence;
+            if (message.currentStatus != null && message.hasOwnProperty("currentStatus")) object.currentStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.VehicleStopStatus[message.currentStatus] : message.currentStatus;
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) if (typeof message.timestamp === "number") object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;else object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
+            if (message.congestionLevel != null && message.hasOwnProperty("congestionLevel")) object.congestionLevel = options.enums === String ? $root.transit_realtime.VehiclePosition.CongestionLevel[message.congestionLevel] : message.congestionLevel;
+            if (message.stopId != null && message.hasOwnProperty("stopId")) object.stopId = message.stopId;
+            if (message.vehicle != null && message.hasOwnProperty("vehicle")) object.vehicle = $root.transit_realtime.VehicleDescriptor.toObject(message.vehicle, options);
+            if (message.occupancyStatus != null && message.hasOwnProperty("occupancyStatus")) object.occupancyStatus = options.enums === String ? $root.transit_realtime.VehiclePosition.OccupancyStatus[message.occupancyStatus] : message.occupancyStatus;
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this VehiclePosition message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        VehiclePosition.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this VehiclePosition to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        VehiclePosition.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * VehicleStopStatus enum.
+         * @name VehicleStopStatus
+         * @memberof transit_realtime.VehiclePosition
+         * @enum {number}
+         * @property {number} INCOMING_AT=0 INCOMING_AT value
+         * @property {number} STOPPED_AT=1 STOPPED_AT value
+         * @property {number} IN_TRANSIT_TO=2 IN_TRANSIT_TO value
+         */
+        VehiclePosition.VehicleStopStatus = function () {
+            var valuesById = {},
+                values = Object.create(valuesById);
+            values[valuesById[0] = "INCOMING_AT"] = 0;
+            values[valuesById[1] = "STOPPED_AT"] = 1;
+            values[valuesById[2] = "IN_TRANSIT_TO"] = 2;
+            return values;
+        }();
+
+        /**
+         * CongestionLevel enum.
+         * @name CongestionLevel
+         * @memberof transit_realtime.VehiclePosition
+         * @enum {number}
+         * @property {number} UNKNOWN_CONGESTION_LEVEL=0 UNKNOWN_CONGESTION_LEVEL value
+         * @property {number} RUNNING_SMOOTHLY=1 RUNNING_SMOOTHLY value
+         * @property {number} STOP_AND_GO=2 STOP_AND_GO value
+         * @property {number} CONGESTION=3 CONGESTION value
+         * @property {number} SEVERE_CONGESTION=4 SEVERE_CONGESTION value
+         */
+        VehiclePosition.CongestionLevel = function () {
+            var valuesById = {},
+                values = Object.create(valuesById);
+            values[valuesById[0] = "UNKNOWN_CONGESTION_LEVEL"] = 0;
+            values[valuesById[1] = "RUNNING_SMOOTHLY"] = 1;
+            values[valuesById[2] = "STOP_AND_GO"] = 2;
+            values[valuesById[3] = "CONGESTION"] = 3;
+            values[valuesById[4] = "SEVERE_CONGESTION"] = 4;
+            return values;
+        }();
+
+        /**
+         * OccupancyStatus enum.
+         * @name OccupancyStatus
+         * @memberof transit_realtime.VehiclePosition
+         * @enum {number}
+         * @property {number} EMPTY=0 EMPTY value
+         * @property {number} MANY_SEATS_AVAILABLE=1 MANY_SEATS_AVAILABLE value
+         * @property {number} FEW_SEATS_AVAILABLE=2 FEW_SEATS_AVAILABLE value
+         * @property {number} STANDING_ROOM_ONLY=3 STANDING_ROOM_ONLY value
+         * @property {number} CRUSHED_STANDING_ROOM_ONLY=4 CRUSHED_STANDING_ROOM_ONLY value
+         * @property {number} FULL=5 FULL value
+         * @property {number} NOT_ACCEPTING_PASSENGERS=6 NOT_ACCEPTING_PASSENGERS value
+         */
+        VehiclePosition.OccupancyStatus = function () {
+            var valuesById = {},
+                values = Object.create(valuesById);
+            values[valuesById[0] = "EMPTY"] = 0;
+            values[valuesById[1] = "MANY_SEATS_AVAILABLE"] = 1;
+            values[valuesById[2] = "FEW_SEATS_AVAILABLE"] = 2;
+            values[valuesById[3] = "STANDING_ROOM_ONLY"] = 3;
+            values[valuesById[4] = "CRUSHED_STANDING_ROOM_ONLY"] = 4;
+            values[valuesById[5] = "FULL"] = 5;
+            values[valuesById[6] = "NOT_ACCEPTING_PASSENGERS"] = 6;
+            return values;
+        }();
+
+        return VehiclePosition;
+    }();
+
+    transit_realtime.Alert = function () {
+
+        /**
+         * Properties of an Alert.
+         * @typedef transit_realtime.Alert$Properties
+         * @type {Object}
+         * @property {Array.<transit_realtime.TimeRange$Properties>} [activePeriod] Alert activePeriod.
+         * @property {Array.<transit_realtime.EntitySelector$Properties>} [informedEntity] Alert informedEntity.
+         * @property {transit_realtime.Alert.Cause} [cause] Alert cause.
+         * @property {transit_realtime.Alert.Effect} [effect] Alert effect.
+         * @property {transit_realtime.TranslatedString$Properties} [url] Alert url.
+         * @property {transit_realtime.TranslatedString$Properties} [headerText] Alert headerText.
+         * @property {transit_realtime.TranslatedString$Properties} [descriptionText] Alert descriptionText.
+         */
+
+        /**
+         * Constructs a new Alert.
+         * @exports transit_realtime.Alert
+         * @constructor
+         * @param {transit_realtime.Alert$Properties=} [properties] Properties to set
+         */
+        function Alert(properties) {
+            this.activePeriod = [];
+            this.informedEntity = [];
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * Alert activePeriod.
+         * @type {Array.<transit_realtime.TimeRange$Properties>}
+         */
+        Alert.prototype.activePeriod = $util.emptyArray;
+
+        /**
+         * Alert informedEntity.
+         * @type {Array.<transit_realtime.EntitySelector$Properties>}
+         */
+        Alert.prototype.informedEntity = $util.emptyArray;
+
+        /**
+         * Alert cause.
+         * @type {transit_realtime.Alert.Cause}
+         */
+        Alert.prototype.cause = 1;
+
+        /**
+         * Alert effect.
+         * @type {transit_realtime.Alert.Effect}
+         */
+        Alert.prototype.effect = 8;
+
+        /**
+         * Alert url.
+         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         */
+        Alert.prototype.url = null;
+
+        /**
+         * Alert headerText.
+         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         */
+        Alert.prototype.headerText = null;
+
+        /**
+         * Alert descriptionText.
+         * @type {(transit_realtime.TranslatedString$Properties|null)}
+         */
+        Alert.prototype.descriptionText = null;
+
+        /**
+         * Creates a new Alert instance using the specified properties.
+         * @param {transit_realtime.Alert$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.Alert} Alert instance
+         */
+        Alert.create = function create(properties) {
+            return new Alert(properties);
+        };
+
+        /**
+         * Encodes the specified Alert message. Does not implicitly {@link transit_realtime.Alert.verify|verify} messages.
+         * @param {transit_realtime.Alert$Properties} message Alert message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Alert.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            if (message.activePeriod != null && message.activePeriod.length) for (var i = 0; i < message.activePeriod.length; ++i) {
+                $root.transit_realtime.TimeRange.encode(message.activePeriod[i], writer.uint32( /* id 1, wireType 2 =*/10).fork()).ldelim();
+            }if (message.informedEntity != null && message.informedEntity.length) for (var i = 0; i < message.informedEntity.length; ++i) {
+                $root.transit_realtime.EntitySelector.encode(message.informedEntity[i], writer.uint32( /* id 5, wireType 2 =*/42).fork()).ldelim();
+            }if (message.cause != null && message.hasOwnProperty("cause")) writer.uint32( /* id 6, wireType 0 =*/48).uint32(message.cause);
+            if (message.effect != null && message.hasOwnProperty("effect")) writer.uint32( /* id 7, wireType 0 =*/56).uint32(message.effect);
+            if (message.url != null && message.hasOwnProperty("url")) $root.transit_realtime.TranslatedString.encode(message.url, writer.uint32( /* id 8, wireType 2 =*/66).fork()).ldelim();
+            if (message.headerText != null && message.hasOwnProperty("headerText")) $root.transit_realtime.TranslatedString.encode(message.headerText, writer.uint32( /* id 10, wireType 2 =*/82).fork()).ldelim();
+            if (message.descriptionText != null && message.hasOwnProperty("descriptionText")) $root.transit_realtime.TranslatedString.encode(message.descriptionText, writer.uint32( /* id 11, wireType 2 =*/90).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified Alert message, length delimited. Does not implicitly {@link transit_realtime.Alert.verify|verify} messages.
+         * @param {transit_realtime.Alert$Properties} message Alert message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Alert.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an Alert message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.Alert} Alert
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Alert.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.Alert();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.activePeriod && message.activePeriod.length)) message.activePeriod = [];
+                        message.activePeriod.push($root.transit_realtime.TimeRange.decode(reader, reader.uint32()));
+                        break;
+                    case 5:
+                        if (!(message.informedEntity && message.informedEntity.length)) message.informedEntity = [];
+                        message.informedEntity.push($root.transit_realtime.EntitySelector.decode(reader, reader.uint32()));
+                        break;
+                    case 6:
+                        message.cause = reader.uint32();
+                        break;
+                    case 7:
+                        message.effect = reader.uint32();
+                        break;
+                    case 8:
+                        message.url = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                        break;
+                    case 10:
+                        message.headerText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                        break;
+                    case 11:
+                        message.descriptionText = $root.transit_realtime.TranslatedString.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an Alert message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.Alert} Alert
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Alert.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an Alert message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        Alert.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (message.activePeriod != null && message.hasOwnProperty("activePeriod")) {
+                if (!Array.isArray(message.activePeriod)) return "activePeriod: array expected";
+                for (var i = 0; i < message.activePeriod.length; ++i) {
+                    var error = $root.transit_realtime.TimeRange.verify(message.activePeriod[i]);
+                    if (error) return "activePeriod." + error;
+                }
+            }
+            if (message.informedEntity != null && message.hasOwnProperty("informedEntity")) {
+                if (!Array.isArray(message.informedEntity)) return "informedEntity: array expected";
+                for (var i = 0; i < message.informedEntity.length; ++i) {
+                    var error = $root.transit_realtime.EntitySelector.verify(message.informedEntity[i]);
+                    if (error) return "informedEntity." + error;
+                }
+            }
+            if (message.cause != null && message.hasOwnProperty("cause")) switch (message.cause) {
+                default:
+                    return "cause: enum value expected";
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                    break;
+            }
+            if (message.effect != null && message.hasOwnProperty("effect")) switch (message.effect) {
+                default:
+                    return "effect: enum value expected";
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    break;
+            }
+            if (message.url != null && message.hasOwnProperty("url")) {
+                var error = $root.transit_realtime.TranslatedString.verify(message.url);
+                if (error) return "url." + error;
+            }
+            if (message.headerText != null && message.hasOwnProperty("headerText")) {
+                var error = $root.transit_realtime.TranslatedString.verify(message.headerText);
+                if (error) return "headerText." + error;
+            }
+            if (message.descriptionText != null && message.hasOwnProperty("descriptionText")) {
+                var error = $root.transit_realtime.TranslatedString.verify(message.descriptionText);
+                if (error) return "descriptionText." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an Alert message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.Alert} Alert
+         */
+        Alert.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.Alert) return object;
+            var message = new $root.transit_realtime.Alert();
+            if (object.activePeriod) {
+                if (!Array.isArray(object.activePeriod)) throw TypeError(".transit_realtime.Alert.activePeriod: array expected");
+                message.activePeriod = [];
+                for (var i = 0; i < object.activePeriod.length; ++i) {
+                    if (_typeof(object.activePeriod[i]) !== "object") throw TypeError(".transit_realtime.Alert.activePeriod: object expected");
+                    message.activePeriod[i] = $root.transit_realtime.TimeRange.fromObject(object.activePeriod[i]);
+                }
+            }
+            if (object.informedEntity) {
+                if (!Array.isArray(object.informedEntity)) throw TypeError(".transit_realtime.Alert.informedEntity: array expected");
+                message.informedEntity = [];
+                for (var i = 0; i < object.informedEntity.length; ++i) {
+                    if (_typeof(object.informedEntity[i]) !== "object") throw TypeError(".transit_realtime.Alert.informedEntity: object expected");
+                    message.informedEntity[i] = $root.transit_realtime.EntitySelector.fromObject(object.informedEntity[i]);
+                }
+            }
+            switch (object.cause) {
+                case "UNKNOWN_CAUSE":
+                case 1:
+                    message.cause = 1;
+                    break;
+                case "OTHER_CAUSE":
+                case 2:
+                    message.cause = 2;
+                    break;
+                case "TECHNICAL_PROBLEM":
+                case 3:
+                    message.cause = 3;
+                    break;
+                case "STRIKE":
+                case 4:
+                    message.cause = 4;
+                    break;
+                case "DEMONSTRATION":
+                case 5:
+                    message.cause = 5;
+                    break;
+                case "ACCIDENT":
+                case 6:
+                    message.cause = 6;
+                    break;
+                case "HOLIDAY":
+                case 7:
+                    message.cause = 7;
+                    break;
+                case "WEATHER":
+                case 8:
+                    message.cause = 8;
+                    break;
+                case "MAINTENANCE":
+                case 9:
+                    message.cause = 9;
+                    break;
+                case "CONSTRUCTION":
+                case 10:
+                    message.cause = 10;
+                    break;
+                case "POLICE_ACTIVITY":
+                case 11:
+                    message.cause = 11;
+                    break;
+                case "MEDICAL_EMERGENCY":
+                case 12:
+                    message.cause = 12;
+                    break;
+            }
+            switch (object.effect) {
+                case "NO_SERVICE":
+                case 1:
+                    message.effect = 1;
+                    break;
+                case "REDUCED_SERVICE":
+                case 2:
+                    message.effect = 2;
+                    break;
+                case "SIGNIFICANT_DELAYS":
+                case 3:
+                    message.effect = 3;
+                    break;
+                case "DETOUR":
+                case 4:
+                    message.effect = 4;
+                    break;
+                case "ADDITIONAL_SERVICE":
+                case 5:
+                    message.effect = 5;
+                    break;
+                case "MODIFIED_SERVICE":
+                case 6:
+                    message.effect = 6;
+                    break;
+                case "OTHER_EFFECT":
+                case 7:
+                    message.effect = 7;
+                    break;
+                case "UNKNOWN_EFFECT":
+                case 8:
+                    message.effect = 8;
+                    break;
+                case "STOP_MOVED":
+                case 9:
+                    message.effect = 9;
+                    break;
+            }
+            if (object.url != null) {
+                if (_typeof(object.url) !== "object") throw TypeError(".transit_realtime.Alert.url: object expected");
+                message.url = $root.transit_realtime.TranslatedString.fromObject(object.url);
+            }
+            if (object.headerText != null) {
+                if (_typeof(object.headerText) !== "object") throw TypeError(".transit_realtime.Alert.headerText: object expected");
+                message.headerText = $root.transit_realtime.TranslatedString.fromObject(object.headerText);
+            }
+            if (object.descriptionText != null) {
+                if (_typeof(object.descriptionText) !== "object") throw TypeError(".transit_realtime.Alert.descriptionText: object expected");
+                message.descriptionText = $root.transit_realtime.TranslatedString.fromObject(object.descriptionText);
+            }
+            return message;
+        };
+
+        /**
+         * Creates an Alert message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.Alert.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.Alert} Alert
+         */
+        Alert.from = Alert.fromObject;
+
+        /**
+         * Creates a plain object from an Alert message. Also converts values to other types if specified.
+         * @param {transit_realtime.Alert} message Alert
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        Alert.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.arrays || options.defaults) {
+                object.activePeriod = [];
+                object.informedEntity = [];
+            }
+            if (options.defaults) {
+                object.cause = options.enums === String ? "UNKNOWN_CAUSE" : 1;
+                object.effect = options.enums === String ? "UNKNOWN_EFFECT" : 8;
+                object.url = null;
+                object.headerText = null;
+                object.descriptionText = null;
+            }
+            if (message.activePeriod && message.activePeriod.length) {
+                object.activePeriod = [];
+                for (var j = 0; j < message.activePeriod.length; ++j) {
+                    object.activePeriod[j] = $root.transit_realtime.TimeRange.toObject(message.activePeriod[j], options);
+                }
+            }
+            if (message.informedEntity && message.informedEntity.length) {
+                object.informedEntity = [];
+                for (var j = 0; j < message.informedEntity.length; ++j) {
+                    object.informedEntity[j] = $root.transit_realtime.EntitySelector.toObject(message.informedEntity[j], options);
+                }
+            }
+            if (message.cause != null && message.hasOwnProperty("cause")) object.cause = options.enums === String ? $root.transit_realtime.Alert.Cause[message.cause] : message.cause;
+            if (message.effect != null && message.hasOwnProperty("effect")) object.effect = options.enums === String ? $root.transit_realtime.Alert.Effect[message.effect] : message.effect;
+            if (message.url != null && message.hasOwnProperty("url")) object.url = $root.transit_realtime.TranslatedString.toObject(message.url, options);
+            if (message.headerText != null && message.hasOwnProperty("headerText")) object.headerText = $root.transit_realtime.TranslatedString.toObject(message.headerText, options);
+            if (message.descriptionText != null && message.hasOwnProperty("descriptionText")) object.descriptionText = $root.transit_realtime.TranslatedString.toObject(message.descriptionText, options);
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this Alert message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        Alert.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this Alert to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        Alert.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Cause enum.
+         * @name Cause
+         * @memberof transit_realtime.Alert
+         * @enum {number}
+         * @property {number} UNKNOWN_CAUSE=1 UNKNOWN_CAUSE value
+         * @property {number} OTHER_CAUSE=2 OTHER_CAUSE value
+         * @property {number} TECHNICAL_PROBLEM=3 TECHNICAL_PROBLEM value
+         * @property {number} STRIKE=4 STRIKE value
+         * @property {number} DEMONSTRATION=5 DEMONSTRATION value
+         * @property {number} ACCIDENT=6 ACCIDENT value
+         * @property {number} HOLIDAY=7 HOLIDAY value
+         * @property {number} WEATHER=8 WEATHER value
+         * @property {number} MAINTENANCE=9 MAINTENANCE value
+         * @property {number} CONSTRUCTION=10 CONSTRUCTION value
+         * @property {number} POLICE_ACTIVITY=11 POLICE_ACTIVITY value
+         * @property {number} MEDICAL_EMERGENCY=12 MEDICAL_EMERGENCY value
+         */
+        Alert.Cause = function () {
+            var valuesById = {},
+                values = Object.create(valuesById);
+            values[valuesById[1] = "UNKNOWN_CAUSE"] = 1;
+            values[valuesById[2] = "OTHER_CAUSE"] = 2;
+            values[valuesById[3] = "TECHNICAL_PROBLEM"] = 3;
+            values[valuesById[4] = "STRIKE"] = 4;
+            values[valuesById[5] = "DEMONSTRATION"] = 5;
+            values[valuesById[6] = "ACCIDENT"] = 6;
+            values[valuesById[7] = "HOLIDAY"] = 7;
+            values[valuesById[8] = "WEATHER"] = 8;
+            values[valuesById[9] = "MAINTENANCE"] = 9;
+            values[valuesById[10] = "CONSTRUCTION"] = 10;
+            values[valuesById[11] = "POLICE_ACTIVITY"] = 11;
+            values[valuesById[12] = "MEDICAL_EMERGENCY"] = 12;
+            return values;
+        }();
+
+        /**
+         * Effect enum.
+         * @name Effect
+         * @memberof transit_realtime.Alert
+         * @enum {number}
+         * @property {number} NO_SERVICE=1 NO_SERVICE value
+         * @property {number} REDUCED_SERVICE=2 REDUCED_SERVICE value
+         * @property {number} SIGNIFICANT_DELAYS=3 SIGNIFICANT_DELAYS value
+         * @property {number} DETOUR=4 DETOUR value
+         * @property {number} ADDITIONAL_SERVICE=5 ADDITIONAL_SERVICE value
+         * @property {number} MODIFIED_SERVICE=6 MODIFIED_SERVICE value
+         * @property {number} OTHER_EFFECT=7 OTHER_EFFECT value
+         * @property {number} UNKNOWN_EFFECT=8 UNKNOWN_EFFECT value
+         * @property {number} STOP_MOVED=9 STOP_MOVED value
+         */
+        Alert.Effect = function () {
+            var valuesById = {},
+                values = Object.create(valuesById);
+            values[valuesById[1] = "NO_SERVICE"] = 1;
+            values[valuesById[2] = "REDUCED_SERVICE"] = 2;
+            values[valuesById[3] = "SIGNIFICANT_DELAYS"] = 3;
+            values[valuesById[4] = "DETOUR"] = 4;
+            values[valuesById[5] = "ADDITIONAL_SERVICE"] = 5;
+            values[valuesById[6] = "MODIFIED_SERVICE"] = 6;
+            values[valuesById[7] = "OTHER_EFFECT"] = 7;
+            values[valuesById[8] = "UNKNOWN_EFFECT"] = 8;
+            values[valuesById[9] = "STOP_MOVED"] = 9;
+            return values;
+        }();
+
+        return Alert;
+    }();
+
+    transit_realtime.TimeRange = function () {
+
+        /**
+         * Properties of a TimeRange.
+         * @typedef transit_realtime.TimeRange$Properties
+         * @type {Object}
+         * @property {number|Long} [start] TimeRange start.
+         * @property {number|Long} [end] TimeRange end.
+         */
+
+        /**
+         * Constructs a new TimeRange.
+         * @exports transit_realtime.TimeRange
+         * @constructor
+         * @param {transit_realtime.TimeRange$Properties=} [properties] Properties to set
+         */
+        function TimeRange(properties) {
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * TimeRange start.
+         * @type {number|Long}
+         */
+        TimeRange.prototype.start = $util.Long ? $util.Long.fromBits(0, 0, true) : 0;
+
+        /**
+         * TimeRange end.
+         * @type {number|Long}
+         */
+        TimeRange.prototype.end = $util.Long ? $util.Long.fromBits(0, 0, true) : 0;
+
+        /**
+         * Creates a new TimeRange instance using the specified properties.
+         * @param {transit_realtime.TimeRange$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.TimeRange} TimeRange instance
+         */
+        TimeRange.create = function create(properties) {
+            return new TimeRange(properties);
+        };
+
+        /**
+         * Encodes the specified TimeRange message. Does not implicitly {@link transit_realtime.TimeRange.verify|verify} messages.
+         * @param {transit_realtime.TimeRange$Properties} message TimeRange message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TimeRange.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            if (message.start != null && message.hasOwnProperty("start")) writer.uint32( /* id 1, wireType 0 =*/8).uint64(message.start);
+            if (message.end != null && message.hasOwnProperty("end")) writer.uint32( /* id 2, wireType 0 =*/16).uint64(message.end);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified TimeRange message, length delimited. Does not implicitly {@link transit_realtime.TimeRange.verify|verify} messages.
+         * @param {transit_realtime.TimeRange$Properties} message TimeRange message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TimeRange.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a TimeRange message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.TimeRange} TimeRange
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TimeRange.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.TimeRange();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.start = reader.uint64();
+                        break;
+                    case 2:
+                        message.end = reader.uint64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a TimeRange message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.TimeRange} TimeRange
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TimeRange.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a TimeRange message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        TimeRange.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (message.start != null && message.hasOwnProperty("start")) if (!$util.isInteger(message.start) && !(message.start && $util.isInteger(message.start.low) && $util.isInteger(message.start.high))) return "start: integer|Long expected";
+            if (message.end != null && message.hasOwnProperty("end")) if (!$util.isInteger(message.end) && !(message.end && $util.isInteger(message.end.low) && $util.isInteger(message.end.high))) return "end: integer|Long expected";
+            return null;
+        };
+
+        /**
+         * Creates a TimeRange message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.TimeRange} TimeRange
+         */
+        TimeRange.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.TimeRange) return object;
+            var message = new $root.transit_realtime.TimeRange();
+            if (object.start != null) if ($util.Long) (message.start = $util.Long.fromValue(object.start)).unsigned = true;else if (typeof object.start === "string") message.start = parseInt(object.start, 10);else if (typeof object.start === "number") message.start = object.start;else if (_typeof(object.start) === "object") message.start = new $util.LongBits(object.start.low >>> 0, object.start.high >>> 0).toNumber(true);
+            if (object.end != null) if ($util.Long) (message.end = $util.Long.fromValue(object.end)).unsigned = true;else if (typeof object.end === "string") message.end = parseInt(object.end, 10);else if (typeof object.end === "number") message.end = object.end;else if (_typeof(object.end) === "object") message.end = new $util.LongBits(object.end.low >>> 0, object.end.high >>> 0).toNumber(true);
+            return message;
+        };
+
+        /**
+         * Creates a TimeRange message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.TimeRange.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.TimeRange} TimeRange
+         */
+        TimeRange.from = TimeRange.fromObject;
+
+        /**
+         * Creates a plain object from a TimeRange message. Also converts values to other types if specified.
+         * @param {transit_realtime.TimeRange} message TimeRange
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TimeRange.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.defaults) {
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.start = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.start = options.longs === String ? "0" : 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.end = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.end = options.longs === String ? "0" : 0;
+            }
+            if (message.start != null && message.hasOwnProperty("start")) if (typeof message.start === "number") object.start = options.longs === String ? String(message.start) : message.start;else object.start = options.longs === String ? $util.Long.prototype.toString.call(message.start) : options.longs === Number ? new $util.LongBits(message.start.low >>> 0, message.start.high >>> 0).toNumber(true) : message.start;
+            if (message.end != null && message.hasOwnProperty("end")) if (typeof message.end === "number") object.end = options.longs === String ? String(message.end) : message.end;else object.end = options.longs === String ? $util.Long.prototype.toString.call(message.end) : options.longs === Number ? new $util.LongBits(message.end.low >>> 0, message.end.high >>> 0).toNumber(true) : message.end;
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this TimeRange message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TimeRange.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this TimeRange to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        TimeRange.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return TimeRange;
+    }();
+
+    transit_realtime.Position = function () {
+
+        /**
+         * Properties of a Position.
+         * @typedef transit_realtime.Position$Properties
+         * @type {Object}
+         * @property {number} latitude Position latitude.
+         * @property {number} longitude Position longitude.
+         * @property {number} [bearing] Position bearing.
+         * @property {number} [odometer] Position odometer.
+         * @property {number} [speed] Position speed.
+         */
+
+        /**
+         * Constructs a new Position.
+         * @exports transit_realtime.Position
+         * @constructor
+         * @param {transit_realtime.Position$Properties=} [properties] Properties to set
+         */
+        function Position(properties) {
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * Position latitude.
+         * @type {number}
+         */
+        Position.prototype.latitude = 0;
+
+        /**
+         * Position longitude.
+         * @type {number}
+         */
+        Position.prototype.longitude = 0;
+
+        /**
+         * Position bearing.
+         * @type {number}
+         */
+        Position.prototype.bearing = 0;
+
+        /**
+         * Position odometer.
+         * @type {number}
+         */
+        Position.prototype.odometer = 0;
+
+        /**
+         * Position speed.
+         * @type {number}
+         */
+        Position.prototype.speed = 0;
+
+        /**
+         * Creates a new Position instance using the specified properties.
+         * @param {transit_realtime.Position$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.Position} Position instance
+         */
+        Position.create = function create(properties) {
+            return new Position(properties);
+        };
+
+        /**
+         * Encodes the specified Position message. Does not implicitly {@link transit_realtime.Position.verify|verify} messages.
+         * @param {transit_realtime.Position$Properties} message Position message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Position.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            writer.uint32( /* id 1, wireType 5 =*/13).float(message.latitude);
+            writer.uint32( /* id 2, wireType 5 =*/21).float(message.longitude);
+            if (message.bearing != null && message.hasOwnProperty("bearing")) writer.uint32( /* id 3, wireType 5 =*/29).float(message.bearing);
+            if (message.odometer != null && message.hasOwnProperty("odometer")) writer.uint32( /* id 4, wireType 1 =*/33).double(message.odometer);
+            if (message.speed != null && message.hasOwnProperty("speed")) writer.uint32( /* id 5, wireType 5 =*/45).float(message.speed);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified Position message, length delimited. Does not implicitly {@link transit_realtime.Position.verify|verify} messages.
+         * @param {transit_realtime.Position$Properties} message Position message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Position.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a Position message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.Position} Position
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Position.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.Position();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.latitude = reader.float();
+                        break;
+                    case 2:
+                        message.longitude = reader.float();
+                        break;
+                    case 3:
+                        message.bearing = reader.float();
+                        break;
+                    case 4:
+                        message.odometer = reader.double();
+                        break;
+                    case 5:
+                        message.speed = reader.float();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            if (!message.hasOwnProperty("latitude")) throw $util.ProtocolError("missing required 'latitude'", { instance: message });
+            if (!message.hasOwnProperty("longitude")) throw $util.ProtocolError("missing required 'longitude'", { instance: message });
+            return message;
+        };
+
+        /**
+         * Decodes a Position message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.Position} Position
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Position.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a Position message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        Position.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (typeof message.latitude !== "number") return "latitude: number expected";
+            if (typeof message.longitude !== "number") return "longitude: number expected";
+            if (message.bearing != null && message.hasOwnProperty("bearing")) if (typeof message.bearing !== "number") return "bearing: number expected";
+            if (message.odometer != null && message.hasOwnProperty("odometer")) if (typeof message.odometer !== "number") return "odometer: number expected";
+            if (message.speed != null && message.hasOwnProperty("speed")) if (typeof message.speed !== "number") return "speed: number expected";
+            return null;
+        };
+
+        /**
+         * Creates a Position message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.Position} Position
+         */
+        Position.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.Position) return object;
+            var message = new $root.transit_realtime.Position();
+            if (object.latitude != null) message.latitude = Number(object.latitude);
+            if (object.longitude != null) message.longitude = Number(object.longitude);
+            if (object.bearing != null) message.bearing = Number(object.bearing);
+            if (object.odometer != null) message.odometer = Number(object.odometer);
+            if (object.speed != null) message.speed = Number(object.speed);
+            return message;
+        };
+
+        /**
+         * Creates a Position message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.Position.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.Position} Position
+         */
+        Position.from = Position.fromObject;
+
+        /**
+         * Creates a plain object from a Position message. Also converts values to other types if specified.
+         * @param {transit_realtime.Position} message Position
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        Position.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.defaults) {
+                object.latitude = 0;
+                object.longitude = 0;
+                object.bearing = 0;
+                object.odometer = 0;
+                object.speed = 0;
+            }
+            if (message.latitude != null && message.hasOwnProperty("latitude")) object.latitude = message.latitude;
+            if (message.longitude != null && message.hasOwnProperty("longitude")) object.longitude = message.longitude;
+            if (message.bearing != null && message.hasOwnProperty("bearing")) object.bearing = message.bearing;
+            if (message.odometer != null && message.hasOwnProperty("odometer")) object.odometer = message.odometer;
+            if (message.speed != null && message.hasOwnProperty("speed")) object.speed = message.speed;
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this Position message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        Position.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this Position to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        Position.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return Position;
+    }();
+
+    transit_realtime.TripDescriptor = function () {
+
+        /**
+         * Properties of a TripDescriptor.
+         * @typedef transit_realtime.TripDescriptor$Properties
+         * @type {Object}
+         * @property {string} [tripId] TripDescriptor tripId.
+         * @property {string} [routeId] TripDescriptor routeId.
+         * @property {number} [directionId] TripDescriptor directionId.
+         * @property {string} [startTime] TripDescriptor startTime.
+         * @property {string} [startDate] TripDescriptor startDate.
+         * @property {transit_realtime.TripDescriptor.ScheduleRelationship} [scheduleRelationship] TripDescriptor scheduleRelationship.
+         */
+
+        /**
+         * Constructs a new TripDescriptor.
+         * @exports transit_realtime.TripDescriptor
+         * @constructor
+         * @param {transit_realtime.TripDescriptor$Properties=} [properties] Properties to set
+         */
+        function TripDescriptor(properties) {
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * TripDescriptor tripId.
+         * @type {string}
+         */
+        TripDescriptor.prototype.tripId = "";
+
+        /**
+         * TripDescriptor routeId.
+         * @type {string}
+         */
+        TripDescriptor.prototype.routeId = "";
+
+        /**
+         * TripDescriptor directionId.
+         * @type {number}
+         */
+        TripDescriptor.prototype.directionId = 0;
+
+        /**
+         * TripDescriptor startTime.
+         * @type {string}
+         */
+        TripDescriptor.prototype.startTime = "";
+
+        /**
+         * TripDescriptor startDate.
+         * @type {string}
+         */
+        TripDescriptor.prototype.startDate = "";
+
+        /**
+         * TripDescriptor scheduleRelationship.
+         * @type {transit_realtime.TripDescriptor.ScheduleRelationship}
+         */
+        TripDescriptor.prototype.scheduleRelationship = 0;
+
+        /**
+         * Creates a new TripDescriptor instance using the specified properties.
+         * @param {transit_realtime.TripDescriptor$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.TripDescriptor} TripDescriptor instance
+         */
+        TripDescriptor.create = function create(properties) {
+            return new TripDescriptor(properties);
+        };
+
+        /**
+         * Encodes the specified TripDescriptor message. Does not implicitly {@link transit_realtime.TripDescriptor.verify|verify} messages.
+         * @param {transit_realtime.TripDescriptor$Properties} message TripDescriptor message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TripDescriptor.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            if (message.tripId != null && message.hasOwnProperty("tripId")) writer.uint32( /* id 1, wireType 2 =*/10).string(message.tripId);
+            if (message.startTime != null && message.hasOwnProperty("startTime")) writer.uint32( /* id 2, wireType 2 =*/18).string(message.startTime);
+            if (message.startDate != null && message.hasOwnProperty("startDate")) writer.uint32( /* id 3, wireType 2 =*/26).string(message.startDate);
+            if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship")) writer.uint32( /* id 4, wireType 0 =*/32).uint32(message.scheduleRelationship);
+            if (message.routeId != null && message.hasOwnProperty("routeId")) writer.uint32( /* id 5, wireType 2 =*/42).string(message.routeId);
+            if (message.directionId != null && message.hasOwnProperty("directionId")) writer.uint32( /* id 6, wireType 0 =*/48).uint32(message.directionId);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified TripDescriptor message, length delimited. Does not implicitly {@link transit_realtime.TripDescriptor.verify|verify} messages.
+         * @param {transit_realtime.TripDescriptor$Properties} message TripDescriptor message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TripDescriptor.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a TripDescriptor message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.TripDescriptor} TripDescriptor
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TripDescriptor.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.TripDescriptor();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.tripId = reader.string();
+                        break;
+                    case 5:
+                        message.routeId = reader.string();
+                        break;
+                    case 6:
+                        message.directionId = reader.uint32();
+                        break;
+                    case 2:
+                        message.startTime = reader.string();
+                        break;
+                    case 3:
+                        message.startDate = reader.string();
+                        break;
+                    case 4:
+                        message.scheduleRelationship = reader.uint32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a TripDescriptor message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.TripDescriptor} TripDescriptor
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TripDescriptor.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a TripDescriptor message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        TripDescriptor.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (message.tripId != null && message.hasOwnProperty("tripId")) if (!$util.isString(message.tripId)) return "tripId: string expected";
+            if (message.routeId != null && message.hasOwnProperty("routeId")) if (!$util.isString(message.routeId)) return "routeId: string expected";
+            if (message.directionId != null && message.hasOwnProperty("directionId")) if (!$util.isInteger(message.directionId)) return "directionId: integer expected";
+            if (message.startTime != null && message.hasOwnProperty("startTime")) if (!$util.isString(message.startTime)) return "startTime: string expected";
+            if (message.startDate != null && message.hasOwnProperty("startDate")) if (!$util.isString(message.startDate)) return "startDate: string expected";
+            if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship")) switch (message.scheduleRelationship) {
+                default:
+                    return "scheduleRelationship: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a TripDescriptor message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.TripDescriptor} TripDescriptor
+         */
+        TripDescriptor.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.TripDescriptor) return object;
+            var message = new $root.transit_realtime.TripDescriptor();
+            if (object.tripId != null) message.tripId = String(object.tripId);
+            if (object.routeId != null) message.routeId = String(object.routeId);
+            if (object.directionId != null) message.directionId = object.directionId >>> 0;
+            if (object.startTime != null) message.startTime = String(object.startTime);
+            if (object.startDate != null) message.startDate = String(object.startDate);
+            switch (object.scheduleRelationship) {
+                case "SCHEDULED":
+                case 0:
+                    message.scheduleRelationship = 0;
+                    break;
+                case "ADDED":
+                case 1:
+                    message.scheduleRelationship = 1;
+                    break;
+                case "UNSCHEDULED":
+                case 2:
+                    message.scheduleRelationship = 2;
+                    break;
+                case "CANCELED":
+                case 3:
+                    message.scheduleRelationship = 3;
+                    break;
+            }
+            return message;
+        };
+
+        /**
+         * Creates a TripDescriptor message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.TripDescriptor.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.TripDescriptor} TripDescriptor
+         */
+        TripDescriptor.from = TripDescriptor.fromObject;
+
+        /**
+         * Creates a plain object from a TripDescriptor message. Also converts values to other types if specified.
+         * @param {transit_realtime.TripDescriptor} message TripDescriptor
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TripDescriptor.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.defaults) {
+                object.tripId = "";
+                object.startTime = "";
+                object.startDate = "";
+                object.scheduleRelationship = options.enums === String ? "SCHEDULED" : 0;
+                object.routeId = "";
+                object.directionId = 0;
+            }
+            if (message.tripId != null && message.hasOwnProperty("tripId")) object.tripId = message.tripId;
+            if (message.startTime != null && message.hasOwnProperty("startTime")) object.startTime = message.startTime;
+            if (message.startDate != null && message.hasOwnProperty("startDate")) object.startDate = message.startDate;
+            if (message.scheduleRelationship != null && message.hasOwnProperty("scheduleRelationship")) object.scheduleRelationship = options.enums === String ? $root.transit_realtime.TripDescriptor.ScheduleRelationship[message.scheduleRelationship] : message.scheduleRelationship;
+            if (message.routeId != null && message.hasOwnProperty("routeId")) object.routeId = message.routeId;
+            if (message.directionId != null && message.hasOwnProperty("directionId")) object.directionId = message.directionId;
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this TripDescriptor message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TripDescriptor.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this TripDescriptor to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        TripDescriptor.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * ScheduleRelationship enum.
+         * @name ScheduleRelationship
+         * @memberof transit_realtime.TripDescriptor
+         * @enum {number}
+         * @property {number} SCHEDULED=0 SCHEDULED value
+         * @property {number} ADDED=1 ADDED value
+         * @property {number} UNSCHEDULED=2 UNSCHEDULED value
+         * @property {number} CANCELED=3 CANCELED value
+         */
+        TripDescriptor.ScheduleRelationship = function () {
+            var valuesById = {},
+                values = Object.create(valuesById);
+            values[valuesById[0] = "SCHEDULED"] = 0;
+            values[valuesById[1] = "ADDED"] = 1;
+            values[valuesById[2] = "UNSCHEDULED"] = 2;
+            values[valuesById[3] = "CANCELED"] = 3;
+            return values;
+        }();
+
+        return TripDescriptor;
+    }();
+
+    transit_realtime.VehicleDescriptor = function () {
+
+        /**
+         * Properties of a VehicleDescriptor.
+         * @typedef transit_realtime.VehicleDescriptor$Properties
+         * @type {Object}
+         * @property {string} [id] VehicleDescriptor id.
+         * @property {string} [label] VehicleDescriptor label.
+         * @property {string} [licensePlate] VehicleDescriptor licensePlate.
+         */
+
+        /**
+         * Constructs a new VehicleDescriptor.
+         * @exports transit_realtime.VehicleDescriptor
+         * @constructor
+         * @param {transit_realtime.VehicleDescriptor$Properties=} [properties] Properties to set
+         */
+        function VehicleDescriptor(properties) {
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * VehicleDescriptor id.
+         * @type {string}
+         */
+        VehicleDescriptor.prototype.id = "";
+
+        /**
+         * VehicleDescriptor label.
+         * @type {string}
+         */
+        VehicleDescriptor.prototype.label = "";
+
+        /**
+         * VehicleDescriptor licensePlate.
+         * @type {string}
+         */
+        VehicleDescriptor.prototype.licensePlate = "";
+
+        /**
+         * Creates a new VehicleDescriptor instance using the specified properties.
+         * @param {transit_realtime.VehicleDescriptor$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor instance
+         */
+        VehicleDescriptor.create = function create(properties) {
+            return new VehicleDescriptor(properties);
+        };
+
+        /**
+         * Encodes the specified VehicleDescriptor message. Does not implicitly {@link transit_realtime.VehicleDescriptor.verify|verify} messages.
+         * @param {transit_realtime.VehicleDescriptor$Properties} message VehicleDescriptor message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VehicleDescriptor.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            if (message.id != null && message.hasOwnProperty("id")) writer.uint32( /* id 1, wireType 2 =*/10).string(message.id);
+            if (message.label != null && message.hasOwnProperty("label")) writer.uint32( /* id 2, wireType 2 =*/18).string(message.label);
+            if (message.licensePlate != null && message.hasOwnProperty("licensePlate")) writer.uint32( /* id 3, wireType 2 =*/26).string(message.licensePlate);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified VehicleDescriptor message, length delimited. Does not implicitly {@link transit_realtime.VehicleDescriptor.verify|verify} messages.
+         * @param {transit_realtime.VehicleDescriptor$Properties} message VehicleDescriptor message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VehicleDescriptor.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a VehicleDescriptor message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VehicleDescriptor.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.VehicleDescriptor();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.label = reader.string();
+                        break;
+                    case 3:
+                        message.licensePlate = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a VehicleDescriptor message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VehicleDescriptor.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a VehicleDescriptor message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        VehicleDescriptor.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (message.id != null && message.hasOwnProperty("id")) if (!$util.isString(message.id)) return "id: string expected";
+            if (message.label != null && message.hasOwnProperty("label")) if (!$util.isString(message.label)) return "label: string expected";
+            if (message.licensePlate != null && message.hasOwnProperty("licensePlate")) if (!$util.isString(message.licensePlate)) return "licensePlate: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a VehicleDescriptor message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor
+         */
+        VehicleDescriptor.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.VehicleDescriptor) return object;
+            var message = new $root.transit_realtime.VehicleDescriptor();
+            if (object.id != null) message.id = String(object.id);
+            if (object.label != null) message.label = String(object.label);
+            if (object.licensePlate != null) message.licensePlate = String(object.licensePlate);
+            return message;
+        };
+
+        /**
+         * Creates a VehicleDescriptor message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.VehicleDescriptor.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.VehicleDescriptor} VehicleDescriptor
+         */
+        VehicleDescriptor.from = VehicleDescriptor.fromObject;
+
+        /**
+         * Creates a plain object from a VehicleDescriptor message. Also converts values to other types if specified.
+         * @param {transit_realtime.VehicleDescriptor} message VehicleDescriptor
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        VehicleDescriptor.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.defaults) {
+                object.id = "";
+                object.label = "";
+                object.licensePlate = "";
+            }
+            if (message.id != null && message.hasOwnProperty("id")) object.id = message.id;
+            if (message.label != null && message.hasOwnProperty("label")) object.label = message.label;
+            if (message.licensePlate != null && message.hasOwnProperty("licensePlate")) object.licensePlate = message.licensePlate;
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this VehicleDescriptor message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        VehicleDescriptor.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this VehicleDescriptor to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        VehicleDescriptor.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return VehicleDescriptor;
+    }();
+
+    transit_realtime.EntitySelector = function () {
+
+        /**
+         * Properties of an EntitySelector.
+         * @typedef transit_realtime.EntitySelector$Properties
+         * @type {Object}
+         * @property {string} [agencyId] EntitySelector agencyId.
+         * @property {string} [routeId] EntitySelector routeId.
+         * @property {number} [routeType] EntitySelector routeType.
+         * @property {transit_realtime.TripDescriptor$Properties} [trip] EntitySelector trip.
+         * @property {string} [stopId] EntitySelector stopId.
+         */
+
+        /**
+         * Constructs a new EntitySelector.
+         * @exports transit_realtime.EntitySelector
+         * @constructor
+         * @param {transit_realtime.EntitySelector$Properties=} [properties] Properties to set
+         */
+        function EntitySelector(properties) {
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * EntitySelector agencyId.
+         * @type {string}
+         */
+        EntitySelector.prototype.agencyId = "";
+
+        /**
+         * EntitySelector routeId.
+         * @type {string}
+         */
+        EntitySelector.prototype.routeId = "";
+
+        /**
+         * EntitySelector routeType.
+         * @type {number}
+         */
+        EntitySelector.prototype.routeType = 0;
+
+        /**
+         * EntitySelector trip.
+         * @type {(transit_realtime.TripDescriptor$Properties|null)}
+         */
+        EntitySelector.prototype.trip = null;
+
+        /**
+         * EntitySelector stopId.
+         * @type {string}
+         */
+        EntitySelector.prototype.stopId = "";
+
+        /**
+         * Creates a new EntitySelector instance using the specified properties.
+         * @param {transit_realtime.EntitySelector$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.EntitySelector} EntitySelector instance
+         */
+        EntitySelector.create = function create(properties) {
+            return new EntitySelector(properties);
+        };
+
+        /**
+         * Encodes the specified EntitySelector message. Does not implicitly {@link transit_realtime.EntitySelector.verify|verify} messages.
+         * @param {transit_realtime.EntitySelector$Properties} message EntitySelector message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EntitySelector.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            if (message.agencyId != null && message.hasOwnProperty("agencyId")) writer.uint32( /* id 1, wireType 2 =*/10).string(message.agencyId);
+            if (message.routeId != null && message.hasOwnProperty("routeId")) writer.uint32( /* id 2, wireType 2 =*/18).string(message.routeId);
+            if (message.routeType != null && message.hasOwnProperty("routeType")) writer.uint32( /* id 3, wireType 0 =*/24).int32(message.routeType);
+            if (message.trip != null && message.hasOwnProperty("trip")) $root.transit_realtime.TripDescriptor.encode(message.trip, writer.uint32( /* id 4, wireType 2 =*/34).fork()).ldelim();
+            if (message.stopId != null && message.hasOwnProperty("stopId")) writer.uint32( /* id 5, wireType 2 =*/42).string(message.stopId);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified EntitySelector message, length delimited. Does not implicitly {@link transit_realtime.EntitySelector.verify|verify} messages.
+         * @param {transit_realtime.EntitySelector$Properties} message EntitySelector message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EntitySelector.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an EntitySelector message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.EntitySelector} EntitySelector
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EntitySelector.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.EntitySelector();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        message.agencyId = reader.string();
+                        break;
+                    case 2:
+                        message.routeId = reader.string();
+                        break;
+                    case 3:
+                        message.routeType = reader.int32();
+                        break;
+                    case 4:
+                        message.trip = $root.transit_realtime.TripDescriptor.decode(reader, reader.uint32());
+                        break;
+                    case 5:
+                        message.stopId = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an EntitySelector message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.EntitySelector} EntitySelector
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EntitySelector.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an EntitySelector message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        EntitySelector.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (message.agencyId != null && message.hasOwnProperty("agencyId")) if (!$util.isString(message.agencyId)) return "agencyId: string expected";
+            if (message.routeId != null && message.hasOwnProperty("routeId")) if (!$util.isString(message.routeId)) return "routeId: string expected";
+            if (message.routeType != null && message.hasOwnProperty("routeType")) if (!$util.isInteger(message.routeType)) return "routeType: integer expected";
+            if (message.trip != null && message.hasOwnProperty("trip")) {
+                var error = $root.transit_realtime.TripDescriptor.verify(message.trip);
+                if (error) return "trip." + error;
+            }
+            if (message.stopId != null && message.hasOwnProperty("stopId")) if (!$util.isString(message.stopId)) return "stopId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates an EntitySelector message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.EntitySelector} EntitySelector
+         */
+        EntitySelector.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.EntitySelector) return object;
+            var message = new $root.transit_realtime.EntitySelector();
+            if (object.agencyId != null) message.agencyId = String(object.agencyId);
+            if (object.routeId != null) message.routeId = String(object.routeId);
+            if (object.routeType != null) message.routeType = object.routeType | 0;
+            if (object.trip != null) {
+                if (_typeof(object.trip) !== "object") throw TypeError(".transit_realtime.EntitySelector.trip: object expected");
+                message.trip = $root.transit_realtime.TripDescriptor.fromObject(object.trip);
+            }
+            if (object.stopId != null) message.stopId = String(object.stopId);
+            return message;
+        };
+
+        /**
+         * Creates an EntitySelector message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.EntitySelector.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.EntitySelector} EntitySelector
+         */
+        EntitySelector.from = EntitySelector.fromObject;
+
+        /**
+         * Creates a plain object from an EntitySelector message. Also converts values to other types if specified.
+         * @param {transit_realtime.EntitySelector} message EntitySelector
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EntitySelector.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.defaults) {
+                object.agencyId = "";
+                object.routeId = "";
+                object.routeType = 0;
+                object.trip = null;
+                object.stopId = "";
+            }
+            if (message.agencyId != null && message.hasOwnProperty("agencyId")) object.agencyId = message.agencyId;
+            if (message.routeId != null && message.hasOwnProperty("routeId")) object.routeId = message.routeId;
+            if (message.routeType != null && message.hasOwnProperty("routeType")) object.routeType = message.routeType;
+            if (message.trip != null && message.hasOwnProperty("trip")) object.trip = $root.transit_realtime.TripDescriptor.toObject(message.trip, options);
+            if (message.stopId != null && message.hasOwnProperty("stopId")) object.stopId = message.stopId;
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this EntitySelector message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EntitySelector.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this EntitySelector to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        EntitySelector.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return EntitySelector;
+    }();
+
+    transit_realtime.TranslatedString = function () {
+
+        /**
+         * Properties of a TranslatedString.
+         * @typedef transit_realtime.TranslatedString$Properties
+         * @type {Object}
+         * @property {Array.<transit_realtime.TranslatedString.Translation$Properties>} [translation] TranslatedString translation.
+         */
+
+        /**
+         * Constructs a new TranslatedString.
+         * @exports transit_realtime.TranslatedString
+         * @constructor
+         * @param {transit_realtime.TranslatedString$Properties=} [properties] Properties to set
+         */
+        function TranslatedString(properties) {
+            this.translation = [];
+            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+            }
+        }
+
+        /**
+         * TranslatedString translation.
+         * @type {Array.<transit_realtime.TranslatedString.Translation$Properties>}
+         */
+        TranslatedString.prototype.translation = $util.emptyArray;
+
+        /**
+         * Creates a new TranslatedString instance using the specified properties.
+         * @param {transit_realtime.TranslatedString$Properties=} [properties] Properties to set
+         * @returns {transit_realtime.TranslatedString} TranslatedString instance
+         */
+        TranslatedString.create = function create(properties) {
+            return new TranslatedString(properties);
+        };
+
+        /**
+         * Encodes the specified TranslatedString message. Does not implicitly {@link transit_realtime.TranslatedString.verify|verify} messages.
+         * @param {transit_realtime.TranslatedString$Properties} message TranslatedString message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TranslatedString.encode = function encode(message, writer) {
+            if (!writer) writer = $Writer.create();
+            if (message.translation != null && message.translation.length) for (var i = 0; i < message.translation.length; ++i) {
+                $root.transit_realtime.TranslatedString.Translation.encode(message.translation[i], writer.uint32( /* id 1, wireType 2 =*/10).fork()).ldelim();
+            }return writer;
+        };
+
+        /**
+         * Encodes the specified TranslatedString message, length delimited. Does not implicitly {@link transit_realtime.TranslatedString.verify|verify} messages.
+         * @param {transit_realtime.TranslatedString$Properties} message TranslatedString message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TranslatedString.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a TranslatedString message from the specified reader or buffer.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {transit_realtime.TranslatedString} TranslatedString
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TranslatedString.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length,
+                message = new $root.transit_realtime.TranslatedString();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.translation && message.translation.length)) message.translation = [];
+                        message.translation.push($root.transit_realtime.TranslatedString.Translation.decode(reader, reader.uint32()));
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a TranslatedString message from the specified reader or buffer, length delimited.
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {transit_realtime.TranslatedString} TranslatedString
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TranslatedString.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader)) reader = $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a TranslatedString message.
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         */
+        TranslatedString.verify = function verify(message) {
+            if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+            if (message.translation != null && message.hasOwnProperty("translation")) {
+                if (!Array.isArray(message.translation)) return "translation: array expected";
+                for (var i = 0; i < message.translation.length; ++i) {
+                    var error = $root.transit_realtime.TranslatedString.Translation.verify(message.translation[i]);
+                    if (error) return "translation." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a TranslatedString message from a plain object. Also converts values to their respective internal types.
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.TranslatedString} TranslatedString
+         */
+        TranslatedString.fromObject = function fromObject(object) {
+            if (object instanceof $root.transit_realtime.TranslatedString) return object;
+            var message = new $root.transit_realtime.TranslatedString();
+            if (object.translation) {
+                if (!Array.isArray(object.translation)) throw TypeError(".transit_realtime.TranslatedString.translation: array expected");
+                message.translation = [];
+                for (var i = 0; i < object.translation.length; ++i) {
+                    if (_typeof(object.translation[i]) !== "object") throw TypeError(".transit_realtime.TranslatedString.translation: object expected");
+                    message.translation[i] = $root.transit_realtime.TranslatedString.Translation.fromObject(object.translation[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a TranslatedString message from a plain object. Also converts values to their respective internal types.
+         * This is an alias of {@link transit_realtime.TranslatedString.fromObject}.
+         * @function
+         * @param {Object.<string,*>} object Plain object
+         * @returns {transit_realtime.TranslatedString} TranslatedString
+         */
+        TranslatedString.from = TranslatedString.fromObject;
+
+        /**
+         * Creates a plain object from a TranslatedString message. Also converts values to other types if specified.
+         * @param {transit_realtime.TranslatedString} message TranslatedString
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TranslatedString.toObject = function toObject(message, options) {
+            if (!options) options = {};
+            var object = {};
+            if (options.arrays || options.defaults) object.translation = [];
+            if (message.translation && message.translation.length) {
+                object.translation = [];
+                for (var j = 0; j < message.translation.length; ++j) {
+                    object.translation[j] = $root.transit_realtime.TranslatedString.Translation.toObject(message.translation[j], options);
+                }
+            }
+            return object;
+        };
+
+        /**
+         * Creates a plain object from this TranslatedString message. Also converts values to other types if specified.
+         * @param {$protobuf.ConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TranslatedString.prototype.toObject = function toObject(options) {
+            return this.constructor.toObject(this, options);
+        };
+
+        /**
+         * Converts this TranslatedString to JSON.
+         * @returns {Object.<string,*>} JSON object
+         */
+        TranslatedString.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        TranslatedString.Translation = function () {
+
+            /**
+             * Properties of a Translation.
+             * @typedef transit_realtime.TranslatedString.Translation$Properties
+             * @type {Object}
+             * @property {string} text Translation text.
+             * @property {string} [language] Translation language.
+             */
+
+            /**
+             * Constructs a new Translation.
+             * @exports transit_realtime.TranslatedString.Translation
+             * @constructor
+             * @param {transit_realtime.TranslatedString.Translation$Properties=} [properties] Properties to set
+             */
+            function Translation(properties) {
+                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) {
+                    if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+                }
+            }
+
+            /**
+             * Translation text.
+             * @type {string}
+             */
+            Translation.prototype.text = "";
+
+            /**
+             * Translation language.
+             * @type {string}
+             */
+            Translation.prototype.language = "";
+
+            /**
+             * Creates a new Translation instance using the specified properties.
+             * @param {transit_realtime.TranslatedString.Translation$Properties=} [properties] Properties to set
+             * @returns {transit_realtime.TranslatedString.Translation} Translation instance
+             */
+            Translation.create = function create(properties) {
+                return new Translation(properties);
+            };
+
+            /**
+             * Encodes the specified Translation message. Does not implicitly {@link transit_realtime.TranslatedString.Translation.verify|verify} messages.
+             * @param {transit_realtime.TranslatedString.Translation$Properties} message Translation message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Translation.encode = function encode(message, writer) {
+                if (!writer) writer = $Writer.create();
+                writer.uint32( /* id 1, wireType 2 =*/10).string(message.text);
+                if (message.language != null && message.hasOwnProperty("language")) writer.uint32( /* id 2, wireType 2 =*/18).string(message.language);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Translation message, length delimited. Does not implicitly {@link transit_realtime.TranslatedString.Translation.verify|verify} messages.
+             * @param {transit_realtime.TranslatedString.Translation$Properties} message Translation message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Translation.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Translation message from the specified reader or buffer.
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {transit_realtime.TranslatedString.Translation} Translation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Translation.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length,
+                    message = new $root.transit_realtime.TranslatedString.Translation();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                        case 1:
+                            message.text = reader.string();
+                            break;
+                        case 2:
+                            message.language = reader.string();
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                    }
+                }
+                if (!message.hasOwnProperty("text")) throw $util.ProtocolError("missing required 'text'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a Translation message from the specified reader or buffer, length delimited.
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {transit_realtime.TranslatedString.Translation} Translation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Translation.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader)) reader = $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Translation message.
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {?string} `null` if valid, otherwise the reason why it is not
+             */
+            Translation.verify = function verify(message) {
+                if ((typeof message === "undefined" ? "undefined" : _typeof(message)) !== "object" || message === null) return "object expected";
+                if (!$util.isString(message.text)) return "text: string expected";
+                if (message.language != null && message.hasOwnProperty("language")) if (!$util.isString(message.language)) return "language: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a Translation message from a plain object. Also converts values to their respective internal types.
+             * @param {Object.<string,*>} object Plain object
+             * @returns {transit_realtime.TranslatedString.Translation} Translation
+             */
+            Translation.fromObject = function fromObject(object) {
+                if (object instanceof $root.transit_realtime.TranslatedString.Translation) return object;
+                var message = new $root.transit_realtime.TranslatedString.Translation();
+                if (object.text != null) message.text = String(object.text);
+                if (object.language != null) message.language = String(object.language);
+                return message;
+            };
+
+            /**
+             * Creates a Translation message from a plain object. Also converts values to their respective internal types.
+             * This is an alias of {@link transit_realtime.TranslatedString.Translation.fromObject}.
+             * @function
+             * @param {Object.<string,*>} object Plain object
+             * @returns {transit_realtime.TranslatedString.Translation} Translation
+             */
+            Translation.from = Translation.fromObject;
+
+            /**
+             * Creates a plain object from a Translation message. Also converts values to other types if specified.
+             * @param {transit_realtime.TranslatedString.Translation} message Translation
+             * @param {$protobuf.ConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Translation.toObject = function toObject(message, options) {
+                if (!options) options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.text = "";
+                    object.language = "";
+                }
+                if (message.text != null && message.hasOwnProperty("text")) object.text = message.text;
+                if (message.language != null && message.hasOwnProperty("language")) object.language = message.language;
+                return object;
+            };
+
+            /**
+             * Creates a plain object from this Translation message. Also converts values to other types if specified.
+             * @param {$protobuf.ConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Translation.prototype.toObject = function toObject(options) {
+                return this.constructor.toObject(this, options);
+            };
+
+            /**
+             * Converts this Translation to JSON.
+             * @returns {Object.<string,*>} JSON object
+             */
+            Translation.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Translation;
+        }();
+
+        return TranslatedString;
+    }();
+
+    return transit_realtime;
+}();
+
+module.exports = $root;
+
+/***/ }),
+/* 385 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// full library entry point.
+
+
+module.exports = __webpack_require__(386);
+
+
+/***/ }),
+/* 386 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var protobuf = module.exports = __webpack_require__(387);
+
+protobuf.build = "full";
+
+// Parser
+protobuf.tokenize         = __webpack_require__(171);
+protobuf.parse            = __webpack_require__(401);
+protobuf.common           = __webpack_require__(402);
+
+// Configure parser
+protobuf.Root._configure(protobuf.Type, protobuf.parse, protobuf.common);
+
+
+/***/ }),
+/* 387 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var protobuf = module.exports = __webpack_require__(388);
+
+protobuf.build = "light";
+
+/**
+ * A node-style callback as used by {@link load} and {@link Root#load}.
+ * @typedef LoadCallback
+ * @type {function}
+ * @param {Error|null} error Error, if any, otherwise `null`
+ * @param {Root} [root] Root, if there hasn't been an error
+ * @returns {undefined}
+ */
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {Root} root Root namespace, defaults to create a new one if omitted.
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ * @see {@link Root#load}
+ */
+function load(filename, root, callback) {
+    if (typeof root === "function") {
+        callback = root;
+        root = new protobuf.Root();
+    } else if (!root)
+        root = new protobuf.Root();
+    return root.load(filename, callback);
+}
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
+ * @name load
+ * @function
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ * @see {@link Root#load}
+ * @variation 2
+ */
+// function load(filename:string, callback:LoadCallback):undefined
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into a common root namespace and returns a promise.
+ * @name load
+ * @function
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
+ * @returns {Promise<Root>} Promise
+ * @see {@link Root#load}
+ * @variation 3
+ */
+// function load(filename:string, [root:Root]):Promise<Root>
+
+protobuf.load = load;
+
+/**
+ * Synchronously loads one or multiple .proto or preprocessed .json files into a common root namespace (node only).
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
+ * @returns {Root} Root namespace
+ * @throws {Error} If synchronous fetching is not supported (i.e. in browsers) or if a file's syntax is invalid
+ * @see {@link Root#loadSync}
+ */
+function loadSync(filename, root) {
+    if (!root)
+        root = new protobuf.Root();
+    return root.loadSync(filename);
+}
+
+protobuf.loadSync = loadSync;
+
+// Serialization
+protobuf.encoder          = __webpack_require__(166);
+protobuf.decoder          = __webpack_require__(167);
+protobuf.verifier         = __webpack_require__(168);
+protobuf.converter        = __webpack_require__(169);
+
+// Reflection
+protobuf.ReflectionObject = __webpack_require__(38);
+protobuf.Namespace        = __webpack_require__(52);
+protobuf.Root             = __webpack_require__(95);
+protobuf.Enum             = __webpack_require__(17);
+protobuf.Type             = __webpack_require__(90);
+protobuf.Field            = __webpack_require__(32);
+protobuf.OneOf            = __webpack_require__(65);
+protobuf.MapField         = __webpack_require__(91);
+protobuf.Service          = __webpack_require__(92);
+protobuf.Method           = __webpack_require__(93);
+
+// Runtime
+protobuf.Message          = __webpack_require__(94);
+protobuf.wrappers         = __webpack_require__(170);
+
+// Utility
+protobuf.types            = __webpack_require__(39);
+protobuf.util             = __webpack_require__(10);
+
+// Configure reflection
+protobuf.ReflectionObject._configure(protobuf.Root);
+protobuf.Namespace._configure(protobuf.Type, protobuf.Service);
+protobuf.Root._configure(protobuf.Type);
+protobuf.Field._configure(protobuf.Type);
+
+
+/***/ }),
+/* 388 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var protobuf = exports;
+
+/**
+ * Build type, one of `"full"`, `"light"` or `"minimal"`.
+ * @name build
+ * @type {string}
+ * @const
+ */
+protobuf.build = "minimal";
+
+// Serialization
+protobuf.Writer       = __webpack_require__(88);
+protobuf.BufferWriter = __webpack_require__(395);
+protobuf.Reader       = __webpack_require__(89);
+protobuf.BufferReader = __webpack_require__(396);
+
+// Utility
+protobuf.util         = __webpack_require__(23);
+protobuf.rpc          = __webpack_require__(164);
+protobuf.roots        = __webpack_require__(165);
+protobuf.configure    = configure;
+
+/* istanbul ignore next */
+/**
+ * Reconfigures the library according to the environment.
+ * @returns {undefined}
+ */
+function configure() {
+    protobuf.Reader._configure(protobuf.BufferReader);
+    protobuf.util._configure();
+}
+
+// Configure serialization
+protobuf.Writer._configure(protobuf.BufferWriter);
+configure();
+
+
+/***/ }),
+/* 389 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A minimal base64 implementation for number arrays.
+ * @memberof util
+ * @namespace
+ */
+var base64 = exports;
+
+/**
+ * Calculates the byte length of a base64 encoded string.
+ * @param {string} string Base64 encoded string
+ * @returns {number} Byte length
+ */
+base64.length = function length(string) {
+    var p = string.length;
+    if (!p)
+        return 0;
+    var n = 0;
+    while (--p % 4 > 1 && string.charAt(p) === "=")
+        ++n;
+    return Math.ceil(string.length * 3) / 4 - n;
+};
+
+// Base64 encoding table
+var b64 = new Array(64);
+
+// Base64 decoding table
+var s64 = new Array(123);
+
+// 65..90, 97..122, 48..57, 43, 47
+for (var i = 0; i < 64;)
+    s64[b64[i] = i < 26 ? i + 65 : i < 52 ? i + 71 : i < 62 ? i - 4 : i - 59 | 43] = i++;
+
+/**
+ * Encodes a buffer to a base64 encoded string.
+ * @param {Uint8Array} buffer Source buffer
+ * @param {number} start Source start
+ * @param {number} end Source end
+ * @returns {string} Base64 encoded string
+ */
+base64.encode = function encode(buffer, start, end) {
+    var parts = null,
+        chunk = [];
+    var i = 0, // output index
+        j = 0, // goto index
+        t;     // temporary
+    while (start < end) {
+        var b = buffer[start++];
+        switch (j) {
+            case 0:
+                chunk[i++] = b64[b >> 2];
+                t = (b & 3) << 4;
+                j = 1;
+                break;
+            case 1:
+                chunk[i++] = b64[t | b >> 4];
+                t = (b & 15) << 2;
+                j = 2;
+                break;
+            case 2:
+                chunk[i++] = b64[t | b >> 6];
+                chunk[i++] = b64[b & 63];
+                j = 0;
+                break;
+        }
+        if (i > 8191) {
+            (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
+            i = 0;
+        }
+    }
+    if (j) {
+        chunk[i++] = b64[t];
+        chunk[i++] = 61;
+        if (j === 1)
+            chunk[i++] = 61;
+    }
+    if (parts) {
+        if (i)
+            parts.push(String.fromCharCode.apply(String, chunk.slice(0, i)));
+        return parts.join("");
+    }
+    return String.fromCharCode.apply(String, chunk.slice(0, i));
+};
+
+var invalidEncoding = "invalid encoding";
+
+/**
+ * Decodes a base64 encoded string to a buffer.
+ * @param {string} string Source string
+ * @param {Uint8Array} buffer Destination buffer
+ * @param {number} offset Destination offset
+ * @returns {number} Number of bytes written
+ * @throws {Error} If encoding is invalid
+ */
+base64.decode = function decode(string, buffer, offset) {
+    var start = offset;
+    var j = 0, // goto index
+        t;     // temporary
+    for (var i = 0; i < string.length;) {
+        var c = string.charCodeAt(i++);
+        if (c === 61 && j > 1)
+            break;
+        if ((c = s64[c]) === undefined)
+            throw Error(invalidEncoding);
+        switch (j) {
+            case 0:
+                t = c;
+                j = 1;
+                break;
+            case 1:
+                buffer[offset++] = t << 2 | (c & 48) >> 4;
+                t = c;
+                j = 2;
+                break;
+            case 2:
+                buffer[offset++] = (t & 15) << 4 | (c & 60) >> 2;
+                t = c;
+                j = 3;
+                break;
+            case 3:
+                buffer[offset++] = (t & 3) << 6 | c;
+                j = 0;
+                break;
+        }
+    }
+    if (j === 1)
+        throw Error(invalidEncoding);
+    return offset - start;
+};
+
+/**
+ * Tests if the specified string appears to be base64 encoded.
+ * @param {string} string String to test
+ * @returns {boolean} `true` if probably base64 encoded, otherwise false
+ */
+base64.test = function test(string) {
+    return /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(string);
+};
+
+
+/***/ }),
+/* 390 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = EventEmitter;
+
+/**
+ * Constructs a new event emitter instance.
+ * @classdesc A minimal event emitter.
+ * @memberof util
+ * @constructor
+ */
+function EventEmitter() {
+
+    /**
+     * Registered listeners.
+     * @type {Object.<string,*>}
+     * @private
+     */
+    this._listeners = {};
+}
+
+/**
+ * Registers an event listener.
+ * @param {string} evt Event name
+ * @param {function} fn Listener
+ * @param {*} [ctx] Listener context
+ * @returns {util.EventEmitter} `this`
+ */
+EventEmitter.prototype.on = function on(evt, fn, ctx) {
+    (this._listeners[evt] || (this._listeners[evt] = [])).push({
+        fn  : fn,
+        ctx : ctx || this
+    });
+    return this;
+};
+
+/**
+ * Removes an event listener or any matching listeners if arguments are omitted.
+ * @param {string} [evt] Event name. Removes all listeners if omitted.
+ * @param {function} [fn] Listener to remove. Removes all listeners of `evt` if omitted.
+ * @returns {util.EventEmitter} `this`
+ */
+EventEmitter.prototype.off = function off(evt, fn) {
+    if (evt === undefined)
+        this._listeners = {};
+    else {
+        if (fn === undefined)
+            this._listeners[evt] = [];
+        else {
+            var listeners = this._listeners[evt];
+            for (var i = 0; i < listeners.length;)
+                if (listeners[i].fn === fn)
+                    listeners.splice(i, 1);
+                else
+                    ++i;
+        }
+    }
+    return this;
+};
+
+/**
+ * Emits an event by calling its listeners with the specified arguments.
+ * @param {string} evt Event name
+ * @param {...*} args Arguments
+ * @returns {util.EventEmitter} `this`
+ */
+EventEmitter.prototype.emit = function emit(evt) {
+    var listeners = this._listeners[evt];
+    if (listeners) {
+        var args = [],
+            i = 1;
+        for (; i < arguments.length;)
+            args.push(arguments[i++]);
+        for (i = 0; i < listeners.length;)
+            listeners[i].fn.apply(listeners[i++].ctx, args);
+    }
+    return this;
+};
+
+
+/***/ }),
+/* 391 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = factory(factory);
+
+/**
+ * Reads / writes floats / doubles from / to buffers.
+ * @name util.float
+ * @namespace
+ */
+
+/**
+ * Writes a 32 bit float to a buffer using little endian byte order.
+ * @name util.float.writeFloatLE
+ * @function
+ * @param {number} val Value to write
+ * @param {Uint8Array} buf Target buffer
+ * @param {number} pos Target buffer offset
+ * @returns {undefined}
+ */
+
+/**
+ * Writes a 32 bit float to a buffer using big endian byte order.
+ * @name util.float.writeFloatBE
+ * @function
+ * @param {number} val Value to write
+ * @param {Uint8Array} buf Target buffer
+ * @param {number} pos Target buffer offset
+ * @returns {undefined}
+ */
+
+/**
+ * Reads a 32 bit float from a buffer using little endian byte order.
+ * @name util.float.readFloatLE
+ * @function
+ * @param {Uint8Array} buf Source buffer
+ * @param {number} pos Source buffer offset
+ * @returns {number} Value read
+ */
+
+/**
+ * Reads a 32 bit float from a buffer using big endian byte order.
+ * @name util.float.readFloatBE
+ * @function
+ * @param {Uint8Array} buf Source buffer
+ * @param {number} pos Source buffer offset
+ * @returns {number} Value read
+ */
+
+/**
+ * Writes a 64 bit double to a buffer using little endian byte order.
+ * @name util.float.writeDoubleLE
+ * @function
+ * @param {number} val Value to write
+ * @param {Uint8Array} buf Target buffer
+ * @param {number} pos Target buffer offset
+ * @returns {undefined}
+ */
+
+/**
+ * Writes a 64 bit double to a buffer using big endian byte order.
+ * @name util.float.writeDoubleBE
+ * @function
+ * @param {number} val Value to write
+ * @param {Uint8Array} buf Target buffer
+ * @param {number} pos Target buffer offset
+ * @returns {undefined}
+ */
+
+/**
+ * Reads a 64 bit double from a buffer using little endian byte order.
+ * @name util.float.readDoubleLE
+ * @function
+ * @param {Uint8Array} buf Source buffer
+ * @param {number} pos Source buffer offset
+ * @returns {number} Value read
+ */
+
+/**
+ * Reads a 64 bit double from a buffer using big endian byte order.
+ * @name util.float.readDoubleBE
+ * @function
+ * @param {Uint8Array} buf Source buffer
+ * @param {number} pos Source buffer offset
+ * @returns {number} Value read
+ */
+
+// Factory function for the purpose of node-based testing in modified global environments
+function factory(exports) {
+
+    // float: typed array
+    if (typeof Float32Array !== "undefined") (function() {
+
+        var f32 = new Float32Array([ -0 ]),
+            f8b = new Uint8Array(f32.buffer),
+            le  = f8b[3] === 128;
+
+        function writeFloat_f32_cpy(val, buf, pos) {
+            f32[0] = val;
+            buf[pos    ] = f8b[0];
+            buf[pos + 1] = f8b[1];
+            buf[pos + 2] = f8b[2];
+            buf[pos + 3] = f8b[3];
+        }
+
+        function writeFloat_f32_rev(val, buf, pos) {
+            f32[0] = val;
+            buf[pos    ] = f8b[3];
+            buf[pos + 1] = f8b[2];
+            buf[pos + 2] = f8b[1];
+            buf[pos + 3] = f8b[0];
+        }
+
+        /* istanbul ignore next */
+        exports.writeFloatLE = le ? writeFloat_f32_cpy : writeFloat_f32_rev;
+        /* istanbul ignore next */
+        exports.writeFloatBE = le ? writeFloat_f32_rev : writeFloat_f32_cpy;
+
+        function readFloat_f32_cpy(buf, pos) {
+            f8b[0] = buf[pos    ];
+            f8b[1] = buf[pos + 1];
+            f8b[2] = buf[pos + 2];
+            f8b[3] = buf[pos + 3];
+            return f32[0];
+        }
+
+        function readFloat_f32_rev(buf, pos) {
+            f8b[3] = buf[pos    ];
+            f8b[2] = buf[pos + 1];
+            f8b[1] = buf[pos + 2];
+            f8b[0] = buf[pos + 3];
+            return f32[0];
+        }
+
+        /* istanbul ignore next */
+        exports.readFloatLE = le ? readFloat_f32_cpy : readFloat_f32_rev;
+        /* istanbul ignore next */
+        exports.readFloatBE = le ? readFloat_f32_rev : readFloat_f32_cpy;
+
+    // float: ieee754
+    })(); else (function() {
+
+        function writeFloat_ieee754(writeUint, val, buf, pos) {
+            var sign = val < 0 ? 1 : 0;
+            if (sign)
+                val = -val;
+            if (val === 0)
+                writeUint(1 / val > 0 ? /* positive */ 0 : /* negative 0 */ 2147483648, buf, pos);
+            else if (isNaN(val))
+                writeUint(2143289344, buf, pos);
+            else if (val > 3.4028234663852886e+38) // +-Infinity
+                writeUint((sign << 31 | 2139095040) >>> 0, buf, pos);
+            else if (val < 1.1754943508222875e-38) // denormal
+                writeUint((sign << 31 | Math.round(val / 1.401298464324817e-45)) >>> 0, buf, pos);
+            else {
+                var exponent = Math.floor(Math.log(val) / Math.LN2),
+                    mantissa = Math.round(val * Math.pow(2, -exponent) * 8388608) & 8388607;
+                writeUint((sign << 31 | exponent + 127 << 23 | mantissa) >>> 0, buf, pos);
+            }
+        }
+
+        exports.writeFloatLE = writeFloat_ieee754.bind(null, writeUintLE);
+        exports.writeFloatBE = writeFloat_ieee754.bind(null, writeUintBE);
+
+        function readFloat_ieee754(readUint, buf, pos) {
+            var uint = readUint(buf, pos),
+                sign = (uint >> 31) * 2 + 1,
+                exponent = uint >>> 23 & 255,
+                mantissa = uint & 8388607;
+            return exponent === 255
+                ? mantissa
+                ? NaN
+                : sign * Infinity
+                : exponent === 0 // denormal
+                ? sign * 1.401298464324817e-45 * mantissa
+                : sign * Math.pow(2, exponent - 150) * (mantissa + 8388608);
+        }
+
+        exports.readFloatLE = readFloat_ieee754.bind(null, readUintLE);
+        exports.readFloatBE = readFloat_ieee754.bind(null, readUintBE);
+
+    })();
+
+    // double: typed array
+    if (typeof Float64Array !== "undefined") (function() {
+
+        var f64 = new Float64Array([-0]),
+            f8b = new Uint8Array(f64.buffer),
+            le  = f8b[7] === 128;
+
+        function writeDouble_f64_cpy(val, buf, pos) {
+            f64[0] = val;
+            buf[pos    ] = f8b[0];
+            buf[pos + 1] = f8b[1];
+            buf[pos + 2] = f8b[2];
+            buf[pos + 3] = f8b[3];
+            buf[pos + 4] = f8b[4];
+            buf[pos + 5] = f8b[5];
+            buf[pos + 6] = f8b[6];
+            buf[pos + 7] = f8b[7];
+        }
+
+        function writeDouble_f64_rev(val, buf, pos) {
+            f64[0] = val;
+            buf[pos    ] = f8b[7];
+            buf[pos + 1] = f8b[6];
+            buf[pos + 2] = f8b[5];
+            buf[pos + 3] = f8b[4];
+            buf[pos + 4] = f8b[3];
+            buf[pos + 5] = f8b[2];
+            buf[pos + 6] = f8b[1];
+            buf[pos + 7] = f8b[0];
+        }
+
+        /* istanbul ignore next */
+        exports.writeDoubleLE = le ? writeDouble_f64_cpy : writeDouble_f64_rev;
+        /* istanbul ignore next */
+        exports.writeDoubleBE = le ? writeDouble_f64_rev : writeDouble_f64_cpy;
+
+        function readDouble_f64_cpy(buf, pos) {
+            f8b[0] = buf[pos    ];
+            f8b[1] = buf[pos + 1];
+            f8b[2] = buf[pos + 2];
+            f8b[3] = buf[pos + 3];
+            f8b[4] = buf[pos + 4];
+            f8b[5] = buf[pos + 5];
+            f8b[6] = buf[pos + 6];
+            f8b[7] = buf[pos + 7];
+            return f64[0];
+        }
+
+        function readDouble_f64_rev(buf, pos) {
+            f8b[7] = buf[pos    ];
+            f8b[6] = buf[pos + 1];
+            f8b[5] = buf[pos + 2];
+            f8b[4] = buf[pos + 3];
+            f8b[3] = buf[pos + 4];
+            f8b[2] = buf[pos + 5];
+            f8b[1] = buf[pos + 6];
+            f8b[0] = buf[pos + 7];
+            return f64[0];
+        }
+
+        /* istanbul ignore next */
+        exports.readDoubleLE = le ? readDouble_f64_cpy : readDouble_f64_rev;
+        /* istanbul ignore next */
+        exports.readDoubleBE = le ? readDouble_f64_rev : readDouble_f64_cpy;
+
+    // double: ieee754
+    })(); else (function() {
+
+        function writeDouble_ieee754(writeUint, off0, off1, val, buf, pos) {
+            var sign = val < 0 ? 1 : 0;
+            if (sign)
+                val = -val;
+            if (val === 0) {
+                writeUint(0, buf, pos + off0);
+                writeUint(1 / val > 0 ? /* positive */ 0 : /* negative 0 */ 2147483648, buf, pos + off1);
+            } else if (isNaN(val)) {
+                writeUint(0, buf, pos + off0);
+                writeUint(2146959360, buf, pos + off1);
+            } else if (val > 1.7976931348623157e+308) { // +-Infinity
+                writeUint(0, buf, pos + off0);
+                writeUint((sign << 31 | 2146435072) >>> 0, buf, pos + off1);
+            } else {
+                var mantissa;
+                if (val < 2.2250738585072014e-308) { // denormal
+                    mantissa = val / 5e-324;
+                    writeUint(mantissa >>> 0, buf, pos + off0);
+                    writeUint((sign << 31 | mantissa / 4294967296) >>> 0, buf, pos + off1);
+                } else {
+                    var exponent = Math.floor(Math.log(val) / Math.LN2);
+                    if (exponent === 1024)
+                        exponent = 1023;
+                    mantissa = val * Math.pow(2, -exponent);
+                    writeUint(mantissa * 4503599627370496 >>> 0, buf, pos + off0);
+                    writeUint((sign << 31 | exponent + 1023 << 20 | mantissa * 1048576 & 1048575) >>> 0, buf, pos + off1);
+                }
+            }
+        }
+
+        exports.writeDoubleLE = writeDouble_ieee754.bind(null, writeUintLE, 0, 4);
+        exports.writeDoubleBE = writeDouble_ieee754.bind(null, writeUintBE, 4, 0);
+
+        function readDouble_ieee754(readUint, off0, off1, buf, pos) {
+            var lo = readUint(buf, pos + off0),
+                hi = readUint(buf, pos + off1);
+            var sign = (hi >> 31) * 2 + 1,
+                exponent = hi >>> 20 & 2047,
+                mantissa = 4294967296 * (hi & 1048575) + lo;
+            return exponent === 2047
+                ? mantissa
+                ? NaN
+                : sign * Infinity
+                : exponent === 0 // denormal
+                ? sign * 5e-324 * mantissa
+                : sign * Math.pow(2, exponent - 1075) * (mantissa + 4503599627370496);
+        }
+
+        exports.readDoubleLE = readDouble_ieee754.bind(null, readUintLE, 0, 4);
+        exports.readDoubleBE = readDouble_ieee754.bind(null, readUintBE, 4, 0);
+
+    })();
+
+    return exports;
+}
+
+// uint helpers
+
+function writeUintLE(val, buf, pos) {
+    buf[pos    ] =  val        & 255;
+    buf[pos + 1] =  val >>> 8  & 255;
+    buf[pos + 2] =  val >>> 16 & 255;
+    buf[pos + 3] =  val >>> 24;
+}
+
+function writeUintBE(val, buf, pos) {
+    buf[pos    ] =  val >>> 24;
+    buf[pos + 1] =  val >>> 16 & 255;
+    buf[pos + 2] =  val >>> 8  & 255;
+    buf[pos + 3] =  val        & 255;
+}
+
+function readUintLE(buf, pos) {
+    return (buf[pos    ]
+          | buf[pos + 1] << 8
+          | buf[pos + 2] << 16
+          | buf[pos + 3] << 24) >>> 0;
+}
+
+function readUintBE(buf, pos) {
+    return (buf[pos    ] << 24
+          | buf[pos + 1] << 16
+          | buf[pos + 2] << 8
+          | buf[pos + 3]) >>> 0;
+}
+
+
+/***/ }),
+/* 392 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A minimal UTF8 implementation for number arrays.
+ * @memberof util
+ * @namespace
+ */
+var utf8 = exports;
+
+/**
+ * Calculates the UTF8 byte length of a string.
+ * @param {string} string String
+ * @returns {number} Byte length
+ */
+utf8.length = function utf8_length(string) {
+    var len = 0,
+        c = 0;
+    for (var i = 0; i < string.length; ++i) {
+        c = string.charCodeAt(i);
+        if (c < 128)
+            len += 1;
+        else if (c < 2048)
+            len += 2;
+        else if ((c & 0xFC00) === 0xD800 && (string.charCodeAt(i + 1) & 0xFC00) === 0xDC00) {
+            ++i;
+            len += 4;
+        } else
+            len += 3;
+    }
+    return len;
+};
+
+/**
+ * Reads UTF8 bytes as a string.
+ * @param {Uint8Array} buffer Source buffer
+ * @param {number} start Source start
+ * @param {number} end Source end
+ * @returns {string} String read
+ */
+utf8.read = function utf8_read(buffer, start, end) {
+    var len = end - start;
+    if (len < 1)
+        return "";
+    var parts = null,
+        chunk = [],
+        i = 0, // char offset
+        t;     // temporary
+    while (start < end) {
+        t = buffer[start++];
+        if (t < 128)
+            chunk[i++] = t;
+        else if (t > 191 && t < 224)
+            chunk[i++] = (t & 31) << 6 | buffer[start++] & 63;
+        else if (t > 239 && t < 365) {
+            t = ((t & 7) << 18 | (buffer[start++] & 63) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63) - 0x10000;
+            chunk[i++] = 0xD800 + (t >> 10);
+            chunk[i++] = 0xDC00 + (t & 1023);
+        } else
+            chunk[i++] = (t & 15) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63;
+        if (i > 8191) {
+            (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
+            i = 0;
+        }
+    }
+    if (parts) {
+        if (i)
+            parts.push(String.fromCharCode.apply(String, chunk.slice(0, i)));
+        return parts.join("");
+    }
+    return String.fromCharCode.apply(String, chunk.slice(0, i));
+};
+
+/**
+ * Writes a string as UTF8 bytes.
+ * @param {string} string Source string
+ * @param {Uint8Array} buffer Destination buffer
+ * @param {number} offset Destination offset
+ * @returns {number} Bytes written
+ */
+utf8.write = function utf8_write(string, buffer, offset) {
+    var start = offset,
+        c1, // character 1
+        c2; // character 2
+    for (var i = 0; i < string.length; ++i) {
+        c1 = string.charCodeAt(i);
+        if (c1 < 128) {
+            buffer[offset++] = c1;
+        } else if (c1 < 2048) {
+            buffer[offset++] = c1 >> 6       | 192;
+            buffer[offset++] = c1       & 63 | 128;
+        } else if ((c1 & 0xFC00) === 0xD800 && ((c2 = string.charCodeAt(i + 1)) & 0xFC00) === 0xDC00) {
+            c1 = 0x10000 + ((c1 & 0x03FF) << 10) + (c2 & 0x03FF);
+            ++i;
+            buffer[offset++] = c1 >> 18      | 240;
+            buffer[offset++] = c1 >> 12 & 63 | 128;
+            buffer[offset++] = c1 >> 6  & 63 | 128;
+            buffer[offset++] = c1       & 63 | 128;
+        } else {
+            buffer[offset++] = c1 >> 12      | 224;
+            buffer[offset++] = c1 >> 6  & 63 | 128;
+            buffer[offset++] = c1       & 63 | 128;
+        }
+    }
+    return offset - start;
+};
+
+
+/***/ }),
+/* 393 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = pool;
+
+/**
+ * An allocator as used by {@link util.pool}.
+ * @typedef PoolAllocator
+ * @type {function}
+ * @param {number} size Buffer size
+ * @returns {Uint8Array} Buffer
+ */
+
+/**
+ * A slicer as used by {@link util.pool}.
+ * @typedef PoolSlicer
+ * @type {function}
+ * @param {number} start Start offset
+ * @param {number} end End offset
+ * @returns {Uint8Array} Buffer slice
+ * @this {Uint8Array}
+ */
+
+/**
+ * A general purpose buffer pool.
+ * @memberof util
+ * @function
+ * @param {PoolAllocator} alloc Allocator
+ * @param {PoolSlicer} slice Slicer
+ * @param {number} [size=8192] Slab size
+ * @returns {PoolAllocator} Pooled allocator
+ */
+function pool(alloc, slice, size) {
+    var SIZE   = size || 8192;
+    var MAX    = SIZE >>> 1;
+    var slab   = null;
+    var offset = SIZE;
+    return function pool_alloc(size) {
+        if (size < 1 || size > MAX)
+            return alloc(size);
+        if (offset + size > SIZE) {
+            slab = alloc(SIZE);
+            offset = 0;
+        }
+        var buf = slice.call(slab, offset, offset += size);
+        if (offset & 7) // align to 32 bit
+            offset = (offset | 7) + 1;
+        return buf;
+    };
+}
+
+
+/***/ }),
+/* 394 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = LongBits;
+
+var util = __webpack_require__(23);
+
+/**
+ * Constructs new long bits.
+ * @classdesc Helper class for working with the low and high bits of a 64 bit value.
+ * @memberof util
+ * @constructor
+ * @param {number} lo Low 32 bits, unsigned
+ * @param {number} hi High 32 bits, unsigned
+ */
+function LongBits(lo, hi) {
+
+    // note that the casts below are theoretically unnecessary as of today, but older statically
+    // generated converter code might still call the ctor with signed 32bits. kept for compat.
+
+    /**
+     * Low bits.
+     * @type {number}
+     */
+    this.lo = lo >>> 0;
+
+    /**
+     * High bits.
+     * @type {number}
+     */
+    this.hi = hi >>> 0;
+}
+
+/**
+ * Zero bits.
+ * @memberof util.LongBits
+ * @type {util.LongBits}
+ */
+var zero = LongBits.zero = new LongBits(0, 0);
+
+zero.toNumber = function() { return 0; };
+zero.zzEncode = zero.zzDecode = function() { return this; };
+zero.length = function() { return 1; };
+
+/**
+ * Zero hash.
+ * @memberof util.LongBits
+ * @type {string}
+ */
+var zeroHash = LongBits.zeroHash = "\0\0\0\0\0\0\0\0";
+
+/**
+ * Constructs new long bits from the specified number.
+ * @param {number} value Value
+ * @returns {util.LongBits} Instance
+ */
+LongBits.fromNumber = function fromNumber(value) {
+    if (value === 0)
+        return zero;
+    var sign = value < 0;
+    if (sign)
+        value = -value;
+    var lo = value >>> 0,
+        hi = (value - lo) / 4294967296 >>> 0;
+    if (sign) {
+        hi = ~hi >>> 0;
+        lo = ~lo >>> 0;
+        if (++lo > 4294967295) {
+            lo = 0;
+            if (++hi > 4294967295)
+                hi = 0;
+        }
+    }
+    return new LongBits(lo, hi);
+};
+
+/**
+ * Constructs new long bits from a number, long or string.
+ * @param {Long|number|string} value Value
+ * @returns {util.LongBits} Instance
+ */
+LongBits.from = function from(value) {
+    if (typeof value === "number")
+        return LongBits.fromNumber(value);
+    if (util.isString(value)) {
+        /* istanbul ignore else */
+        if (util.Long)
+            value = util.Long.fromString(value);
+        else
+            return LongBits.fromNumber(parseInt(value, 10));
+    }
+    return value.low || value.high ? new LongBits(value.low >>> 0, value.high >>> 0) : zero;
+};
+
+/**
+ * Converts this long bits to a possibly unsafe JavaScript number.
+ * @param {boolean} [unsigned=false] Whether unsigned or not
+ * @returns {number} Possibly unsafe number
+ */
+LongBits.prototype.toNumber = function toNumber(unsigned) {
+    if (!unsigned && this.hi >>> 31) {
+        var lo = ~this.lo + 1 >>> 0,
+            hi = ~this.hi     >>> 0;
+        if (!lo)
+            hi = hi + 1 >>> 0;
+        return -(lo + hi * 4294967296);
+    }
+    return this.lo + this.hi * 4294967296;
+};
+
+/**
+ * Converts this long bits to a long.
+ * @param {boolean} [unsigned=false] Whether unsigned or not
+ * @returns {Long} Long
+ */
+LongBits.prototype.toLong = function toLong(unsigned) {
+    return util.Long
+        ? new util.Long(this.lo | 0, this.hi | 0, Boolean(unsigned))
+        /* istanbul ignore next */
+        : { low: this.lo | 0, high: this.hi | 0, unsigned: Boolean(unsigned) };
+};
+
+var charCodeAt = String.prototype.charCodeAt;
+
+/**
+ * Constructs new long bits from the specified 8 characters long hash.
+ * @param {string} hash Hash
+ * @returns {util.LongBits} Bits
+ */
+LongBits.fromHash = function fromHash(hash) {
+    if (hash === zeroHash)
+        return zero;
+    return new LongBits(
+        ( charCodeAt.call(hash, 0)
+        | charCodeAt.call(hash, 1) << 8
+        | charCodeAt.call(hash, 2) << 16
+        | charCodeAt.call(hash, 3) << 24) >>> 0
+    ,
+        ( charCodeAt.call(hash, 4)
+        | charCodeAt.call(hash, 5) << 8
+        | charCodeAt.call(hash, 6) << 16
+        | charCodeAt.call(hash, 7) << 24) >>> 0
+    );
+};
+
+/**
+ * Converts this long bits to a 8 characters long hash.
+ * @returns {string} Hash
+ */
+LongBits.prototype.toHash = function toHash() {
+    return String.fromCharCode(
+        this.lo        & 255,
+        this.lo >>> 8  & 255,
+        this.lo >>> 16 & 255,
+        this.lo >>> 24      ,
+        this.hi        & 255,
+        this.hi >>> 8  & 255,
+        this.hi >>> 16 & 255,
+        this.hi >>> 24
+    );
+};
+
+/**
+ * Zig-zag encodes this long bits.
+ * @returns {util.LongBits} `this`
+ */
+LongBits.prototype.zzEncode = function zzEncode() {
+    var mask =   this.hi >> 31;
+    this.hi  = ((this.hi << 1 | this.lo >>> 31) ^ mask) >>> 0;
+    this.lo  = ( this.lo << 1                   ^ mask) >>> 0;
+    return this;
+};
+
+/**
+ * Zig-zag decodes this long bits.
+ * @returns {util.LongBits} `this`
+ */
+LongBits.prototype.zzDecode = function zzDecode() {
+    var mask = -(this.lo & 1);
+    this.lo  = ((this.lo >>> 1 | this.hi << 31) ^ mask) >>> 0;
+    this.hi  = ( this.hi >>> 1                  ^ mask) >>> 0;
+    return this;
+};
+
+/**
+ * Calculates the length of this longbits when encoded as a varint.
+ * @returns {number} Length
+ */
+LongBits.prototype.length = function length() {
+    var part0 =  this.lo,
+        part1 = (this.lo >>> 28 | this.hi << 4) >>> 0,
+        part2 =  this.hi >>> 24;
+    return part2 === 0
+         ? part1 === 0
+           ? part0 < 16384
+             ? part0 < 128 ? 1 : 2
+             : part0 < 2097152 ? 3 : 4
+           : part1 < 16384
+             ? part1 < 128 ? 5 : 6
+             : part1 < 2097152 ? 7 : 8
+         : part2 < 128 ? 9 : 10;
+};
+
+
+/***/ }),
+/* 395 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = BufferWriter;
+
+// extends Writer
+var Writer = __webpack_require__(88);
+(BufferWriter.prototype = Object.create(Writer.prototype)).constructor = BufferWriter;
+
+var util = __webpack_require__(23);
+
+var Buffer = util.Buffer;
+
+/**
+ * Constructs a new buffer writer instance.
+ * @classdesc Wire format writer using node buffers.
+ * @extends Writer
+ * @constructor
+ */
+function BufferWriter() {
+    Writer.call(this);
+}
+
+/**
+ * Allocates a buffer of the specified size.
+ * @param {number} size Buffer size
+ * @returns {Buffer} Buffer
+ */
+BufferWriter.alloc = function alloc_buffer(size) {
+    return (BufferWriter.alloc = util._Buffer_allocUnsafe)(size);
+};
+
+var writeBytesBuffer = Buffer && Buffer.prototype instanceof Uint8Array && Buffer.prototype.set.name === "set"
+    ? function writeBytesBuffer_set(val, buf, pos) {
+        buf.set(val, pos); // faster than copy (requires node >= 4 where Buffers extend Uint8Array and set is properly inherited)
+                           // also works for plain array values
+    }
+    /* istanbul ignore next */
+    : function writeBytesBuffer_copy(val, buf, pos) {
+        if (val.copy) // Buffer values
+            val.copy(buf, pos, 0, val.length);
+        else for (var i = 0; i < val.length;) // plain array values
+            buf[pos++] = val[i++];
+    };
+
+/**
+ * @override
+ */
+BufferWriter.prototype.bytes = function write_bytes_buffer(value) {
+    if (util.isString(value))
+        value = util._Buffer_from(value, "base64");
+    var len = value.length >>> 0;
+    this.uint32(len);
+    if (len)
+        this._push(writeBytesBuffer, len, value);
+    return this;
+};
+
+function writeStringBuffer(val, buf, pos) {
+    if (val.length < 40) // plain js is faster for short strings (probably due to redundant assertions)
+        util.utf8.write(val, buf, pos);
+    else
+        buf.utf8Write(val, pos);
+}
+
+/**
+ * @override
+ */
+BufferWriter.prototype.string = function write_string_buffer(value) {
+    var len = Buffer.byteLength(value);
+    this.uint32(len);
+    if (len)
+        this._push(writeStringBuffer, len, value);
+    return this;
+};
+
+
+/**
+ * Finishes the write operation.
+ * @name BufferWriter#finish
+ * @function
+ * @returns {Buffer} Finished buffer
+ */
+
+
+/***/ }),
+/* 396 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = BufferReader;
+
+// extends Reader
+var Reader = __webpack_require__(89);
+(BufferReader.prototype = Object.create(Reader.prototype)).constructor = BufferReader;
+
+var util = __webpack_require__(23);
+
+/**
+ * Constructs a new buffer reader instance.
+ * @classdesc Wire format reader using node buffers.
+ * @extends Reader
+ * @constructor
+ * @param {Buffer} buffer Buffer to read from
+ */
+function BufferReader(buffer) {
+    Reader.call(this, buffer);
+
+    /**
+     * Read buffer.
+     * @name BufferReader#buf
+     * @type {Buffer}
+     */
+}
+
+/* istanbul ignore else */
+if (util.Buffer)
+    BufferReader.prototype._slice = util.Buffer.prototype.slice;
+
+/**
+ * @override
+ */
+BufferReader.prototype.string = function read_string_buffer() {
+    var len = this.uint32(); // modifies pos
+    return this.buf.utf8Slice(this.pos, this.pos = Math.min(this.pos + len, this.len));
+};
+
+/**
+ * Reads a sequence of bytes preceeded by its length as a varint.
+ * @name BufferReader#bytes
+ * @function
+ * @returns {Buffer} Value read
+ */
+
+
+/***/ }),
+/* 397 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = Service;
+
+var util = __webpack_require__(23);
+
+// Extends EventEmitter
+(Service.prototype = Object.create(util.EventEmitter.prototype)).constructor = Service;
+
+/**
+ * A service method callback as used by {@link rpc.ServiceMethod|ServiceMethod}.
+ *
+ * Differs from {@link RPCImplCallback} in that it is an actual callback of a service method which may not return `response = null`.
+ * @typedef rpc.ServiceMethodCallback
+ * @template TRes extends Message<TRes>
+ * @type {function}
+ * @param {Error|null} error Error, if any
+ * @param {TRes} [response] Response message
+ * @returns {undefined}
+ */
+
+/**
+ * A service method part of a {@link rpc.Service} as created by {@link Service.create}.
+ * @typedef rpc.ServiceMethod
+ * @template TReq extends Message<TReq>
+ * @template TRes extends Message<TRes>
+ * @type {function}
+ * @param {TReq|Properties<TReq>} request Request message or plain object
+ * @param {rpc.ServiceMethodCallback<TRes>} [callback] Node-style callback called with the error, if any, and the response message
+ * @returns {Promise<Message<TRes>>} Promise if `callback` has been omitted, otherwise `undefined`
+ */
+
+/**
+ * Constructs a new RPC service instance.
+ * @classdesc An RPC service as returned by {@link Service#create}.
+ * @exports rpc.Service
+ * @extends util.EventEmitter
+ * @constructor
+ * @param {RPCImpl} rpcImpl RPC implementation
+ * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+ * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+ */
+function Service(rpcImpl, requestDelimited, responseDelimited) {
+
+    if (typeof rpcImpl !== "function")
+        throw TypeError("rpcImpl must be a function");
+
+    util.EventEmitter.call(this);
+
+    /**
+     * RPC implementation. Becomes `null` once the service is ended.
+     * @type {RPCImpl|null}
+     */
+    this.rpcImpl = rpcImpl;
+
+    /**
+     * Whether requests are length-delimited.
+     * @type {boolean}
+     */
+    this.requestDelimited = Boolean(requestDelimited);
+
+    /**
+     * Whether responses are length-delimited.
+     * @type {boolean}
+     */
+    this.responseDelimited = Boolean(responseDelimited);
+}
+
+/**
+ * Calls a service method through {@link rpc.Service#rpcImpl|rpcImpl}.
+ * @param {Method|rpc.ServiceMethod<TReq,TRes>} method Reflected or static method
+ * @param {Constructor<TReq>} requestCtor Request constructor
+ * @param {Constructor<TRes>} responseCtor Response constructor
+ * @param {TReq|Properties<TReq>} request Request message or plain object
+ * @param {rpc.ServiceMethodCallback<TRes>} callback Service callback
+ * @returns {undefined}
+ * @template TReq extends Message<TReq>
+ * @template TRes extends Message<TRes>
+ */
+Service.prototype.rpcCall = function rpcCall(method, requestCtor, responseCtor, request, callback) {
+
+    if (!request)
+        throw TypeError("request must be specified");
+
+    var self = this;
+    if (!callback)
+        return util.asPromise(rpcCall, self, method, requestCtor, responseCtor, request);
+
+    if (!self.rpcImpl) {
+        setTimeout(function() { callback(Error("already ended")); }, 0);
+        return undefined;
+    }
+
+    try {
+        return self.rpcImpl(
+            method,
+            requestCtor[self.requestDelimited ? "encodeDelimited" : "encode"](request).finish(),
+            function rpcCallback(err, response) {
+
+                if (err) {
+                    self.emit("error", err, method);
+                    return callback(err);
+                }
+
+                if (response === null) {
+                    self.end(/* endedByRPC */ true);
+                    return undefined;
+                }
+
+                if (!(response instanceof responseCtor)) {
+                    try {
+                        response = responseCtor[self.responseDelimited ? "decodeDelimited" : "decode"](response);
+                    } catch (err) {
+                        self.emit("error", err, method);
+                        return callback(err);
+                    }
+                }
+
+                self.emit("data", response, method);
+                return callback(null, response);
+            }
+        );
+    } catch (err) {
+        self.emit("error", err, method);
+        setTimeout(function() { callback(err); }, 0);
+        return undefined;
+    }
+};
+
+/**
+ * Ends this service and emits the `end` event.
+ * @param {boolean} [endedByRPC=false] Whether the service has been ended by the RPC implementation.
+ * @returns {rpc.Service} `this`
+ */
+Service.prototype.end = function end(endedByRPC) {
+    if (this.rpcImpl) {
+        if (!endedByRPC) // signal end to rpcImpl
+            this.rpcImpl(null, null, null);
+        this.rpcImpl = null;
+        this.emit("end").off();
+    }
+    return this;
+};
+
+
+/***/ }),
+/* 398 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(console) {
+module.exports = codegen;
+
+/**
+ * Begins generating a function.
+ * @memberof util
+ * @param {string[]} functionParams Function parameter names
+ * @param {string} [functionName] Function name if not anonymous
+ * @returns {Codegen} Appender that appends code to the function's body
+ */
+function codegen(functionParams, functionName) {
+
+    /* istanbul ignore if */
+    if (typeof functionParams === "string") {
+        functionName = functionParams;
+        functionParams = undefined;
+    }
+
+    var body = [];
+
+    /**
+     * Appends code to the function's body or finishes generation.
+     * @typedef Codegen
+     * @type {function}
+     * @param {string|Object.<string,*>} [formatStringOrScope] Format string or, to finish the function, an object of additional scope variables, if any
+     * @param {...*} [formatParams] Format parameters
+     * @returns {Codegen|Function} Itself or the generated function if finished
+     * @throws {Error} If format parameter counts do not match
+     */
+
+    function Codegen(formatStringOrScope) {
+        // note that explicit array handling below makes this ~50% faster
+
+        // finish the function
+        if (typeof formatStringOrScope !== "string") {
+            var source = toString();
+            if (codegen.verbose)
+                console.log("codegen: " + source); // eslint-disable-line no-console
+            source = "return " + source;
+            if (formatStringOrScope) {
+                var scopeKeys   = Object.keys(formatStringOrScope),
+                    scopeParams = new Array(scopeKeys.length + 1),
+                    scopeValues = new Array(scopeKeys.length),
+                    scopeOffset = 0;
+                while (scopeOffset < scopeKeys.length) {
+                    scopeParams[scopeOffset] = scopeKeys[scopeOffset];
+                    scopeValues[scopeOffset] = formatStringOrScope[scopeKeys[scopeOffset++]];
+                }
+                scopeParams[scopeOffset] = source;
+                return Function.apply(null, scopeParams).apply(null, scopeValues); // eslint-disable-line no-new-func
+            }
+            return Function(source)(); // eslint-disable-line no-new-func
+        }
+
+        // otherwise append to body
+        var formatParams = new Array(arguments.length - 1),
+            formatOffset = 0;
+        while (formatOffset < formatParams.length)
+            formatParams[formatOffset] = arguments[++formatOffset];
+        formatOffset = 0;
+        formatStringOrScope = formatStringOrScope.replace(/%([%dfijs])/g, function replace($0, $1) {
+            var value = formatParams[formatOffset++];
+            switch ($1) {
+                case "d": case "f": return String(Number(value));
+                case "i": return String(Math.floor(value));
+                case "j": return JSON.stringify(value);
+                case "s": return String(value);
+            }
+            return "%";
+        });
+        if (formatOffset !== formatParams.length)
+            throw Error("parameter count mismatch");
+        body.push(formatStringOrScope);
+        return Codegen;
+    }
+
+    function toString(functionNameOverride) {
+        return "function " + (functionNameOverride || functionName || "") + "(" + (functionParams && functionParams.join(",") || "") + "){\n  " + body.join("\n  ") + "\n}";
+    }
+
+    Codegen.toString = toString;
+    return Codegen;
+}
+
+/**
+ * Begins generating a function.
+ * @memberof util
+ * @function codegen
+ * @param {string} [functionName] Function name if not anonymous
+ * @returns {Codegen} Appender that appends code to the function's body
+ * @variation 2
+ */
+
+/**
+ * When set to `true`, codegen will log generated code to console. Useful for debugging.
+ * @name util.codegen.verbose
+ * @type {boolean}
+ */
+codegen.verbose = false;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
+
+/***/ }),
+/* 399 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = fetch;
+
+var asPromise = __webpack_require__(162),
+    inquire   = __webpack_require__(163);
+
+var fs = inquire("fs");
+
+/**
+ * Node-style callback as used by {@link util.fetch}.
+ * @typedef FetchCallback
+ * @type {function}
+ * @param {?Error} error Error, if any, otherwise `null`
+ * @param {string} [contents] File contents, if there hasn't been an error
+ * @returns {undefined}
+ */
+
+/**
+ * Options as used by {@link util.fetch}.
+ * @typedef FetchOptions
+ * @type {Object}
+ * @property {boolean} [binary=false] Whether expecting a binary response
+ * @property {boolean} [xhr=false] If `true`, forces the use of XMLHttpRequest
+ */
+
+/**
+ * Fetches the contents of a file.
+ * @memberof util
+ * @param {string} filename File path or url
+ * @param {FetchOptions} options Fetch options
+ * @param {FetchCallback} callback Callback function
+ * @returns {undefined}
+ */
+function fetch(filename, options, callback) {
+    if (typeof options === "function") {
+        callback = options;
+        options = {};
+    } else if (!options)
+        options = {};
+
+    if (!callback)
+        return asPromise(fetch, this, filename, options); // eslint-disable-line no-invalid-this
+
+    // if a node-like filesystem is present, try it first but fall back to XHR if nothing is found.
+    if (!options.xhr && fs && fs.readFile)
+        return fs.readFile(filename, function fetchReadFileCallback(err, contents) {
+            return err && typeof XMLHttpRequest !== "undefined"
+                ? fetch.xhr(filename, options, callback)
+                : err
+                ? callback(err)
+                : callback(null, options.binary ? contents : contents.toString("utf8"));
+        });
+
+    // use the XHR version otherwise.
+    return fetch.xhr(filename, options, callback);
+}
+
+/**
+ * Fetches the contents of a file.
+ * @name util.fetch
+ * @function
+ * @param {string} path File path or url
+ * @param {FetchCallback} callback Callback function
+ * @returns {undefined}
+ * @variation 2
+ */
+
+/**
+ * Fetches the contents of a file.
+ * @name util.fetch
+ * @function
+ * @param {string} path File path or url
+ * @param {FetchOptions} [options] Fetch options
+ * @returns {Promise<string|Uint8Array>} Promise
+ * @variation 3
+ */
+
+/**/
+fetch.xhr = function fetch_xhr(filename, options, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange /* works everywhere */ = function fetchOnReadyStateChange() {
+
+        if (xhr.readyState !== 4)
+            return undefined;
+
+        // local cors security errors return status 0 / empty string, too. afaik this cannot be
+        // reliably distinguished from an actually empty file for security reasons. feel free
+        // to send a pull request if you are aware of a solution.
+        if (xhr.status !== 0 && xhr.status !== 200)
+            return callback(Error("status " + xhr.status));
+
+        // if binary data is expected, make sure that some sort of array is returned, even if
+        // ArrayBuffers are not supported. the binary string fallback, however, is unsafe.
+        if (options.binary) {
+            var buffer = xhr.response;
+            if (!buffer) {
+                buffer = [];
+                for (var i = 0; i < xhr.responseText.length; ++i)
+                    buffer.push(xhr.responseText.charCodeAt(i) & 255);
+            }
+            return callback(null, typeof Uint8Array !== "undefined" ? new Uint8Array(buffer) : buffer);
+        }
+        return callback(null, xhr.responseText);
+    };
+
+    if (options.binary) {
+        // ref: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Sending_and_Receiving_Binary_Data#Receiving_binary_data_in_older_browsers
+        if ("overrideMimeType" in xhr)
+            xhr.overrideMimeType("text/plain; charset=x-user-defined");
+        xhr.responseType = "arraybuffer";
+    }
+
+    xhr.open("GET", filename);
+    xhr.send();
+};
+
+
+/***/ }),
+/* 400 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A minimal path module to resolve Unix, Windows and URL paths alike.
+ * @memberof util
+ * @namespace
+ */
+var path = exports;
+
+var isAbsolute =
+/**
+ * Tests if the specified path is absolute.
+ * @param {string} path Path to test
+ * @returns {boolean} `true` if path is absolute
+ */
+path.isAbsolute = function isAbsolute(path) {
+    return /^(?:\/|\w+:)/.test(path);
+};
+
+var normalize =
+/**
+ * Normalizes the specified path.
+ * @param {string} path Path to normalize
+ * @returns {string} Normalized path
+ */
+path.normalize = function normalize(path) {
+    path = path.replace(/\\/g, "/")
+               .replace(/\/{2,}/g, "/");
+    var parts    = path.split("/"),
+        absolute = isAbsolute(path),
+        prefix   = "";
+    if (absolute)
+        prefix = parts.shift() + "/";
+    for (var i = 0; i < parts.length;) {
+        if (parts[i] === "..") {
+            if (i > 0 && parts[i - 1] !== "..")
+                parts.splice(--i, 2);
+            else if (absolute)
+                parts.splice(i, 1);
+            else
+                ++i;
+        } else if (parts[i] === ".")
+            parts.splice(i, 1);
+        else
+            ++i;
+    }
+    return prefix + parts.join("/");
+};
+
+/**
+ * Resolves the specified include path against the specified origin path.
+ * @param {string} originPath Path to the origin file
+ * @param {string} includePath Include path relative to origin path
+ * @param {boolean} [alreadyNormalized=false] `true` if both paths are already known to be normalized
+ * @returns {string} Path to the include file
+ */
+path.resolve = function resolve(originPath, includePath, alreadyNormalized) {
+    if (!alreadyNormalized)
+        includePath = normalize(includePath);
+    if (isAbsolute(includePath))
+        return includePath;
+    if (!alreadyNormalized)
+        originPath = normalize(originPath);
+    return (originPath = originPath.replace(/(?:\/|^)[^/]+$/, "")).length ? normalize(originPath + "/" + includePath) : includePath;
+};
+
+
+/***/ }),
+/* 401 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = parse;
+
+parse.filename = null;
+parse.defaults = { keepCase: false };
+
+var tokenize  = __webpack_require__(171),
+    Root      = __webpack_require__(95),
+    Type      = __webpack_require__(90),
+    Field     = __webpack_require__(32),
+    MapField  = __webpack_require__(91),
+    OneOf     = __webpack_require__(65),
+    Enum      = __webpack_require__(17),
+    Service   = __webpack_require__(92),
+    Method    = __webpack_require__(93),
+    types     = __webpack_require__(39),
+    util      = __webpack_require__(10);
+
+var base10Re    = /^[1-9][0-9]*$/,
+    base10NegRe = /^-?[1-9][0-9]*$/,
+    base16Re    = /^0[x][0-9a-fA-F]+$/,
+    base16NegRe = /^-?0[x][0-9a-fA-F]+$/,
+    base8Re     = /^0[0-7]+$/,
+    base8NegRe  = /^-?0[0-7]+$/,
+    numberRe    = /^(?![eE])[0-9]*(?:\.[0-9]*)?(?:[eE][+-]?[0-9]+)?$/,
+    nameRe      = /^[a-zA-Z_][a-zA-Z_0-9]*$/,
+    typeRefRe   = /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)+$/,
+    fqTypeRefRe = /^(?:\.[a-zA-Z][a-zA-Z_0-9]*)+$/;
+
+/**
+ * Result object returned from {@link parse}.
+ * @interface IParserResult
+ * @property {string|undefined} package Package name, if declared
+ * @property {string[]|undefined} imports Imports, if any
+ * @property {string[]|undefined} weakImports Weak imports, if any
+ * @property {string|undefined} syntax Syntax, if specified (either `"proto2"` or `"proto3"`)
+ * @property {Root} root Populated root instance
+ */
+
+/**
+ * Options modifying the behavior of {@link parse}.
+ * @interface IParseOptions
+ * @property {boolean} [keepCase=false] Keeps field casing instead of converting to camel case
+ */
+
+/**
+ * Parses the given .proto source and returns an object with the parsed contents.
+ * @param {string} source Source contents
+ * @param {Root} root Root to populate
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {IParserResult} Parser result
+ * @property {string} filename=null Currently processing file name for error reporting, if known
+ * @property {IParseOptions} defaults Default {@link IParseOptions}
+ */
+function parse(source, root, options) {
+    /* eslint-disable callback-return */
+    if (!(root instanceof Root)) {
+        options = root;
+        root = new Root();
+    }
+    if (!options)
+        options = parse.defaults;
+
+    var tn = tokenize(source),
+        next = tn.next,
+        push = tn.push,
+        peek = tn.peek,
+        skip = tn.skip,
+        cmnt = tn.cmnt;
+
+    var head = true,
+        pkg,
+        imports,
+        weakImports,
+        syntax,
+        isProto3 = false;
+
+    var ptr = root;
+
+    var applyCase = options.keepCase ? function(name) { return name; } : util.camelCase;
+
+    /* istanbul ignore next */
+    function illegal(token, name, insideTryCatch) {
+        var filename = parse.filename;
+        if (!insideTryCatch)
+            parse.filename = null;
+        return Error("illegal " + (name || "token") + " '" + token + "' (" + (filename ? filename + ", " : "") + "line " + tn.line + ")");
+    }
+
+    function readString() {
+        var values = [],
+            token;
+        do {
+            /* istanbul ignore if */
+            if ((token = next()) !== "\"" && token !== "'")
+                throw illegal(token);
+
+            values.push(next());
+            skip(token);
+            token = peek();
+        } while (token === "\"" || token === "'");
+        return values.join("");
+    }
+
+    function readValue(acceptTypeRef) {
+        var token = next();
+        switch (token) {
+            case "'":
+            case "\"":
+                push(token);
+                return readString();
+            case "true": case "TRUE":
+                return true;
+            case "false": case "FALSE":
+                return false;
+        }
+        try {
+            return parseNumber(token, /* insideTryCatch */ true);
+        } catch (e) {
+
+            /* istanbul ignore else */
+            if (acceptTypeRef && typeRefRe.test(token))
+                return token;
+
+            /* istanbul ignore next */
+            throw illegal(token, "value");
+        }
+    }
+
+    function readRanges(target, acceptStrings) {
+        var token, start;
+        do {
+            if (acceptStrings && ((token = peek()) === "\"" || token === "'"))
+                target.push(readString());
+            else
+                target.push([ start = parseId(next()), skip("to", true) ? parseId(next()) : start ]);
+        } while (skip(",", true));
+        skip(";");
+    }
+
+    function parseNumber(token, insideTryCatch) {
+        var sign = 1;
+        if (token.charAt(0) === "-") {
+            sign = -1;
+            token = token.substring(1);
+        }
+        switch (token) {
+            case "inf": case "INF": case "Inf":
+                return sign * Infinity;
+            case "nan": case "NAN": case "Nan": case "NaN":
+                return NaN;
+            case "0":
+                return 0;
+        }
+        if (base10Re.test(token))
+            return sign * parseInt(token, 10);
+        if (base16Re.test(token))
+            return sign * parseInt(token, 16);
+        if (base8Re.test(token))
+            return sign * parseInt(token, 8);
+
+        /* istanbul ignore else */
+        if (numberRe.test(token))
+            return sign * parseFloat(token);
+
+        /* istanbul ignore next */
+        throw illegal(token, "number", insideTryCatch);
+    }
+
+    function parseId(token, acceptNegative) {
+        switch (token) {
+            case "max": case "MAX": case "Max":
+                return 536870911;
+            case "0":
+                return 0;
+        }
+
+        /* istanbul ignore if */
+        if (!acceptNegative && token.charAt(0) === "-")
+            throw illegal(token, "id");
+
+        if (base10NegRe.test(token))
+            return parseInt(token, 10);
+        if (base16NegRe.test(token))
+            return parseInt(token, 16);
+
+        /* istanbul ignore else */
+        if (base8NegRe.test(token))
+            return parseInt(token, 8);
+
+        /* istanbul ignore next */
+        throw illegal(token, "id");
+    }
+
+    function parsePackage() {
+
+        /* istanbul ignore if */
+        if (pkg !== undefined)
+            throw illegal("package");
+
+        pkg = next();
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(pkg))
+            throw illegal(pkg, "name");
+
+        ptr = ptr.define(pkg);
+        skip(";");
+    }
+
+    function parseImport() {
+        var token = peek();
+        var whichImports;
+        switch (token) {
+            case "weak":
+                whichImports = weakImports || (weakImports = []);
+                next();
+                break;
+            case "public":
+                next();
+                // eslint-disable-line no-fallthrough
+            default:
+                whichImports = imports || (imports = []);
+                break;
+        }
+        token = readString();
+        skip(";");
+        whichImports.push(token);
+    }
+
+    function parseSyntax() {
+        skip("=");
+        syntax = readString();
+        isProto3 = syntax === "proto3";
+
+        /* istanbul ignore if */
+        if (!isProto3 && syntax !== "proto2")
+            throw illegal(syntax, "syntax");
+
+        skip(";");
+    }
+
+    function parseCommon(parent, token) {
+        switch (token) {
+
+            case "option":
+                parseOption(parent, token);
+                skip(";");
+                return true;
+
+            case "message":
+                parseType(parent, token);
+                return true;
+
+            case "enum":
+                parseEnum(parent, token);
+                return true;
+
+            case "service":
+                parseService(parent, token);
+                return true;
+
+            case "extend":
+                parseExtension(parent, token);
+                return true;
+        }
+        return false;
+    }
+
+    function ifBlock(obj, fnIf, fnElse) {
+        var trailingLine = tn.line;
+        if (obj) {
+            obj.comment = cmnt(); // try block-type comment
+            obj.filename = parse.filename;
+        }
+        if (skip("{", true)) {
+            var token;
+            while ((token = next()) !== "}")
+                fnIf(token);
+            skip(";", true);
+        } else {
+            if (fnElse)
+                fnElse();
+            skip(";");
+            if (obj && typeof obj.comment !== "string")
+                obj.comment = cmnt(trailingLine); // try line-type comment if no block
+        }
+    }
+
+    function parseType(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "type name");
+
+        var type = new Type(token);
+        ifBlock(type, function parseType_block(token) {
+            if (parseCommon(type, token))
+                return;
+
+            switch (token) {
+
+                case "map":
+                    parseMapField(type, token);
+                    break;
+
+                case "required":
+                case "optional":
+                case "repeated":
+                    parseField(type, token);
+                    break;
+
+                case "oneof":
+                    parseOneOf(type, token);
+                    break;
+
+                case "extensions":
+                    readRanges(type.extensions || (type.extensions = []));
+                    break;
+
+                case "reserved":
+                    readRanges(type.reserved || (type.reserved = []), true);
+                    break;
+
+                default:
+                    /* istanbul ignore if */
+                    if (!isProto3 || !typeRefRe.test(token))
+                        throw illegal(token);
+
+                    push(token);
+                    parseField(type, "optional");
+                    break;
+            }
+        });
+        parent.add(type);
+    }
+
+    function parseField(parent, rule, extend) {
+        var type = next();
+        if (type === "group") {
+            parseGroup(parent, rule);
+            return;
+        }
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(type))
+            throw illegal(type, "type");
+
+        var name = next();
+
+        /* istanbul ignore if */
+        if (!nameRe.test(name))
+            throw illegal(name, "name");
+
+        name = applyCase(name);
+        skip("=");
+
+        var field = new Field(name, parseId(next()), type, rule, extend);
+        ifBlock(field, function parseField_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(field, token);
+                skip(";");
+            } else
+                throw illegal(token);
+
+        }, function parseField_line() {
+            parseInlineOptions(field);
+        });
+        parent.add(field);
+
+        // JSON defaults to packed=true if not set so we have to set packed=false explicity when
+        // parsing proto2 descriptors without the option, where applicable. This must be done for
+        // all known packable types and anything that could be an enum (= is not a basic type).
+        if (!isProto3 && field.repeated && (types.packed[type] !== undefined || types.basic[type] === undefined))
+            field.setOption("packed", false, /* ifNotSet */ true);
+    }
+
+    function parseGroup(parent, rule) {
+        var name = next();
+
+        /* istanbul ignore if */
+        if (!nameRe.test(name))
+            throw illegal(name, "name");
+
+        var fieldName = util.lcFirst(name);
+        if (name === fieldName)
+            name = util.ucFirst(name);
+        skip("=");
+        var id = parseId(next());
+        var type = new Type(name);
+        type.group = true;
+        var field = new Field(fieldName, id, name, rule);
+        field.filename = parse.filename;
+        ifBlock(type, function parseGroup_block(token) {
+            switch (token) {
+
+                case "option":
+                    parseOption(type, token);
+                    skip(";");
+                    break;
+
+                case "required":
+                case "optional":
+                case "repeated":
+                    parseField(type, token);
+                    break;
+
+                /* istanbul ignore next */
+                default:
+                    throw illegal(token); // there are no groups with proto3 semantics
+            }
+        });
+        parent.add(type)
+              .add(field);
+    }
+
+    function parseMapField(parent) {
+        skip("<");
+        var keyType = next();
+
+        /* istanbul ignore if */
+        if (types.mapKey[keyType] === undefined)
+            throw illegal(keyType, "type");
+
+        skip(",");
+        var valueType = next();
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(valueType))
+            throw illegal(valueType, "type");
+
+        skip(">");
+        var name = next();
+
+        /* istanbul ignore if */
+        if (!nameRe.test(name))
+            throw illegal(name, "name");
+
+        skip("=");
+        var field = new MapField(applyCase(name), parseId(next()), keyType, valueType);
+        ifBlock(field, function parseMapField_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(field, token);
+                skip(";");
+            } else
+                throw illegal(token);
+
+        }, function parseMapField_line() {
+            parseInlineOptions(field);
+        });
+        parent.add(field);
+    }
+
+    function parseOneOf(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var oneof = new OneOf(applyCase(token));
+        ifBlock(oneof, function parseOneOf_block(token) {
+            if (token === "option") {
+                parseOption(oneof, token);
+                skip(";");
+            } else {
+                push(token);
+                parseField(oneof, "optional");
+            }
+        });
+        parent.add(oneof);
+    }
+
+    function parseEnum(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var enm = new Enum(token);
+        ifBlock(enm, function parseEnum_block(token) {
+          switch(token) {
+            case "option":
+              parseOption(enm, token);
+              skip(";");
+              break;
+
+            case "reserved":
+              readRanges(enm.reserved || (enm.reserved = []), true);
+              break;
+
+            default:
+              parseEnumValue(enm, token);
+          }
+        });
+        parent.add(enm);
+    }
+
+    function parseEnumValue(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token))
+            throw illegal(token, "name");
+
+        skip("=");
+        var value = parseId(next(), true),
+            dummy = {};
+        ifBlock(dummy, function parseEnumValue_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(dummy, token); // skip
+                skip(";");
+            } else
+                throw illegal(token);
+
+        }, function parseEnumValue_line() {
+            parseInlineOptions(dummy); // skip
+        });
+        parent.add(token, value, dummy.comment);
+    }
+
+    function parseOption(parent, token) {
+        var isCustom = skip("(", true);
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var name = token;
+        if (isCustom) {
+            skip(")");
+            name = "(" + name + ")";
+            token = peek();
+            if (fqTypeRefRe.test(token)) {
+                name += token;
+                next();
+            }
+        }
+        skip("=");
+        parseOptionValue(parent, name);
+    }
+
+    function parseOptionValue(parent, name) {
+        if (skip("{", true)) { // { a: "foo" b { c: "bar" } }
+            do {
+                /* istanbul ignore if */
+                if (!nameRe.test(token = next()))
+                    throw illegal(token, "name");
+
+                if (peek() === "{")
+                    parseOptionValue(parent, name + "." + token);
+                else {
+                    skip(":");
+                    if (peek() === "{")
+                        parseOptionValue(parent, name + "." + token);
+                    else
+                        setOption(parent, name + "." + token, readValue(true));
+                }
+            } while (!skip("}", true));
+        } else
+            setOption(parent, name, readValue(true));
+        // Does not enforce a delimiter to be universal
+    }
+
+    function setOption(parent, name, value) {
+        if (parent.setOption)
+            parent.setOption(name, value);
+    }
+
+    function parseInlineOptions(parent) {
+        if (skip("[", true)) {
+            do {
+                parseOption(parent, "option");
+            } while (skip(",", true));
+            skip("]");
+        }
+        return parent;
+    }
+
+    function parseService(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "service name");
+
+        var service = new Service(token);
+        ifBlock(service, function parseService_block(token) {
+            if (parseCommon(service, token))
+                return;
+
+            /* istanbul ignore else */
+            if (token === "rpc")
+                parseMethod(service, token);
+            else
+                throw illegal(token);
+        });
+        parent.add(service);
+    }
+
+    function parseMethod(parent, token) {
+        var type = token;
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var name = token,
+            requestType, requestStream,
+            responseType, responseStream;
+
+        skip("(");
+        if (skip("stream", true))
+            requestStream = true;
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token);
+
+        requestType = token;
+        skip(")"); skip("returns"); skip("(");
+        if (skip("stream", true))
+            responseStream = true;
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token);
+
+        responseType = token;
+        skip(")");
+
+        var method = new Method(name, type, requestType, responseType, requestStream, responseStream);
+        ifBlock(method, function parseMethod_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(method, token);
+                skip(";");
+            } else
+                throw illegal(token);
+
+        });
+        parent.add(method);
+    }
+
+    function parseExtension(parent, token) {
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token, "reference");
+
+        var reference = token;
+        ifBlock(null, function parseExtension_block(token) {
+            switch (token) {
+
+                case "required":
+                case "repeated":
+                case "optional":
+                    parseField(parent, token, reference);
+                    break;
+
+                default:
+                    /* istanbul ignore if */
+                    if (!isProto3 || !typeRefRe.test(token))
+                        throw illegal(token);
+                    push(token);
+                    parseField(parent, "optional", reference);
+                    break;
+            }
+        });
+    }
+
+    var token;
+    while ((token = next()) !== null) {
+        switch (token) {
+
+            case "package":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parsePackage();
+                break;
+
+            case "import":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parseImport();
+                break;
+
+            case "syntax":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parseSyntax();
+                break;
+
+            case "option":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parseOption(ptr, token);
+                skip(";");
+                break;
+
+            default:
+
+                /* istanbul ignore else */
+                if (parseCommon(ptr, token)) {
+                    head = false;
+                    continue;
+                }
+
+                /* istanbul ignore next */
+                throw illegal(token);
+        }
+    }
+
+    parse.filename = null;
+    return {
+        "package"     : pkg,
+        "imports"     : imports,
+         weakImports  : weakImports,
+         syntax       : syntax,
+         root         : root
+    };
+}
+
+/**
+ * Parses the given .proto source and returns an object with the parsed contents.
+ * @name parse
+ * @function
+ * @param {string} source Source contents
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {IParserResult} Parser result
+ * @property {string} filename=null Currently processing file name for error reporting, if known
+ * @property {IParseOptions} defaults Default {@link IParseOptions}
+ * @variation 2
+ */
+
+
+/***/ }),
+/* 402 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = common;
+
+var commonRe = /\/|\./;
+
+/**
+ * Provides common type definitions.
+ * Can also be used to provide additional google types or your own custom types.
+ * @param {string} name Short name as in `google/protobuf/[name].proto` or full file name
+ * @param {Object.<string,*>} json JSON definition within `google.protobuf` if a short name, otherwise the file's root definition
+ * @returns {undefined}
+ * @property {INamespace} google/protobuf/any.proto Any
+ * @property {INamespace} google/protobuf/duration.proto Duration
+ * @property {INamespace} google/protobuf/empty.proto Empty
+ * @property {INamespace} google/protobuf/struct.proto Struct, Value, NullValue and ListValue
+ * @property {INamespace} google/protobuf/timestamp.proto Timestamp
+ * @property {INamespace} google/protobuf/wrappers.proto Wrappers
+ * @example
+ * // manually provides descriptor.proto (assumes google/protobuf/ namespace and .proto extension)
+ * protobuf.common("descriptor", descriptorJson);
+ *
+ * // manually provides a custom definition (uses my.foo namespace)
+ * protobuf.common("my/foo/bar.proto", myFooBarJson);
+ */
+function common(name, json) {
+    if (!commonRe.test(name)) {
+        name = "google/protobuf/" + name + ".proto";
+        json = { nested: { google: { nested: { protobuf: { nested: json } } } } };
+    }
+    common[name] = json;
+}
+
+// Not provided because of limited use (feel free to discuss or to provide yourself):
+//
+// google/protobuf/descriptor.proto
+// google/protobuf/field_mask.proto
+// google/protobuf/source_context.proto
+// google/protobuf/type.proto
+//
+// Stripped and pre-parsed versions of these non-bundled files are instead available as part of
+// the repository or package within the google/protobuf directory.
+
+common("any", {
+
+    /**
+     * Properties of a google.protobuf.Any message.
+     * @interface IAny
+     * @type {Object}
+     * @property {string} [typeUrl]
+     * @property {Uint8Array} [bytes]
+     * @memberof common
+     */
+    Any: {
+        fields: {
+            type_url: {
+                type: "string",
+                id: 1
+            },
+            value: {
+                type: "bytes",
+                id: 2
+            }
+        }
+    }
+});
+
+var timeType;
+
+common("duration", {
+
+    /**
+     * Properties of a google.protobuf.Duration message.
+     * @interface IDuration
+     * @type {Object}
+     * @property {number|Long} [seconds]
+     * @property {number} [nanos]
+     * @memberof common
+     */
+    Duration: timeType = {
+        fields: {
+            seconds: {
+                type: "int64",
+                id: 1
+            },
+            nanos: {
+                type: "int32",
+                id: 2
+            }
+        }
+    }
+});
+
+common("timestamp", {
+
+    /**
+     * Properties of a google.protobuf.Timestamp message.
+     * @interface ITimestamp
+     * @type {Object}
+     * @property {number|Long} [seconds]
+     * @property {number} [nanos]
+     * @memberof common
+     */
+    Timestamp: timeType
+});
+
+common("empty", {
+
+    /**
+     * Properties of a google.protobuf.Empty message.
+     * @interface IEmpty
+     * @memberof common
+     */
+    Empty: {
+        fields: {}
+    }
+});
+
+common("struct", {
+
+    /**
+     * Properties of a google.protobuf.Struct message.
+     * @interface IStruct
+     * @type {Object}
+     * @property {Object.<string,IValue>} [fields]
+     * @memberof common
+     */
+    Struct: {
+        fields: {
+            fields: {
+                keyType: "string",
+                type: "Value",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.Value message.
+     * @interface IValue
+     * @type {Object}
+     * @property {string} [kind]
+     * @property {0} [nullValue]
+     * @property {number} [numberValue]
+     * @property {string} [stringValue]
+     * @property {boolean} [boolValue]
+     * @property {IStruct} [structValue]
+     * @property {IListValue} [listValue]
+     * @memberof common
+     */
+    Value: {
+        oneofs: {
+            kind: {
+                oneof: [
+                    "nullValue",
+                    "numberValue",
+                    "stringValue",
+                    "boolValue",
+                    "structValue",
+                    "listValue"
+                ]
+            }
+        },
+        fields: {
+            nullValue: {
+                type: "NullValue",
+                id: 1
+            },
+            numberValue: {
+                type: "double",
+                id: 2
+            },
+            stringValue: {
+                type: "string",
+                id: 3
+            },
+            boolValue: {
+                type: "bool",
+                id: 4
+            },
+            structValue: {
+                type: "Struct",
+                id: 5
+            },
+            listValue: {
+                type: "ListValue",
+                id: 6
+            }
+        }
+    },
+
+    NullValue: {
+        values: {
+            NULL_VALUE: 0
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.ListValue message.
+     * @interface IListValue
+     * @type {Object}
+     * @property {Array.<IValue>} [values]
+     * @memberof common
+     */
+    ListValue: {
+        fields: {
+            values: {
+                rule: "repeated",
+                type: "Value",
+                id: 1
+            }
+        }
+    }
+});
+
+common("wrappers", {
+
+    /**
+     * Properties of a google.protobuf.DoubleValue message.
+     * @interface IDoubleValue
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    DoubleValue: {
+        fields: {
+            value: {
+                type: "double",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.FloatValue message.
+     * @interface IFloatValue
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    FloatValue: {
+        fields: {
+            value: {
+                type: "float",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.Int64Value message.
+     * @interface IInt64Value
+     * @type {Object}
+     * @property {number|Long} [value]
+     * @memberof common
+     */
+    Int64Value: {
+        fields: {
+            value: {
+                type: "int64",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.UInt64Value message.
+     * @interface IUInt64Value
+     * @type {Object}
+     * @property {number|Long} [value]
+     * @memberof common
+     */
+    UInt64Value: {
+        fields: {
+            value: {
+                type: "uint64",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.Int32Value message.
+     * @interface IInt32Value
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    Int32Value: {
+        fields: {
+            value: {
+                type: "int32",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.UInt32Value message.
+     * @interface IUInt32Value
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    UInt32Value: {
+        fields: {
+            value: {
+                type: "uint32",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.BoolValue message.
+     * @interface IBoolValue
+     * @type {Object}
+     * @property {boolean} [value]
+     * @memberof common
+     */
+    BoolValue: {
+        fields: {
+            value: {
+                type: "bool",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.StringValue message.
+     * @interface IStringValue
+     * @type {Object}
+     * @property {string} [value]
+     * @memberof common
+     */
+    StringValue: {
+        fields: {
+            value: {
+                type: "string",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.BytesValue message.
+     * @interface IBytesValue
+     * @type {Object}
+     * @property {Uint8Array} [value]
+     * @memberof common
+     */
+    BytesValue: {
+        fields: {
+            value: {
+                type: "bytes",
+                id: 1
+            }
+        }
+    }
+});
+
+/**
+ * Gets the root definition of the specified common proto file.
+ *
+ * Bundled definitions are:
+ * - google/protobuf/any.proto
+ * - google/protobuf/duration.proto
+ * - google/protobuf/empty.proto
+ * - google/protobuf/struct.proto
+ * - google/protobuf/timestamp.proto
+ * - google/protobuf/wrappers.proto
+ *
+ * @param {string} file Proto file name
+ * @returns {INamespace|null} Root definition or `null` if not defined
+ */
+common.get = function get(file) {
+    return common[file] || null;
+};
+
 
 /***/ })
 /******/ ]);

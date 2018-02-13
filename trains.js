@@ -1,12 +1,17 @@
 // const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
 const request = require('request');
 const config = require('./config');
+// const protobuf = require('protobufjs');
 // const populateStops = require('./stops');
+const GtfsRealtimeBindings = require('./gtfs-realtime');
 
 module.exports = class Trains {
 
   constructor() {
     this.trains = [];
+    // protobuf.load("./nyct-subway.proto").then((root) => {
+    //
+    // });
     // populateStops((stops) => {
     //   this.stops = stops;
     // });
@@ -28,7 +33,11 @@ module.exports = class Trains {
     };
     request(requestSettings, (error, response, body) => {
       if (!error && response.statusCode == 200) {
+        console.log(body);
 
+
+
+        // const feed =
         // const feed = GtfsRealtimeBindings.FeedMessage.decode(body);
         // feed.entity.forEach((entity) => {
         //   this.trains.push(entity);
