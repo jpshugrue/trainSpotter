@@ -2,7 +2,7 @@ const $ = require('jquery');
 const populateStops = (callback) => {
    const stops = [];
   $.ajax({
-    url: './static/stops.txt',
+    url: 'http://localhost:3000/stops.txt',
     success: (data) => {
       const lines = data.split('\n');
       lines.forEach((line) => {

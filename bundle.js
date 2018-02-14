@@ -37092,7 +37092,7 @@ var $ = __webpack_require__(210);
 var populateStops = function populateStops(callback) {
   var stops = [];
   $.ajax({
-    url: './static/stops.txt',
+    url: 'http://localhost:3000/stops.txt',
     success: function success(data) {
       var lines = data.split('\n');
       lines.forEach(function (line) {
