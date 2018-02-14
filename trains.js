@@ -1,6 +1,7 @@
 const request = require('request');
 const GtfsRealtimeBindings = require('./gtfs/gtfs-realtime');
 import populateStops from './stops';
+const server = require('./server');
 
 class Trains {
 
