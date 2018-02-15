@@ -1,9 +1,9 @@
 var path = require('path');
 
 module.exports = {
-  entry: './trains.js',
+  entry: './main.js',
   output: {
-    filename: './bundle.js',
+    filename: './bundle.js'
   },
   module: {
     rules: [

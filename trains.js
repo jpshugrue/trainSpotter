@@ -28,6 +28,9 @@ class Trains {
   }
 }
 
-window.trains = Trains;
+// window.trains = Trains;
+// const trains = new Trains();
+// trains.pullData();
+// window.trains = trains;
 
 export default Trains;
