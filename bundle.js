@@ -46327,43 +46327,15 @@ var _trains2 = _interopRequireDefault(_trains);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/***/ }),
-/* 174 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(console) {
-
-// const $ = require('jquery');
-
-// $(() => {
-//   const script = document.createElement('script');
-//   script.type = 'text/javascript';
-//   script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAoQUTPYABfgN5HXYLEkW208dk3m3XpesM&callback=initMap';
-//   document.getElementsByTagName('head')[0].appendChild(script);
-// });
-
-// let map;
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById('map'), {
-//       center: {lat: 40.695444, lng: -73.942067},
-//       zoom: 12
-//   });
-// }
-//
-// window.initMap = initMap;
-//
-// export default initMap();
-
-function populateMap(map) {
-  console.log("this will get called");
+function populateMap(htmlMap) {
+  var trains = new _trains2.default();
+  var map = new _map2.default(htmlMap);
 }
 
 window.populateMap = populateMap;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ }),
-/* 175 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46383,25 +46355,57 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var request = __webpack_require__(177);
-var GtfsRealtimeBindings = __webpack_require__(387);
-
-var Trains = function () {
-  function Trains() {
+var Map = function () {
+  function Map(htmlMap) {
     var _this = this;
 
-    _classCallCheck(this, Trains);
+    _classCallCheck(this, Map);
 
-    this.trains = [];
+    this.htmlMap = htmlMap;
     (0, _stops2.default)(function (stops) {
       _this.stops = stops;
     });
   }
 
+  _createClass(Map, [{
+    key: 'populateMap',
+    value: function populateMap() {}
+  }]);
+
+  return Map;
+}();
+
+exports.default = Map;
+
+/***/ }),
+/* 175 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var request = __webpack_require__(177);
+var GtfsRealtimeBindings = __webpack_require__(387);
+
+var Trains = function () {
+  function Trains() {
+    _classCallCheck(this, Trains);
+
+    this.trains = [];
+  }
+
   _createClass(Trains, [{
     key: 'pullData',
     value: function pullData() {
-      var _this2 = this;
+      var _this = this;
 
       var requestSettings = {
         method: 'GET',
@@ -46412,7 +46416,7 @@ var Trains = function () {
         if (!error && response.statusCode == 200) {
           var feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
           feed.entity.forEach(function (entity) {
-            _this2.trains.push(entity);
+            _this.trains.push(entity);
           });
         }
       });
@@ -46421,11 +46425,6 @@ var Trains = function () {
 
   return Trains;
 }();
-
-// window.trains = Trains;
-// const trains = new Trains();
-// trains.pullData();
-// window.trains = trains;
 
 exports.default = Trains;
 

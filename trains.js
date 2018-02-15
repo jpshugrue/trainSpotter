@@ -1,14 +1,10 @@
 const request = require('request');
 const GtfsRealtimeBindings = require('./gtfs/gtfs-realtime');
-import populateStops from './stops';
 
 class Trains {
 
   constructor() {
-    this.trains = [];
-    populateStops((stops) => {
-      this.stops = stops;
-    });
+    this.trains = [];  
   }
 
   pullData() {
@@ -27,10 +23,5 @@ class Trains {
     });
   }
 }
-
-// window.trains = Trains;
-// const trains = new Trains();
-// trains.pullData();
-// window.trains = trains;
 
 export default Trains;
