@@ -10,8 +10,8 @@ const populateStops = (callback) => {
         const lineData = line.split(",");
         stop.stop_id = lineData[0];
         stop.stop_name = lineData[2];
-        stop.lat = lineData[4];
-        stop.long = lineData[5];
+        stop.lat = parseFloat(lineData[4]);
+        stop.lng = parseFloat(lineData[5]);
         stop.parent = lineData[9];
         stops.push(stop);
       });

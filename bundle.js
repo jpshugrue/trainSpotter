@@ -46362,14 +46362,31 @@ var Map = function () {
     _classCallCheck(this, Map);
 
     this.htmlMap = htmlMap;
+    // this.googleMaps = googleMaps;
     (0, _stops2.default)(function (stops) {
       _this.stops = stops;
+      _this.animateStops();
     });
   }
 
   _createClass(Map, [{
-    key: 'populateMap',
-    value: function populateMap() {}
+    key: 'animateStops',
+    value: function animateStops() {
+      var _this2 = this;
+
+      this.stops.forEach(function (stop) {
+        new google.maps.Circle({
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FF0000',
+          fillOpacity: 0.35,
+          map: _this2.htmlMap,
+          center: { lat: stop.lat, lng: stop.lng },
+          radius: 10
+        });
+      });
+    }
   }]);
 
   return Map;
@@ -46450,8 +46467,8 @@ var populateStops = function populateStops(callback) {
         var lineData = line.split(",");
         stop.stop_id = lineData[0];
         stop.stop_name = lineData[2];
-        stop.lat = lineData[4];
-        stop.long = lineData[5];
+        stop.lat = parseFloat(lineData[4]);
+        stop.lng = parseFloat(lineData[5]);
         stop.parent = lineData[9];
         stops.push(stop);
       });
