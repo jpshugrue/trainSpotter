@@ -46355,7 +46355,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 // export default initMap();
 
-function populateMap() {
+function populateMap(map) {
   console.log("this will get called");
 }
 
