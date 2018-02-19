@@ -1,10 +1,9 @@
-import populateStops from './stops';
+import { populateStops } from './stops';
 
 class Map {
 
   constructor(htmlMap) {
     this.htmlMap = htmlMap;
-    // this.googleMaps = googleMaps;
     populateStops((stops) => {
       this.stops = stops;
       this.animateStops();

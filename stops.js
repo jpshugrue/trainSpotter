@@ -1,6 +1,6 @@
 const $ = require('jquery');
-const populateStops = (callback) => {
-   const stops = [];
+export const populateStops = (callback) => {
+  const stops = [];
   $.ajax({
     url: 'http://localhost:3000/stops.txt',
     success: (data) => {
@@ -20,4 +20,4 @@ const populateStops = (callback) => {
   });
 };
 
-export default populateStops;
+// export default populateStops;
