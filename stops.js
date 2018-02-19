@@ -35,9 +35,10 @@ const addLine = (stops, callback) => {
         routes[lineData[0]] = lineData.slice(1);
       });
       stops.forEach((stop) => {
+        stop.route_id = [];
         Object.keys(routes).forEach((route_id) => {
           if(routes[route_id].includes(stop.stop_id)) {
-            stop.route_id = route_id;
+            stop.route_id.push(route_id);
           }
         });
       });

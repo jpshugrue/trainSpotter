@@ -36010,7 +36010,7 @@ var Map = function () {
           fillOpacity: 0.35,
           map: _this2.htmlMap,
           center: { lat: stop.lat, lng: stop.lng },
-          radius: 10
+          radius: 20
         });
       });
     }
@@ -36069,9 +36069,10 @@ var addLine = function addLine(stops, callback) {
         routes[lineData[0]] = lineData.slice(1);
       });
       stops.forEach(function (stop) {
+        stop.route_id = [];
         Object.keys(routes).forEach(function (route_id) {
           if (routes[route_id].includes(stop.stop_id)) {
-            stop.route_id = route_id;
+            stop.route_id.push(route_id);
           }
         });
       });

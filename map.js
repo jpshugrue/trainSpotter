@@ -21,7 +21,7 @@ class Map {
           fillOpacity: 0.35,
           map: this.htmlMap,
           center: {lat: stop.lat, lng: stop.lng},
-          radius: 10
+          radius: 20
         });
     });
   }
