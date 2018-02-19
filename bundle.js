@@ -35970,7 +35970,7 @@ window.populateMap = populateMap;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(console) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -36000,6 +36000,7 @@ var Map = function () {
     value: function animateStops() {
       var _this2 = this;
 
+      console.log(this.stops);
       this.stops.forEach(function (stop) {
         new google.maps.Circle({
           strokeColor: '#FF0000',
@@ -36019,6 +36020,7 @@ var Map = function () {
 }();
 
 exports.default = Map;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ }),
 /* 174 */
@@ -36033,7 +36035,11 @@ Object.defineProperty(exports, "__esModule", {
 var $ = __webpack_require__(175);
 var populateStops = exports.populateStops = function populateStops(callback) {
   var stops = [];
-  $.ajax({
+  pullStops(stops, callback);
+};
+
+var pullStops = function pullStops(stops, callback) {
+  return $.ajax({
     url: 'http://localhost:3000/stops.txt',
     success: function success(data) {
       var lines = data.split('\n');
@@ -36046,6 +36052,28 @@ var populateStops = exports.populateStops = function populateStops(callback) {
         stop.lng = parseFloat(lineData[5]);
         stop.parent = lineData[9];
         stops.push(stop);
+      });
+      addLine(stops, callback);
+    }
+  });
+};
+
+var addLine = function addLine(stops, callback) {
+  var routes = {};
+  return $.ajax({
+    url: 'http://localhost:3000/lines.txt',
+    success: function success(data) {
+      var lines = data.split('\n');
+      lines.forEach(function (line) {
+        var lineData = line.split(",");
+        routes[lineData[0]] = lineData.slice(1);
+      });
+      stops.forEach(function (stop) {
+        Object.keys(routes).forEach(function (route_id) {
+          if (routes[route_id].includes(stop.stop_id)) {
+            stop.route_id = route_id;
+          }
+        });
       });
       callback(stops);
     }

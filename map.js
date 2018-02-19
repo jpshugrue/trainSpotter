@@ -11,6 +11,7 @@ class Map {
   }
 
   animateStops() {
+    console.log(this.stops);
     this.stops.forEach((stop) => {
       new google.maps.Circle({
           strokeColor: '#FF0000',

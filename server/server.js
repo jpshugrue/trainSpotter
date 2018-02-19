@@ -10,6 +10,10 @@ app.get('/stops.txt', (req, res) => {
    res.sendFile(path.resolve('../static/stops.txt'));
 });
 
+app.get('/lines.txt', (req, res) => {
+   res.sendFile(path.resolve('../static/lines.txt'));
+});
+
 app.use('/', (req, res) => {
   const requestSettings = {
     method: 'GET',
