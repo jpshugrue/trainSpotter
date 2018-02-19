@@ -21,5 +21,11 @@ def buildOutRoutes
     end
     routes[arr[0]].uniq!
   end
-  p routes
+  File.open("./static/lines.txt", "w") do |f|
+    routes.each do |route_id, stops|
+      stopStr = stops.join(",")
+      f.write("#{route_id},#{stopStr}")
+      f.write("\n")
+    end
+  end
 end
