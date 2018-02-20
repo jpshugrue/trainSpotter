@@ -6,14 +6,6 @@ const app = express();
 const path = require('path');
 app.use(cors());
 
-app.get('/stops.txt', (req, res) => {
-   res.sendFile(path.resolve('../static/stops.txt'));
-});
-
-app.get('/lines.txt', (req, res) => {
-   res.sendFile(path.resolve('../static/lines.txt'));
-});
-
 app.get('/lines.json', (req, res) => {
    res.sendFile(path.resolve('../static/custom/lines.json'));
 });

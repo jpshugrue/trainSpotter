@@ -35970,7 +35970,7 @@ window.populateMap = populateMap;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(console) {
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -35992,6 +35992,7 @@ var Map = function () {
     (0, _routes.generateRoutes)(function (routes) {
       _this.routes = routes;
       _this.animateStops();
+      _this.animateLines();
     });
   }
 
@@ -36000,7 +36001,6 @@ var Map = function () {
     value: function animateStops() {
       var _this2 = this;
 
-      console.log(this.routes);
       Object.keys(this.routes).forEach(function (routeId) {
         Object.keys(_this2.routes[routeId].stops).forEach(function (stopId) {
           var lat = parseFloat(_this2.routes[routeId].stops[stopId].lat);
@@ -36014,7 +36014,35 @@ var Map = function () {
             fillOpacity: 0.35,
             map: _this2.htmlMap,
             center: { lat: lat, lng: lng },
-            radius: 20
+            radius: 30
+          });
+        });
+      });
+    }
+  }, {
+    key: 'animateLines',
+    value: function animateLines() {
+      var _this3 = this;
+
+      Object.keys(this.routes).forEach(function (routeId) {
+        var pairs = [];
+        _this3.routes[routeId].sequences.forEach(function (sequence) {
+          var departId = sequence[0];
+          var departLat = parseFloat(_this3.routes[routeId].stops[departId].lat);
+          var departLng = parseFloat(_this3.routes[routeId].stops[departId].lng);
+          var arriveId = sequence[1];
+          var arriveLat = parseFloat(_this3.routes[routeId].stops[arriveId].lat);
+          var arriveLng = parseFloat(_this3.routes[routeId].stops[arriveId].lng);
+          pairs.push([{ lat: departLat, lng: departLng }, { lat: arriveLat, lng: arriveLng }]);
+        });
+        pairs.forEach(function (pair) {
+          new google.maps.Polyline({
+            map: _this3.htmlMap,
+            path: pair,
+            geodesic: true,
+            strokeColor: _this3.routes[routeId].color,
+            strokeOpacity: 1.0,
+            strokeWeight: 1
           });
         });
       });
@@ -36025,7 +36053,6 @@ var Map = function () {
 }();
 
 exports.default = Map;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ }),
 /* 174 */,
@@ -86102,7 +86129,6 @@ var generateRoutes = exports.generateRoutes = function generateRoutes(callback) 
   $.ajax({
     url: 'http://localhost:3000/lines.json',
     success: function success(data) {
-      // const routes = JSON.parse(data);
       callback(data);
     }
   });
