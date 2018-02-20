@@ -14,6 +14,10 @@ app.get('/lines.txt', (req, res) => {
    res.sendFile(path.resolve('../static/lines.txt'));
 });
 
+app.get('/lines.json', (req, res) => {
+   res.sendFile(path.resolve('../static/custom/lines.json'));
+});
+
 app.use('/', (req, res) => {
   const requestSettings = {
     method: 'GET',

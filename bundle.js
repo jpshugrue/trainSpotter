@@ -35978,7 +35978,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _stops = __webpack_require__(174);
+var _routes = __webpack_require__(406);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -35989,8 +35989,8 @@ var Map = function () {
     _classCallCheck(this, Map);
 
     this.htmlMap = htmlMap;
-    (0, _stops.populateStops)(function (stops) {
-      _this.stops = stops;
+    (0, _routes.generateRoutes)(function (routes) {
+      _this.routes = routes;
       _this.animateStops();
     });
   }
@@ -36000,17 +36000,22 @@ var Map = function () {
     value: function animateStops() {
       var _this2 = this;
 
-      console.log(this.stops);
-      this.stops.forEach(function (stop) {
-        new google.maps.Circle({
-          strokeColor: '#FF0000',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#FF0000',
-          fillOpacity: 0.35,
-          map: _this2.htmlMap,
-          center: { lat: stop.lat, lng: stop.lng },
-          radius: 20
+      console.log(this.routes);
+      Object.keys(this.routes).forEach(function (routeId) {
+        Object.keys(_this2.routes[routeId].stops).forEach(function (stopId) {
+          var lat = parseFloat(_this2.routes[routeId].stops[stopId].lat);
+          var lng = parseFloat(_this2.routes[routeId].stops[stopId].lng);
+          var color = _this2.routes[routeId].color;
+          new google.maps.Circle({
+            strokeColor: color,
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: color,
+            fillOpacity: 0.35,
+            map: _this2.htmlMap,
+            center: { lat: lat, lng: lng },
+            radius: 20
+          });
         });
       });
     }
@@ -36023,67 +36028,7 @@ exports.default = Map;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ }),
-/* 174 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var $ = __webpack_require__(175);
-var populateStops = exports.populateStops = function populateStops(callback) {
-  var stops = [];
-  pullStops(stops, callback);
-};
-
-var pullStops = function pullStops(stops, callback) {
-  return $.ajax({
-    url: 'http://localhost:3000/stops.txt',
-    success: function success(data) {
-      var lines = data.split('\n');
-      lines.forEach(function (line) {
-        var stop = {};
-        var lineData = line.split(",");
-        stop.stop_id = lineData[0];
-        stop.stop_name = lineData[2];
-        stop.lat = parseFloat(lineData[4]);
-        stop.lng = parseFloat(lineData[5]);
-        stop.parent = lineData[9];
-        stops.push(stop);
-      });
-      addLine(stops, callback);
-    }
-  });
-};
-
-var addLine = function addLine(stops, callback) {
-  var routes = {};
-  return $.ajax({
-    url: 'http://localhost:3000/lines.txt',
-    success: function success(data) {
-      var lines = data.split('\n');
-      lines.forEach(function (line) {
-        var lineData = line.split(",");
-        routes[lineData[0]] = lineData.slice(1);
-      });
-      stops.forEach(function (stop) {
-        stop.route_id = [];
-        Object.keys(routes).forEach(function (route_id) {
-          if (routes[route_id].includes(stop.stop_id)) {
-            stop.route_id.push(route_id);
-          }
-        });
-      });
-      callback(stops);
-    }
-  });
-};
-
-// export default populateStops;
-
-/***/ }),
+/* 174 */,
 /* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -86141,6 +86086,27 @@ common.get = function get(file) {
     return common[file] || null;
 };
 
+
+/***/ }),
+/* 406 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var $ = __webpack_require__(175);
+var generateRoutes = exports.generateRoutes = function generateRoutes(callback) {
+  $.ajax({
+    url: 'http://localhost:3000/lines.json',
+    success: function success(data) {
+      // const routes = JSON.parse(data);
+      callback(data);
+    }
+  });
+};
 
 /***/ })
 /******/ ]);
