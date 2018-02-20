@@ -48,10 +48,11 @@ def buildOutRoutes
           if departure && arrival
             if !result[route_id][:sequences].include?([departure, arrival])
               result[route_id][:sequences] << [departure, arrival]
-            end 
+            end
           end
         end
       end
+      departure = stop_id
     end
   end
   File.open("../static/stops.txt", "r") do |f|
