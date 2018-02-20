@@ -1,10 +1,11 @@
 require 'json'
 require 'set'
+require 'byebug'
 
 def buildOutRoutes
   result = {}
   trips_by_route = {}
-  File.open("./static/trips.txt", "r") do |f|
+  File.open("../static/trips.txt", "r") do |f|
     f.each_line do |line|
       split = line.split(",")
       route_id = split[0]
@@ -19,7 +20,7 @@ def buildOutRoutes
       end
     end
   end
-  File.open("./static/custom/line_colors.txt", "r") do |f|
+  File.open("../static/custom/line_colors.txt", "r") do |f|
     f.each_line do |line|
       split = line.split(",")
       route_id = split[0]
@@ -27,8 +28,9 @@ def buildOutRoutes
       result[route_id][:color] = color if result[route_id]
     end
   end
-  File.open("./static/stop_times.txt", "r") do |f|
+  File.open("../static/stop_times.txt", "r") do |f|
     current_trip = nil
+    departure = nil
     f.each_line do |line|
       split = line.split(",")
       trip_id = split[0]
@@ -44,13 +46,15 @@ def buildOutRoutes
         if trip_ids.include?(trip_id)
           result[route_id][:stops][stop_id] = {}
           if departure && arrival
-            result[route_id][:sequences] << [departure, arrival]
+            if !result[route_id][:sequences].include?([departure, arrival])
+              result[route_id][:sequences] << [departure, arrival]
+            end 
           end
         end
       end
     end
   end
-  File.open("./static/stops.txt", "r") do |f|
+  File.open("../static/stops.txt", "r") do |f|
     f.each_line do |line|
       split = line.split(",")
       stop_id = split[0]
@@ -64,7 +68,7 @@ def buildOutRoutes
       end
     end
   end
-  File.open("./static/custom/lines.json", "w") do |f|
+  File.open("../static/custom/lines.json", "w") do |f|
     f.write(JSON.pretty_generate(result))
   end
 end
