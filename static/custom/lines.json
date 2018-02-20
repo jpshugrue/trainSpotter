@@ -29,7 +29,7 @@
     "sequences": [
 
     ],
-    "color": "#808183\n"
+    "color": "#808183"
   },
   "1": {
     "stops": {
@@ -493,7 +493,7 @@
     "sequences": [
 
     ],
-    "color": "#EE352E\n"
+    "color": "#EE352E"
   },
   "2": {
     "stops": {
@@ -1449,7 +1449,7 @@
     "sequences": [
 
     ],
-    "color": "#EE352E\n"
+    "color": "#EE352E"
   },
   "5": {
     "stops": {
@@ -2111,7 +2111,7 @@
     "sequences": [
 
     ],
-    "color": "#00933C\n"
+    "color": "#00933C"
   },
   "3": {
     "stops": {
@@ -2527,7 +2527,7 @@
     "sequences": [
 
     ],
-    "color": "#EE352E\n"
+    "color": "#EE352E"
   },
   "4": {
     "stops": {
@@ -3183,7 +3183,7 @@
     "sequences": [
 
     ],
-    "color": "#00933C\n"
+    "color": "#00933C"
   },
   "6": {
     "stops": {
@@ -3647,7 +3647,7 @@
     "sequences": [
 
     ],
-    "color": "#00933C\n"
+    "color": "#00933C"
   },
   "6X": {
     "stops": {
@@ -4027,7 +4027,7 @@
     "sequences": [
 
     ],
-    "color": "#00933C\n"
+    "color": "#00933C"
   },
   "7": {
     "stops": {
@@ -4299,7 +4299,7 @@
     "sequences": [
 
     ],
-    "color": "#B933AD\n"
+    "color": "#B933AD"
   },
   "7X": {
     "stops": {
@@ -4451,7 +4451,7 @@
     "sequences": [
 
     ],
-    "color": "#B933AD\n"
+    "color": "#B933AD"
   },
   "N": {
     "stops": {
@@ -5035,7 +5035,7 @@
     "sequences": [
 
     ],
-    "color": "#FCCC0A\n"
+    "color": "#FCCC0A"
   },
   "Q": {
     "stops": {
@@ -5523,7 +5523,7 @@
     "sequences": [
 
     ],
-    "color": "#FCCC0A\n"
+    "color": "#FCCC0A"
   },
   "R": {
     "stops": {
@@ -6095,7 +6095,7 @@
     "sequences": [
 
     ],
-    "color": "#FCCC0A\n"
+    "color": "#FCCC0A"
   },
   "A": {
     "stops": {
@@ -6889,7 +6889,7 @@
     "sequences": [
 
     ],
-    "color": "#0039A6\n"
+    "color": "#0039A6"
   },
   "B": {
     "stops": {
@@ -7347,7 +7347,7 @@
     "sequences": [
 
     ],
-    "color": "#FF6319\n"
+    "color": "#FF6319"
   },
   "C": {
     "stops": {
@@ -7835,7 +7835,7 @@
     "sequences": [
 
     ],
-    "color": "#0039A6\n"
+    "color": "#0039A6"
   },
   "D": {
     "stops": {
@@ -8335,7 +8335,7 @@
     "sequences": [
 
     ],
-    "color": "#FF6319\n"
+    "color": "#FF6319"
   },
   "E": {
     "stops": {
@@ -8751,7 +8751,7 @@
     "sequences": [
 
     ],
-    "color": "#0039A6\n"
+    "color": "#0039A6"
   },
   "F": {
     "stops": {
@@ -9299,7 +9299,7 @@
     "sequences": [
 
     ],
-    "color": "#FF6319\n"
+    "color": "#FF6319"
   },
   "FS": {
     "stops": {
@@ -9355,7 +9355,7 @@
     "sequences": [
 
     ],
-    "color": "#808183\n"
+    "color": "#808183"
   },
   "G": {
     "stops": {
@@ -9615,7 +9615,7 @@
     "sequences": [
 
     ],
-    "color": "#6CBE45\n"
+    "color": "#6CBE45"
   },
   "H": {
     "stops": {
@@ -10051,7 +10051,7 @@
     "sequences": [
 
     ],
-    "color": "#996633\n"
+    "color": "#996633"
   },
   "Z": {
     "stops": {
@@ -10371,7 +10371,7 @@
     "sequences": [
 
     ],
-    "color": "#996633\n"
+    "color": "#996633"
   },
   "L": {
     "stops": {
@@ -10667,7 +10667,7 @@
     "sequences": [
 
     ],
-    "color": "#A7A9AC\n"
+    "color": "#A7A9AC"
   },
   "M": {
     "stops": {
@@ -11173,7 +11173,7 @@
     "sequences": [
 
     ],
-    "color": "#FF6319\n"
+    "color": "#FF6319"
   },
   "W": {
     "stops": {

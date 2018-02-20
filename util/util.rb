@@ -23,7 +23,7 @@ def buildOutRoutes
     f.each_line do |line|
       split = line.split(",")
       route_id = split[0]
-      color = split[1]
+      color = split[1].chomp
       result[route_id][:color] = color if result[route_id]
     end
   end
@@ -59,52 +59,12 @@ def buildOutRoutes
           val[:stops][stop_id][:stop_name] = split[2]
           val[:stops][stop_id][:lat] = split[4]
           val[:stops][stop_id][:lng] = split[5]
-          val[:stops][stop_id][:parent] = split[9]
+          val[:stops][stop_id][:parent] = split[9].chomp
         end
       end
     end
   end
   File.open("./static/custom/lines.json", "w") do |f|
     f.write(JSON.pretty_generate(result))
-    #
-    # routes.each do |route_id, stops|
-    #   stopStr = stops.join(",")
-    #   f.write("#{route_id},#{stopStr}")
-    #   f.write("\n")
-    # end
   end
-  # puts "Finally"
-  # puts JSON.pretty_generate(result)
-
 end
-
-#   routes = {}
-#   trips = {}
-#   File.open("./static/trips.txt", "r") do |f|
-#     f.each_line do |line|
-#       split = line.split(",")
-#       trips[split[2]] = [split[0]]
-#     end
-#   end
-#   File.open("./static/stop_times.txt", "r") do |f|
-#     f.each_line do |line|
-#       split = line.split(",")
-#       trips[split[0]] << split[3]
-#     end
-#   end
-#   trips.each do |trip_id, arr|
-#     if routes[arr[0]]
-#       routes[arr[0]] = routes[arr[0]].concat(arr[1..-1])
-#     else
-#       routes[arr[0]] = arr[1..-1]
-#     end
-#     routes[arr[0]].uniq!
-#   end
-#   File.open("./static/lines.txt", "w") do |f|
-#     routes.each do |route_id, stops|
-#       stopStr = stops.join(",")
-#       f.write("#{route_id},#{stopStr}")
-#       f.write("\n")
-#     end
-#   end
-# end
