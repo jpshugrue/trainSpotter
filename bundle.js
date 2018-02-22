@@ -35963,7 +35963,6 @@ function populateMap(htmlMap) {
     map.animateTrains(trains);
   });
   window.trains = trains;
-  // map.animateTrains(trains);
 }
 
 window.populateMap = populateMap;
@@ -35996,6 +35995,9 @@ var Map = function () {
       _this.routes = routes;
       _this.animateStops();
       _this.animateLines();
+      (0, _routes.generateTrips)(function (trips) {
+        _this.trips = trips;
+      });
     });
   }
 
@@ -86137,6 +86139,15 @@ var $ = __webpack_require__(175);
 var generateRoutes = exports.generateRoutes = function generateRoutes(callback) {
   $.ajax({
     url: 'http://localhost:3000/lines.json',
+    success: function success(data) {
+      callback(data);
+    }
+  });
+};
+
+var generateTrips = exports.generateTrips = function generateTrips(callback) {
+  $.ajax({
+    url: 'http://localhost:3000/trips.json',
     success: function success(data) {
       callback(data);
     }

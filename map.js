@@ -1,4 +1,4 @@
-import { generateRoutes } from './routes';
+import { generateRoutes, generateTrips } from './routes';
 
 class Map {
 
@@ -8,6 +8,9 @@ class Map {
       this.routes = routes;
       this.animateStops();
       this.animateLines();
+      generateTrips((trips) => {
+        this.trips = trips;
+      });
     });
   }
 
@@ -57,7 +60,7 @@ class Map {
   }
 
   animateTrains(trains) {
-    
+
   }
 
 }

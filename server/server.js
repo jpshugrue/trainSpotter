@@ -10,6 +10,10 @@ app.get('/lines.json', (req, res) => {
    res.sendFile(path.resolve('../static/custom/lines.json'));
 });
 
+app.get('/trips.json', (req, res) => {
+   res.sendFile(path.resolve('../static/custom/trips.json'));
+});
+
 app.use('/', (req, res) => {
   const requestSettings = {
     method: 'GET',

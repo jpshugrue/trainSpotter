@@ -8,7 +8,6 @@ function populateMap(htmlMap) {
     map.animateTrains(trains);
   });
   window.trains = trains;
-  // map.animateTrains(trains);
 }
 
 window.populateMap = populateMap;
