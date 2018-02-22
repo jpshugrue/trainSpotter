@@ -35959,9 +35959,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function populateMap(htmlMap) {
   var trains = new _trains2.default();
   var map = new _map2.default(htmlMap);
-  trains.pullData();
+  trains.pullData(function () {
+    map.animateTrains(trains);
+  });
   window.trains = trains;
-  map.animateTrains(trains);
+  // map.animateTrains(trains);
 }
 
 window.populateMap = populateMap;
@@ -46435,7 +46437,7 @@ return jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(console) {
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -46458,7 +46460,7 @@ var Trains = function () {
 
   _createClass(Trains, [{
     key: 'pullData',
-    value: function pullData() {
+    value: function pullData(callback) {
       var _this = this;
 
       var requestSettings = {
@@ -46472,9 +46474,8 @@ var Trains = function () {
           feed.entity.forEach(function (entity) {
             _this.trains.push(entity);
           });
-          console.log(feed.header);
           _this.header = feed.header;
-          console.log(_this.header);
+          callback();
         }
       });
     }
@@ -46484,7 +46485,6 @@ var Trains = function () {
 }();
 
 exports.default = Trains;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ }),
 /* 177 */

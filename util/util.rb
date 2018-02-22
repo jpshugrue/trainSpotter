@@ -2,7 +2,7 @@ require 'json'
 require 'set'
 require 'byebug'
 
-def buildOutRoutes
+def build_out_routes
   result = {}
   trips_by_route = {}
   File.open("../static/trips.txt", "r") do |f|
@@ -72,4 +72,54 @@ def buildOutRoutes
   File.open("../static/custom/lines.json", "w") do |f|
     f.write(JSON.pretty_generate(result))
   end
+end
+
+def calculate_time(dep_time, arr_time)
+  dep_ms = convert_to_ms(dep_time)
+  arr_ms = convert_to_ms(arr_time)
+  arr_ms - dep_ms
+end
+
+def convert_to_ms(time)
+  total = 0
+  arr = time.split(":").map(&:to_i)
+  total += arr[0] * 3600000
+  total += arr[1] * 60000
+  total += arr[2] * 1000
+  total
+end
+
+def parse_trip_id(trip_id)
+  trip_id.split("_", 2)[1]
+end
+
+def build_out_trips
+  result = {}
+  File.open("../static/stop_times.txt", "r") do |f|
+    current_trip = nil
+    origin = nil
+    departure_time = nil
+    f.each_line do |line|
+      split = line.split(",")
+      trip_id = parse_trip_id(split[0])
+      arrival_time = split[1]
+      stop_id = split[3]
+      if current_trip != trip_id
+        current_trip = trip_id
+        origin = stop_id
+        departure_time = arrival_time
+        result[current_trip] = {}
+      else
+        destination = stop_id
+        time = calculate_time(departure_time, arrival_time)
+        result[current_trip][destination] = { origin: origin, time: time }
+        origin = stop_id
+        departure_time = arrival_time
+      end
+    end
+  end
+  File.open("../static/custom/trips.json", "w") do |f|
+    f.write(JSON.pretty_generate(result))
+  end
+
 end

@@ -8,7 +8,7 @@ class Trains {
     this.trains = [];
   }
 
-  pullData() {
+  pullData(callback) {
     const requestSettings = {
       method: 'GET',
       url: `http://localhost:3000`,
@@ -20,9 +20,8 @@ class Trains {
         feed.entity.forEach((entity) => {
           this.trains.push(entity);
         });
-        console.log(feed.header);
         this.header = feed.header;
-        console.log(this.header);
+        callback();
       }
     });
   }
