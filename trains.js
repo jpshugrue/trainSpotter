@@ -4,7 +4,8 @@ const GtfsRealtimeBindings = require('./gtfs/gtfs-realtime');
 class Trains {
 
   constructor() {
-    this.trains = [];  
+    this.header = null;
+    this.trains = [];
   }
 
   pullData() {
@@ -19,6 +20,9 @@ class Trains {
         feed.entity.forEach((entity) => {
           this.trains.push(entity);
         });
+        console.log(feed.header);
+        this.header = feed.header;
+        console.log(this.header);
       }
     });
   }

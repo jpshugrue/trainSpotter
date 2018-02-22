@@ -56,6 +56,10 @@ class Map {
     });
   }
 
+  animateTrains(trains) {
+    
+  }
+
 }
 
 export default Map;

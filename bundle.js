@@ -35960,7 +35960,8 @@ function populateMap(htmlMap) {
   var trains = new _trains2.default();
   var map = new _map2.default(htmlMap);
   trains.pullData();
-  window.trains = trains.trains;
+  window.trains = trains;
+  map.animateTrains(trains);
 }
 
 window.populateMap = populateMap;
@@ -36047,6 +36048,9 @@ var Map = function () {
         });
       });
     }
+  }, {
+    key: 'animateTrains',
+    value: function animateTrains(trains) {}
   }]);
 
   return Map;
@@ -46431,7 +46435,7 @@ return jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(console) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -46448,6 +46452,7 @@ var Trains = function () {
   function Trains() {
     _classCallCheck(this, Trains);
 
+    this.header = null;
     this.trains = [];
   }
 
@@ -46467,6 +46472,9 @@ var Trains = function () {
           feed.entity.forEach(function (entity) {
             _this.trains.push(entity);
           });
+          console.log(feed.header);
+          _this.header = feed.header;
+          console.log(_this.header);
         }
       });
     }
@@ -46476,6 +46484,7 @@ var Trains = function () {
 }();
 
 exports.default = Trains;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ }),
 /* 177 */
