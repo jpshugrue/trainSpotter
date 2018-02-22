@@ -35963,6 +35963,7 @@ function populateMap(htmlMap) {
     map.animateTrains(trains);
   });
   window.trains = trains;
+  // window.mapObj = map;
 }
 
 window.populateMap = populateMap;
@@ -46457,7 +46458,7 @@ var Trains = function () {
     _classCallCheck(this, Trains);
 
     this.header = null;
-    this.trains = [];
+    this.trains = {};
   }
 
   _createClass(Trains, [{
@@ -46474,7 +46475,17 @@ var Trains = function () {
         if (!error && response.statusCode == 200) {
           var feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
           feed.entity.forEach(function (entity) {
-            _this.trains.push(entity);
+            if (entity.tripUpdate) {
+              if (!_this.trains[entity.tripUpdate.trip.tripId]) {
+                _this.trains[entity.tripUpdate.trip.tripId] = {};
+              }
+              _this.trains[entity.tripUpdate.trip.tripId]["tripUpdate"] = entity.tripUpdate;
+            } else if (entity.vehicle) {
+              if (!_this.trains[entity.vehicle.trip.tripId]) {
+                _this.trains[entity.vehicle.trip.tripId] = {};
+              }
+              _this.trains[entity.vehicle.trip.tripId]["vehicle"] = entity.vehicle;
+            }
           });
           _this.header = feed.header;
           callback();
