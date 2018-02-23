@@ -35963,7 +35963,6 @@ function populateMap(htmlMap) {
     map.animateTrains(trains);
   });
   window.trains = trains;
-  // window.mapObj = map;
 }
 
 window.populateMap = populateMap;
@@ -36003,7 +36002,7 @@ var Map = function () {
   }
 
   _createClass(Map, [{
-    key: 'animateStops',
+    key: "animateStops",
     value: function animateStops() {
       var _this2 = this;
 
@@ -36026,7 +36025,7 @@ var Map = function () {
       });
     }
   }, {
-    key: 'animateLines',
+    key: "animateLines",
     value: function animateLines() {
       var _this3 = this;
 
@@ -36054,8 +36053,44 @@ var Map = function () {
       });
     }
   }, {
-    key: 'animateTrains',
-    value: function animateTrains(trains) {}
+    key: "animateTrains",
+    value: function animateTrains(trains) {
+      var _this4 = this;
+
+      trains.trains.forEach(function (train) {
+        //for each train, figure out where it is coming
+        //from based on trip id and destination
+        //use that to check normal total time for that
+        //sequence
+        var tripId = train.tripUpdate.trip.trip_id;
+        var destination = train.tripUpdate.stopTimeUpdate.stop_id;
+        var origin = _this4.trips[tripId][destination].origin;
+        var schedTime = _this4.trips[tripId][destination].time;
+        //check ETA to destination
+        var actualETA = train.tripUpdate.stopTimeUpdate.arrival;
+        var remTime = trains.header.timestamp - actualETA;
+        //find percentage traveled with ETA and norm
+        var percentage = parseFloat(remTime) / schedTime;
+        //animate along that route based on %
+        var route = train.tripUpdate.trip.route_id;
+        var destLat = _this4.routes[route].stops[destination].lat;
+        var destLng = _this4.routes[route].stops[destination].lng;
+        var origLat = _this4.routes[route].stops[origin].lat;
+        var origLng = _this4.routes[route].stops[origin].lng;
+        var trainLat = (destLat - origLat) * percentage;
+        var trainLng = (destLng - origLng) * percentage;
+        new google.maps.Circle({
+          strokeColor: "black",
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: "black",
+          fillOpacity: 0.35,
+          map: _this4.htmlMap,
+          center: { lat: trainLat, lng: trainLng },
+          radius: 20
+        });
+      });
+    }
   }]);
 
   return Map;

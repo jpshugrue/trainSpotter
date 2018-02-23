@@ -61,8 +61,40 @@ class Map {
 
   animateTrains(trains) {
 
+    trains.trains.forEach((train) => {
+      //for each train, figure out where it is coming
+      //from based on trip id and destination
+      //use that to check normal total time for that
+      //sequence
+      const tripId = train.tripUpdate.trip.trip_id;
+      const destination = train.tripUpdate.stopTimeUpdate.stop_id;
+      const origin = this.trips[tripId][destination].origin;
+      const schedTime = this.trips[tripId][destination].time;
+      //check ETA to destination
+      const actualETA = train.tripUpdate.stopTimeUpdate.arrival;
+      const remTime = trains.header.timestamp - actualETA;
+      //find percentage traveled with ETA and norm
+      const percentage = parseFloat(remTime) / schedTime;
+      //animate along that route based on %
+      const route = train.tripUpdate.trip.route_id;
+      const destLat = this.routes[route].stops[destination].lat;
+      const destLng = this.routes[route].stops[destination].lng;
+      const origLat = this.routes[route].stops[origin].lat;
+      const origLng = this.routes[route].stops[origin].lng;
+      const trainLat = (destLat - origLat) * percentage;
+      const trainLng = (destLng - origLng) * percentage;
+      new google.maps.Circle({
+        strokeColor: "black",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "black",
+        fillOpacity: 0.35,
+        map: this.htmlMap,
+        center: {lat: trainLat, lng: trainLng},
+        radius: 20
+      });
+    });
   }
-
 }
 
 export default Map;
