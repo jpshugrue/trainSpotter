@@ -1,14 +1,16 @@
 const request = require('request');
 const GtfsRealtimeBindings = require('./gtfs/gtfs-realtime');
 
-class Trains {
+// class Trains {
+//
+//   constructor() {
+//     this.header = null;
+//     this.trains = {};
+//   }
 
-  constructor() {
-    this.header = null;
-    this.trains = {};
-  }
-
-  pullData(callback) {
+function pullData (callback) {
+    let header = null;
+    let trains = {};
     const requestSettings = {
       method: 'GET',
       url: `http://localhost:3000`,
@@ -19,22 +21,24 @@ class Trains {
         const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
         feed.entity.forEach((entity) => {
           if (entity.tripUpdate) {
-            if (!this.trains[entity.tripUpdate.trip.tripId]) {
-              this.trains[entity.tripUpdate.trip.tripId] = {};
+            if (!trains[entity.tripUpdate.trip.tripId]) {
+              trains[entity.tripUpdate.trip.tripId] = {};
             }
-            this.trains[entity.tripUpdate.trip.tripId]["tripUpdate"] = entity.tripUpdate;
+            trains[entity.tripUpdate.trip.tripId]["tripUpdate"] = entity.tripUpdate;
           } else if (entity.vehicle) {
-            if (!this.trains[entity.vehicle.trip.tripId]) {
-              this.trains[entity.vehicle.trip.tripId] = {};
+            if (!trains[entity.vehicle.trip.tripId]) {
+              trains[entity.vehicle.trip.tripId] = {};
             }
-            this.trains[entity.vehicle.trip.tripId]["vehicle"] = entity.vehicle;
-          } 
+            trains[entity.vehicle.trip.tripId]["vehicle"] = entity.vehicle;
+          }
         });
-        this.header = feed.header;
-        callback();
+        // header = feed.header;
+        callback(feed.header, trains);
       }
     });
   }
-}
 
-export default Trains;
+  module.exports.pullData = pullData;
+// };
+
+// export default Trains;

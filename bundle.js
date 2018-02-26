@@ -35947,11 +35947,12 @@ function tokenize(source) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__map__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__trains__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__trains___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__trains__);
 
 
 
 function populateMap(htmlMap) {
-  const trains = new __WEBPACK_IMPORTED_MODULE_1__trains__["a" /* default */]();
+  const trains = new __WEBPACK_IMPORTED_MODULE_1__trains___default.a();
 
   trains.pullData(() => {
     const map = new __WEBPACK_IMPORTED_MODULE_0__map__["a" /* default */](htmlMap, trains);
@@ -35979,10 +35980,10 @@ class Map {
       this.routes = routes;
       this.animateStops();
       this.animateLines();
-      Object(__WEBPACK_IMPORTED_MODULE_0__routes__["b" /* generateTrips */])((trips) => {
-        this.trips = trips;
-        this.animateTrains(trains);
-      });
+      // generateTrips((trips) => {
+      //   this.trips = trips;
+      //   this.animateTrains(trains);
+      // });
     });
   }
 
@@ -36060,7 +36061,13 @@ class Map {
         const destLng = this.routes[route].stops[destination].lng;
         const origLat = this.routes[route].stops[origin].lat;
         const origLng = this.routes[route].stops[origin].lng;
+        console.log("Lat math");
+        console.log(`DestLat is ${destLat} and origLat is ${origLat}`);
+        console.log(`Percentage is ${percentage}`);
+        console.log(`DestLat - OrigLat is ${destLat - origLat}`);
+        console.log(`Times percentage it is ${percentage}`);
         const trainLat = ((destLat - origLat) * percentage) + origLat;
+        console.log(`TrainLat is ${trainLat}`);
         const trainLng = ((destLng - origLng) * percentage) + origLng;
         console.log(`Successful train draw at ${trainLat} and ${trainLng}`);
         new google.maps.Circle({
@@ -36074,7 +36081,11 @@ class Map {
           radius: 20
         });
       } else {
-        console.log(`Could not find tripId ${tripId} or destination ${destination}`);
+        if (!this.trips[tripId]) {
+          console.log(`Could not find tripId ${tripId}`);
+        } else {
+          console.log(`Cound not find destination ${destination} for tripId ${tripId}`);
+        }
       }
     });
   }
@@ -36160,7 +36171,7 @@ const generateTrips = (callback) => {
     }
   });
 };
-/* harmony export (immutable) */ __webpack_exports__["b"] = generateTrips;
+/* unused harmony export generateTrips */
 
 
 
@@ -46543,14 +46554,16 @@ return jQuery;
 const request = __webpack_require__(180);
 const GtfsRealtimeBindings = __webpack_require__(387);
 
-class Trains {
+// class Trains {
+//
+//   constructor() {
+//     this.header = null;
+//     this.trains = {};
+//   }
 
-  constructor() {
-    this.header = null;
-    this.trains = {};
-  }
-
-  pullData(callback) {
+function pullData (callback) {
+    let header = null;
+    let trains = {};
     const requestSettings = {
       method: 'GET',
       url: `http://localhost:3000`,
@@ -46561,25 +46574,27 @@ class Trains {
         const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
         feed.entity.forEach((entity) => {
           if (entity.tripUpdate) {
-            if (!this.trains[entity.tripUpdate.trip.tripId]) {
-              this.trains[entity.tripUpdate.trip.tripId] = {};
+            if (!trains[entity.tripUpdate.trip.tripId]) {
+              trains[entity.tripUpdate.trip.tripId] = {};
             }
-            this.trains[entity.tripUpdate.trip.tripId]["tripUpdate"] = entity.tripUpdate;
+            trains[entity.tripUpdate.trip.tripId]["tripUpdate"] = entity.tripUpdate;
           } else if (entity.vehicle) {
-            if (!this.trains[entity.vehicle.trip.tripId]) {
-              this.trains[entity.vehicle.trip.tripId] = {};
+            if (!trains[entity.vehicle.trip.tripId]) {
+              trains[entity.vehicle.trip.tripId] = {};
             }
-            this.trains[entity.vehicle.trip.tripId]["vehicle"] = entity.vehicle;
-          } 
+            trains[entity.vehicle.trip.tripId]["vehicle"] = entity.vehicle;
+          }
         });
-        this.header = feed.header;
-        callback();
+        // header = feed.header;
+        callback(feed.header, trains);
       }
     });
   }
-}
 
-/* harmony default export */ __webpack_exports__["a"] = (Trains);
+  module.exports.pullData = pullData;
+// };
+
+// export default Trains;
 
 
 /***/ }),

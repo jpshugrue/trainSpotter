@@ -8,10 +8,10 @@ class Map {
       this.routes = routes;
       this.animateStops();
       this.animateLines();
-      generateTrips((trips) => {
-        this.trips = trips;
-        this.animateTrains(trains);
-      });
+      // generateTrips((trips) => {
+      //   this.trips = trips;
+      //   this.animateTrains(trains);
+      // });
     });
   }
 
@@ -89,7 +89,13 @@ class Map {
         const destLng = this.routes[route].stops[destination].lng;
         const origLat = this.routes[route].stops[origin].lat;
         const origLng = this.routes[route].stops[origin].lng;
+        console.log("Lat math");
+        console.log(`DestLat is ${destLat} and origLat is ${origLat}`);
+        console.log(`Percentage is ${percentage}`);
+        console.log(`DestLat - OrigLat is ${destLat - origLat}`);
+        console.log(`Times percentage it is ${percentage}`);
         const trainLat = ((destLat - origLat) * percentage) + origLat;
+        console.log(`TrainLat is ${trainLat}`);
         const trainLng = ((destLng - origLng) * percentage) + origLng;
         console.log(`Successful train draw at ${trainLat} and ${trainLng}`);
         new google.maps.Circle({
@@ -103,7 +109,11 @@ class Map {
           radius: 20
         });
       } else {
-        console.log(`Could not find tripId ${tripId} or destination ${destination}`);
+        if (!this.trips[tripId]) {
+          console.log(`Could not find tripId ${tripId}`);
+        } else {
+          console.log(`Cound not find destination ${destination} for tripId ${tripId}`);
+        }
       }
     });
   }
