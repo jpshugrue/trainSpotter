@@ -1,14 +1,26 @@
 import Map from './map';
-import Trains from './trains';
+import { getTrains, getHeader } from './routes';
+// import Trains from './trains';
+
 
 function populateMap(htmlMap) {
-  const trains = new Trains();
-
-  trains.pullData(() => {
-    const map = new Map(htmlMap, trains);
-    // map.animateTrains(trains);
+  console.log("Gets here1");
+  // const trains = {};
+  const map = new Map(htmlMap);
+  getTrains((trains) => {
+    console.log("Gets here2");
+    window.trains = trains;
   });
-  window.trains = trains;
+
+
+  // const trains = new Trains();
+  //
+  // trains.pullData(() => {
+  //
+  //   // map.animateTrains(trains);
+  // });
+  // window.trains = trains;
 }
 
 window.populateMap = populateMap;
+window.getTrains = getTrains;

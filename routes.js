@@ -8,9 +8,27 @@ export const generateRoutes = (callback) => {
   });
 };
 
-export const generateTrips = (callback) => {
+// export const generateTrips = (callback) => {
+//   $.ajax({
+//     url: 'http://localhost:3000/trips.json',
+//     success: (data) => {
+//       callback(data);
+//     }
+//   });
+// };
+
+export const getTrains = (callback) => {
   $.ajax({
-    url: 'http://localhost:3000/trips.json',
+    url: 'http://localhost:3000/trains',
+    success: (data) => {
+      callback(data);
+    }
+  });
+};
+
+export const getHeader = (callback) => {
+  $.ajax({
+    url: 'http://localhost:3000/header',
     success: (data) => {
       callback(data);
     }

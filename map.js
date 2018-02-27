@@ -2,7 +2,7 @@ import { generateRoutes, generateTrips } from './routes';
 
 class Map {
 
-  constructor(htmlMap, trains) {
+  constructor(htmlMap) {
     this.htmlMap = htmlMap;
     generateRoutes((routes) => {
       this.routes = routes;
