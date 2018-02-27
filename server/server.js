@@ -20,13 +20,17 @@ const firebase = new FirebaseConnector();
 function trainPoll() {
   pullData((data) => {
     firebase.getData((snapshot) => {
-      const processed = processData(snapshot, data);
-      firebase.clearData();
-      firebase.uploadData(processed);
+      if (snapshot) {
+        const processed = processData(snapshot.val(), data);
+        firebase.clearData();
+        firebase.uploadData(processed);
+      } else {
+        console.log("No snapshot received from firebase");
+      }
     });
   });
 }
-setInterval(trainPoll, 10000);
+setInterval(trainPoll, 30000);
 
 app.get('/trains', (req, res) => {
   //pull trains from firebase and return
