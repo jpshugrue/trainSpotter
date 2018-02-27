@@ -17,6 +17,12 @@ class FirebaseConnector {
     });
   }
 
+  getData(callback) {
+    this.database.ref().once('value').then((snapshot) => {
+      callback(snapshot);
+    });
+  }
+
   clearData() {
     this.database.ref().set(null);
   }

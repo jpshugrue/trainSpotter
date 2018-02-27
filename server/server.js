@@ -1,4 +1,3 @@
-// const config = require('./config');
 const express = require('express');
 const request = require('request');
 const cors = require('cors');
@@ -6,6 +5,7 @@ const app = express();
 const path = require('path');
 const { pullData } = require('./trains.js');
 const FirebaseConnector = require('./firebase.js');
+const { processData } = require('./update.js');
 
 app.use(cors());
 
@@ -19,11 +19,14 @@ app.get('/lines.json', (req, res) => {
 const firebase = new FirebaseConnector();
 function trainPoll() {
   pullData((data) => {
-    firebase.clearData();
-    firebase.uploadData(data);
+    firebase.getData((snapshot) => {
+      const processed = processData(snapshot, data);
+      firebase.clearData();
+      firebase.uploadData(processed);
+    });
   });
 }
-setInterval(trainPoll, 30000);
+setInterval(trainPoll, 10000);
 
 app.get('/trains', (req, res) => {
   //pull trains from firebase and return
