@@ -19,12 +19,11 @@ app.get('/lines.json', (req, res) => {
 const firebase = new FirebaseConnector();
 function trainPoll() {
   pullData((data) => {
-    console.log("Data has been pulled, sending to firebase");
     firebase.clearData();
-    // Need to upload to firebase
+    firebase.uploadData(data);
   });
 }
-setInterval(trainPoll, 5000);
+setInterval(trainPoll, 30000);
 
 app.get('/trains', (req, res) => {
   //pull trains from firebase and return
