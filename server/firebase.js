@@ -1,5 +1,7 @@
-import * as firebase from 'firebase';
-import 'firebase/database';
+const firebase = require('firebase');
+// const
+// import * as firebase from 'firebase';
+// import 'firebase/database';
 
 class FirebaseConnector {
 
@@ -18,4 +20,15 @@ class FirebaseConnector {
     });
   }
 
+  clearData() {
+    this.database.ref().set(null);
+  }
+
+  uploadData() {
+    // this.database.ref.set
+  }
+
 }
+
+module.exports = FirebaseConnector;
+// export default FirebaseConnector;

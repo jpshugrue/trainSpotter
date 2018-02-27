@@ -5,6 +5,7 @@ const cors = require('cors');
 const app = express();
 const path = require('path');
 const { pullData } = require('./trains.js');
+const FirebaseConnector = require('./firebase.js');
 
 app.use(cors());
 
@@ -15,14 +16,15 @@ app.get('/lines.json', (req, res) => {
 // app.get('/trips.json', (req, res) => {
 //    res.sendFile(path.resolve('../static/custom/trips.json'));
 // });
-
+const firebase = new FirebaseConnector();
 function trainPoll() {
   pullData((data) => {
     console.log("Data has been pulled, sending to firebase");
+    firebase.clearData();
     // Need to upload to firebase
   });
 }
-setInterval(trainPoll, 30000);
+setInterval(trainPoll, 5000);
 
 app.get('/trains', (req, res) => {
   //pull trains from firebase and return
