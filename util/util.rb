@@ -93,33 +93,50 @@ def parse_trip_id(trip_id)
   trip_id.split("_", 2)[1]
 end
 
-def build_out_trips
+def build_out_sequences
   result = {}
+
   File.open("../static/stop_times.txt", "r") do |f|
     current_trip = nil
     origin = nil
     departure_time = nil
     f.each_line do |line|
       split = line.split(",")
-      trip_id = parse_trip_id(split[0])
+      trip_id = split[0]
       arrival_time = split[1]
       stop_id = split[3]
+      if trip_id.include?("WKD")
+        day_type = "WKD"
+      elsif trip_id.include?("SAT")
+        day_type = "SAT"
+      elsif trip_id.include?("SUN")
+        day_type = "SUN"
+      else
+        day_type = "ALL"
+      end
       if current_trip != trip_id
         current_trip = trip_id
-        origin = stop_id
-        departure_time = arrival_time
-        result[current_trip] = {}
       else
         destination = stop_id
         time = calculate_time(departure_time, arrival_time)
-        result[current_trip][destination] = { origin: origin, time: time }
-        origin = stop_id
-        departure_time = arrival_time
+        if !result[origin]
+          result[origin] = {}
+        end
+        if !result[origin][destination]
+          result[origin][destination] = {}
+        end
+        if !result[origin][destination][day_type]
+          result[origin][destination][day_type] = [time]
+        elsif !result[origin][destination][day_type].include?(time)
+          result[origin][destination][day_type] << time
+        end
       end
+      origin = stop_id
+      departure_time = arrival_time
     end
   end
-  File.open("../static/custom/trips.json", "w") do |f|
+
+  File.open("../static/custom/sequences.json", "w") do |f|
     f.write(JSON.pretty_generate(result))
   end
-
 end
