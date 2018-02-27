@@ -70,7 +70,7 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(console) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__map__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__map__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(177);
 
 
@@ -78,28 +78,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 function populateMap(htmlMap) {
-  console.log("Gets here1");
-  // const trains = {};
   const map = new __WEBPACK_IMPORTED_MODULE_0__map__["a" /* default */](htmlMap);
-  Object(__WEBPACK_IMPORTED_MODULE_1__routes__["b" /* getTrains */])((trains) => {
-    console.log("Gets here2");
-    window.trains = trains;
-  });
-
-
-  // const trains = new Trains();
-  //
-  // trains.pullData(() => {
-  //
-  //   // map.animateTrains(trains);
+  // getTrains((trains) => {
+  //   window.trains = trains;
   // });
-  // window.trains = trains;
 }
 
 window.populateMap = populateMap;
 window.getTrains = __WEBPACK_IMPORTED_MODULE_1__routes__["b" /* getTrains */];
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(18)))
 
 /***/ }),
 
@@ -325,16 +312,14 @@ const getTrains = (callback) => {
 /* harmony export (immutable) */ __webpack_exports__["b"] = getTrains;
 
 
-const getHeader = (callback) => {
-  $.ajax({
-    url: 'http://localhost:3000/header',
-    success: (data) => {
-      callback(data);
-    }
-  });
-};
-/* unused harmony export getHeader */
-
+// export const getHeader = (callback) => {
+//   $.ajax({
+//     url: 'http://localhost:3000/header',
+//     success: (data) => {
+//       callback(data);
+//     }
+//   });
+// };
 
 
 /***/ }),

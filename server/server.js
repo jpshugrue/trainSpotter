@@ -18,24 +18,21 @@ app.get('/lines.json', (req, res) => {
 // });
 const firebase = new FirebaseConnector();
 function trainPoll() {
+  console.log("Polling");
   pullData((data) => {
     firebase.getData((snapshot) => {
-      if (snapshot) {
-        const processed = processData(snapshot.val(), data);
-        firebase.clearData();
-        firebase.uploadData(processed);
-      } else {
-        console.log("No snapshot received from firebase");
-      }
+      const processed = processData(snapshot.val(), data);
+      firebase.clearData();
+      firebase.uploadData(processed);
     });
   });
 }
 setInterval(trainPoll, 30000);
 
 app.get('/trains', (req, res) => {
-  //pull trains from firebase and return
-
-  //req.json
+  firebase.getData((snapshot) => {
+    res.json(snapshot.val());
+  });
 });
 
 // app.get('/header', (req, res) => {

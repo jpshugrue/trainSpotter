@@ -26,11 +26,11 @@ export const getTrains = (callback) => {
   });
 };
 
-export const getHeader = (callback) => {
-  $.ajax({
-    url: 'http://localhost:3000/header',
-    success: (data) => {
-      callback(data);
-    }
-  });
-};
+// export const getHeader = (callback) => {
+//   $.ajax({
+//     url: 'http://localhost:3000/header',
+//     success: (data) => {
+//       callback(data);
+//     }
+//   });
+// };

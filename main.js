@@ -4,22 +4,10 @@ import { getTrains, getHeader } from './routes';
 
 
 function populateMap(htmlMap) {
-  console.log("Gets here1");
-  // const trains = {};
   const map = new Map(htmlMap);
-  getTrains((trains) => {
-    console.log("Gets here2");
-    window.trains = trains;
-  });
-
-
-  // const trains = new Trains();
-  //
-  // trains.pullData(() => {
-  //
-  //   // map.animateTrains(trains);
+  // getTrains((trains) => {
+  //   window.trains = trains;
   // });
-  // window.trains = trains;
 }
 
 window.populateMap = populateMap;
