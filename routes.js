@@ -8,6 +8,15 @@ export const generateRoutes = (callback) => {
   });
 };
 
+export const generateSequences = (callback) => {
+  $.ajax({
+    url: 'http://localhost:3000/sequences.json',
+    success: (data) => {
+      callback(data);
+    }
+  });
+};
+
 // export const generateTrips = (callback) => {
 //   $.ajax({
 //     url: 'http://localhost:3000/trips.json',
