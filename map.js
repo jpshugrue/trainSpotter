@@ -61,10 +61,10 @@ class Map {
 
   animateTrains(trains) {
     Object.keys(trains).forEach((entityId) => {
-      if (trains[entityId].prevStopId) {
-        const prevStop = trains[entityId].prevStopId;
-        const nextStop = trains[entityId].tripUpdate.stopTimeUpdate[0].stopId;
-        const route = trains[entityId].tripUpdate.trip.routeId;
+      const prevStop = trains[entityId].prevStopId;
+      const nextStop = trains[entityId].tripUpdate.stopTimeUpdate[0].stopId;
+      const route = trains[entityId].tripUpdate.trip.routeId;
+      if (prevStop && this.routes[route] && this.routes[route].stops[prevStop] && this.routes[route].stops[nextStop]) {
         const prevLat = parseFloat(this.routes[route].stops[prevStop].lat);
         const prevLng = parseFloat(this.routes[route].stops[prevStop].lng);
         const nextLat = parseFloat(this.routes[route].stops[nextStop].lat);
@@ -104,6 +104,8 @@ class Map {
           console.log("Found an unscheduled sequence");
         }
 
+      } else {
+        console.log("Found invalid entity data");
       }
     });
   }

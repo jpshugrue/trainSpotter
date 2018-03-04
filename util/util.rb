@@ -93,6 +93,26 @@ def parse_trip_id(trip_id)
   trip_id.split("_", 2)[1]
 end
 
+def build_out_stops
+  result = {}
+
+  File.open("../static/stops.txt", "r") do |f|
+    f.each_line do |line|
+      split = line.split(",")
+      stop_id = split[0]
+      result[stop_id] = {}
+      result[stop_id][:stop_name] = split[2]
+      result[stop_id][:lat] = split[4]
+      result[stop_id][:lng] = split[5]
+      result[stop_id][:parent] = split[9].chomp
+    end
+  end
+
+  File.open("../static/custom/stops.json", "w") do |f|
+    f.write(JSON.pretty_generate(result))
+  end
+end
+
 def build_out_sequences
   result = {}
 
