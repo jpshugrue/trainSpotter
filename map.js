@@ -65,6 +65,7 @@ class Map {
   animateTrains(trains) {
     this.trainCircs.forEach((trainCirc) => {
       trainCirc.setMap(null);
+      // google.maps.event.clearInstanceListeners(trainCirc);
     });
     Object.keys(trains).forEach((entityId) => {
       const prevStop = this.stops[trains[entityId].prevStopId];
@@ -72,11 +73,7 @@ class Map {
       if (trains[entityId].prevStopId && prevStop) {
         const nextStop = this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId];
         const prevCoord = { lat: parseFloat(prevStop.lat), lng: parseFloat(prevStop.lng)};
-        // console.log(`prevLat is ${prevCoord.lat}`);
-        // console.log(`prevLng is ${prevCoord.lng}`);
         const nextCoord = { lat: parseFloat(nextStop.lat), lng: parseFloat(nextStop.lng)};
-        // console.log(`nextLat is ${nextCoord.lat}`);
-        // console.log(`nextLng is ${nextCoord.lng}`);
         const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
         let remTime;
         if (etaTime >= trains.header.timestamp.low) {
@@ -84,34 +81,46 @@ class Map {
         } else {
           remTime = 0;
         }
-        // console.log(`remTime is ${remTime}`);
-        // console.log(`sequenceTime is ${sequenceTime}`);
         let fractionComplete;
         if (sequenceTime <= 0) {
           fractionComplete = 0.99;
         } else {
           fractionComplete = 1 - (remTime / sequenceTime);
+          if (fractionComplete < 0) {
+            fractionComplete = 0;
+          }
         }
         const newCoord = { lat: ((nextCoord.lat - prevCoord.lat) * fractionComplete) + prevCoord.lat,
                            lng: ((nextCoord.lng - prevCoord.lng) * fractionComplete) + prevCoord.lng};
-        this.trainCircs.push(new google.maps.Circle({
-           strokeColor: "black",
-           strokeOpacity: 0.8,
-           strokeWeight: 2,
-           fillColor: "black",
-           fillOpacity: 0.35,
-           map: this.htmlMap,
-           center: newCoord,
-           radius: 50
-         }));
-         console.log(`Successful paint of ${entityId} at ${newCoord.lat} and ${newCoord.lng}`);
-      } else {
-        if (!trains[entityId].prevStopId) {
-          console.log(`${entityId} does not yet have a prevStop`);
-        } else if (!prevStop) {
-          console.log(`this.stops doesn't contain ${trains[entityId].prevStopId}`);
-        }
+        const circle = new google.maps.Circle({
+          strokeColor: "black",
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: "black",
+          fillOpacity: 0.35,
+          map: this.htmlMap,
+          center: newCoord,
+          radius: 50
+        });
+        // circle.addListener('click', function() {
+        //   console.log(`I am ${entityId}`);
+        //   console.log(`My prevLat was ${prevCoord.lat} and prevLng was ${prevCoord.lng}`);
+        //   console.log(`My nextLat was ${nextCoord.lat} and nextLng was ${nextCoord.lng}`);
+        //   console.log(`My sequenceTime was ${sequenceTime} and remTime was ${remTime}`);
+        //   console.log(`My fractionComplete was ${fractionComplete}`);
+        //   console.log(`My result is lat ${newCoord.lat} and lng ${newCoord.lng}`);
+        // });
+        this.trainCircs.push(circle);
+
+         // console.log(`Successful paint of ${entityId} at ${newCoord.lat} and ${newCoord.lng}`);
       }
+      // else {
+      //   if (!trains[entityId].prevStopId) {
+      //     console.log(`${entityId} does not yet have a prevStop`);
+      //   } else if (!prevStop) {
+      //     console.log(`this.stops doesn't contain ${trains[entityId].prevStopId}`);
+      //   }
+      // }
     });
   }
 }
