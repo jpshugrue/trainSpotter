@@ -102,6 +102,7 @@ class Map {
 
   constructor(htmlMap, callback) {
     this.htmlMap = htmlMap;
+    this.trainCircs = [];
     Object(__WEBPACK_IMPORTED_MODULE_0__routes__["a" /* generateRoutes */])((routes) => {
       this.routes = routes;
       Object(__WEBPACK_IMPORTED_MODULE_0__routes__["b" /* generateStops */])((stops) => {
@@ -109,7 +110,7 @@ class Map {
         this.animateStops();
         this.animateLines();
         setInterval(callback, 30000);
-        // callback();
+        callback();
       });
     });
   }
@@ -160,6 +161,9 @@ class Map {
   }
 
   animateTrains(trains) {
+    this.trainCircs.forEach((trainCirc) => {
+      trainCirc.setMap(null);
+    });
     Object.keys(trains).forEach((entityId) => {
       const prevStop = this.stops[trains[entityId].prevStopId];
       const sequenceTime = trains[entityId].sequenceTime - trains.header.timestamp.low;
@@ -173,7 +177,7 @@ class Map {
         const fractionComplete = 1 - (remTime / sequenceTime);
         const newCoord = { lat: ((nextCoord.lat - prevCoord.lat) * fractionComplete) + prevCoord.lat,
                             lng: ((nextCoord.lng - prevCoord.lng) * fractionComplete) + prevCoord.lng};
-        new google.maps.Circle({
+        this.trainCircs.push(new google.maps.Circle({
            strokeColor: "black",
            strokeOpacity: 0.8,
            strokeWeight: 2,
@@ -182,22 +186,10 @@ class Map {
            map: this.htmlMap,
            center: newCoord,
            radius: 50
-         });
+         }));
          console.log(`Successful paint of ${entityId} at ${newCoord.lat} and ${newCoord.lng}`);
       } else {
         if (!trains[entityId].prevStopId) {
-          // const nextStop = this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId];
-          // const nextCoord = { lat: parseFloat(nextStop.lat), lng: parseFloat(nextStop.lng)};
-          // new google.maps.Circle({
-          //    strokeColor: "black",
-          //    strokeOpacity: 0.8,
-          //    strokeWeight: 2,
-          //    fillColor: "black",
-          //    fillOpacity: 0.9,
-          //    map: this.htmlMap,
-          //    center: nextCoord,
-          //    radius: 50
-          //  });
           console.log(`${entityId} does not yet have a prevStop`);
         } else if (!prevStop) {
           console.log(`this.stops doesn't contain ${trains[entityId].prevStopId}`);
