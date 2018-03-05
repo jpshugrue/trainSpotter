@@ -10,7 +10,8 @@ class Map {
         this.stops = stops;
         this.animateStops();
         this.animateLines();
-        callback();
+        setInterval(callback, 30000);
+        // callback();
       });
     });
   }
@@ -87,6 +88,18 @@ class Map {
          console.log(`Successful paint of ${entityId} at ${newCoord.lat} and ${newCoord.lng}`);
       } else {
         if (!trains[entityId].prevStopId) {
+          // const nextStop = this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId];
+          // const nextCoord = { lat: parseFloat(nextStop.lat), lng: parseFloat(nextStop.lng)};
+          // new google.maps.Circle({
+          //    strokeColor: "black",
+          //    strokeOpacity: 0.8,
+          //    strokeWeight: 2,
+          //    fillColor: "black",
+          //    fillOpacity: 0.9,
+          //    map: this.htmlMap,
+          //    center: nextCoord,
+          //    radius: 50
+          //  });
           console.log(`${entityId} does not yet have a prevStop`);
         } else if (!prevStop) {
           console.log(`this.stops doesn't contain ${trains[entityId].prevStopId}`);
