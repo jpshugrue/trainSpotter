@@ -81,6 +81,7 @@ function populateMap(htmlMap) {
     Object(__WEBPACK_IMPORTED_MODULE_1__routes__["c" /* getTrains */])((trains) => {
       window.trains = trains;
       map.animateTrains(trains);
+      window.animateTrains = map.animateTrains;
     });
   });
 }
@@ -110,11 +111,6 @@ class Map {
         this.animateLines();
         callback();
       });
-      // generateSequences((sequences) => {
-      //   this.sequences = sequences;
-      //   this.animateStops();
-      //   this.animateLines();
-      // });
     });
   }
 
@@ -166,7 +162,7 @@ class Map {
   animateTrains(trains) {
     Object.keys(trains).forEach((entityId) => {
       const prevStop = this.stops[trains[entityId].prevStopId];
-      const sequenceTime = trains[entityId].sequenceTime;
+      const sequenceTime = trains[entityId].sequenceTime - trains.header.timestamp.low;
       if (trains[entityId].prevStopId && prevStop) {
         const nextStop = this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId];
         const prevCoord = { lat: parseFloat(prevStop.lat), lng: parseFloat(prevStop.lng)};
@@ -185,7 +181,7 @@ class Map {
            fillOpacity: 0.35,
            map: this.htmlMap,
            center: newCoord,
-           radius: 40
+           radius: 50
          });
          console.log(`Successful paint of ${entityId} at ${newCoord.lat} and ${newCoord.lng}`);
       } else {
@@ -194,61 +190,8 @@ class Map {
         } else if (!prevStop) {
           console.log(`this.stops doesn't contain ${trains[entityId].prevStopId}`);
         }
-        // else {
-        //   console.log(`this.stops doesn't contain ${this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId]}`);
-        // }
-
       }
     });
-
-    // Object.keys(trains).forEach((entityId) => {
-    //   const prevStop = trains[entityId].prevStopId;
-    //   const nextStop = trains[entityId].tripUpdate.stopTimeUpdate[0].stopId;
-    //   const route = trains[entityId].tripUpdate.trip.routeId;
-    //   if (prevStop && this.routes[route] && this.routes[route].stops[prevStop] && this.routes[route].stops[nextStop]) {
-    //     const prevLat = parseFloat(this.routes[route].stops[prevStop].lat);
-    //     const prevLng = parseFloat(this.routes[route].stops[prevStop].lng);
-    //     const nextLat = parseFloat(this.routes[route].stops[nextStop].lat);
-    //     const nextLng = parseFloat(this.routes[route].stops[nextStop].lng);
-    //     let schedTime;
-    //     if (this.sequences[prevStop] && this.sequences[prevStop][nextStop]) {
-    //       if (this.sequences[prevStop][nextStop].ALL) {
-    //         schedTime = this.sequences[prevStop][nextStop].ALL;
-    //       } else {
-    //         const today = new Date();
-    //         const dayOfWeek = today.getDay();
-    //         if (dayOfWeek === 0) {
-    //           // will need to change these to actually select based on remaining time and when we started
-    //           schedTime = this.sequences[prevStop][nextStop].SUN;
-    //         } else if (dayOfWeek === 6) {
-    //           schedTime = this.sequences[prevStop][nextStop].SAT;
-    //         } else {
-    //           schedTime = this.sequences[prevStop][nextStop].WKD;
-    //         }
-    //       }
-    //       const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
-    //       const remTime = etaTime - trains.header.timestamp.low;
-    //       const fractionComplete = 1 - (remTime / (schedTime[0]/1000));
-    //       const newLat = ((nextLat - prevLat) * fractionComplete) + prevLat;
-    //       const newLng = ((nextLng - prevLng) * fractionComplete) + prevLng;
-    //       new google.maps.Circle({
-    //          strokeColor: "black",
-    //          strokeOpacity: 0.8,
-    //          strokeWeight: 2,
-    //          fillColor: "black",
-    //          fillOpacity: 0.35,
-    //          map: this.htmlMap,
-    //          center: {lat: newLat, lng: newLng},
-    //          radius: 20
-    //        });
-    //     } else {
-    //       console.log("Found an unscheduled sequence");
-    //     }
-    //
-    //   } else {
-    //     console.log("Found invalid entity data");
-    //   }
-    // });
   }
 }
 
