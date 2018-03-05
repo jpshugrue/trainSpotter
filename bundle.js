@@ -170,20 +170,28 @@ class Map {
       if (trains[entityId].prevStopId && prevStop) {
         const nextStop = this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId];
         const prevCoord = { lat: parseFloat(prevStop.lat), lng: parseFloat(prevStop.lng)};
+        // console.log(`prevLat is ${prevCoord.lat}`);
+        // console.log(`prevLng is ${prevCoord.lng}`);
         const nextCoord = { lat: parseFloat(nextStop.lat), lng: parseFloat(nextStop.lng)};
-
+        // console.log(`nextLat is ${nextCoord.lat}`);
+        // console.log(`nextLng is ${nextCoord.lng}`);
         const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
-        const remTime = etaTime - trains.header.timestamp.low;
-        console.log(remTime);
-        console.log(sequenceTime);
-        const fractionComplete = 1 - (remTime / sequenceTime);
-        // console.log(nextCoord.lat - prevCoord.lat);
-        // console.log(nextCoord.lng);
-        // console.log(fractionComplete);
-        console.log(`For ${entityId}, the difference in lat is ${((nextCoord.lat - prevCoord.lat) * fractionComplete)}`);
-        console.log(`For ${entityId}, the difference in lng is ${((nextCoord.lng - prevCoord.lng) * fractionComplete)}`);
+        let remTime;
+        if (etaTime >= trains.header.timestamp.low) {
+          remTime = etaTime - trains.header.timestamp.low
+        } else {
+          remTime = 0;
+        }
+        // console.log(`remTime is ${remTime}`);
+        // console.log(`sequenceTime is ${sequenceTime}`);
+        let fractionComplete;
+        if (sequenceTime <= 0) {
+          fractionComplete = 0.99;
+        } else {
+          fractionComplete = 1 - (remTime / sequenceTime);
+        }
         const newCoord = { lat: ((nextCoord.lat - prevCoord.lat) * fractionComplete) + prevCoord.lat,
-                            lng: ((nextCoord.lng - prevCoord.lng) * fractionComplete) + prevCoord.lng};
+                           lng: ((nextCoord.lng - prevCoord.lng) * fractionComplete) + prevCoord.lng};
         this.trainCircs.push(new google.maps.Circle({
            strokeColor: "black",
            strokeOpacity: 0.8,
