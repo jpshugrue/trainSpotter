@@ -76,7 +76,14 @@ class Map {
 
         const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
         const remTime = etaTime - trains.header.timestamp.low;
+        console.log(remTime);
+        console.log(sequenceTime);
         const fractionComplete = 1 - (remTime / sequenceTime);
+        // console.log(nextCoord.lat - prevCoord.lat);
+        // console.log(nextCoord.lng);
+        // console.log(fractionComplete);
+        console.log(`For ${entityId}, the difference in lat is ${((nextCoord.lat - prevCoord.lat) * fractionComplete)}`);
+        console.log(`For ${entityId}, the difference in lng is ${((nextCoord.lng - prevCoord.lng) * fractionComplete)}`);
         const newCoord = { lat: ((nextCoord.lat - prevCoord.lat) * fractionComplete) + prevCoord.lat,
                             lng: ((nextCoord.lng - prevCoord.lng) * fractionComplete) + prevCoord.lng};
         this.trainCircs.push(new google.maps.Circle({
