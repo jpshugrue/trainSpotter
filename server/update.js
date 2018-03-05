@@ -6,6 +6,7 @@ function processData (prevData, newData) {
       const newNextStop = result[tripId].tripUpdate.stopTimeUpdate[0].stopId;
       if (prevNextStop !== newNextStop) {
         result[tripId].prevStopId = prevNextStop;
+        result[tripId].sequenceTime = newData[tripId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
       }
     }
   });

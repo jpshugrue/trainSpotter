@@ -8,9 +8,18 @@ export const generateRoutes = (callback) => {
   });
 };
 
-export const generateSequences = (callback) => {
+// export const generateSequences = (callback) => {
+//   $.ajax({
+//     url: 'http://localhost:3000/sequences.json',
+//     success: (data) => {
+//       callback(data);
+//     }
+//   });
+// };
+
+export const generateStops = (callback) => {
   $.ajax({
-    url: 'http://localhost:3000/sequences.json',
+    url: 'http://localhost:3000/stops.json',
     success: (data) => {
       callback(data);
     }

@@ -13,8 +13,12 @@ app.get('/lines.json', (req, res) => {
    res.sendFile(path.resolve('../static/custom/lines.json'));
 });
 
-app.get('/sequences.json', (req, res) => {
-   res.sendFile(path.resolve('../static/custom/sequences.json'));
+// app.get('/sequences.json', (req, res) => {
+//    res.sendFile(path.resolve('../static/custom/sequences.json'));
+// });
+
+app.get('/stops.json', (req, res) => {
+   res.sendFile(path.resolve('../static/custom/stops.json'));
 });
 
 // app.get('/trips.json', (req, res) => {

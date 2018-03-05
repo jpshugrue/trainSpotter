@@ -76,12 +76,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 // import Trains from './trains';
 
-
 function populateMap(htmlMap) {
-  const map = new __WEBPACK_IMPORTED_MODULE_0__map__["a" /* default */](htmlMap);
-  Object(__WEBPACK_IMPORTED_MODULE_1__routes__["c" /* getTrains */])((trains) => {
-    window.trains = trains;
-    map.animateTrains(trains);
+  const map = new __WEBPACK_IMPORTED_MODULE_0__map__["a" /* default */](htmlMap, () => {
+    Object(__WEBPACK_IMPORTED_MODULE_1__routes__["c" /* getTrains */])((trains) => {
+      window.trains = trains;
+      map.animateTrains(trains);
+    });
   });
 }
 
@@ -100,15 +100,21 @@ window.getTrains = __WEBPACK_IMPORTED_MODULE_1__routes__["c" /* getTrains */];
 
 class Map {
 
-  constructor(htmlMap) {
+  constructor(htmlMap, callback) {
     this.htmlMap = htmlMap;
     Object(__WEBPACK_IMPORTED_MODULE_0__routes__["a" /* generateRoutes */])((routes) => {
       this.routes = routes;
-      Object(__WEBPACK_IMPORTED_MODULE_0__routes__["b" /* generateSequences */])((sequences) => {
-        this.sequences = sequences;
+      Object(__WEBPACK_IMPORTED_MODULE_0__routes__["b" /* generateStops */])((stops) => {
+        this.stops = stops;
         this.animateStops();
         this.animateLines();
+        callback();
       });
+      // generateSequences((sequences) => {
+      //   this.sequences = sequences;
+      //   this.animateStops();
+      //   this.animateLines();
+      // });
     });
   }
 
@@ -159,53 +165,90 @@ class Map {
 
   animateTrains(trains) {
     Object.keys(trains).forEach((entityId) => {
-      const prevStop = trains[entityId].prevStopId;
-      const nextStop = trains[entityId].tripUpdate.stopTimeUpdate[0].stopId;
-      const route = trains[entityId].tripUpdate.trip.routeId;
-      if (prevStop && this.routes[route] && this.routes[route].stops[prevStop] && this.routes[route].stops[nextStop]) {
-        const prevLat = parseFloat(this.routes[route].stops[prevStop].lat);
-        const prevLng = parseFloat(this.routes[route].stops[prevStop].lng);
-        const nextLat = parseFloat(this.routes[route].stops[nextStop].lat);
-        const nextLng = parseFloat(this.routes[route].stops[nextStop].lng);
-        let schedTime;
-        if (this.sequences[prevStop] && this.sequences[prevStop][nextStop]) {
-          if (this.sequences[prevStop][nextStop].ALL) {
-            schedTime = this.sequences[prevStop][nextStop].ALL;
-          } else {
-            const today = new Date();
-            const dayOfWeek = today.getDay();
-            if (dayOfWeek === 0) {
-              // will need to change these to actually select based on remaining time and when we started
-              schedTime = this.sequences[prevStop][nextStop].SUN;
-            } else if (dayOfWeek === 6) {
-              schedTime = this.sequences[prevStop][nextStop].SAT;
-            } else {
-              schedTime = this.sequences[prevStop][nextStop].WKD;
-            }
-          }
-          const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
-          const remTime = etaTime - trains.header.timestamp.low;
-          const fractionComplete = 1 - (remTime / (schedTime[0]/1000));
-          const newLat = ((nextLat - prevLat) * fractionComplete) + prevLat;
-          const newLng = ((nextLng - prevLng) * fractionComplete) + prevLng;
-          new google.maps.Circle({
-             strokeColor: "black",
-             strokeOpacity: 0.8,
-             strokeWeight: 2,
-             fillColor: "black",
-             fillOpacity: 0.35,
-             map: this.htmlMap,
-             center: {lat: newLat, lng: newLng},
-             radius: 20
-           });
-        } else {
-          console.log("Found an unscheduled sequence");
-        }
+      const prevStop = this.stops[trains[entityId].prevStopId];
+      const sequenceTime = trains[entityId].sequenceTime;
+      if (trains[entityId].prevStopId && prevStop) {
+        const nextStop = this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId];
+        const prevCoord = { lat: parseFloat(prevStop.lat), lng: parseFloat(prevStop.lng)};
+        const nextCoord = { lat: parseFloat(nextStop.lat), lng: parseFloat(nextStop.lng)};
 
+        const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
+        const remTime = etaTime - trains.header.timestamp.low;
+        const fractionComplete = 1 - (remTime / sequenceTime);
+        const newCoord = { lat: ((nextCoord.lat - prevCoord.lat) * fractionComplete) + prevCoord.lat,
+                            lng: ((nextCoord.lng - prevCoord.lng) * fractionComplete) + prevCoord.lng};
+        new google.maps.Circle({
+           strokeColor: "black",
+           strokeOpacity: 0.8,
+           strokeWeight: 2,
+           fillColor: "black",
+           fillOpacity: 0.35,
+           map: this.htmlMap,
+           center: newCoord,
+           radius: 40
+         });
+         console.log(`Successful paint of ${entityId} at ${newCoord.lat} and ${newCoord.lng}`);
       } else {
-        console.log("Found invalid entity data");
+        if (!trains[entityId].prevStopId) {
+          console.log(`${entityId} does not yet have a prevStop`);
+        } else if (!prevStop) {
+          console.log(`this.stops doesn't contain ${trains[entityId].prevStopId}`);
+        }
+        // else {
+        //   console.log(`this.stops doesn't contain ${this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId]}`);
+        // }
+
       }
     });
+
+    // Object.keys(trains).forEach((entityId) => {
+    //   const prevStop = trains[entityId].prevStopId;
+    //   const nextStop = trains[entityId].tripUpdate.stopTimeUpdate[0].stopId;
+    //   const route = trains[entityId].tripUpdate.trip.routeId;
+    //   if (prevStop && this.routes[route] && this.routes[route].stops[prevStop] && this.routes[route].stops[nextStop]) {
+    //     const prevLat = parseFloat(this.routes[route].stops[prevStop].lat);
+    //     const prevLng = parseFloat(this.routes[route].stops[prevStop].lng);
+    //     const nextLat = parseFloat(this.routes[route].stops[nextStop].lat);
+    //     const nextLng = parseFloat(this.routes[route].stops[nextStop].lng);
+    //     let schedTime;
+    //     if (this.sequences[prevStop] && this.sequences[prevStop][nextStop]) {
+    //       if (this.sequences[prevStop][nextStop].ALL) {
+    //         schedTime = this.sequences[prevStop][nextStop].ALL;
+    //       } else {
+    //         const today = new Date();
+    //         const dayOfWeek = today.getDay();
+    //         if (dayOfWeek === 0) {
+    //           // will need to change these to actually select based on remaining time and when we started
+    //           schedTime = this.sequences[prevStop][nextStop].SUN;
+    //         } else if (dayOfWeek === 6) {
+    //           schedTime = this.sequences[prevStop][nextStop].SAT;
+    //         } else {
+    //           schedTime = this.sequences[prevStop][nextStop].WKD;
+    //         }
+    //       }
+    //       const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
+    //       const remTime = etaTime - trains.header.timestamp.low;
+    //       const fractionComplete = 1 - (remTime / (schedTime[0]/1000));
+    //       const newLat = ((nextLat - prevLat) * fractionComplete) + prevLat;
+    //       const newLng = ((nextLng - prevLng) * fractionComplete) + prevLng;
+    //       new google.maps.Circle({
+    //          strokeColor: "black",
+    //          strokeOpacity: 0.8,
+    //          strokeWeight: 2,
+    //          fillColor: "black",
+    //          fillOpacity: 0.35,
+    //          map: this.htmlMap,
+    //          center: {lat: newLat, lng: newLng},
+    //          radius: 20
+    //        });
+    //     } else {
+    //       console.log("Found an unscheduled sequence");
+    //     }
+    //
+    //   } else {
+    //     console.log("Found invalid entity data");
+    //   }
+    // });
   }
 }
 
@@ -285,15 +328,24 @@ const generateRoutes = (callback) => {
 /* harmony export (immutable) */ __webpack_exports__["a"] = generateRoutes;
 
 
-const generateSequences = (callback) => {
+// export const generateSequences = (callback) => {
+//   $.ajax({
+//     url: 'http://localhost:3000/sequences.json',
+//     success: (data) => {
+//       callback(data);
+//     }
+//   });
+// };
+
+const generateStops = (callback) => {
   $.ajax({
-    url: 'http://localhost:3000/sequences.json',
+    url: 'http://localhost:3000/stops.json',
     success: (data) => {
       callback(data);
     }
   });
 };
-/* harmony export (immutable) */ __webpack_exports__["b"] = generateSequences;
+/* harmony export (immutable) */ __webpack_exports__["b"] = generateStops;
 
 
 // export const generateTrips = (callback) => {
