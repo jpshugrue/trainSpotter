@@ -60,18 +60,84 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 172);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/***/ 172:
+"use strict";
+const $ = __webpack_require__(3);
+const generateRoutes = (callback) => {
+  $.ajax({
+    url: 'http://localhost:3000/lines.json',
+    success: (data) => {
+      callback(data);
+    }
+  });
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = generateRoutes;
+
+
+// export const generateSequences = (callback) => {
+//   $.ajax({
+//     url: 'http://localhost:3000/sequences.json',
+//     success: (data) => {
+//       callback(data);
+//     }
+//   });
+// };
+
+const generateStops = (callback) => {
+  $.ajax({
+    url: 'http://localhost:3000/stops.json',
+    success: (data) => {
+      callback(data);
+    }
+  });
+};
+/* harmony export (immutable) */ __webpack_exports__["b"] = generateStops;
+
+
+// export const generateTrips = (callback) => {
+//   $.ajax({
+//     url: 'http://localhost:3000/trips.json',
+//     success: (data) => {
+//       callback(data);
+//     }
+//   });
+// };
+
+const getTrains = (callback) => {
+  $.ajax({
+    url: 'http://localhost:3000/trains',
+    success: (data) => {
+      callback(data);
+    }
+  });
+};
+/* harmony export (immutable) */ __webpack_exports__["c"] = getTrains;
+
+
+// export const getHeader = (callback) => {
+//   $.ajax({
+//     url: 'http://localhost:3000/header',
+//     success: (data) => {
+//       callback(data);
+//     }
+//   });
+// };
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__map__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__map__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(0);
 
 
 // import Trains from './trains';
@@ -90,12 +156,11 @@ window.getTrains = __WEBPACK_IMPORTED_MODULE_1__routes__["c" /* getTrains */];
 
 
 /***/ }),
-
-/***/ 173:
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(0);
 
 
 class Map {
@@ -166,10 +231,22 @@ class Map {
     //over what distance to animate them
   }
 
+  addListeners() {
+    // google.maps.event.clearInstanceListeners(trainCirc);
+
+    // circle.addListener('click', function() {
+    //   console.log(`I am ${entityId}`);
+    //   console.log(`My prevLat was ${prevCoord.lat} and prevLng was ${prevCoord.lng}`);
+    //   console.log(`My nextLat was ${nextCoord.lat} and nextLng was ${nextCoord.lng}`);
+    //   console.log(`My sequenceTime was ${sequenceTime} and remTime was ${remTime}`);
+    //   console.log(`My fractionComplete was ${fractionComplete}`);
+    //   console.log(`My result is lat ${newCoord.lat} and lng ${newCoord.lng}`);
+    // });
+  }
+
   animateTrains(trains) {
     this.trainCircs.forEach((trainCirc) => {
       trainCirc.setMap(null);
-      // google.maps.event.clearInstanceListeners(trainCirc);
     });
     this.trainCircs = [];
     Object.keys(trains).forEach((entityId) => {
@@ -207,24 +284,7 @@ class Map {
           center: newCoord,
           radius: 50
         });
-        // circle.addListener('click', function() {
-        //   console.log(`I am ${entityId}`);
-        //   console.log(`My prevLat was ${prevCoord.lat} and prevLng was ${prevCoord.lng}`);
-        //   console.log(`My nextLat was ${nextCoord.lat} and nextLng was ${nextCoord.lng}`);
-        //   console.log(`My sequenceTime was ${sequenceTime} and remTime was ${remTime}`);
-        //   console.log(`My fractionComplete was ${fractionComplete}`);
-        //   console.log(`My result is lat ${newCoord.lat} and lng ${newCoord.lng}`);
-        // });
-
-        // this.trainCircs.push({
-        //   shape: circle,
-        //   currentCoord: newCoord,
-        //   destCoord: nextCoord,
-        //
-        // });
         this.trainCircs.push(circle);
-
-         // console.log(`Successful paint of ${entityId} at ${newCoord.lat} and ${newCoord.lng}`);
       }
       // else {
       //   if (!trains[entityId].prevStopId) {
@@ -241,76 +301,7 @@ class Map {
 
 
 /***/ }),
-
-/***/ 177:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-const $ = __webpack_require__(178);
-const generateRoutes = (callback) => {
-  $.ajax({
-    url: 'http://localhost:3000/lines.json',
-    success: (data) => {
-      callback(data);
-    }
-  });
-};
-/* harmony export (immutable) */ __webpack_exports__["a"] = generateRoutes;
-
-
-// export const generateSequences = (callback) => {
-//   $.ajax({
-//     url: 'http://localhost:3000/sequences.json',
-//     success: (data) => {
-//       callback(data);
-//     }
-//   });
-// };
-
-const generateStops = (callback) => {
-  $.ajax({
-    url: 'http://localhost:3000/stops.json',
-    success: (data) => {
-      callback(data);
-    }
-  });
-};
-/* harmony export (immutable) */ __webpack_exports__["b"] = generateStops;
-
-
-// export const generateTrips = (callback) => {
-//   $.ajax({
-//     url: 'http://localhost:3000/trips.json',
-//     success: (data) => {
-//       callback(data);
-//     }
-//   });
-// };
-
-const getTrains = (callback) => {
-  $.ajax({
-    url: 'http://localhost:3000/trains',
-    success: (data) => {
-      callback(data);
-    }
-  });
-};
-/* harmony export (immutable) */ __webpack_exports__["c"] = getTrains;
-
-
-// export const getHeader = (callback) => {
-//   $.ajax({
-//     url: 'http://localhost:3000/header',
-//     success: (data) => {
-//       callback(data);
-//     }
-//   });
-// };
-
-
-/***/ }),
-
-/***/ 178:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10681,6 +10672,5 @@ return jQuery;
 
 
 /***/ })
-
-/******/ });
+/******/ ]);
 //# sourceMappingURL=bundle.js.map

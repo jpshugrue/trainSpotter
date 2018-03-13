@@ -68,10 +68,22 @@ class Map {
     //over what distance to animate them
   }
 
+  addListeners() {
+    // google.maps.event.clearInstanceListeners(trainCirc);
+
+    // circle.addListener('click', function() {
+    //   console.log(`I am ${entityId}`);
+    //   console.log(`My prevLat was ${prevCoord.lat} and prevLng was ${prevCoord.lng}`);
+    //   console.log(`My nextLat was ${nextCoord.lat} and nextLng was ${nextCoord.lng}`);
+    //   console.log(`My sequenceTime was ${sequenceTime} and remTime was ${remTime}`);
+    //   console.log(`My fractionComplete was ${fractionComplete}`);
+    //   console.log(`My result is lat ${newCoord.lat} and lng ${newCoord.lng}`);
+    // });
+  }
+
   animateTrains(trains) {
     this.trainCircs.forEach((trainCirc) => {
       trainCirc.setMap(null);
-      // google.maps.event.clearInstanceListeners(trainCirc);
     });
     this.trainCircs = [];
     Object.keys(trains).forEach((entityId) => {
@@ -109,24 +121,7 @@ class Map {
           center: newCoord,
           radius: 50
         });
-        // circle.addListener('click', function() {
-        //   console.log(`I am ${entityId}`);
-        //   console.log(`My prevLat was ${prevCoord.lat} and prevLng was ${prevCoord.lng}`);
-        //   console.log(`My nextLat was ${nextCoord.lat} and nextLng was ${nextCoord.lng}`);
-        //   console.log(`My sequenceTime was ${sequenceTime} and remTime was ${remTime}`);
-        //   console.log(`My fractionComplete was ${fractionComplete}`);
-        //   console.log(`My result is lat ${newCoord.lat} and lng ${newCoord.lng}`);
-        // });
-
-        // this.trainCircs.push({
-        //   shape: circle,
-        //   currentCoord: newCoord,
-        //   destCoord: nextCoord,
-        //
-        // });
         this.trainCircs.push(circle);
-
-         // console.log(`Successful paint of ${entityId} at ${newCoord.lat} and ${newCoord.lng}`);
       }
       // else {
       //   if (!trains[entityId].prevStopId) {
