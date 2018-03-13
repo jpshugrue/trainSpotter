@@ -111,6 +111,7 @@ class Map {
         this.animateLines();
         setInterval(callback, 30000);
         callback();
+        setInterval(this.moveTrains, 20);
       });
     });
   }
@@ -160,11 +161,17 @@ class Map {
     });
   }
 
+  moveTrains() {
+    //need to record some sort of concept of speed for the trains to know
+    //over what distance to animate them
+  }
+
   animateTrains(trains) {
     this.trainCircs.forEach((trainCirc) => {
       trainCirc.setMap(null);
       // google.maps.event.clearInstanceListeners(trainCirc);
     });
+    this.trainCircs = [];
     Object.keys(trains).forEach((entityId) => {
       const prevStop = this.stops[trains[entityId].prevStopId];
       const sequenceTime = trains[entityId].sequenceTime - trains.header.timestamp.low;
@@ -207,6 +214,13 @@ class Map {
         //   console.log(`My sequenceTime was ${sequenceTime} and remTime was ${remTime}`);
         //   console.log(`My fractionComplete was ${fractionComplete}`);
         //   console.log(`My result is lat ${newCoord.lat} and lng ${newCoord.lng}`);
+        // });
+
+        // this.trainCircs.push({
+        //   shape: circle,
+        //   currentCoord: newCoord,
+        //   destCoord: nextCoord,
+        //
         // });
         this.trainCircs.push(circle);
 

@@ -29,6 +29,8 @@ function pullData (callback) {
       });
       data.header = feed.header;
       callback(data);
+    } else {
+      console.log("Error in pullData server request");
     }
   });
 }

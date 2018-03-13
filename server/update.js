@@ -1,3 +1,5 @@
+const util = require('util');
+
 function processData (prevData, newData) {
   const result = newData;
   Object.keys(result).forEach((tripId) => {
@@ -6,7 +8,12 @@ function processData (prevData, newData) {
       const newNextStop = result[tripId].tripUpdate.stopTimeUpdate[0].stopId;
       if (prevNextStop !== newNextStop) {
         result[tripId].prevStopId = prevNextStop;
-        result[tripId].sequenceTime = newData[tripId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
+        // console.log(util.inspect(newData[tripId], {showHidden: false, depth: null}));
+        if (newData[tripId].tripUpdate.stopTimeUpdate[0].arrival) {
+          result[tripId].sequenceTime = newData[tripId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
+        } else {
+          result[tripId].sequenceTime = newData[tripId].tripUpdate.stopTimeUpdate[0].departure.time.low;
+        }
       } else if (prevData[tripId].prevStopId) {
         result[tripId].prevStopId = prevData[tripId].prevStopId;
         result[tripId].sequenceTime = prevData[tripId].sequenceTime;
