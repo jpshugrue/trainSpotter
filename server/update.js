@@ -1,6 +1,7 @@
 const util = require('util');
 
 function processData (prevData, newData) {
+  console.log("Starting data processing");
   const result = newData;
   Object.keys(result).forEach((tripId) => {
     if (prevData[tripId] && prevData[tripId].tripUpdate) {
@@ -20,6 +21,7 @@ function processData (prevData, newData) {
       }
     }
   });
+  console.log("End data processing");
   return result;
 }
 

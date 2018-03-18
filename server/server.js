@@ -21,27 +21,29 @@ app.get('/stops.json', (req, res) => {
    res.sendFile(path.resolve('../static/custom/stops.json'));
 });
 
+app.get('/trains', (req, res) => {
+  firebase.getAllData((snapshot) => {
+    res.json(snapshot.val());
+  });
+});
+
 // app.get('/trips.json', (req, res) => {
 //    res.sendFile(path.resolve('../static/custom/trips.json'));
 // });
 const firebase = new FirebaseConnector();
 function trainPoll() {
   console.log("Polling");
-  pullData((data) => {
-    firebase.getData((snapshot) => {
+  pullData((data, feedId) => {
+    firebase.getData(feedId, (snapshot) => {
       const processed = processData(snapshot.val(), data);
-      firebase.clearData();
-      firebase.uploadData(processed);
+      firebase.clearData(feedId);
+      firebase.uploadData(feedId, processed);
     });
   });
 }
 setInterval(trainPoll, 30000);
 
-app.get('/trains', (req, res) => {
-  firebase.getData((snapshot) => {
-    res.json(snapshot.val());
-  });
-});
+
 
 // app.get('/header', (req, res) => {
 //   //pull header from firebase and return
