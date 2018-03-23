@@ -1,0 +1,31 @@
+{
+  "name": "trainSpotter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpshugrue/trainSpotter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpshugrue/trainSpotter/issues"
+  },
+  "homepage": "https://github.com/jpshugrue/trainSpotter#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "firebase": "^4.10.1",
+    "protobufjs": "^6.8.4",
+    "request": "^2.83.0",
+    "webpack": "^3.11.0"
+  }
+}
