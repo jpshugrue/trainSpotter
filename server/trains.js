@@ -10,21 +10,21 @@ function pullData (callback) {
   // 1 to 6 and 42nd St Shuttle
   feedIds.push('1');
   // A,C,E,H and Franklin Ave Shuttle
-  feedIds.push('26');
-  // N,Q,R,W
-  feedIds.push('16');
-  // B,D,F,M
-  feedIds.push('21');
-  // L
-  feedIds.push('2');
-  // G
-  feedIds.push('31');
-  // J,Z
-  feedIds.push('36');
-  // 7
-  feedIds.push('51');
-  // Staten Island Railway
-  feedIds.push('11');
+  // feedIds.push('26');
+  // // N,Q,R,W
+  // feedIds.push('16');
+  // // B,D,F,M
+  // feedIds.push('21');
+  // // L
+  // feedIds.push('2');
+  // // G
+  // feedIds.push('31');
+  // // J,Z
+  // feedIds.push('36');
+  // // 7
+  // feedIds.push('51');
+  // // Staten Island Railway
+  // feedIds.push('11');
 
   feedIds.forEach((feedId) => {
     const requestSetting = {
