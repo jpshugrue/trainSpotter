@@ -7,15 +7,6 @@ const { pullData } = require('./trains.js');
 const FirebaseConnector = require('./firebase.js');
 const { processData } = require('./update.js');
 
-const MongoClient = require('mongodb').MongoClient;
-const mongoURL = "mongodb://localhost:27017/trains";
-
-MongoClient.connect(mongoURL, (err, db) => {
-  if (err) throw err;
-  console.log("Connected to mongoDB");
-  // db.close();
-});
-
 app.use(cors());
 
 app.get('/lines.json', (req, res) => {
