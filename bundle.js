@@ -978,7 +978,7 @@ class Map {
           const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
           let remTime;
           if (etaTime >= trains.header.timestamp.low) {
-            remTime = etaTime - trains.header.timestamp.low
+            remTime = etaTime - trains.header.timestamp.low;
           } else {
             remTime = 0;
           }
