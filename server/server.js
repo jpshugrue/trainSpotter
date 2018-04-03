@@ -27,20 +27,12 @@ app.get('/trains', (req, res) => {
 function trainPoll() {
   console.log("Polling");
   pullData((data, feedId) => {
-    client.get('trains', (getErr, getReply) => {
-      // if (!(getReply === null)) {
-        const processed = processData(getReply, data);
-        client.set('trains', JSON.stringify(processed), (setErr, setReply) => {
-          console.log("Setting updated data");
-          console.log(setReply);
-        });
-      // } else {
-        // console.log("Empty reply from db, first populate");
-        // client.set('trains', JSON.stringify(data), (setErr, setReply) => {
-        //   console.log("Set new data with result");
-        //   console.log(setReply);
-        // });
-      // }
+    client.get(feedId, (getErr, getReply) => {
+      const processed = processData(JSON.parse(getReply), data);
+      client.set(feedId, JSON.stringify(processed), (setErr, setReply) => {
+        console.log(`Setting updated data for ${feedId}`);
+        console.log(setReply);
+      });
     });
   });
 }

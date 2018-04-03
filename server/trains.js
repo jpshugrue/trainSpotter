@@ -2,8 +2,10 @@ const request = require('request');
 const GtfsRealtimeBindings = require('../gtfs/gtfs-realtime');
 const config = require('./config');
 
+const http = require("http");
+
 function pullData (callback) {
-  let data = {};
+  let data;
   const feedIds = [];
 
   const baseURL = `http://datamine.mta.info/mta_esi.php?key=${config.mtaKey}&feed_id=`;
@@ -27,14 +29,16 @@ function pullData (callback) {
   // feedIds.push('11');
 
   feedIds.forEach((feedId) => {
-    const requestSetting = {
-        method: 'GET',
-        url: baseURL+feedId,
-        encoding: null
-      };
-    request(requestSetting, (error, response, body) => {
-      if (!error && response.statusCode == 200) {
-        const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
+    data = {};
+    const completeURL = baseURL+feedId;
+    http.get(completeURL, (res) => {
+    	let body = []; // List of Buffer objects
+    	res.on("data", function(chunk) {
+    		body.push(chunk); // Append Buffer object
+    	});
+    	res.on("end", function() {
+    		body = Buffer.concat(body); // Make one large Buffer of it
+    		const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
         feed.entity.forEach((entity) => {
           if (entity.tripUpdate) {
             const tripId = cleanId(entity.tripUpdate.trip.tripId);
@@ -52,10 +56,41 @@ function pullData (callback) {
         });
         data.header = feed.header;
         callback(data, feedId);
-      } else {
-        console.log("Error in pullData server request");
-      }
+    	});
+
     });
+
+
+
+    // const requestSetting = {
+    //     method: 'GET',
+    //     url: baseURL+feedId,
+    //     encoding: null
+    //   };
+    // request(requestSetting, (error, response, body) => {
+    //   if (!error && response.statusCode == 200) {
+    //     const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
+    //     feed.entity.forEach((entity) => {
+    //       if (entity.tripUpdate) {
+    //         const tripId = cleanId(entity.tripUpdate.trip.tripId);
+    //         if (!data[tripId]) {
+    //           data[tripId] = {};
+    //         }
+    //         data[tripId]["tripUpdate"] = entity.tripUpdate;
+    //       } else if (entity.vehicle) {
+    //         const tripId = cleanId(entity.vehicle.trip.tripId);
+    //         if (!data[tripId]) {
+    //           data[tripId] = {};
+    //         }
+    //         data[tripId]["vehicle"] = entity.vehicle;
+    //       }
+    //     });
+    //     data.header = feed.header;
+    //     callback(data, feedId);
+    //   } else {
+    //     console.log("Error in pullData server request");
+    //   }
+    // });
   });
 }
 
