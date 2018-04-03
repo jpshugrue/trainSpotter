@@ -86,12 +86,16 @@ class Map {
       trainCirc.setMap(null);
     });
     this.trainCircs = [];
-    Object.keys(feeds).forEach((feedId) => {
-      const trains = feeds[feedId];
+    // Object.keys(feeds).forEach((feedId) => {
+      // const trains = feeds[feedId];
+      const trains = feeds;
+      // console.log(trains);
       Object.keys(trains).forEach((entityId) => {
+        // console.log(entityId);
         const prevStop = this.stops[trains[entityId].prevStopId];
         const sequenceTime = trains[entityId].sequenceTime - trains.header.timestamp.low;
         if (trains[entityId].prevStopId && prevStop) {
+          console.log("We have a prevStop");
           const nextStop = this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId];
           if (!nextStop) {
             console.log(`Couldn't find this stopID: ${trains[entityId].tripUpdate.stopTimeUpdate[0].stopId}`);
@@ -137,7 +141,7 @@ class Map {
         //   }
         // }
       });
-    });
+    // });
 
   }
 }
