@@ -4,7 +4,6 @@ const cors = require('cors');
 const app = express();
 const path = require('path');
 const { pullData } = require('./trains.js');
-// const FirebaseConnector = require('./firebase.js');
 const { processData } = require('./update.js');
 const redis = require('redis');
 const client = redis.createClient();
@@ -20,26 +19,21 @@ app.get('/stops.json', (req, res) => {
 });
 
 app.get('/trains', (req, res) => {
-  // firebase.getAllData((snapshot) => {
-  //   res.json(snapshot.val());
-  // });
+  client.get('trains', (getErr, getReply) => {
+    res.json(JSON.parse(getReply));
+  });
 });
 
-// const firebase = new FirebaseConnector();
 function trainPoll() {
   console.log("Polling");
   pullData((data, feedId) => {
-    //data is coming in as object with keys being tripID's
-
     client.get('trains', (getErr, getReply) => {
-      //lets try using json string represenation
       if (!(getReply === null)) {
-        console.log(JSON.stringify(getReply));
-        // const processed = processData(JSON.parse(getReply), data);
-        // client.set('trains', processed, (setErr, setReply) => {
-        //   console.log("Setting updated data");
-        //   console.log(setReply);
-        // });
+        const processed = processData(getReply, data);
+        client.set('trains', JSON.stringify(processed), (setErr, setReply) => {
+          console.log("Setting updated data");
+          console.log(setReply);
+        });
       } else {
         console.log("Empty reply from db, first populate");
         client.set('trains', JSON.stringify(data), (setErr, setReply) => {
@@ -48,16 +42,9 @@ function trainPoll() {
         });
       }
     });
-
-
-    // firebase.getData(feedId, (snapshot) => {
-      // const processed = processData(snapshot.val(), data);
-      // firebase.clearData(feedId);
-      // firebase.uploadData(processed, feedId);
-    // });
   });
 }
-setInterval(trainPoll, 5000);
+setInterval(trainPoll, 30000);
 
 app.listen(3000, () => {
   console.log("Listening on port 3000");
