@@ -57,40 +57,7 @@ function pullData (callback) {
         data.header = feed.header;
         callback(data, feedId);
     	});
-
     });
-
-
-
-    // const requestSetting = {
-    //     method: 'GET',
-    //     url: baseURL+feedId,
-    //     encoding: null
-    //   };
-    // request(requestSetting, (error, response, body) => {
-    //   if (!error && response.statusCode == 200) {
-    //     const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);
-    //     feed.entity.forEach((entity) => {
-    //       if (entity.tripUpdate) {
-    //         const tripId = cleanId(entity.tripUpdate.trip.tripId);
-    //         if (!data[tripId]) {
-    //           data[tripId] = {};
-    //         }
-    //         data[tripId]["tripUpdate"] = entity.tripUpdate;
-    //       } else if (entity.vehicle) {
-    //         const tripId = cleanId(entity.vehicle.trip.tripId);
-    //         if (!data[tripId]) {
-    //           data[tripId] = {};
-    //         }
-    //         data[tripId]["vehicle"] = entity.vehicle;
-    //       }
-    //     });
-    //     data.header = feed.header;
-    //     callback(data, feedId);
-    //   } else {
-    //     console.log("Error in pullData server request");
-    //   }
-    // });
   });
 }
 
