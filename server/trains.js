@@ -1,7 +1,5 @@
-const request = require('request');
 const GtfsRealtimeBindings = require('../gtfs/gtfs-realtime');
 const config = require('./config');
-
 const http = require("http");
 
 function pullData (callback) {

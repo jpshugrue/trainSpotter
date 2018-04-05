@@ -24,6 +24,12 @@ app.get('/trains', (req, res) => {
   });
 });
 
+app.get('/1', (req, res) => {
+  client.get('1', (getErr, getReply) => {
+    res.json(JSON.parse(getReply));
+  });
+});
+
 function trainPoll() {
   console.log("Polling");
   pullData((data, feedId) => {
@@ -41,3 +47,6 @@ setInterval(trainPoll, 30000);
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
+
+
+1522797060

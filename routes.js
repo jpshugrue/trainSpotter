@@ -37,7 +37,7 @@ export const generateStops = (callback) => {
 
 export const getTrains = (callback) => {
   $.ajax({
-    url: 'http://localhost:3000/trains',
+    url: 'http://localhost:3000/1',
     success: (data) => {
       callback(data);
     }
