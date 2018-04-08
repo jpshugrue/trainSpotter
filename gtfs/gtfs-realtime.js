@@ -113,6 +113,7 @@ $root.transit_realtime = (function() {
                     message.entity.push($root.transit_realtime.FeedEntity.decode(reader, reader.uint32()));
                     break;
                 default:
+                    console.log(tag);
                     reader.skipType(tag & 7);
                     break;
                 }

@@ -962,17 +962,11 @@ class Map {
       trainCirc.setMap(null);
     });
     this.trainCircs = [];
-    // Object.keys(feeds).forEach((feedId) => {
-      // const trains = feeds[feedId];
       const trains = feeds;
-      // console.log(trains);
       Object.keys(trains).forEach((entityId) => {
-        // console.log(entityId);
         const prevStop = this.stops[trains[entityId].prevStopId];
-        // console.log(`prevstopID is ${trains[entityId].prevStopId}`);
-        const sequenceTime = trains[entityId].sequenceTime - trains.header.timestamp.low;
+        const sequenceTime = trains[entityId].sequenceTime - trains.header.timestamp;
         if (trains[entityId].prevStopId && prevStop) {
-          console.log("We have a prevStop");
           const nextStop = this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId];
           if (!nextStop) {
             console.log(`Couldn't find this stopID: ${trains[entityId].tripUpdate.stopTimeUpdate[0].stopId}`);
@@ -980,10 +974,10 @@ class Map {
           }
           const prevCoord = { lat: parseFloat(prevStop.lat), lng: parseFloat(prevStop.lng)};
           const nextCoord = { lat: parseFloat(nextStop.lat), lng: parseFloat(nextStop.lng)};
-          const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time.low;
+          const etaTime = trains[entityId].tripUpdate.stopTimeUpdate[0].arrival.time;
           let remTime;
-          if (etaTime >= trains.header.timestamp.low) {
-            remTime = etaTime - trains.header.timestamp.low;
+          if (etaTime >= trains.header.timestamp) {
+            remTime = etaTime - trains.header.timestamp;
           } else {
             remTime = 0;
           }
@@ -1010,16 +1004,7 @@ class Map {
           });
           this.trainCircs.push(circle);
         }
-        // else {
-        //   if (!trains[entityId].prevStopId) {
-        //     console.log(`${entityId} does not yet have a prevStop`);
-        //   } else if (!prevStop) {
-        //     console.log(`this.stops doesn't contain ${trains[entityId].prevStopId}`);
-        //   }
-        // }
       });
-    // });
-
   }
 }
 
