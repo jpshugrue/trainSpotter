@@ -3,7 +3,7 @@ const config = require('./config');
 const http = require("http");
 
 function pullData (callback) {
-  let data;
+  // let data;
   const feedIds = [];
 
   const baseURL = `http://datamine.mta.info/mta_esi.php?key=${config.mtaKey}&feed_id=`;
@@ -27,9 +27,12 @@ function pullData (callback) {
   feedIds.push('11');
 
   feedIds.forEach((feedId) => {
-    data = {};
+    console.log(`Data pull for ${feedId} feedId`);
+    // data = {};
     const completeURL = baseURL+feedId;
     http.get(completeURL, (res) => {
+      const data = {};
+
     	let body = []; // List of Buffer objects
     	res.on("data", function(chunk) {
     		body.push(chunk); // Append Buffer object
@@ -53,6 +56,7 @@ function pullData (callback) {
           }
         });
         data.header = feed.header;
+        console.log(`Number of keys in data: ${Object.keys(data).length}`);
         callback(data, feedId);
     	});
     });

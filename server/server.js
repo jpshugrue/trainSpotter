@@ -19,14 +19,14 @@ app.get('/stops.json', (req, res) => {
 });
 
 app.get('/trains', (req, res) => {
-  client.get('trains', (getErr, getReply) => {
-    res.json(JSON.parse(getReply));
-  });
-});
-
-app.get('/1', (req, res) => {
-  client.get('1', (getErr, getReply) => {
-    res.json(JSON.parse(getReply));
+  client.keys("*", (err, keys) => {
+    client.mget(keys, (mGetErr, reply) => {
+      const result = {};
+      reply.forEach((feedObj) => {
+        Object.assign(result, JSON.parse(feedObj));
+      });
+      res.json(result);
+    });
   });
 });
 
@@ -47,6 +47,3 @@ setInterval(trainPoll, 30000);
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
-
-
-1522797060
