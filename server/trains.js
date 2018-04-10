@@ -27,12 +27,9 @@ function pullData (callback) {
   feedIds.push('11');
 
   feedIds.forEach((feedId) => {
-    console.log(`Data pull for ${feedId} feedId`);
-    // data = {};
     const completeURL = baseURL+feedId;
     http.get(completeURL, (res) => {
       const data = {};
-
     	let body = []; // List of Buffer objects
     	res.on("data", function(chunk) {
     		body.push(chunk); // Append Buffer object
@@ -56,7 +53,6 @@ function pullData (callback) {
           }
         });
         data.header = feed.header;
-        console.log(`Number of keys in data: ${Object.keys(data).length}`);
         callback(data, feedId);
     	});
     });
