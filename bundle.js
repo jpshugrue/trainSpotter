@@ -965,6 +965,7 @@ class Map {
       const trains = feeds;
       Object.keys(trains).forEach((entityId) => {
         const prevStop = this.stops[trains[entityId].prevStopId];
+        //sequenceTime is total amount of time expected to be spent on this section
         const sequenceTime = trains[entityId].sequenceTime - trains.header.timestamp;
         if (trains[entityId].prevStopId && prevStop) {
           const nextStop = this.stops[trains[entityId].tripUpdate.stopTimeUpdate[0].stopId];

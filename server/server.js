@@ -36,8 +36,7 @@ function trainPoll() {
     client.get(feedId, (getErr, getReply) => {
       const processed = processData(JSON.parse(getReply), data);
       client.set(feedId, JSON.stringify(processed), (setErr, setReply) => {
-        console.log(`Setting updated data for ${feedId}`);
-        console.log(setReply);
+        console.log(`${setReply} on ${feedId}`);
       });
     });
   });

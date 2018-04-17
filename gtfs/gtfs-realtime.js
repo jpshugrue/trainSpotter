@@ -119,7 +119,8 @@ $root.transit_realtime = (function() {
                 }
             }
             if (!message.hasOwnProperty("header"))
-                throw $util.ProtocolError("missing required 'header'", { instance: message });
+                console.log("FeedMessage is missing header, returning empty message");
+                // throw $util.ProtocolError("missing required 'header'", { instance: message });
             return message;
         };
 
