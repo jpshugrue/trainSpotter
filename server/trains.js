@@ -1,6 +1,7 @@
 const GtfsRealtimeBindings = require('../gtfs/gtfs-realtime');
 const config = require('./config');
 const http = require("http");
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 function pullData (callback) {
   // let data;
@@ -28,6 +29,7 @@ function pullData (callback) {
 
   feedIds.forEach((feedId) => {
     const completeURL = baseURL+feedId;
+
     http.get(completeURL, (res) => {
       const data = {};
     	let body = []; // List of Buffer objects

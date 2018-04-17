@@ -28,6 +28,7 @@
     "protobufjs": "^6.8.6",
     "redis": "^2.8.0",
     "request": "^2.83.0",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "xmlhttprequest": "^1.8.0"
   }
 }
