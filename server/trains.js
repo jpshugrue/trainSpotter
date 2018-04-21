@@ -69,7 +69,7 @@ function pullData (callback) {
           }
         });
         // console.log(`Data for ${feedNames[feedId]} is`);
-        console.log(data);
+        // console.log(data);
         data.header = feed.header;
         callback(data, feedId);
     	});
